@@ -5,9 +5,9 @@ from grpc._channel import Channel
 from grpc.experimental import _insecure_channel_credentials
 from omni_pro_base.config import Config
 from omni_pro_base.logger import configure_logger
+from omni_pro_base.util import nested
 from omni_pro_grpc.util import format_request
 from omni_pro_redis.redis import RedisManager
-from omni_pro_base.util import nested
 
 logger = configure_logger(name=__name__)
 
@@ -95,7 +95,7 @@ class GRPClient(object):
         ) as channel:
             stub = event.get("service_stub")
             stub_classname = event.get("stub_classname")
-            path_module = "omni.pro.protos"
+            path_module = "omni_pro_grpc"
             module_grpc = importlib.import_module(f"{path_module}.{event.get('module_grpc')}")
             stub = getattr(module_grpc, stub_classname)(channel)
             request_class = event.get("request_class")
