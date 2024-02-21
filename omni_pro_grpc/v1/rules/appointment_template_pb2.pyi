@@ -3,24 +3,13 @@ from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
 from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 from omni_pro_grpc.v1.rules import holidays_pb2 as _holidays_pb2
+from omni_pro_grpc.v1.rules import appointment_template_line_pb2 as _appointment_template_line_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
-
-class AppointmentTemplateLines(_message.Message):
-    __slots__ = ["day", "hour_start", "hour_end", "order_numbers"]
-    DAY_FIELD_NUMBER: _ClassVar[int]
-    HOUR_START_FIELD_NUMBER: _ClassVar[int]
-    HOUR_END_FIELD_NUMBER: _ClassVar[int]
-    ORDER_NUMBERS_FIELD_NUMBER: _ClassVar[int]
-    day: str
-    hour_start: str
-    hour_end: str
-    order_numbers: int
-    def __init__(self, day: _Optional[str] = ..., hour_start: _Optional[str] = ..., hour_end: _Optional[str] = ..., order_numbers: _Optional[int] = ...) -> None: ...
 
 class AppointmentTemplate(_message.Message):
     __slots__ = ["id", "name", "warehouses", "methods", "order_numbers", "hour_limit_same_day", "number_days_to_show", "holidays", "lines", "active", "external_id", "object_audit"]
@@ -44,11 +33,11 @@ class AppointmentTemplate(_message.Message):
     hour_limit_same_day: str
     number_days_to_show: int
     holidays: _holidays_pb2.Holidays
-    lines: _containers.RepeatedCompositeFieldContainer[AppointmentTemplateLines]
+    lines: _containers.RepeatedCompositeFieldContainer[_appointment_template_line_pb2.AppointmentTemplateLine]
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ..., methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ..., order_numbers: _Optional[int] = ..., hour_limit_same_day: _Optional[str] = ..., number_days_to_show: _Optional[int] = ..., holidays: _Optional[_Union[_holidays_pb2.Holidays, _Mapping]] = ..., lines: _Optional[_Iterable[_Union[AppointmentTemplateLines, _Mapping]]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ..., methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ..., order_numbers: _Optional[int] = ..., hour_limit_same_day: _Optional[str] = ..., number_days_to_show: _Optional[int] = ..., holidays: _Optional[_Union[_holidays_pb2.Holidays, _Mapping]] = ..., lines: _Optional[_Iterable[_Union[_appointment_template_line_pb2.AppointmentTemplateLine, _Mapping]]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
 
 class AppointmentTemplateCreateRequest(_message.Message):
     __slots__ = ["name", "warehouse_ids", "method_ids", "order_numbers", "hour_limit_same_day", "number_days_to_show", "holiday_id", "lines", "external_id", "context"]
@@ -69,10 +58,10 @@ class AppointmentTemplateCreateRequest(_message.Message):
     hour_limit_same_day: str
     number_days_to_show: int
     holiday_id: str
-    lines: _containers.RepeatedCompositeFieldContainer[AppointmentTemplateLines]
+    lines: _containers.RepeatedScalarFieldContainer[str]
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., warehouse_ids: _Optional[_Iterable[int]] = ..., method_ids: _Optional[_Iterable[str]] = ..., order_numbers: _Optional[int] = ..., hour_limit_same_day: _Optional[str] = ..., number_days_to_show: _Optional[int] = ..., holiday_id: _Optional[str] = ..., lines: _Optional[_Iterable[_Union[AppointmentTemplateLines, _Mapping]]] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., warehouse_ids: _Optional[_Iterable[int]] = ..., method_ids: _Optional[_Iterable[str]] = ..., order_numbers: _Optional[int] = ..., hour_limit_same_day: _Optional[str] = ..., number_days_to_show: _Optional[int] = ..., holiday_id: _Optional[str] = ..., lines: _Optional[_Iterable[str]] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
 
 class AppointmentTemplateCreateResponse(_message.Message):
     __slots__ = ["appointment_template", "response_standard"]
