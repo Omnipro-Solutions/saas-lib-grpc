@@ -1,29 +1,14 @@
-from typing import ClassVar as _ClassVar
-from typing import Iterable as _Iterable
-from typing import Mapping as _Mapping
-from typing import Optional as _Optional
-from typing import Union as _Union
-
-from google.protobuf import descriptor as _descriptor
-from google.protobuf import message as _message
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
-from omni.pro.protos.common import base_pb2 as _base_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AppointmentLine(_message.Message):
-    __slots__ = [
-        "id",
-        "hour_start",
-        "hour_end",
-        "order_numbers",
-        "appointment_available",
-        "cids",
-        "active",
-        "external_id",
-        "object_audit",
-    ]
+    __slots__ = ["id", "hour_start", "hour_end", "order_numbers", "appointment_available", "cids", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     HOUR_START_FIELD_NUMBER: _ClassVar[int]
     HOUR_END_FIELD_NUMBER: _ClassVar[int]
@@ -42,18 +27,7 @@ class AppointmentLine(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        hour_start: _Optional[str] = ...,
-        hour_end: _Optional[str] = ...,
-        order_numbers: _Optional[int] = ...,
-        appointment_available: _Optional[int] = ...,
-        cids: _Optional[_Iterable[str]] = ...,
-        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
-        external_id: _Optional[str] = ...,
-        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., hour_start: _Optional[str] = ..., hour_end: _Optional[str] = ..., order_numbers: _Optional[int] = ..., appointment_available: _Optional[int] = ..., cids: _Optional[_Iterable[str]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineCreateRequest(_message.Message):
     __slots__ = ["hour_start", "hour_end", "order_numbers", "appointment_available", "cids", "external_id", "context"]
@@ -71,16 +45,7 @@ class AppointmentLineCreateRequest(_message.Message):
     cids: _containers.RepeatedScalarFieldContainer[str]
     external_id: str
     context: _base_pb2.Context
-    def __init__(
-        self,
-        hour_start: _Optional[str] = ...,
-        hour_end: _Optional[str] = ...,
-        order_numbers: _Optional[int] = ...,
-        appointment_available: _Optional[int] = ...,
-        cids: _Optional[_Iterable[str]] = ...,
-        external_id: _Optional[str] = ...,
-        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, hour_start: _Optional[str] = ..., hour_end: _Optional[str] = ..., order_numbers: _Optional[int] = ..., appointment_available: _Optional[int] = ..., cids: _Optional[_Iterable[str]] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineCreateResponse(_message.Message):
     __slots__ = ["appointment_line", "response_standard"]
@@ -88,11 +53,7 @@ class AppointmentLineCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     appointment_line: AppointmentLine
     response_standard: _base_pb2.ResponseStandard
-    def __init__(
-        self,
-        appointment_line: _Optional[_Union[AppointmentLine, _Mapping]] = ...,
-        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, appointment_line: _Optional[_Union[AppointmentLine, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -110,16 +71,7 @@ class AppointmentLineReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(
-        self,
-        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
-        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
-        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
-        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
-        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
-        id: _Optional[str] = ...,
-        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineReadResponse(_message.Message):
     __slots__ = ["appointment_lines", "meta_data", "response_standard"]
@@ -129,12 +81,7 @@ class AppointmentLineReadResponse(_message.Message):
     appointment_lines: _containers.RepeatedCompositeFieldContainer[AppointmentLine]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(
-        self,
-        appointment_lines: _Optional[_Iterable[_Union[AppointmentLine, _Mapping]]] = ...,
-        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
-        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, appointment_lines: _Optional[_Iterable[_Union[AppointmentLine, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineUpdateRequest(_message.Message):
     __slots__ = ["appointment_line", "context"]
@@ -142,11 +89,7 @@ class AppointmentLineUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     appointment_line: AppointmentLine
     context: _base_pb2.Context
-    def __init__(
-        self,
-        appointment_line: _Optional[_Union[AppointmentLine, _Mapping]] = ...,
-        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, appointment_line: _Optional[_Union[AppointmentLine, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineUpdateResponse(_message.Message):
     __slots__ = ["appointment_line", "response_standard"]
@@ -154,11 +97,7 @@ class AppointmentLineUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     appointment_line: AppointmentLine
     response_standard: _base_pb2.ResponseStandard
-    def __init__(
-        self,
-        appointment_line: _Optional[_Union[AppointmentLine, _Mapping]] = ...,
-        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, appointment_line: _Optional[_Union[AppointmentLine, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -166,9 +105,7 @@ class AppointmentLineDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(
-        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
 
 class AppointmentLineDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
