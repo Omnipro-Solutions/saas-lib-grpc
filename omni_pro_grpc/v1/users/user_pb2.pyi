@@ -1,16 +1,42 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from google.protobuf import struct_pb2 as _struct_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from omni_pro_grpc.v1.users import country_pb2 as _country_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import struct_pb2 as _struct_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.users import country_pb2 as _country_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class User(_message.Message):
-    __slots__ = ["id", "name", "sub", "tenant", "username", "email", "language", "timezone", "groups", "is_superuser", "is_picker", "active", "mfa", "picker_id", "external_id", "type", "password", "country", "object_audit", "permissions"]
+    __slots__ = [
+        "id",
+        "name",
+        "sub",
+        "tenant",
+        "username",
+        "email",
+        "language",
+        "timezone",
+        "groups",
+        "is_superuser",
+        "is_picker",
+        "active",
+        "mfa",
+        "picker_id",
+        "external_id",
+        "type",
+        "password",
+        "country",
+        "object_audit",
+        "permissions",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SUB_FIELD_NUMBER: _ClassVar[int]
@@ -51,7 +77,29 @@ class User(_message.Message):
     country: _country_pb2.Country
     object_audit: _base_pb2.ObjectAudit
     permissions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., sub: _Optional[str] = ..., tenant: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., language: _Optional[_Union[_base_pb2.Object, _Mapping]] = ..., timezone: _Optional[_Union[_base_pb2.Object, _Mapping]] = ..., groups: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ..., is_superuser: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., is_picker: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., mfa: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., picker_id: _Optional[str] = ..., external_id: _Optional[str] = ..., type: _Optional[str] = ..., password: _Optional[str] = ..., country: _Optional[_Union[_country_pb2.Country, _Mapping]] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ..., permissions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        sub: _Optional[str] = ...,
+        tenant: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        language: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
+        timezone: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
+        groups: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        is_superuser: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        is_picker: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        mfa: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        picker_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        type: _Optional[str] = ...,
+        password: _Optional[str] = ...,
+        country: _Optional[_Union[_country_pb2.Country, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...
 
 class Group(_message.Message):
     __slots__ = ["id", "name", "code", "access", "active", "external_id", "object_audit"]
@@ -69,7 +117,16 @@ class Group(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., access: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        access: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class Action(_message.Message):
     __slots__ = ["id", "name", "code", "description", "microservice", "model", "active", "external_id", "object_audit"]
@@ -91,7 +148,18 @@ class Action(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., microservice: _Optional[str] = ..., model: _Optional[str] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        microservice: _Optional[str] = ...,
+        model: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class Access(_message.Message):
     __slots__ = ["id", "name", "code", "domain", "action_id", "action", "active", "external_id", "object_audit"]
@@ -113,10 +181,37 @@ class Access(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., domain: _Optional[str] = ..., action_id: _Optional[str] = ..., action: _Optional[_Union[Action, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        domain: _Optional[str] = ...,
+        action_id: _Optional[str] = ...,
+        action: _Optional[_Union[Action, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserCreateRequest(_message.Message):
-    __slots__ = ["name", "username", "email", "email_confirm", "password", "password_confirm", "groups_ids", "is_superuser", "is_picker", "language", "timezone", "external_id", "type", "country_doc_id", "context"]
+    __slots__ = [
+        "name",
+        "username",
+        "email",
+        "email_confirm",
+        "password",
+        "password_confirm",
+        "groups_ids",
+        "is_superuser",
+        "is_picker",
+        "language",
+        "timezone",
+        "external_id",
+        "type",
+        "country_doc_id",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
@@ -147,7 +242,24 @@ class UserCreateRequest(_message.Message):
     type: str
     country_doc_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., email_confirm: _Optional[str] = ..., password: _Optional[str] = ..., password_confirm: _Optional[str] = ..., groups_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ..., is_superuser: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., is_picker: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., language: _Optional[_Union[_base_pb2.Object, _Mapping]] = ..., timezone: _Optional[_Union[_base_pb2.Object, _Mapping]] = ..., external_id: _Optional[str] = ..., type: _Optional[str] = ..., country_doc_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        email_confirm: _Optional[str] = ...,
+        password: _Optional[str] = ...,
+        password_confirm: _Optional[str] = ...,
+        groups_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        is_superuser: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        is_picker: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        language: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
+        timezone: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        type: _Optional[str] = ...,
+        country_doc_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserCreateResponse(_message.Message):
     __slots__ = ["response_standard", "user"]
@@ -155,7 +267,11 @@ class UserCreateResponse(_message.Message):
     USER_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     user: User
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., user: _Optional[_Union[User, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        user: _Optional[_Union[User, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -173,7 +289,16 @@ class UserReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "users"]
@@ -183,7 +308,12 @@ class UserReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     users: _containers.RepeatedCompositeFieldContainer[User]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., users: _Optional[_Iterable[_Union[User, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        users: _Optional[_Iterable[_Union[User, _Mapping]]] = ...,
+    ) -> None: ...
 
 class UserUpdateRequest(_message.Message):
     __slots__ = ["user", "context"]
@@ -191,7 +321,11 @@ class UserUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     user: User
     context: _base_pb2.Context
-    def __init__(self, user: _Optional[_Union[User, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        user: _Optional[_Union[User, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "user"]
@@ -199,7 +333,11 @@ class UserUpdateResponse(_message.Message):
     USER_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     user: User
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., user: _Optional[_Union[User, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        user: _Optional[_Union[User, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -207,7 +345,9 @@ class UserDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class UserDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -225,7 +365,13 @@ class UserChangePasswordRequest(_message.Message):
     password: str
     password_confirm: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., password: _Optional[str] = ..., password_confirm: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        password: _Optional[str] = ...,
+        password_confirm: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserChangePasswordResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -243,7 +389,13 @@ class UserChangeEmailRequest(_message.Message):
     email: str
     email_confirm: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., email: _Optional[str] = ..., email_confirm: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        email_confirm: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class UserChangeEmailResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -261,7 +413,13 @@ class GroupCreateRequest(_message.Message):
     code: str
     access_ids: _struct_pb2.ListValue
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., code: _Optional[str] = ..., access_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        access_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class GroupCreateResponse(_message.Message):
     __slots__ = ["response_standard", "group"]
@@ -269,7 +427,11 @@ class GroupCreateResponse(_message.Message):
     GROUP_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     group: Group
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., group: _Optional[_Union[Group, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        group: _Optional[_Union[Group, _Mapping]] = ...,
+    ) -> None: ...
 
 class GroupReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -287,7 +449,16 @@ class GroupReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class GroupReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "groups"]
@@ -297,7 +468,12 @@ class GroupReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     groups: _containers.RepeatedCompositeFieldContainer[Group]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., groups: _Optional[_Iterable[_Union[Group, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        groups: _Optional[_Iterable[_Union[Group, _Mapping]]] = ...,
+    ) -> None: ...
 
 class GroupUpdateRequest(_message.Message):
     __slots__ = ["group", "context"]
@@ -305,7 +481,11 @@ class GroupUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     group: Group
     context: _base_pb2.Context
-    def __init__(self, group: _Optional[_Union[Group, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group: _Optional[_Union[Group, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class GroupUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "group"]
@@ -313,7 +493,11 @@ class GroupUpdateResponse(_message.Message):
     GROUP_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     group: Group
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., group: _Optional[_Union[Group, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        group: _Optional[_Union[Group, _Mapping]] = ...,
+    ) -> None: ...
 
 class GroupDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -321,7 +505,9 @@ class GroupDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class GroupDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -345,7 +531,16 @@ class ActionCreateRequest(_message.Message):
     model: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., code: _Optional[str] = ..., description: _Optional[str] = ..., microservice: _Optional[str] = ..., model: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        microservice: _Optional[str] = ...,
+        model: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ActionCreateResponse(_message.Message):
     __slots__ = ["response_standard", "action"]
@@ -353,7 +548,11 @@ class ActionCreateResponse(_message.Message):
     ACTION_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     action: Action
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., action: _Optional[_Union[Action, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        action: _Optional[_Union[Action, _Mapping]] = ...,
+    ) -> None: ...
 
 class ActionReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -371,7 +570,16 @@ class ActionReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ActionReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "actions"]
@@ -381,7 +589,12 @@ class ActionReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     actions: _containers.RepeatedCompositeFieldContainer[Action]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., actions: _Optional[_Iterable[_Union[Action, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        actions: _Optional[_Iterable[_Union[Action, _Mapping]]] = ...,
+    ) -> None: ...
 
 class ActionUpdateRequest(_message.Message):
     __slots__ = ["action", "context"]
@@ -389,7 +602,11 @@ class ActionUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     action: Action
     context: _base_pb2.Context
-    def __init__(self, action: _Optional[_Union[Action, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        action: _Optional[_Union[Action, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ActionUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "action"]
@@ -397,7 +614,11 @@ class ActionUpdateResponse(_message.Message):
     ACTION_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     action: Action
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., action: _Optional[_Union[Action, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        action: _Optional[_Union[Action, _Mapping]] = ...,
+    ) -> None: ...
 
 class ActionDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -405,7 +626,9 @@ class ActionDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class ActionDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -427,7 +650,15 @@ class AccessCreateRequest(_message.Message):
     action_id: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., code: _Optional[str] = ..., domain: _Optional[str] = ..., action_id: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        domain: _Optional[str] = ...,
+        action_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AccessCreateResponse(_message.Message):
     __slots__ = ["response_standard", "access"]
@@ -435,7 +666,11 @@ class AccessCreateResponse(_message.Message):
     ACCESS_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     access: Access
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., access: _Optional[_Union[Access, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        access: _Optional[_Union[Access, _Mapping]] = ...,
+    ) -> None: ...
 
 class AccessReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -453,7 +688,16 @@ class AccessReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AccessReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "accesses"]
@@ -463,7 +707,12 @@ class AccessReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     accesses: _containers.RepeatedCompositeFieldContainer[Access]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., accesses: _Optional[_Iterable[_Union[Access, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        accesses: _Optional[_Iterable[_Union[Access, _Mapping]]] = ...,
+    ) -> None: ...
 
 class AccessUpdateRequest(_message.Message):
     __slots__ = ["access", "context"]
@@ -471,7 +720,11 @@ class AccessUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     access: Access
     context: _base_pb2.Context
-    def __init__(self, access: _Optional[_Union[Access, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        access: _Optional[_Union[Access, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AccessUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "access"]
@@ -479,7 +732,11 @@ class AccessUpdateResponse(_message.Message):
     ACCESS_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     access: Access
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., access: _Optional[_Union[Access, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        access: _Optional[_Union[Access, _Mapping]] = ...,
+    ) -> None: ...
 
 class AccessDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -487,7 +744,9 @@ class AccessDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class AccessDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -505,7 +764,13 @@ class AccessGroupRequest(_message.Message):
     group_id: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, access_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ..., group_id: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        access_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        group_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AccessGroupResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -521,7 +786,12 @@ class GroupUserRequest(_message.Message):
     group_ids: _struct_pb2.ListValue
     user_id: str
     context: _base_pb2.Context
-    def __init__(self, group_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ..., user_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        user_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class GroupUserResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -537,7 +807,12 @@ class HasPermissionRequest(_message.Message):
     username: str
     permission: str
     context: _base_pb2.Context
-    def __init__(self, username: _Optional[str] = ..., permission: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        username: _Optional[str] = ...,
+        permission: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class HasPermissionResponse(_message.Message):
     __slots__ = ["response_standard", "has_permission", "user"]
@@ -547,7 +822,12 @@ class HasPermissionResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     has_permission: bool
     user: User
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., has_permission: bool = ..., user: _Optional[_Union[User, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        has_permission: bool = ...,
+        user: _Optional[_Union[User, _Mapping]] = ...,
+    ) -> None: ...
 
 class LoginRequest(_message.Message):
     __slots__ = ["username", "password", "context"]
@@ -557,7 +837,12 @@ class LoginRequest(_message.Message):
     username: str
     password: str
     context: _base_pb2.Context
-    def __init__(self, username: _Optional[str] = ..., password: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        username: _Optional[str] = ...,
+        password: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class LogoutRequest(_message.Message):
     __slots__ = ["access_token", "action", "context"]
@@ -567,7 +852,12 @@ class LogoutRequest(_message.Message):
     access_token: str
     action: str
     context: _base_pb2.Context
-    def __init__(self, access_token: _Optional[str] = ..., action: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        access_token: _Optional[str] = ...,
+        action: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class TokenRequest(_message.Message):
     __slots__ = ["client_id", "client_secret", "context"]
@@ -577,7 +867,12 @@ class TokenRequest(_message.Message):
     client_id: str
     client_secret: str
     context: _base_pb2.Context
-    def __init__(self, client_id: _Optional[str] = ..., client_secret: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        client_id: _Optional[str] = ...,
+        client_secret: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class TokenResponse(_message.Message):
     __slots__ = ["response_standard", "authentication_result"]
@@ -585,7 +880,11 @@ class TokenResponse(_message.Message):
     AUTHENTICATION_RESULT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     authentication_result: AuthenticationResult
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., authentication_result: _Optional[_Union[AuthenticationResult, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        authentication_result: _Optional[_Union[AuthenticationResult, _Mapping]] = ...,
+    ) -> None: ...
 
 class AuthenticationResult(_message.Message):
     __slots__ = ["token", "refresh_token", "expires_in"]
@@ -595,7 +894,9 @@ class AuthenticationResult(_message.Message):
     token: str
     refresh_token: str
     expires_in: int
-    def __init__(self, token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., expires_in: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self, token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., expires_in: _Optional[int] = ...
+    ) -> None: ...
 
 class LoginResponse(_message.Message):
     __slots__ = ["response_standard", "authentication_result", "user"]
@@ -605,7 +906,12 @@ class LoginResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     authentication_result: AuthenticationResult
     user: User
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., authentication_result: _Optional[_Union[AuthenticationResult, _Mapping]] = ..., user: _Optional[_Union[User, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        authentication_result: _Optional[_Union[AuthenticationResult, _Mapping]] = ...,
+        user: _Optional[_Union[User, _Mapping]] = ...,
+    ) -> None: ...
 
 class LogoutResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -619,7 +925,9 @@ class RefreshTokenRequest(_message.Message):
     REFRESH_TOKEN_FIELD_NUMBER: _ClassVar[int]
     context: _base_pb2.Context
     refresh_token: str
-    def __init__(self, context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ..., refresh_token: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self, context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ..., refresh_token: _Optional[str] = ...
+    ) -> None: ...
 
 class RefreshTokenResponse(_message.Message):
     __slots__ = ["response_standard", "authentication_result"]
@@ -627,4 +935,8 @@ class RefreshTokenResponse(_message.Message):
     AUTHENTICATION_RESULT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     authentication_result: AuthenticationResult
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., authentication_result: _Optional[_Union[AuthenticationResult, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        authentication_result: _Optional[_Union[AuthenticationResult, _Mapping]] = ...,
+    ) -> None: ...

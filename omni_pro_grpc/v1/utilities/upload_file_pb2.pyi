@@ -1,7 +1,11 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
+from typing import ClassVar as _ClassVar
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -19,7 +23,15 @@ class Field(_message.Message):
     x_amz_date: str
     policy: str
     x_amz_signature: str
-    def __init__(self, key: _Optional[str] = ..., x_amz_algorithm: _Optional[str] = ..., x_amz_credential: _Optional[str] = ..., x_amz_date: _Optional[str] = ..., policy: _Optional[str] = ..., x_amz_signature: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        x_amz_algorithm: _Optional[str] = ...,
+        x_amz_credential: _Optional[str] = ...,
+        x_amz_date: _Optional[str] = ...,
+        policy: _Optional[str] = ...,
+        x_amz_signature: _Optional[str] = ...,
+    ) -> None: ...
 
 class UploadFile(_message.Message):
     __slots__ = ["url", "fields"]
@@ -35,7 +47,9 @@ class UploadXlsxRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     file_name: str
     context: _base_pb2.Context
-    def __init__(self, file_name: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, file_name: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class UploadXlsxResponse(_message.Message):
     __slots__ = ["response_standard", "result"]
@@ -43,4 +57,8 @@ class UploadXlsxResponse(_message.Message):
     RESULT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     result: UploadFile
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., result: _Optional[_Union[UploadFile, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        result: _Optional[_Union[UploadFile, _Mapping]] = ...,
+    ) -> None: ...

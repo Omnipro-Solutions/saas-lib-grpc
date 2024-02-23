@@ -1,17 +1,34 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.stock import location_pb2 as _location_pb2
 from omni_pro_grpc.v1.stock import product_pb2 as _product_pb2
 from omni_pro_grpc.v1.stock import uom_pb2 as _uom_pb2
-from google.protobuf.internal import containers as _containers
-from google.protobuf import descriptor as _descriptor
-from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Quant(_message.Message):
-    __slots__ = ["id", "product", "location", "lote", "available_quantity", "reserved_quantity", "quantity", "uom", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "product",
+        "location",
+        "lote",
+        "available_quantity",
+        "reserved_quantity",
+        "quantity",
+        "uom",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     LOCATION_FIELD_NUMBER: _ClassVar[int]
@@ -34,10 +51,33 @@ class Quant(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[int] = ..., product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ..., location: _Optional[_Union[_location_pb2.Location, _Mapping]] = ..., lote: _Optional[str] = ..., available_quantity: _Optional[float] = ..., reserved_quantity: _Optional[float] = ..., quantity: _Optional[float] = ..., uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[int] = ...,
+        product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ...,
+        location: _Optional[_Union[_location_pb2.Location, _Mapping]] = ...,
+        lote: _Optional[str] = ...,
+        available_quantity: _Optional[float] = ...,
+        reserved_quantity: _Optional[float] = ...,
+        quantity: _Optional[float] = ...,
+        uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class QuantCreateRequest(_message.Message):
-    __slots__ = ["product_id", "location_id", "lote", "available_quantity", "reserved_quantity", "quantity", "uom_id", "external_id", "context"]
+    __slots__ = [
+        "product_id",
+        "location_id",
+        "lote",
+        "available_quantity",
+        "reserved_quantity",
+        "quantity",
+        "uom_id",
+        "external_id",
+        "context",
+    ]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     LOCATION_ID_FIELD_NUMBER: _ClassVar[int]
     LOTE_FIELD_NUMBER: _ClassVar[int]
@@ -56,7 +96,18 @@ class QuantCreateRequest(_message.Message):
     uom_id: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, product_id: _Optional[str] = ..., location_id: _Optional[int] = ..., lote: _Optional[str] = ..., available_quantity: _Optional[float] = ..., reserved_quantity: _Optional[float] = ..., quantity: _Optional[float] = ..., uom_id: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        product_id: _Optional[str] = ...,
+        location_id: _Optional[int] = ...,
+        lote: _Optional[str] = ...,
+        available_quantity: _Optional[float] = ...,
+        reserved_quantity: _Optional[float] = ...,
+        quantity: _Optional[float] = ...,
+        uom_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class QuantCreateResponse(_message.Message):
     __slots__ = ["response_standard", "quant"]
@@ -64,7 +115,11 @@ class QuantCreateResponse(_message.Message):
     QUANT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     quant: Quant
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., quant: _Optional[_Union[Quant, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        quant: _Optional[_Union[Quant, _Mapping]] = ...,
+    ) -> None: ...
 
 class QuantReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -82,7 +137,16 @@ class QuantReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: int
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class QuantReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "quants"]
@@ -92,7 +156,12 @@ class QuantReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     quants: _containers.RepeatedCompositeFieldContainer[Quant]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., quants: _Optional[_Iterable[_Union[Quant, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        quants: _Optional[_Iterable[_Union[Quant, _Mapping]]] = ...,
+    ) -> None: ...
 
 class QuantUpdateRequest(_message.Message):
     __slots__ = ["quant", "context"]
@@ -100,7 +169,11 @@ class QuantUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     quant: Quant
     context: _base_pb2.Context
-    def __init__(self, quant: _Optional[_Union[Quant, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        quant: _Optional[_Union[Quant, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class QuantUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "quant"]
@@ -108,7 +181,11 @@ class QuantUpdateResponse(_message.Message):
     QUANT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     quant: Quant
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., quant: _Optional[_Union[Quant, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        quant: _Optional[_Union[Quant, _Mapping]] = ...,
+    ) -> None: ...
 
 class QuantDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -116,7 +193,9 @@ class QuantDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: int
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class QuantDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -132,7 +211,12 @@ class ProductAvailable(_message.Message):
     available: _wrappers_pb2.BoolValue
     available_quantity: float
     quant: Quant
-    def __init__(self, available: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., available_quantity: _Optional[float] = ..., quant: _Optional[_Union[Quant, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        available: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        available_quantity: _Optional[float] = ...,
+        quant: _Optional[_Union[Quant, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductAvailableRequest(_message.Message):
     __slots__ = ["location_id", "product_id", "product_sku", "required_quantity", "context"]
@@ -146,7 +230,14 @@ class ProductAvailableRequest(_message.Message):
     product_sku: str
     required_quantity: float
     context: _base_pb2.Context
-    def __init__(self, location_id: _Optional[int] = ..., product_id: _Optional[str] = ..., product_sku: _Optional[str] = ..., required_quantity: _Optional[float] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        location_id: _Optional[int] = ...,
+        product_id: _Optional[str] = ...,
+        product_sku: _Optional[str] = ...,
+        required_quantity: _Optional[float] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductAvailableResponse(_message.Message):
     __slots__ = ["response_standard", "product_available"]
@@ -154,4 +245,8 @@ class ProductAvailableResponse(_message.Message):
     PRODUCT_AVAILABLE_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     product_available: ProductAvailable
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., product_available: _Optional[_Union[ProductAvailable, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        product_available: _Optional[_Union[ProductAvailable, _Mapping]] = ...,
+    ) -> None: ...
