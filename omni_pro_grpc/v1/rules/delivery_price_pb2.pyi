@@ -1,18 +1,43 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
-from omni_pro_grpc.v1.rules import currency_pb2 as _currency_pb2
-from omni_pro_grpc.v1.rules import python_code_pb2 as _python_code_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.rules import currency_pb2 as _currency_pb2
+from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
+from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
+from omni_pro_grpc.v1.rules import python_code_pb2 as _python_code_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryPrice(_message.Message):
-    __slots__ = ["id", "name", "code", "delivery_method", "purchase_rank", "operator_price_rank", "purchase_price_rank", "currency", "fixed_price", "operator_price", "purchase_price", "variable_factor", "usage", "price_by_variable_factor", "locality_available", "python_code", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "code",
+        "delivery_method",
+        "purchase_rank",
+        "operator_price_rank",
+        "purchase_price_rank",
+        "currency",
+        "fixed_price",
+        "operator_price",
+        "purchase_price",
+        "variable_factor",
+        "usage",
+        "price_by_variable_factor",
+        "locality_available",
+        "python_code",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -51,10 +76,49 @@ class DeliveryPrice(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., delivery_method: _Optional[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]] = ..., purchase_rank: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., operator_price_rank: _Optional[str] = ..., purchase_price_rank: _Optional[float] = ..., currency: _Optional[_Union[_currency_pb2.Currency, _Mapping]] = ..., fixed_price: _Optional[float] = ..., operator_price: _Optional[str] = ..., purchase_price: _Optional[float] = ..., variable_factor: _Optional[str] = ..., usage: _Optional[str] = ..., price_by_variable_factor: _Optional[float] = ..., locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ..., python_code: _Optional[_Union[_python_code_pb2.PythonCode, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        delivery_method: _Optional[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]] = ...,
+        purchase_rank: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        operator_price_rank: _Optional[str] = ...,
+        purchase_price_rank: _Optional[float] = ...,
+        currency: _Optional[_Union[_currency_pb2.Currency, _Mapping]] = ...,
+        fixed_price: _Optional[float] = ...,
+        operator_price: _Optional[str] = ...,
+        purchase_price: _Optional[float] = ...,
+        variable_factor: _Optional[str] = ...,
+        usage: _Optional[str] = ...,
+        price_by_variable_factor: _Optional[float] = ...,
+        locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ...,
+        python_code: _Optional[_Union[_python_code_pb2.PythonCode, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "delivery_method_id", "purchase_rank", "operator_price_rank", "purchase_price_rank", "currency_id", "fixed_price", "operator_price", "purchase_price", "variable_factor", "usage", "price_by_variable_factor", "locality_available_id", "python_code_id", "external_id", "context"]
+    __slots__ = [
+        "name",
+        "code",
+        "delivery_method_id",
+        "purchase_rank",
+        "operator_price_rank",
+        "purchase_price_rank",
+        "currency_id",
+        "fixed_price",
+        "operator_price",
+        "purchase_price",
+        "variable_factor",
+        "usage",
+        "price_by_variable_factor",
+        "locality_available_id",
+        "python_code_id",
+        "external_id",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_METHOD_ID_FIELD_NUMBER: _ClassVar[int]
@@ -89,7 +153,26 @@ class DeliveryPriceCreateRequest(_message.Message):
     python_code_id: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., code: _Optional[str] = ..., delivery_method_id: _Optional[str] = ..., purchase_rank: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., operator_price_rank: _Optional[str] = ..., purchase_price_rank: _Optional[float] = ..., currency_id: _Optional[str] = ..., fixed_price: _Optional[float] = ..., operator_price: _Optional[str] = ..., purchase_price: _Optional[float] = ..., variable_factor: _Optional[str] = ..., usage: _Optional[str] = ..., price_by_variable_factor: _Optional[float] = ..., locality_available_id: _Optional[str] = ..., python_code_id: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        delivery_method_id: _Optional[str] = ...,
+        purchase_rank: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        operator_price_rank: _Optional[str] = ...,
+        purchase_price_rank: _Optional[float] = ...,
+        currency_id: _Optional[str] = ...,
+        fixed_price: _Optional[float] = ...,
+        operator_price: _Optional[str] = ...,
+        purchase_price: _Optional[float] = ...,
+        variable_factor: _Optional[str] = ...,
+        usage: _Optional[str] = ...,
+        price_by_variable_factor: _Optional[float] = ...,
+        locality_available_id: _Optional[str] = ...,
+        python_code_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceCreateResponse(_message.Message):
     __slots__ = ["delivery_price", "response_standard"]
@@ -97,7 +180,11 @@ class DeliveryPriceCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_price: DeliveryPrice
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_price: _Optional[_Union[DeliveryPrice, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_price: _Optional[_Union[DeliveryPrice, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -115,7 +202,16 @@ class DeliveryPriceReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceReadResponse(_message.Message):
     __slots__ = ["delivery_prices", "meta_data", "response_standard"]
@@ -125,7 +221,12 @@ class DeliveryPriceReadResponse(_message.Message):
     delivery_prices: _containers.RepeatedCompositeFieldContainer[DeliveryPrice]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_prices: _Optional[_Iterable[_Union[DeliveryPrice, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_prices: _Optional[_Iterable[_Union[DeliveryPrice, _Mapping]]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceUpdateRequest(_message.Message):
     __slots__ = ["delivery_price", "context"]
@@ -133,7 +234,11 @@ class DeliveryPriceUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     delivery_price: DeliveryPrice
     context: _base_pb2.Context
-    def __init__(self, delivery_price: _Optional[_Union[DeliveryPrice, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_price: _Optional[_Union[DeliveryPrice, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceUpdateResponse(_message.Message):
     __slots__ = ["delivery_price", "response_standard"]
@@ -141,7 +246,11 @@ class DeliveryPriceUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_price: DeliveryPrice
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_price: _Optional[_Union[DeliveryPrice, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_price: _Optional[_Union[DeliveryPrice, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryPriceDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -149,7 +258,9 @@ class DeliveryPriceDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class DeliveryPriceDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]

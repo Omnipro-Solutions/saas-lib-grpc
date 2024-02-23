@@ -1,9 +1,14 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from google.protobuf import struct_pb2 as _struct_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import struct_pb2 as _struct_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -15,7 +20,12 @@ class RedistributionOrder(_message.Message):
     id: str
     distribution_data: _struct_pb2.Struct
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., distribution_data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        distribution_data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class RedistributionOrderCreateRequest(_message.Message):
     __slots__ = ["action", "context"]
@@ -33,7 +43,12 @@ class RedistributionOrderCreateResponse(_message.Message):
     message: str
     redistribution_order: RedistributionOrder
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, message: _Optional[str] = ..., redistribution_order: _Optional[_Union[RedistributionOrder, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        message: _Optional[str] = ...,
+        redistribution_order: _Optional[_Union[RedistributionOrder, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class RedistributionOrderReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -51,7 +66,16 @@ class RedistributionOrderReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class RedistributionOrderReadResponse(_message.Message):
     __slots__ = ["redistribution_orders", "response_standard", "meta_data"]
@@ -61,7 +85,12 @@ class RedistributionOrderReadResponse(_message.Message):
     redistribution_orders: _containers.RepeatedCompositeFieldContainer[RedistributionOrder]
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
-    def __init__(self, redistribution_orders: _Optional[_Iterable[_Union[RedistributionOrder, _Mapping]]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        redistribution_orders: _Optional[_Iterable[_Union[RedistributionOrder, _Mapping]]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+    ) -> None: ...
 
 class RedistributionOrderDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -69,7 +98,9 @@ class RedistributionOrderDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class RedistributionOrderDeleteResponse(_message.Message):
     __slots__ = ["message", "response_standard"]
@@ -77,4 +108,8 @@ class RedistributionOrderDeleteResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     message: str
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, message: _Optional[str] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        message: _Optional[str] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...

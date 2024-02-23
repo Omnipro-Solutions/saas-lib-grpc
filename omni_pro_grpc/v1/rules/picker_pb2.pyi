@@ -1,12 +1,17 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
-from omni_pro_grpc.v1.rules import user_pb2 as _user_pb2
-from omni_pro_grpc.v1.rules import category_pb2 as _category_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.rules import category_pb2 as _category_pb2
+from omni_pro_grpc.v1.rules import user_pb2 as _user_pb2
+from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -20,10 +25,31 @@ class CategoryValues(_message.Message):
     group_code: str
     attribute_code: str
     code: str
-    def __init__(self, family_doc_id: _Optional[str] = ..., group_code: _Optional[str] = ..., attribute_code: _Optional[str] = ..., code: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        family_doc_id: _Optional[str] = ...,
+        group_code: _Optional[str] = ...,
+        attribute_code: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+    ) -> None: ...
 
 class Picker(_message.Message):
-    __slots__ = ["id", "user", "warehouse", "categories", "can_pick", "can_pack", "can_out", "can_int", "can_in", "can_return", "status", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "user",
+        "warehouse",
+        "categories",
+        "can_pick",
+        "can_pack",
+        "can_out",
+        "can_int",
+        "can_in",
+        "can_return",
+        "status",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     USER_FIELD_NUMBER: _ClassVar[int]
     WAREHOUSE_FIELD_NUMBER: _ClassVar[int]
@@ -52,10 +78,38 @@ class Picker(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., user: _Optional[_Union[_user_pb2.User, _Mapping]] = ..., warehouse: _Optional[_Union[_warehouse_pb2.Warehouse, _Mapping]] = ..., categories: _Optional[_Iterable[_Union[_category_pb2.Category, _Mapping]]] = ..., can_pick: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_pack: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_out: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_int: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_in: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_return: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., status: _Optional[str] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        user: _Optional[_Union[_user_pb2.User, _Mapping]] = ...,
+        warehouse: _Optional[_Union[_warehouse_pb2.Warehouse, _Mapping]] = ...,
+        categories: _Optional[_Iterable[_Union[_category_pb2.Category, _Mapping]]] = ...,
+        can_pick: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_pack: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_out: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_int: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_in: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_return: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        status: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerCreateRequest(_message.Message):
-    __slots__ = ["user_id", "warehouse_id", "category_values", "can_pick", "can_pack", "can_out", "can_int", "can_in", "can_return", "status", "context"]
+    __slots__ = [
+        "user_id",
+        "warehouse_id",
+        "category_values",
+        "can_pick",
+        "can_pack",
+        "can_out",
+        "can_int",
+        "can_in",
+        "can_return",
+        "status",
+        "context",
+    ]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     WAREHOUSE_ID_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_VALUES_FIELD_NUMBER: _ClassVar[int]
@@ -78,7 +132,20 @@ class PickerCreateRequest(_message.Message):
     can_return: _wrappers_pb2.BoolValue
     status: str
     context: _base_pb2.Context
-    def __init__(self, user_id: _Optional[str] = ..., warehouse_id: _Optional[int] = ..., category_values: _Optional[_Iterable[_Union[CategoryValues, _Mapping]]] = ..., can_pick: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_pack: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_out: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_int: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_in: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., can_return: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., status: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        warehouse_id: _Optional[int] = ...,
+        category_values: _Optional[_Iterable[_Union[CategoryValues, _Mapping]]] = ...,
+        can_pick: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_pack: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_out: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_int: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_in: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        can_return: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        status: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerCreateResponse(_message.Message):
     __slots__ = ["picker", "response_standard"]
@@ -86,7 +153,11 @@ class PickerCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     picker: Picker
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, picker: _Optional[_Union[Picker, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        picker: _Optional[_Union[Picker, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -104,7 +175,16 @@ class PickerReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerReadResponse(_message.Message):
     __slots__ = ["pickers", "meta_data", "response_standard"]
@@ -114,7 +194,12 @@ class PickerReadResponse(_message.Message):
     pickers: _containers.RepeatedCompositeFieldContainer[Picker]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, pickers: _Optional[_Iterable[_Union[Picker, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        pickers: _Optional[_Iterable[_Union[Picker, _Mapping]]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerUpdateRequest(_message.Message):
     __slots__ = ["picker", "context"]
@@ -122,7 +207,11 @@ class PickerUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     picker: Picker
     context: _base_pb2.Context
-    def __init__(self, picker: _Optional[_Union[Picker, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        picker: _Optional[_Union[Picker, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerUpdateResponse(_message.Message):
     __slots__ = ["picker", "response_standard"]
@@ -130,7 +219,11 @@ class PickerUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     picker: Picker
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, picker: _Optional[_Union[Picker, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        picker: _Optional[_Union[Picker, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class PickerDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -138,7 +231,9 @@ class PickerDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class PickerDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
