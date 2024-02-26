@@ -1,21 +1,43 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
-from omni_pro_grpc.v1.rules import carrier_pb2 as _carrier_pb2
-from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
-from omni_pro_grpc.v1.rules import schedule_work_pb2 as _schedule_work_pb2
-from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
-from omni_pro_grpc.v1.rules import delivery_category_pb2 as _delivery_category_pb2
-from omni_pro_grpc.v1.rules import special_conditions_pb2 as _special_conditions_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.rules import carrier_pb2 as _carrier_pb2
+from omni_pro_grpc.v1.rules import delivery_category_pb2 as _delivery_category_pb2
+from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
+from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
+from omni_pro_grpc.v1.rules import schedule_work_pb2 as _schedule_work_pb2
+from omni_pro_grpc.v1.rules import special_conditions_pb2 as _special_conditions_pb2
+from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryShipper(_message.Message):
-    __slots__ = ["id", "name", "code", "delivery_carrier", "delivery_methods", "maximum_weight", "maximum_volume", "schedule_pickup", "locality_available", "internal_transfer", "warehouses", "category_template_not_allowed", "special_conditions", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "code",
+        "delivery_carrier",
+        "delivery_methods",
+        "maximum_weight",
+        "maximum_volume",
+        "schedule_pickup",
+        "locality_available",
+        "internal_transfer",
+        "warehouses",
+        "category_template_not_allowed",
+        "special_conditions",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -48,10 +70,43 @@ class DeliveryShipper(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., delivery_carrier: _Optional[_Union[_carrier_pb2.Carrier, _Mapping]] = ..., delivery_methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ..., maximum_weight: _Optional[float] = ..., maximum_volume: _Optional[float] = ..., schedule_pickup: _Optional[_Union[_schedule_work_pb2.ScheduleWork, _Mapping]] = ..., locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ..., internal_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ..., category_template_not_allowed: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ..., special_conditions: _Optional[_Union[_special_conditions_pb2.SpecialConditions, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        delivery_carrier: _Optional[_Union[_carrier_pb2.Carrier, _Mapping]] = ...,
+        delivery_methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ...,
+        maximum_weight: _Optional[float] = ...,
+        maximum_volume: _Optional[float] = ...,
+        schedule_pickup: _Optional[_Union[_schedule_work_pb2.ScheduleWork, _Mapping]] = ...,
+        locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ...,
+        internal_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ...,
+        category_template_not_allowed: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ...,
+        special_conditions: _Optional[_Union[_special_conditions_pb2.SpecialConditions, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "delivery_carrier_id", "delivery_method_ids", "maximum_weight", "maximum_volume", "schedule_pickup_id", "locality_available_id", "internal_transfer", "warehouse_ids", "category_template_not_allowed_id", "special_conditions_id", "external_id", "context"]
+    __slots__ = [
+        "name",
+        "code",
+        "delivery_carrier_id",
+        "delivery_method_ids",
+        "maximum_weight",
+        "maximum_volume",
+        "schedule_pickup_id",
+        "locality_available_id",
+        "internal_transfer",
+        "warehouse_ids",
+        "category_template_not_allowed_id",
+        "special_conditions_id",
+        "external_id",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_CARRIER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -80,7 +135,23 @@ class DeliveryShipperCreateRequest(_message.Message):
     special_conditions_id: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., code: _Optional[str] = ..., delivery_carrier_id: _Optional[int] = ..., delivery_method_ids: _Optional[_Iterable[str]] = ..., maximum_weight: _Optional[float] = ..., maximum_volume: _Optional[float] = ..., schedule_pickup_id: _Optional[str] = ..., locality_available_id: _Optional[str] = ..., internal_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., warehouse_ids: _Optional[_Iterable[int]] = ..., category_template_not_allowed_id: _Optional[str] = ..., special_conditions_id: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        delivery_carrier_id: _Optional[int] = ...,
+        delivery_method_ids: _Optional[_Iterable[str]] = ...,
+        maximum_weight: _Optional[float] = ...,
+        maximum_volume: _Optional[float] = ...,
+        schedule_pickup_id: _Optional[str] = ...,
+        locality_available_id: _Optional[str] = ...,
+        internal_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        warehouse_ids: _Optional[_Iterable[int]] = ...,
+        category_template_not_allowed_id: _Optional[str] = ...,
+        special_conditions_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperCreateResponse(_message.Message):
     __slots__ = ["delivery_shipper", "response_standard"]
@@ -88,7 +159,11 @@ class DeliveryShipperCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_shipper: DeliveryShipper
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_shipper: _Optional[_Union[DeliveryShipper, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_shipper: _Optional[_Union[DeliveryShipper, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -106,7 +181,16 @@ class DeliveryShipperReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperReadResponse(_message.Message):
     __slots__ = ["delivery_shippers", "meta_data", "response_standard"]
@@ -116,7 +200,12 @@ class DeliveryShipperReadResponse(_message.Message):
     delivery_shippers: _containers.RepeatedCompositeFieldContainer[DeliveryShipper]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_shippers: _Optional[_Iterable[_Union[DeliveryShipper, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_shippers: _Optional[_Iterable[_Union[DeliveryShipper, _Mapping]]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperUpdateRequest(_message.Message):
     __slots__ = ["delivery_shipper", "context"]
@@ -124,7 +213,11 @@ class DeliveryShipperUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     delivery_shipper: DeliveryShipper
     context: _base_pb2.Context
-    def __init__(self, delivery_shipper: _Optional[_Union[DeliveryShipper, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_shipper: _Optional[_Union[DeliveryShipper, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperUpdateResponse(_message.Message):
     __slots__ = ["delivery_shipper", "response_standard"]
@@ -132,7 +225,11 @@ class DeliveryShipperUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_shipper: DeliveryShipper
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_shipper: _Optional[_Union[DeliveryShipper, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_shipper: _Optional[_Union[DeliveryShipper, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryShipperDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -140,7 +237,9 @@ class DeliveryShipperDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class DeliveryShipperDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]

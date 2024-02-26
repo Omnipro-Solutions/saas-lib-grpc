@@ -1,21 +1,46 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
-from omni_pro_grpc.v1.rules import location_pb2 as _location_pb2
-from omni_pro_grpc.v1.rules import delivery_warehouse_pb2 as _delivery_warehouse_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.rules import delivery_category_pb2 as _delivery_category_pb2
 from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
 from omni_pro_grpc.v1.rules import delivery_schedule_pb2 as _delivery_schedule_pb2
+from omni_pro_grpc.v1.rules import delivery_warehouse_pb2 as _delivery_warehouse_pb2
+from omni_pro_grpc.v1.rules import location_pb2 as _location_pb2
 from omni_pro_grpc.v1.rules import stock_security_pb2 as _stock_security_pb2
-from google.protobuf.internal import containers as _containers
-from google.protobuf import descriptor as _descriptor
-from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryMethod(_message.Message):
-    __slots__ = ["id", "name", "delivery_warehouses", "type_picking_transfer", "validate_warehouse_code", "quantity_security", "code", "type_delivery", "delivery_location", "transfer_template", "category_template", "locality_available", "schedule_template", "stock_security", "transfer_between_delivery_warehouses", "active", "external_id", "time_zone", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "delivery_warehouses",
+        "type_picking_transfer",
+        "validate_warehouse_code",
+        "quantity_security",
+        "code",
+        "type_delivery",
+        "delivery_location",
+        "transfer_template",
+        "category_template",
+        "locality_available",
+        "schedule_template",
+        "stock_security",
+        "transfer_between_delivery_warehouses",
+        "active",
+        "external_id",
+        "time_zone",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_WAREHOUSES_FIELD_NUMBER: _ClassVar[int]
@@ -54,10 +79,49 @@ class DeliveryMethod(_message.Message):
     external_id: str
     time_zone: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., delivery_warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ..., type_picking_transfer: _Optional[str] = ..., validate_warehouse_code: _Optional[str] = ..., quantity_security: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., code: _Optional[str] = ..., type_delivery: _Optional[str] = ..., delivery_location: _Optional[_Union[_location_pb2.Location, _Mapping]] = ..., transfer_template: _Optional[_Union[_delivery_warehouse_pb2.DeliveryWarehouse, _Mapping]] = ..., category_template: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ..., locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ..., schedule_template: _Optional[_Union[_delivery_schedule_pb2.DeliverySchedule, _Mapping]] = ..., stock_security: _Optional[_Union[_stock_security_pb2.StockSecurity, _Mapping]] = ..., transfer_between_delivery_warehouses: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        delivery_warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ...,
+        type_picking_transfer: _Optional[str] = ...,
+        validate_warehouse_code: _Optional[str] = ...,
+        quantity_security: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        code: _Optional[str] = ...,
+        type_delivery: _Optional[str] = ...,
+        delivery_location: _Optional[_Union[_location_pb2.Location, _Mapping]] = ...,
+        transfer_template: _Optional[_Union[_delivery_warehouse_pb2.DeliveryWarehouse, _Mapping]] = ...,
+        category_template: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ...,
+        locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ...,
+        schedule_template: _Optional[_Union[_delivery_schedule_pb2.DeliverySchedule, _Mapping]] = ...,
+        stock_security: _Optional[_Union[_stock_security_pb2.StockSecurity, _Mapping]] = ...,
+        transfer_between_delivery_warehouses: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        time_zone: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodCreateRequest(_message.Message):
-    __slots__ = ["name", "type_picking_transfer", "validate_warehouse_code", "quantity_security", "code", "type_delivery", "delivery_location_id", "transfer_template_id", "category_template_id", "locality_available_id", "schedule_template_id", "stock_security_id", "delivery_warehouse_ids", "transfer_between_delivery_warehouses", "external_id", "time_zone", "context"]
+    __slots__ = [
+        "name",
+        "type_picking_transfer",
+        "validate_warehouse_code",
+        "quantity_security",
+        "code",
+        "type_delivery",
+        "delivery_location_id",
+        "transfer_template_id",
+        "category_template_id",
+        "locality_available_id",
+        "schedule_template_id",
+        "stock_security_id",
+        "delivery_warehouse_ids",
+        "transfer_between_delivery_warehouses",
+        "external_id",
+        "time_zone",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_PICKING_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     VALIDATE_WAREHOUSE_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -92,7 +156,26 @@ class DeliveryMethodCreateRequest(_message.Message):
     external_id: str
     time_zone: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., type_picking_transfer: _Optional[str] = ..., validate_warehouse_code: _Optional[str] = ..., quantity_security: _Optional[float] = ..., code: _Optional[str] = ..., type_delivery: _Optional[str] = ..., delivery_location_id: _Optional[int] = ..., transfer_template_id: _Optional[str] = ..., category_template_id: _Optional[str] = ..., locality_available_id: _Optional[str] = ..., schedule_template_id: _Optional[str] = ..., stock_security_id: _Optional[str] = ..., delivery_warehouse_ids: _Optional[_Iterable[int]] = ..., transfer_between_delivery_warehouses: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        type_picking_transfer: _Optional[str] = ...,
+        validate_warehouse_code: _Optional[str] = ...,
+        quantity_security: _Optional[float] = ...,
+        code: _Optional[str] = ...,
+        type_delivery: _Optional[str] = ...,
+        delivery_location_id: _Optional[int] = ...,
+        transfer_template_id: _Optional[str] = ...,
+        category_template_id: _Optional[str] = ...,
+        locality_available_id: _Optional[str] = ...,
+        schedule_template_id: _Optional[str] = ...,
+        stock_security_id: _Optional[str] = ...,
+        delivery_warehouse_ids: _Optional[_Iterable[int]] = ...,
+        transfer_between_delivery_warehouses: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        time_zone: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodCreateResponse(_message.Message):
     __slots__ = ["delivery_method", "response_standard"]
@@ -100,7 +183,11 @@ class DeliveryMethodCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_method: DeliveryMethod
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -118,7 +205,16 @@ class DeliveryMethodReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodReadResponse(_message.Message):
     __slots__ = ["delivery_methods", "meta_data", "response_standard"]
@@ -128,7 +224,12 @@ class DeliveryMethodReadResponse(_message.Message):
     delivery_methods: _containers.RepeatedCompositeFieldContainer[DeliveryMethod]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_methods: _Optional[_Iterable[_Union[DeliveryMethod, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_methods: _Optional[_Iterable[_Union[DeliveryMethod, _Mapping]]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodUpdateRequest(_message.Message):
     __slots__ = ["delivery_method", "context"]
@@ -136,7 +237,11 @@ class DeliveryMethodUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     delivery_method: DeliveryMethod
     context: _base_pb2.Context
-    def __init__(self, delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodUpdateResponse(_message.Message):
     __slots__ = ["delivery_method", "response_standard"]
@@ -144,7 +249,11 @@ class DeliveryMethodUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_method: DeliveryMethod
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryMethodDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -152,7 +261,9 @@ class DeliveryMethodDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class DeliveryMethodDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -168,7 +279,12 @@ class AddDeliveryWarehouseRequest(_message.Message):
     delivery_method_id: str
     delivery_warehouse_ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
-    def __init__(self, delivery_method_id: _Optional[str] = ..., delivery_warehouse_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method_id: _Optional[str] = ...,
+        delivery_warehouse_ids: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AddDeliveryWarehouseResponse(_message.Message):
     __slots__ = ["delivery_method", "response_standard"]
@@ -176,7 +292,11 @@ class AddDeliveryWarehouseResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_method: DeliveryMethod
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveDeliveryWarehouseRequest(_message.Message):
     __slots__ = ["delivery_method_id", "delivery_warehouse_ids", "context"]
@@ -186,7 +306,12 @@ class RemoveDeliveryWarehouseRequest(_message.Message):
     delivery_method_id: str
     delivery_warehouse_ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
-    def __init__(self, delivery_method_id: _Optional[str] = ..., delivery_warehouse_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method_id: _Optional[str] = ...,
+        delivery_warehouse_ids: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveDeliveryWarehouseResponse(_message.Message):
     __slots__ = ["delivery_method", "response_standard"]
@@ -194,4 +319,8 @@ class RemoveDeliveryWarehouseResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_method: DeliveryMethod
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_method: _Optional[_Union[DeliveryMethod, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...

@@ -1,8 +1,13 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -18,7 +23,14 @@ class ExportModelRequest(_message.Message):
     export_type_file: str
     fields: _containers.RepeatedScalarFieldContainer[str]
     context: _base_pb2.Context
-    def __init__(self, model_name: _Optional[str] = ..., export_to: _Optional[str] = ..., export_type_file: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        model_name: _Optional[str] = ...,
+        export_to: _Optional[str] = ...,
+        export_type_file: _Optional[str] = ...,
+        fields: _Optional[_Iterable[str]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ExportModelResponse(_message.Message):
     __slots__ = ["response_standard"]

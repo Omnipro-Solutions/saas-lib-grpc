@@ -1,14 +1,39 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Product(_message.Message):
-    __slots__ = ["id", "name", "sku", "category_code", "weight_value", "weight_uom_code", "height_value", "height_uom_code", "width_value", "width_uom_code", "length_value", "length_uom_code", "volume_value", "volume_uom_code", "active", "product_doc_id", "external_id", "special_conditions", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "sku",
+        "category_code",
+        "weight_value",
+        "weight_uom_code",
+        "height_value",
+        "height_uom_code",
+        "width_value",
+        "width_uom_code",
+        "length_value",
+        "length_uom_code",
+        "volume_value",
+        "volume_uom_code",
+        "active",
+        "product_doc_id",
+        "external_id",
+        "special_conditions",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SKU_FIELD_NUMBER: _ClassVar[int]
@@ -47,10 +72,49 @@ class Product(_message.Message):
     external_id: str
     special_conditions: _containers.RepeatedScalarFieldContainer[str]
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., sku: _Optional[str] = ..., category_code: _Optional[str] = ..., weight_value: _Optional[float] = ..., weight_uom_code: _Optional[str] = ..., height_value: _Optional[float] = ..., height_uom_code: _Optional[str] = ..., width_value: _Optional[float] = ..., width_uom_code: _Optional[str] = ..., length_value: _Optional[float] = ..., length_uom_code: _Optional[str] = ..., volume_value: _Optional[float] = ..., volume_uom_code: _Optional[str] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., product_doc_id: _Optional[str] = ..., external_id: _Optional[str] = ..., special_conditions: _Optional[_Iterable[str]] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        sku: _Optional[str] = ...,
+        category_code: _Optional[str] = ...,
+        weight_value: _Optional[float] = ...,
+        weight_uom_code: _Optional[str] = ...,
+        height_value: _Optional[float] = ...,
+        height_uom_code: _Optional[str] = ...,
+        width_value: _Optional[float] = ...,
+        width_uom_code: _Optional[str] = ...,
+        length_value: _Optional[float] = ...,
+        length_uom_code: _Optional[str] = ...,
+        volume_value: _Optional[float] = ...,
+        volume_uom_code: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        product_doc_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        special_conditions: _Optional[_Iterable[str]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductCreateRequest(_message.Message):
-    __slots__ = ["name", "sku", "category_code", "weight_value", "weight_uom_code", "height_value", "height_uom_code", "width_value", "width_uom_code", "length_value", "length_uom_code", "volume_value", "volume_uom_code", "product_doc_id", "external_id", "special_conditions", "context"]
+    __slots__ = [
+        "name",
+        "sku",
+        "category_code",
+        "weight_value",
+        "weight_uom_code",
+        "height_value",
+        "height_uom_code",
+        "width_value",
+        "width_uom_code",
+        "length_value",
+        "length_uom_code",
+        "volume_value",
+        "volume_uom_code",
+        "product_doc_id",
+        "external_id",
+        "special_conditions",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SKU_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -85,7 +149,26 @@ class ProductCreateRequest(_message.Message):
     external_id: str
     special_conditions: _containers.RepeatedScalarFieldContainer[str]
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., sku: _Optional[str] = ..., category_code: _Optional[str] = ..., weight_value: _Optional[float] = ..., weight_uom_code: _Optional[str] = ..., height_value: _Optional[float] = ..., height_uom_code: _Optional[str] = ..., width_value: _Optional[float] = ..., width_uom_code: _Optional[str] = ..., length_value: _Optional[float] = ..., length_uom_code: _Optional[str] = ..., volume_value: _Optional[float] = ..., volume_uom_code: _Optional[str] = ..., product_doc_id: _Optional[str] = ..., external_id: _Optional[str] = ..., special_conditions: _Optional[_Iterable[str]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        sku: _Optional[str] = ...,
+        category_code: _Optional[str] = ...,
+        weight_value: _Optional[float] = ...,
+        weight_uom_code: _Optional[str] = ...,
+        height_value: _Optional[float] = ...,
+        height_uom_code: _Optional[str] = ...,
+        width_value: _Optional[float] = ...,
+        width_uom_code: _Optional[str] = ...,
+        length_value: _Optional[float] = ...,
+        length_uom_code: _Optional[str] = ...,
+        volume_value: _Optional[float] = ...,
+        volume_uom_code: _Optional[str] = ...,
+        product_doc_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        special_conditions: _Optional[_Iterable[str]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductCreateResponse(_message.Message):
     __slots__ = ["product", "response_standard"]
@@ -93,7 +176,11 @@ class ProductCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     product: Product
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, product: _Optional[_Union[Product, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        product: _Optional[_Union[Product, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -111,7 +198,16 @@ class ProductReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductReadResponse(_message.Message):
     __slots__ = ["products", "meta_data", "response_standard"]
@@ -121,7 +217,12 @@ class ProductReadResponse(_message.Message):
     products: _containers.RepeatedCompositeFieldContainer[Product]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, products: _Optional[_Iterable[_Union[Product, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        products: _Optional[_Iterable[_Union[Product, _Mapping]]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductUpdateRequest(_message.Message):
     __slots__ = ["product", "context"]
@@ -129,7 +230,11 @@ class ProductUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     product: Product
     context: _base_pb2.Context
-    def __init__(self, product: _Optional[_Union[Product, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        product: _Optional[_Union[Product, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductUpdateResponse(_message.Message):
     __slots__ = ["product", "response_standard"]
@@ -137,7 +242,11 @@ class ProductUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     product: Product
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, product: _Optional[_Union[Product, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        product: _Optional[_Union[Product, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProductDeleteRequest(_message.Message):
     __slots__ = ["product_doc_id", "context"]
@@ -145,7 +254,9 @@ class ProductDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     product_doc_id: str
     context: _base_pb2.Context
-    def __init__(self, product_doc_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, product_doc_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class ProductDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
