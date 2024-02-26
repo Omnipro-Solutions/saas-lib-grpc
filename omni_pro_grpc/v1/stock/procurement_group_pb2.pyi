@@ -1,10 +1,15 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from google.protobuf import timestamp_pb2 as _timestamp_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,7 +27,15 @@ class ProcurementGroup(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., move_type: _Optional[str] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[int] = ...,
+        name: _Optional[str] = ...,
+        move_type: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupCreateRequest(_message.Message):
     __slots__ = ["name", "move_type", "external_id", "context"]
@@ -34,7 +47,13 @@ class ProcurementGroupCreateRequest(_message.Message):
     move_type: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., move_type: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        move_type: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupCreateResponse(_message.Message):
     __slots__ = ["response_standard", "procurement_group"]
@@ -42,7 +61,11 @@ class ProcurementGroupCreateResponse(_message.Message):
     PROCUREMENT_GROUP_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     procurement_group: ProcurementGroup
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., procurement_group: _Optional[_Union[ProcurementGroup, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        procurement_group: _Optional[_Union[ProcurementGroup, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -60,7 +83,16 @@ class ProcurementGroupReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: int
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "procurement_groups"]
@@ -70,7 +102,12 @@ class ProcurementGroupReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     procurement_groups: _containers.RepeatedCompositeFieldContainer[ProcurementGroup]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., procurement_groups: _Optional[_Iterable[_Union[ProcurementGroup, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        procurement_groups: _Optional[_Iterable[_Union[ProcurementGroup, _Mapping]]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupUpdateRequest(_message.Message):
     __slots__ = ["procurement_group", "context"]
@@ -78,7 +115,11 @@ class ProcurementGroupUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     procurement_group: ProcurementGroup
     context: _base_pb2.Context
-    def __init__(self, procurement_group: _Optional[_Union[ProcurementGroup, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        procurement_group: _Optional[_Union[ProcurementGroup, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "procurement_group"]
@@ -86,7 +127,11 @@ class ProcurementGroupUpdateResponse(_message.Message):
     PROCUREMENT_GROUP_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     procurement_group: ProcurementGroup
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., procurement_group: _Optional[_Union[ProcurementGroup, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        procurement_group: _Optional[_Union[ProcurementGroup, _Mapping]] = ...,
+    ) -> None: ...
 
 class ProcurementGroupDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -94,7 +139,9 @@ class ProcurementGroupDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: int
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class ProcurementGroupDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]

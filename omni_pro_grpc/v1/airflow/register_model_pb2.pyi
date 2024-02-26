@@ -6,8 +6,8 @@ from typing import Union as _Union
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from omni.pro.protos.common import base_pb2 as _base_pb2
-from omni.pro.protos.v1.utilities import model_pb2 as _model_pb2
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
