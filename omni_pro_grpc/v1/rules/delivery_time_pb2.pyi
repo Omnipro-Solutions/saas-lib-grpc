@@ -1,18 +1,42 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
-from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
-from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
-from omni_pro_grpc.v1.rules import delivery_category_pb2 as _delivery_category_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.rules import delivery_category_pb2 as _delivery_category_pb2
+from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
+from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
+from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryTime(_message.Message):
-    __slots__ = ["id", "name", "code", "delivery_methods", "warehouses_to", "warehouses_from", "locality_available", "time_type", "value_min", "value_max", "inversely", "variable_factor", "operator_factor", "amount_factor", "category_template_not_allowed", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "code",
+        "delivery_methods",
+        "warehouses_to",
+        "warehouses_from",
+        "locality_available",
+        "time_type",
+        "value_min",
+        "value_max",
+        "inversely",
+        "variable_factor",
+        "operator_factor",
+        "amount_factor",
+        "category_template_not_allowed",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -49,10 +73,47 @@ class DeliveryTime(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., code: _Optional[str] = ..., delivery_methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ..., warehouses_to: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ..., warehouses_from: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ..., locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ..., time_type: _Optional[str] = ..., value_min: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., value_max: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., inversely: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., variable_factor: _Optional[str] = ..., operator_factor: _Optional[str] = ..., amount_factor: _Optional[float] = ..., category_template_not_allowed: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        delivery_methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ...,
+        warehouses_to: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ...,
+        warehouses_from: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ...,
+        locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ...,
+        time_type: _Optional[str] = ...,
+        value_min: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...,
+        value_max: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...,
+        inversely: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        variable_factor: _Optional[str] = ...,
+        operator_factor: _Optional[str] = ...,
+        amount_factor: _Optional[float] = ...,
+        category_template_not_allowed: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "locality_available_id", "time_type", "value_min", "value_max", "warehouse_to_ids", "warehouse_from_ids", "delivery_method_ids", "inversely", "external_id", "variable_factor", "operator_factor", "amount_factor", "category_template_not_allowed_id", "context"]
+    __slots__ = [
+        "name",
+        "code",
+        "locality_available_id",
+        "time_type",
+        "value_min",
+        "value_max",
+        "warehouse_to_ids",
+        "warehouse_from_ids",
+        "delivery_method_ids",
+        "inversely",
+        "external_id",
+        "variable_factor",
+        "operator_factor",
+        "amount_factor",
+        "category_template_not_allowed_id",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     LOCALITY_AVAILABLE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -85,7 +146,25 @@ class DeliveryTimeCreateRequest(_message.Message):
     amount_factor: float
     category_template_not_allowed_id: str
     context: _base_pb2.Context
-    def __init__(self, name: _Optional[str] = ..., code: _Optional[str] = ..., locality_available_id: _Optional[str] = ..., time_type: _Optional[str] = ..., value_min: _Optional[int] = ..., value_max: _Optional[int] = ..., warehouse_to_ids: _Optional[_Iterable[int]] = ..., warehouse_from_ids: _Optional[_Iterable[int]] = ..., delivery_method_ids: _Optional[_Iterable[str]] = ..., inversely: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., variable_factor: _Optional[str] = ..., operator_factor: _Optional[str] = ..., amount_factor: _Optional[float] = ..., category_template_not_allowed_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        locality_available_id: _Optional[str] = ...,
+        time_type: _Optional[str] = ...,
+        value_min: _Optional[int] = ...,
+        value_max: _Optional[int] = ...,
+        warehouse_to_ids: _Optional[_Iterable[int]] = ...,
+        warehouse_from_ids: _Optional[_Iterable[int]] = ...,
+        delivery_method_ids: _Optional[_Iterable[str]] = ...,
+        inversely: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        variable_factor: _Optional[str] = ...,
+        operator_factor: _Optional[str] = ...,
+        amount_factor: _Optional[float] = ...,
+        category_template_not_allowed_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeCreateResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -93,7 +172,11 @@ class DeliveryTimeCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -111,7 +194,16 @@ class DeliveryTimeReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeReadResponse(_message.Message):
     __slots__ = ["delivery_times", "meta_data", "response_standard"]
@@ -121,7 +213,12 @@ class DeliveryTimeReadResponse(_message.Message):
     delivery_times: _containers.RepeatedCompositeFieldContainer[DeliveryTime]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_times: _Optional[_Iterable[_Union[DeliveryTime, _Mapping]]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_times: _Optional[_Iterable[_Union[DeliveryTime, _Mapping]]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeUpdateRequest(_message.Message):
     __slots__ = ["delivery_time", "context"]
@@ -129,7 +226,11 @@ class DeliveryTimeUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     context: _base_pb2.Context
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeUpdateResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -137,7 +238,11 @@ class DeliveryTimeUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeliveryTimeDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -145,7 +250,9 @@ class DeliveryTimeDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class DeliveryTimeDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
@@ -161,7 +268,12 @@ class AddWarehousesToRequest(_message.Message):
     delivery_time_id: str
     warehouse_to_ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
-    def __init__(self, delivery_time_id: _Optional[str] = ..., warehouse_to_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time_id: _Optional[str] = ...,
+        warehouse_to_ids: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AddWarehousesToResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -169,7 +281,11 @@ class AddWarehousesToResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveWarehousesToRequest(_message.Message):
     __slots__ = ["delivery_time_id", "warehouse_to_ids", "context"]
@@ -179,7 +295,12 @@ class RemoveWarehousesToRequest(_message.Message):
     delivery_time_id: str
     warehouse_to_ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
-    def __init__(self, delivery_time_id: _Optional[str] = ..., warehouse_to_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time_id: _Optional[str] = ...,
+        warehouse_to_ids: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveWarehousesToResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -187,7 +308,11 @@ class RemoveWarehousesToResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class AddWarehousesFromRequest(_message.Message):
     __slots__ = ["delivery_time_id", "warehouse_from_ids", "context"]
@@ -197,7 +322,12 @@ class AddWarehousesFromRequest(_message.Message):
     delivery_time_id: str
     warehouse_from_ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
-    def __init__(self, delivery_time_id: _Optional[str] = ..., warehouse_from_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time_id: _Optional[str] = ...,
+        warehouse_from_ids: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AddWarehousesFromResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -205,7 +335,11 @@ class AddWarehousesFromResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveWarehousesFromRequest(_message.Message):
     __slots__ = ["delivery_time_id", "warehouse_from_ids", "context"]
@@ -215,7 +349,12 @@ class RemoveWarehousesFromRequest(_message.Message):
     delivery_time_id: str
     warehouse_from_ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
-    def __init__(self, delivery_time_id: _Optional[str] = ..., warehouse_from_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time_id: _Optional[str] = ...,
+        warehouse_from_ids: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveWarehousesFromResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -223,7 +362,11 @@ class RemoveWarehousesFromResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class AddDeliveryMethodRequest(_message.Message):
     __slots__ = ["delivery_time_id", "delivery_method_ids", "context"]
@@ -233,7 +376,12 @@ class AddDeliveryMethodRequest(_message.Message):
     delivery_time_id: str
     delivery_method_ids: _containers.RepeatedScalarFieldContainer[str]
     context: _base_pb2.Context
-    def __init__(self, delivery_time_id: _Optional[str] = ..., delivery_method_ids: _Optional[_Iterable[str]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time_id: _Optional[str] = ...,
+        delivery_method_ids: _Optional[_Iterable[str]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class AddDeliveryMethodResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -241,7 +389,11 @@ class AddDeliveryMethodResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveDeliveryMethodRequest(_message.Message):
     __slots__ = ["delivery_time_id", "delivery_method_ids", "context"]
@@ -251,7 +403,12 @@ class RemoveDeliveryMethodRequest(_message.Message):
     delivery_time_id: str
     delivery_method_ids: _containers.RepeatedScalarFieldContainer[str]
     context: _base_pb2.Context
-    def __init__(self, delivery_time_id: _Optional[str] = ..., delivery_method_ids: _Optional[_Iterable[str]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time_id: _Optional[str] = ...,
+        delivery_method_ids: _Optional[_Iterable[str]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class RemoveDeliveryMethodResponse(_message.Message):
     __slots__ = ["delivery_time", "response_standard"]
@@ -259,4 +416,8 @@ class RemoveDeliveryMethodResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     delivery_time: DeliveryTime
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        delivery_time: _Optional[_Union[DeliveryTime, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...

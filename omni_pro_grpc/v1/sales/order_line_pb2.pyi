@@ -1,18 +1,38 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.sales import product_pb2 as _product_pb2
-from omni_pro_grpc.v1.sales import uom_pb2 as _uom_pb2
-from omni_pro_grpc.v1.sales import order_pb2 as _order_pb2
-from omni_pro_grpc.v1.sales import tax_pb2 as _tax_pb2
-from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from google.protobuf.internal import containers as _containers
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
+from google.protobuf.internal import containers as _containers
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.sales import order_pb2 as _order_pb2
+from omni_pro_grpc.v1.sales import product_pb2 as _product_pb2
+from omni_pro_grpc.v1.sales import tax_pb2 as _tax_pb2
+from omni_pro_grpc.v1.sales import uom_pb2 as _uom_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrderLine(_message.Message):
-    __slots__ = ["id", "order", "product", "quantity", "uom", "price_unit", "taxes", "discount", "price_total", "sub_total", "ecommerce_item_id", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "order",
+        "product",
+        "quantity",
+        "uom",
+        "price_unit",
+        "taxes",
+        "discount",
+        "price_total",
+        "sub_total",
+        "ecommerce_item_id",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     ORDER_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
@@ -41,10 +61,39 @@ class OrderLine(_message.Message):
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[int] = ..., order: _Optional[_Union[_order_pb2.Order, _Mapping]] = ..., product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ..., quantity: _Optional[float] = ..., uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ..., price_unit: _Optional[float] = ..., taxes: _Optional[_Iterable[_Union[_tax_pb2.Tax, _Mapping]]] = ..., discount: _Optional[float] = ..., price_total: _Optional[float] = ..., sub_total: _Optional[float] = ..., ecommerce_item_id: _Optional[str] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., external_id: _Optional[str] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[int] = ...,
+        order: _Optional[_Union[_order_pb2.Order, _Mapping]] = ...,
+        product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ...,
+        quantity: _Optional[float] = ...,
+        uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ...,
+        price_unit: _Optional[float] = ...,
+        taxes: _Optional[_Iterable[_Union[_tax_pb2.Tax, _Mapping]]] = ...,
+        discount: _Optional[float] = ...,
+        price_total: _Optional[float] = ...,
+        sub_total: _Optional[float] = ...,
+        ecommerce_item_id: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineCreateRequest(_message.Message):
-    __slots__ = ["order_id", "product_id", "quantity", "uom_id", "price_unit", "taxes_id", "discount", "price_total", "sub_total", "ecommerce_item_id", "external_id", "context"]
+    __slots__ = [
+        "order_id",
+        "product_id",
+        "quantity",
+        "uom_id",
+        "price_unit",
+        "taxes_id",
+        "discount",
+        "price_total",
+        "sub_total",
+        "ecommerce_item_id",
+        "external_id",
+        "context",
+    ]
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -69,7 +118,21 @@ class OrderLineCreateRequest(_message.Message):
     ecommerce_item_id: str
     external_id: str
     context: _base_pb2.Context
-    def __init__(self, order_id: _Optional[int] = ..., product_id: _Optional[str] = ..., quantity: _Optional[float] = ..., uom_id: _Optional[str] = ..., price_unit: _Optional[float] = ..., taxes_id: _Optional[_Iterable[int]] = ..., discount: _Optional[float] = ..., price_total: _Optional[float] = ..., sub_total: _Optional[float] = ..., ecommerce_item_id: _Optional[str] = ..., external_id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        order_id: _Optional[int] = ...,
+        product_id: _Optional[str] = ...,
+        quantity: _Optional[float] = ...,
+        uom_id: _Optional[str] = ...,
+        price_unit: _Optional[float] = ...,
+        taxes_id: _Optional[_Iterable[int]] = ...,
+        discount: _Optional[float] = ...,
+        price_total: _Optional[float] = ...,
+        sub_total: _Optional[float] = ...,
+        ecommerce_item_id: _Optional[str] = ...,
+        external_id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineCreateResponse(_message.Message):
     __slots__ = ["order_line", "response_standard"]
@@ -77,7 +140,11 @@ class OrderLineCreateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     order_line: OrderLine
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, order_line: _Optional[_Union[OrderLine, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        order_line: _Optional[_Union[OrderLine, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -95,7 +162,16 @@ class OrderLineReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: int
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineReadResponse(_message.Message):
     __slots__ = ["order_lines", "response_standard", "meta_data"]
@@ -105,7 +181,12 @@ class OrderLineReadResponse(_message.Message):
     order_lines: _containers.RepeatedCompositeFieldContainer[OrderLine]
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
-    def __init__(self, order_lines: _Optional[_Iterable[_Union[OrderLine, _Mapping]]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        order_lines: _Optional[_Iterable[_Union[OrderLine, _Mapping]]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineUpdateRequest(_message.Message):
     __slots__ = ["order_line", "context"]
@@ -113,7 +194,11 @@ class OrderLineUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     order_line: OrderLine
     context: _base_pb2.Context
-    def __init__(self, order_line: _Optional[_Union[OrderLine, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        order_line: _Optional[_Union[OrderLine, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineUpdateResponse(_message.Message):
     __slots__ = ["order_line", "response_standard"]
@@ -121,7 +206,11 @@ class OrderLineUpdateResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     order_line: OrderLine
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, order_line: _Optional[_Union[OrderLine, _Mapping]] = ..., response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        order_line: _Optional[_Union[OrderLine, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class OrderLineDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -129,7 +218,9 @@ class OrderLineDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: int
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class OrderLineDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]

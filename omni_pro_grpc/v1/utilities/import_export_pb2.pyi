@@ -1,17 +1,37 @@
-from omni_pro_grpc.common import base_pb2 as _base_pb2
+from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
+from typing import Mapping as _Mapping
+from typing import Optional as _Optional
+from typing import Union as _Union
+
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
-from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 from google.protobuf.internal import containers as _containers
-from google.protobuf import descriptor as _descriptor
-from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ImportExport(_message.Message):
-    __slots__ = ["id", "type_operation", "model", "name_file", "type_file", "date_load", "date_process", "status", "message", "required_fields", "process_data", "skip_error", "active", "object_audit"]
+    __slots__ = [
+        "id",
+        "type_operation",
+        "model",
+        "name_file",
+        "type_file",
+        "date_load",
+        "date_process",
+        "status",
+        "message",
+        "required_fields",
+        "process_data",
+        "skip_error",
+        "active",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_OPERATION_FIELD_NUMBER: _ClassVar[int]
     MODEL_FIELD_NUMBER: _ClassVar[int]
@@ -40,10 +60,36 @@ class ImportExport(_message.Message):
     skip_error: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
-    def __init__(self, id: _Optional[str] = ..., type_operation: _Optional[str] = ..., model: _Optional[_Union[_model_pb2.Model, _Mapping]] = ..., name_file: _Optional[str] = ..., type_file: _Optional[str] = ..., date_load: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_process: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[str] = ..., message: _Optional[str] = ..., required_fields: _Optional[_Iterable[str]] = ..., process_data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ..., skip_error: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        type_operation: _Optional[str] = ...,
+        model: _Optional[_Union[_model_pb2.Model, _Mapping]] = ...,
+        name_file: _Optional[str] = ...,
+        type_file: _Optional[str] = ...,
+        date_load: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        date_process: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        status: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+        required_fields: _Optional[_Iterable[str]] = ...,
+        process_data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        skip_error: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
 
 class ImportExportCreateRequest(_message.Message):
-    __slots__ = ["type_operation", "model_id", "name_file", "type_file", "date_init", "date_finish", "required_fields", "skip_error", "context"]
+    __slots__ = [
+        "type_operation",
+        "model_id",
+        "name_file",
+        "type_file",
+        "date_init",
+        "date_finish",
+        "required_fields",
+        "skip_error",
+        "context",
+    ]
     TYPE_OPERATION_FIELD_NUMBER: _ClassVar[int]
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FILE_FIELD_NUMBER: _ClassVar[int]
@@ -62,7 +108,18 @@ class ImportExportCreateRequest(_message.Message):
     required_fields: _containers.RepeatedScalarFieldContainer[str]
     skip_error: _wrappers_pb2.BoolValue
     context: _base_pb2.Context
-    def __init__(self, type_operation: _Optional[str] = ..., model_id: _Optional[str] = ..., name_file: _Optional[str] = ..., type_file: _Optional[str] = ..., date_init: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_finish: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., required_fields: _Optional[_Iterable[str]] = ..., skip_error: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        type_operation: _Optional[str] = ...,
+        model_id: _Optional[str] = ...,
+        name_file: _Optional[str] = ...,
+        type_file: _Optional[str] = ...,
+        date_init: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        date_finish: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        required_fields: _Optional[_Iterable[str]] = ...,
+        skip_error: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ImportExportCreateResponse(_message.Message):
     __slots__ = ["response_standard", "import_export"]
@@ -70,7 +127,11 @@ class ImportExportCreateResponse(_message.Message):
     IMPORT_EXPORT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     import_export: ImportExport
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., import_export: _Optional[_Union[ImportExport, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        import_export: _Optional[_Union[ImportExport, _Mapping]] = ...,
+    ) -> None: ...
 
 class ImportExportReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
@@ -88,7 +149,16 @@ class ImportExportReadRequest(_message.Message):
     paginated: _base_pb2.Paginated
     id: str
     context: _base_pb2.Context
-    def __init__(self, group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ..., sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ..., fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ..., filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ..., paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ..., id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ImportExportReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "import_export"]
@@ -98,7 +168,12 @@ class ImportExportReadResponse(_message.Message):
     response_standard: _base_pb2.ResponseStandard
     meta_data: _base_pb2.MetaData
     import_export: _containers.RepeatedCompositeFieldContainer[ImportExport]
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ..., import_export: _Optional[_Iterable[_Union[ImportExport, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        import_export: _Optional[_Iterable[_Union[ImportExport, _Mapping]]] = ...,
+    ) -> None: ...
 
 class ImportExportUpdateRequest(_message.Message):
     __slots__ = ["import_export", "context"]
@@ -106,7 +181,11 @@ class ImportExportUpdateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     import_export: ImportExport
     context: _base_pb2.Context
-    def __init__(self, import_export: _Optional[_Union[ImportExport, _Mapping]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        import_export: _Optional[_Union[ImportExport, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
 
 class ImportExportUpdateResponse(_message.Message):
     __slots__ = ["response_standard", "import_export"]
@@ -114,7 +193,11 @@ class ImportExportUpdateResponse(_message.Message):
     IMPORT_EXPORT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     import_export: ImportExport
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., import_export: _Optional[_Union[ImportExport, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        import_export: _Optional[_Union[ImportExport, _Mapping]] = ...,
+    ) -> None: ...
 
 class ImportExportDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -122,7 +205,9 @@ class ImportExportDeleteRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class ImportExportDeleteResponse(_message.Message):
     __slots__ = ["response_standard", "import_export"]
@@ -130,7 +215,11 @@ class ImportExportDeleteResponse(_message.Message):
     IMPORT_EXPORT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     import_export: ImportExport
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., import_export: _Optional[_Union[ImportExport, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        import_export: _Optional[_Union[ImportExport, _Mapping]] = ...,
+    ) -> None: ...
 
 class ConfirmUploadRequest(_message.Message):
     __slots__ = ["id", "context"]
@@ -138,7 +227,9 @@ class ConfirmUploadRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: str
     context: _base_pb2.Context
-    def __init__(self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
 
 class ConfirmUploadResponse(_message.Message):
     __slots__ = ["response_standard", "import_export"]
@@ -146,4 +237,8 @@ class ConfirmUploadResponse(_message.Message):
     IMPORT_EXPORT_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     import_export: ImportExport
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ..., import_export: _Optional[_Union[ImportExport, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        import_export: _Optional[_Union[ImportExport, _Mapping]] = ...,
+    ) -> None: ...
