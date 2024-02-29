@@ -9,6 +9,7 @@ from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.rules import appointment_pb2 as _appointment_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -20,7 +21,7 @@ class AppointmentLine(_message.Message):
         "order_numbers",
         "appointment_available",
         "cids",
-        "appointment_id",
+        "appointment",
         "active",
         "external_id",
         "object_audit",
@@ -31,7 +32,7 @@ class AppointmentLine(_message.Message):
     ORDER_NUMBERS_FIELD_NUMBER: _ClassVar[int]
     APPOINTMENT_AVAILABLE_FIELD_NUMBER: _ClassVar[int]
     CIDS_FIELD_NUMBER: _ClassVar[int]
-    APPOINTMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    APPOINTMENT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -41,7 +42,7 @@ class AppointmentLine(_message.Message):
     order_numbers: int
     appointment_available: int
     cids: _containers.RepeatedScalarFieldContainer[str]
-    appointment_id: str
+    appointment: _appointment_pb2.Appointment
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -53,7 +54,7 @@ class AppointmentLine(_message.Message):
         order_numbers: _Optional[int] = ...,
         appointment_available: _Optional[int] = ...,
         cids: _Optional[_Iterable[str]] = ...,
-        appointment_id: _Optional[str] = ...,
+        appointment: _Optional[_Union[_appointment_pb2.Appointment, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
