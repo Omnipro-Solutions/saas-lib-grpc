@@ -9,7 +9,6 @@ from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.rules import appointment_template_line_pb2 as _appointment_template_line_pb2
 from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
 from omni_pro_grpc.v1.rules import holidays_pb2 as _holidays_pb2
 from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
@@ -51,7 +50,7 @@ class AppointmentTemplate(_message.Message):
     hour_limit_same_day: str
     number_days_to_show: int
     holidays: _holidays_pb2.Holidays
-    lines: _containers.RepeatedCompositeFieldContainer[_appointment_template_line_pb2.AppointmentTemplateLine]
+    lines: _containers.RepeatedScalarFieldContainer[str]
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -65,7 +64,7 @@ class AppointmentTemplate(_message.Message):
         hour_limit_same_day: _Optional[str] = ...,
         number_days_to_show: _Optional[int] = ...,
         holidays: _Optional[_Union[_holidays_pb2.Holidays, _Mapping]] = ...,
-        lines: _Optional[_Iterable[_Union[_appointment_template_line_pb2.AppointmentTemplateLine, _Mapping]]] = ...,
+        lines: _Optional[_Iterable[str]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
