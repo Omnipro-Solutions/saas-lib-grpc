@@ -10,7 +10,6 @@ from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.rules import appointment_line_pb2 as _appointment_line_pb2
 from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
 from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 
@@ -30,7 +29,7 @@ class Appointment(_message.Message):
     warehouse: _warehouse_pb2.Warehouse
     method: _delivery_method_pb2.DeliveryMethod
     date: str
-    lines: _containers.RepeatedCompositeFieldContainer[_appointment_line_pb2.AppointmentLine]
+    lines: _containers.RepeatedScalarFieldContainer[str]
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -40,7 +39,7 @@ class Appointment(_message.Message):
         warehouse: _Optional[_Union[_warehouse_pb2.Warehouse, _Mapping]] = ...,
         method: _Optional[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]] = ...,
         date: _Optional[str] = ...,
-        lines: _Optional[_Iterable[_Union[_appointment_line_pb2.AppointmentLine, _Mapping]]] = ...,
+        lines: _Optional[_Iterable[str]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
