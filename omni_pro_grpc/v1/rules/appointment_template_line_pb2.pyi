@@ -9,6 +9,7 @@ from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.rules import appointment_template_pb2 as _appointment_template_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -19,7 +20,7 @@ class AppointmentTemplateLine(_message.Message):
         "hour_start",
         "hour_end",
         "order_numbers",
-        "appointment_template_id",
+        "appointment_template",
         "active",
         "external_id",
         "object_audit",
@@ -29,7 +30,7 @@ class AppointmentTemplateLine(_message.Message):
     HOUR_START_FIELD_NUMBER: _ClassVar[int]
     HOUR_END_FIELD_NUMBER: _ClassVar[int]
     ORDER_NUMBERS_FIELD_NUMBER: _ClassVar[int]
-    APPOINTMENT_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    APPOINTMENT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -38,7 +39,7 @@ class AppointmentTemplateLine(_message.Message):
     hour_start: str
     hour_end: str
     order_numbers: int
-    appointment_template_id: str
+    appointment_template: _appointment_template_pb2.AppointmentTemplate
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -49,7 +50,7 @@ class AppointmentTemplateLine(_message.Message):
         hour_start: _Optional[str] = ...,
         hour_end: _Optional[str] = ...,
         order_numbers: _Optional[int] = ...,
-        appointment_template_id: _Optional[str] = ...,
+        appointment_template: _Optional[_Union[_appointment_template_pb2.AppointmentTemplate, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
