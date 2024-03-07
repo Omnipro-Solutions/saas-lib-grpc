@@ -80,6 +80,7 @@ class Field(_message.Message):
         "is_exportable",
         "required",
         "relation",
+        "field_aliasing",
         "widget",
         "view",
         "is_filterable",
@@ -95,6 +96,7 @@ class Field(_message.Message):
     IS_EXPORTABLE_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_FIELD_NUMBER: _ClassVar[int]
     RELATION_FIELD_NUMBER: _ClassVar[int]
+    FIELD_ALIASING_FIELD_NUMBER: _ClassVar[int]
     WIDGET_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
     IS_FILTERABLE_FIELD_NUMBER: _ClassVar[int]
@@ -109,6 +111,7 @@ class Field(_message.Message):
     is_exportable: _wrappers_pb2.BoolValue
     required: _wrappers_pb2.BoolValue
     relation: _struct_pb2.Struct
+    field_aliasing: str
     widget: str
     view: str
     is_filterable: _wrappers_pb2.BoolValue
@@ -125,6 +128,7 @@ class Field(_message.Message):
         is_exportable: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         required: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         relation: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        field_aliasing: _Optional[str] = ...,
         widget: _Optional[str] = ...,
         view: _Optional[str] = ...,
         is_filterable: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
