@@ -15,12 +15,17 @@ class MirrorModelServiceStub(object):
         """
         self.CreateMirrorModel = channel.unary_unary(
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/CreateMirrorModel",
-            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModel.SerializeToString,
+            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
             response_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
+        )
+        self.ReadMirrorModel = channel.unary_unary(
+            "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/ReadMirrorModel",
+            request_serializer=v1_dot_util_dot_mirror__model__pb2.ReadMirrorModelRequest.SerializeToString,
+            response_deserializer=v1_dot_util_dot_mirror__model__pb2.ReadMirrorModelResponse.FromString,
         )
         self.UpdateMirrorModel = channel.unary_unary(
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/UpdateMirrorModel",
-            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModel.SerializeToString,
+            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
             response_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
         )
         self.DeleteMirrorModel = channel.unary_unary(
@@ -34,6 +39,12 @@ class MirrorModelServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateMirrorModel(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def ReadMirrorModel(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -56,12 +67,17 @@ def add_MirrorModelServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
         "CreateMirrorModel": grpc.unary_unary_rpc_method_handler(
             servicer.CreateMirrorModel,
-            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModel.FromString,
+            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.FromString,
             response_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.SerializeToString,
+        ),
+        "ReadMirrorModel": grpc.unary_unary_rpc_method_handler(
+            servicer.ReadMirrorModel,
+            request_deserializer=v1_dot_util_dot_mirror__model__pb2.ReadMirrorModelRequest.FromString,
+            response_serializer=v1_dot_util_dot_mirror__model__pb2.ReadMirrorModelResponse.SerializeToString,
         ),
         "UpdateMirrorModel": grpc.unary_unary_rpc_method_handler(
             servicer.UpdateMirrorModel,
-            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModel.FromString,
+            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.FromString,
             response_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.SerializeToString,
         ),
         "DeleteMirrorModel": grpc.unary_unary_rpc_method_handler(
@@ -97,8 +113,37 @@ class MirrorModelService(object):
             request,
             target,
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/CreateMirrorModel",
-            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModel.SerializeToString,
+            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
             v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def ReadMirrorModel(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/ReadMirrorModel",
+            v1_dot_util_dot_mirror__model__pb2.ReadMirrorModelRequest.SerializeToString,
+            v1_dot_util_dot_mirror__model__pb2.ReadMirrorModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -126,7 +171,7 @@ class MirrorModelService(object):
             request,
             target,
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/UpdateMirrorModel",
-            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModel.SerializeToString,
+            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
             v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
             options,
             channel_credentials,
