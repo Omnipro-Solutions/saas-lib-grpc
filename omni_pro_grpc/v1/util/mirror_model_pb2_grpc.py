@@ -15,7 +15,7 @@ class MirrorModelServiceStub(object):
         """
         self.CreateMirrorModel = channel.unary_unary(
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/CreateMirrorModel",
-            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
+            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelRequest.SerializeToString,
             response_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
         )
         self.ReadMirrorModel = channel.unary_unary(
@@ -25,7 +25,7 @@ class MirrorModelServiceStub(object):
         )
         self.UpdateMirrorModel = channel.unary_unary(
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/UpdateMirrorModel",
-            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
+            request_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelRequest.SerializeToString,
             response_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
         )
         self.DeleteMirrorModel = channel.unary_unary(
@@ -67,7 +67,7 @@ def add_MirrorModelServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
         "CreateMirrorModel": grpc.unary_unary_rpc_method_handler(
             servicer.CreateMirrorModel,
-            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.FromString,
+            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelRequest.FromString,
             response_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.SerializeToString,
         ),
         "ReadMirrorModel": grpc.unary_unary_rpc_method_handler(
@@ -77,7 +77,7 @@ def add_MirrorModelServiceServicer_to_server(servicer, server):
         ),
         "UpdateMirrorModel": grpc.unary_unary_rpc_method_handler(
             servicer.UpdateMirrorModel,
-            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.FromString,
+            request_deserializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelRequest.FromString,
             response_serializer=v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.SerializeToString,
         ),
         "DeleteMirrorModel": grpc.unary_unary_rpc_method_handler(
@@ -113,7 +113,7 @@ class MirrorModelService(object):
             request,
             target,
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/CreateMirrorModel",
-            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
+            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelRequest.SerializeToString,
             v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
             options,
             channel_credentials,
@@ -171,7 +171,7 @@ class MirrorModelService(object):
             request,
             target,
             "/pro.omni.oms.api.v1.util.mirror_model.MirrorModelService/UpdateMirrorModel",
-            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelReuest.SerializeToString,
+            v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateMirrorModelRequest.SerializeToString,
             v1_dot_util_dot_mirror__model__pb2.CreateOrUpdateCreateMirrorResponse.FromString,
             options,
             channel_credentials,
