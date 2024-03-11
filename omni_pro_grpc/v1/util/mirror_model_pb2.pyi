@@ -1,4 +1,5 @@
 from typing import ClassVar as _ClassVar
+from typing import Iterable as _Iterable
 from typing import Mapping as _Mapping
 from typing import Optional as _Optional
 from typing import Union as _Union
@@ -6,12 +7,13 @@ from typing import Union as _Union
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
+from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class CreateOrUpdateMirrorModelReuest(_message.Message):
+class CreateOrUpdateMirrorModelRequest(_message.Message):
     __slots__ = ["model_path", "model_data", "context"]
     MODEL_PATH_FIELD_NUMBER: _ClassVar[int]
     MODEL_DATA_FIELD_NUMBER: _ClassVar[int]
@@ -39,29 +41,44 @@ class CreateOrUpdateCreateMirrorResponse(_message.Message):
     ) -> None: ...
 
 class ReadMirrorModelRequest(_message.Message):
-    __slots__ = ["model_path", "filter", "context"]
+    __slots__ = ["model_path", "group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
     MODEL_PATH_FIELD_NUMBER: _ClassVar[int]
+    GROUP_BY_FIELD_NUMBER: _ClassVar[int]
+    SORT_BY_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
+    PAGINATED_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     model_path: str
-    filter: str
+    group_by: _containers.RepeatedCompositeFieldContainer[_base_pb2.GroupBy]
+    sort_by: _base_pb2.SortBy
+    fields: _base_pb2.Fields
+    filter: _base_pb2.Filter
+    paginated: _base_pb2.Paginated
+    id: str
     context: _base_pb2.Context
     def __init__(
         self,
         model_path: _Optional[str] = ...,
-        filter: _Optional[str] = ...,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
 class ReadMirrorModelResponse(_message.Message):
-    __slots__ = ["model_data", "response_standard"]
-    MODEL_DATA_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["mirror_models", "response_standard"]
+    MIRROR_MODELS_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    model_data: _struct_pb2.Struct
+    mirror_models: _struct_pb2.ListValue
     response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        model_data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        mirror_models: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 
