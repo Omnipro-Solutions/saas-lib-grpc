@@ -13,8 +13,10 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.sales import address_pb2 as _address_pb2
 from omni_pro_grpc.v1.sales import carrier_pb2 as _carrier_pb2
 from omni_pro_grpc.v1.sales import delivery_method_pb2 as _delivery_method_pb2
+from omni_pro_grpc.v1.sales import flow_pb2 as _flow_pb2
 from omni_pro_grpc.v1.sales import picking_pb2 as _picking_pb2
 from omni_pro_grpc.v1.sales import sale_pb2 as _sale_pb2
+from omni_pro_grpc.v1.sales import state_pb2 as _state_pb2
 from omni_pro_grpc.v1.sales import warehouse_pb2 as _warehouse_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
@@ -42,6 +44,8 @@ class Order(_message.Message):
         "shipping_amount_discount_description",
         "type_delivery",
         "confirmed",
+        "state",
+        "flow",
         "sale_stock_operation",
         "pickings",
         "object_audit",
@@ -68,6 +72,8 @@ class Order(_message.Message):
     SHIPPING_AMOUNT_DISCOUNT_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TYPE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     CONFIRMED_FIELD_NUMBER: _ClassVar[int]
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    FLOW_FIELD_NUMBER: _ClassVar[int]
     SALE_STOCK_OPERATION_FIELD_NUMBER: _ClassVar[int]
     PICKINGS_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -93,6 +99,8 @@ class Order(_message.Message):
     shipping_amount_discount_description: str
     type_delivery: str
     confirmed: bool
+    state: _state_pb2.State
+    flow: _flow_pb2.Flow
     sale_stock_operation: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     pickings: _containers.RepeatedCompositeFieldContainer[_picking_pb2.Picking]
     object_audit: _base_pb2.ObjectAudit
@@ -120,6 +128,8 @@ class Order(_message.Message):
         shipping_amount_discount_description: _Optional[str] = ...,
         type_delivery: _Optional[str] = ...,
         confirmed: bool = ...,
+        state: _Optional[_Union[_state_pb2.State, _Mapping]] = ...,
+        flow: _Optional[_Union[_flow_pb2.Flow, _Mapping]] = ...,
         sale_stock_operation: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         pickings: _Optional[_Iterable[_Union[_picking_pb2.Picking, _Mapping]]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,

@@ -14,56 +14,86 @@ from omni_pro_grpc.v1.utilities import event_pb2 as _event_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Webhook(_message.Message):
-    __slots__ = ["id", "event", "url", "method", "format", "log", "active", "object_audit"]
+    __slots__ = [
+        "id",
+        "events",
+        "url",
+        "method",
+        "format",
+        "type_webhook",
+        "protocol",
+        "python_code",
+        "dag_id",
+        "active",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
-    EVENT_FIELD_NUMBER: _ClassVar[int]
+    EVENTS_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
-    LOG_FIELD_NUMBER: _ClassVar[int]
+    TYPE_WEBHOOK_FIELD_NUMBER: _ClassVar[int]
+    PROTOCOL_FIELD_NUMBER: _ClassVar[int]
+    PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
+    DAG_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
-    event: _event_pb2.Event
+    events: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
     url: str
     method: str
     format: str
-    log: _wrappers_pb2.BoolValue
+    type_webhook: str
+    protocol: str
+    python_code: str
+    dag_id: str
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
         id: _Optional[str] = ...,
-        event: _Optional[_Union[_event_pb2.Event, _Mapping]] = ...,
+        events: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
         url: _Optional[str] = ...,
         method: _Optional[str] = ...,
         format: _Optional[str] = ...,
-        log: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        type_webhook: _Optional[str] = ...,
+        protocol: _Optional[str] = ...,
+        python_code: _Optional[str] = ...,
+        dag_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class WebhookCreateRequest(_message.Message):
-    __slots__ = ["event_id", "url", "method", "format", "log", "context"]
-    EVENT_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["event_ids", "url", "method", "format", "type_webhook", "protocol", "python_code", "dag_id", "context"]
+    EVENT_IDS_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
-    LOG_FIELD_NUMBER: _ClassVar[int]
+    TYPE_WEBHOOK_FIELD_NUMBER: _ClassVar[int]
+    PROTOCOL_FIELD_NUMBER: _ClassVar[int]
+    PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
+    DAG_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    event_id: str
+    event_ids: _containers.RepeatedScalarFieldContainer[str]
     url: str
     method: str
     format: str
-    log: _wrappers_pb2.BoolValue
+    type_webhook: str
+    protocol: str
+    python_code: str
+    dag_id: str
     context: _base_pb2.Context
     def __init__(
         self,
-        event_id: _Optional[str] = ...,
+        event_ids: _Optional[_Iterable[str]] = ...,
         url: _Optional[str] = ...,
         method: _Optional[str] = ...,
         format: _Optional[str] = ...,
-        log: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        type_webhook: _Optional[str] = ...,
+        protocol: _Optional[str] = ...,
+        python_code: _Optional[str] = ...,
+        dag_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
