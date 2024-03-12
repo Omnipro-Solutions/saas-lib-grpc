@@ -10,16 +10,14 @@ from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.sales import state_pb2 as _state_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Flow(_message.Message):
-    __slots__ = ["id", "name", "code", "initial_state", "description", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "description", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
-    INITIAL_STATE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -27,7 +25,6 @@ class Flow(_message.Message):
     id: int
     name: str
     code: str
-    initial_state: _state_pb2.State
     description: str
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -37,7 +34,6 @@ class Flow(_message.Message):
         id: _Optional[int] = ...,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
-        initial_state: _Optional[_Union[_state_pb2.State, _Mapping]] = ...,
         description: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -45,16 +41,14 @@ class Flow(_message.Message):
     ) -> None: ...
 
 class FlowCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "initial_state_id", "description", "external_id", "context"]
+    __slots__ = ["name", "code", "description", "external_id", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
-    INITIAL_STATE_ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
-    initial_state_id: int
     description: str
     external_id: str
     context: _base_pb2.Context
@@ -62,7 +56,6 @@ class FlowCreateRequest(_message.Message):
         self,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
-        initial_state_id: _Optional[int] = ...,
         description: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
