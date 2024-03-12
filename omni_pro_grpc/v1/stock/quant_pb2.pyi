@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -249,4 +250,58 @@ class ProductAvailableResponse(_message.Message):
         self,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         product_available: _Optional[_Union[ProductAvailable, _Mapping]] = ...,
+    ) -> None: ...
+
+class SearchQuantIntegrationRequest(_message.Message):
+    __slots__ = ["quants", "context"]
+    QUANTS_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    quants: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        quants: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class SearchQuantIntegrationResponse(_message.Message):
+    __slots__ = ["response_standard", "quants"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    QUANTS_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    quants: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        quants: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+    ) -> None: ...
+
+class QuantIntegrationRequest(_message.Message):
+    __slots__ = ["create", "update", "delete", "context"]
+    CREATE_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_FIELD_NUMBER: _ClassVar[int]
+    DELETE_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    create: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    update: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    delete: _containers.RepeatedScalarFieldContainer[int]
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        create: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        update: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        delete: _Optional[_Iterable[int]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class QuantIntegrationResponse(_message.Message):
+    __slots__ = ["response_standard", "hash"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    HASH_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    hash: str
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        hash: _Optional[str] = ...,
     ) -> None: ...

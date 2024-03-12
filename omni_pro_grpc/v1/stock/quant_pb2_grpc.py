@@ -38,6 +38,16 @@ class QuantServiceStub(object):
             request_serializer=v1_dot_stock_dot_quant__pb2.ProductAvailableRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_quant__pb2.ProductAvailableResponse.FromString,
         )
+        self.SearchQuantStockIntegration = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.quant.QuantService/SearchQuantStockIntegration",
+            request_serializer=v1_dot_stock_dot_quant__pb2.SearchQuantIntegrationRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_quant__pb2.SearchQuantIntegrationResponse.FromString,
+        )
+        self.QuantStockIntegration = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.quant.QuantService/QuantStockIntegration",
+            request_serializer=v1_dot_stock_dot_quant__pb2.QuantIntegrationRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_quant__pb2.QuantIntegrationResponse.FromString,
+        )
 
 
 class QuantServiceServicer(object):
@@ -73,6 +83,18 @@ class QuantServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def SearchQuantStockIntegration(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def QuantStockIntegration(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_QuantServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -100,6 +122,16 @@ def add_QuantServiceServicer_to_server(servicer, server):
             servicer.ProductAvailable,
             request_deserializer=v1_dot_stock_dot_quant__pb2.ProductAvailableRequest.FromString,
             response_serializer=v1_dot_stock_dot_quant__pb2.ProductAvailableResponse.SerializeToString,
+        ),
+        "SearchQuantStockIntegration": grpc.unary_unary_rpc_method_handler(
+            servicer.SearchQuantStockIntegration,
+            request_deserializer=v1_dot_stock_dot_quant__pb2.SearchQuantIntegrationRequest.FromString,
+            response_serializer=v1_dot_stock_dot_quant__pb2.SearchQuantIntegrationResponse.SerializeToString,
+        ),
+        "QuantStockIntegration": grpc.unary_unary_rpc_method_handler(
+            servicer.QuantStockIntegration,
+            request_deserializer=v1_dot_stock_dot_quant__pb2.QuantIntegrationRequest.FromString,
+            response_serializer=v1_dot_stock_dot_quant__pb2.QuantIntegrationResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -247,6 +279,64 @@ class QuantService(object):
             "/pro.omni.oms.api.v1.stock.quant.QuantService/ProductAvailable",
             v1_dot_stock_dot_quant__pb2.ProductAvailableRequest.SerializeToString,
             v1_dot_stock_dot_quant__pb2.ProductAvailableResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def SearchQuantStockIntegration(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.stock.quant.QuantService/SearchQuantStockIntegration",
+            v1_dot_stock_dot_quant__pb2.SearchQuantIntegrationRequest.SerializeToString,
+            v1_dot_stock_dot_quant__pb2.SearchQuantIntegrationResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def QuantStockIntegration(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.stock.quant.QuantService/QuantStockIntegration",
+            v1_dot_stock_dot_quant__pb2.QuantIntegrationRequest.SerializeToString,
+            v1_dot_stock_dot_quant__pb2.QuantIntegrationResponse.FromString,
             options,
             channel_credentials,
             insecure,
