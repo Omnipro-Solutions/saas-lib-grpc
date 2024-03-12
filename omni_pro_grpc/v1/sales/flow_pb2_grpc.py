@@ -33,6 +33,11 @@ class FlowServiceStub(object):
             request_serializer=v1_dot_sales_dot_flow__pb2.FlowDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_flow__pb2.FlowDeleteResponse.FromString,
         )
+        self.FlowChangeState = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.flow.FlowService/FlowChangeState",
+            request_serializer=v1_dot_sales_dot_flow__pb2.FlowChangeStateRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_flow__pb2.FlowChangeStateResponse.FromString,
+        )
 
 
 class FlowServiceServicer(object):
@@ -62,6 +67,12 @@ class FlowServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def FlowChangeState(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_FlowServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_FlowServiceServicer_to_server(servicer, server):
             servicer.FlowDelete,
             request_deserializer=v1_dot_sales_dot_flow__pb2.FlowDeleteRequest.FromString,
             response_serializer=v1_dot_sales_dot_flow__pb2.FlowDeleteResponse.SerializeToString,
+        ),
+        "FlowChangeState": grpc.unary_unary_rpc_method_handler(
+            servicer.FlowChangeState,
+            request_deserializer=v1_dot_sales_dot_flow__pb2.FlowChangeStateRequest.FromString,
+            response_serializer=v1_dot_sales_dot_flow__pb2.FlowChangeStateResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +218,35 @@ class FlowService(object):
             "/pro.omni.oms.api.v1.sales.flow.FlowService/FlowDelete",
             v1_dot_sales_dot_flow__pb2.FlowDeleteRequest.SerializeToString,
             v1_dot_sales_dot_flow__pb2.FlowDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def FlowChangeState(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.flow.FlowService/FlowChangeState",
+            v1_dot_sales_dot_flow__pb2.FlowChangeStateRequest.SerializeToString,
+            v1_dot_sales_dot_flow__pb2.FlowChangeStateResponse.FromString,
             options,
             channel_credentials,
             insecure,

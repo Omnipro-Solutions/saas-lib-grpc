@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -160,3 +161,21 @@ class FlowDeleteResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class FlowChangeStateRequest(_message.Message):
+    __slots__ = ["context"]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    context: _base_pb2.Context
+    def __init__(self, context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+
+class FlowChangeStateResponse(_message.Message):
+    __slots__ = ["data", "response_standard"]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    data: _struct_pb2.ListValue
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(
+        self,
+        data: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
