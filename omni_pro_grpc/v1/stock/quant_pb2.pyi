@@ -265,15 +265,21 @@ class SearchQuantIntegrationRequest(_message.Message):
     ) -> None: ...
 
 class SearchQuantIntegrationResponse(_message.Message):
-    __slots__ = ["response_standard", "quants"]
+    __slots__ = ["response_standard", "quants", "locations", "products"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     QUANTS_FIELD_NUMBER: _ClassVar[int]
+    LOCATIONS_FIELD_NUMBER: _ClassVar[int]
+    PRODUCTS_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     quants: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    locations: _struct_pb2.Struct
+    products: _struct_pb2.Struct
     def __init__(
         self,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         quants: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        locations: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        products: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
     ) -> None: ...
 
 class QuantIntegrationRequest(_message.Message):
