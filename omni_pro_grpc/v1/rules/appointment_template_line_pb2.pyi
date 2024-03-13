@@ -38,7 +38,7 @@ class AppointmentTemplateLine(_message.Message):
     day: str
     hour_start: str
     hour_end: str
-    order_numbers: int
+    order_numbers: str
     appointment_template: _appointment_template_pb2.AppointmentTemplate
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -49,7 +49,7 @@ class AppointmentTemplateLine(_message.Message):
         day: _Optional[str] = ...,
         hour_start: _Optional[str] = ...,
         hour_end: _Optional[str] = ...,
-        order_numbers: _Optional[int] = ...,
+        order_numbers: _Optional[str] = ...,
         appointment_template: _Optional[_Union[_appointment_template_pb2.AppointmentTemplate, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -68,7 +68,7 @@ class AppointmentTemplateLineCreateRequest(_message.Message):
     day: str
     hour_start: str
     hour_end: str
-    order_numbers: int
+    order_numbers: str
     appointment_template_id: str
     external_id: str
     context: _base_pb2.Context
@@ -77,7 +77,7 @@ class AppointmentTemplateLineCreateRequest(_message.Message):
         day: _Optional[str] = ...,
         hour_start: _Optional[str] = ...,
         hour_end: _Optional[str] = ...,
-        order_numbers: _Optional[int] = ...,
+        order_numbers: _Optional[str] = ...,
         appointment_template_id: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
