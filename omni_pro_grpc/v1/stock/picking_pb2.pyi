@@ -521,3 +521,45 @@ class SalePickingResponse(_message.Message):
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         pickings: _Optional[_Iterable[_Union[Picking, _Mapping]]] = ...,
     ) -> None: ...
+
+class PickingKambanReadRequet(_message.Message):
+    __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
+    GROUP_BY_FIELD_NUMBER: _ClassVar[int]
+    SORT_BY_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    PAGINATED_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    group_by: _containers.RepeatedCompositeFieldContainer[_base_pb2.GroupBy]
+    sort_by: _base_pb2.SortBy
+    fields: _base_pb2.Fields
+    filter: _base_pb2.Filter
+    paginated: _base_pb2.Paginated
+    id: int
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        group_by: _Optional[_Iterable[_Union[_base_pb2.GroupBy, _Mapping]]] = ...,
+        sort_by: _Optional[_Union[_base_pb2.SortBy, _Mapping]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        paginated: _Optional[_Union[_base_pb2.Paginated, _Mapping]] = ...,
+        id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class PickingKambanReadResponse(_message.Message):
+    __slots__ = ["response_standard", "meta_data", "data"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    META_DATA_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    meta_data: _base_pb2.MetaData
+    data: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
+        data: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+    ) -> None: ...

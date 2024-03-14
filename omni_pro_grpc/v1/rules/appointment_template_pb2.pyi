@@ -96,7 +96,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
     name: str
     warehouse_ids: _containers.RepeatedScalarFieldContainer[int]
     method_ids: _containers.RepeatedScalarFieldContainer[str]
-    order_numbers: int
+    order_numbers: str
     hour_limit_same_day: str
     number_days_to_show: int
     holiday_id: str
@@ -108,7 +108,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
         name: _Optional[str] = ...,
         warehouse_ids: _Optional[_Iterable[int]] = ...,
         method_ids: _Optional[_Iterable[str]] = ...,
-        order_numbers: _Optional[int] = ...,
+        order_numbers: _Optional[str] = ...,
         hour_limit_same_day: _Optional[str] = ...,
         number_days_to_show: _Optional[int] = ...,
         holiday_id: _Optional[str] = ...,
