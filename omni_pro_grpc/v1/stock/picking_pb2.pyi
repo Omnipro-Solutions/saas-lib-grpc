@@ -522,7 +522,7 @@ class SalePickingResponse(_message.Message):
         pickings: _Optional[_Iterable[_Union[Picking, _Mapping]]] = ...,
     ) -> None: ...
 
-class PickingKambanReadRequet(_message.Message):
+class PickingKanbanReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
     GROUP_BY_FIELD_NUMBER: _ClassVar[int]
     SORT_BY_FIELD_NUMBER: _ClassVar[int]
@@ -549,7 +549,7 @@ class PickingKambanReadRequet(_message.Message):
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class PickingKambanReadResponse(_message.Message):
+class PickingKanbanReadResponse(_message.Message):
     __slots__ = ["response_standard", "meta_data", "data"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     META_DATA_FIELD_NUMBER: _ClassVar[int]

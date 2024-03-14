@@ -53,10 +53,10 @@ class PickingServiceStub(object):
             request_serializer=v1_dot_stock_dot_picking__pb2.SalePickingRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_picking__pb2.SalePickingResponse.FromString,
         )
-        self.PickingKamban = channel.unary_unary(
-            "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingKamban",
-            request_serializer=v1_dot_stock_dot_picking__pb2.PickingKambanReadRequet.SerializeToString,
-            response_deserializer=v1_dot_stock_dot_picking__pb2.PickingKambanReadResponse.FromString,
+        self.PickingKanban = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingKanban",
+            request_serializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadResponse.FromString,
         )
 
 
@@ -111,7 +111,7 @@ class PickingServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
-    def PickingKamban(self, request, context):
+    def PickingKanban(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -160,10 +160,10 @@ def add_PickingServiceServicer_to_server(servicer, server):
             request_deserializer=v1_dot_stock_dot_picking__pb2.SalePickingRequest.FromString,
             response_serializer=v1_dot_stock_dot_picking__pb2.SalePickingResponse.SerializeToString,
         ),
-        "PickingKamban": grpc.unary_unary_rpc_method_handler(
-            servicer.PickingKamban,
-            request_deserializer=v1_dot_stock_dot_picking__pb2.PickingKambanReadRequet.FromString,
-            response_serializer=v1_dot_stock_dot_picking__pb2.PickingKambanReadResponse.SerializeToString,
+        "PickingKanban": grpc.unary_unary_rpc_method_handler(
+            servicer.PickingKanban,
+            request_deserializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadRequest.FromString,
+            response_serializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -409,7 +409,7 @@ class PickingService(object):
         )
 
     @staticmethod
-    def PickingKamban(
+    def PickingKanban(
         request,
         target,
         options=(),
@@ -424,9 +424,9 @@ class PickingService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingKamban",
-            v1_dot_stock_dot_picking__pb2.PickingKambanReadRequet.SerializeToString,
-            v1_dot_stock_dot_picking__pb2.PickingKambanReadResponse.FromString,
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingKanban",
+            v1_dot_stock_dot_picking__pb2.PickingKanbanReadRequest.SerializeToString,
+            v1_dot_stock_dot_picking__pb2.PickingKanbanReadResponse.FromString,
             options,
             channel_credentials,
             insecure,
