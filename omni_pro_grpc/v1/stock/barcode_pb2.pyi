@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -340,3 +341,30 @@ class BarcodeLineDeleteResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class GetBarcodeRequest(_message.Message):
+    __slots__ = ["barcode", "picking_id", "context"]
+    BARCODE_FIELD_NUMBER: _ClassVar[int]
+    PICKING_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    barcode: str
+    picking_id: int
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        barcode: _Optional[str] = ...,
+        picking_id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class GetBarcodeResponse(_message.Message):
+    __slots__ = ["response_standard", "data"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    data: _struct_pb2.Struct
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+    ) -> None: ...
