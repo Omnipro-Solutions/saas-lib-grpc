@@ -53,6 +53,11 @@ class BarcodeServiceStub(object):
             request_serializer=v1_dot_stock_dot_barcode__pb2.BarcodeLineDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_barcode__pb2.BarcodeLineDeleteResponse.FromString,
         )
+        self.GetBarcode = channel.unary_unary(
+            "/pro.omni.oms.api.stock.barcode.BarcodeService/GetBarcode",
+            request_serializer=v1_dot_stock_dot_barcode__pb2.GetBarcodeRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_barcode__pb2.GetBarcodeResponse.FromString,
+        )
 
 
 class BarcodeServiceServicer(object):
@@ -106,6 +111,12 @@ class BarcodeServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def GetBarcode(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_BarcodeServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -148,6 +159,11 @@ def add_BarcodeServiceServicer_to_server(servicer, server):
             servicer.BarcodeLineDelete,
             request_deserializer=v1_dot_stock_dot_barcode__pb2.BarcodeLineDeleteRequest.FromString,
             response_serializer=v1_dot_stock_dot_barcode__pb2.BarcodeLineDeleteResponse.SerializeToString,
+        ),
+        "GetBarcode": grpc.unary_unary_rpc_method_handler(
+            servicer.GetBarcode,
+            request_deserializer=v1_dot_stock_dot_barcode__pb2.GetBarcodeRequest.FromString,
+            response_serializer=v1_dot_stock_dot_barcode__pb2.GetBarcodeResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -382,6 +398,35 @@ class BarcodeService(object):
             "/pro.omni.oms.api.stock.barcode.BarcodeService/BarcodeLineDelete",
             v1_dot_stock_dot_barcode__pb2.BarcodeLineDeleteRequest.SerializeToString,
             v1_dot_stock_dot_barcode__pb2.BarcodeLineDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def GetBarcode(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.stock.barcode.BarcodeService/GetBarcode",
+            v1_dot_stock_dot_barcode__pb2.GetBarcodeRequest.SerializeToString,
+            v1_dot_stock_dot_barcode__pb2.GetBarcodeResponse.FromString,
             options,
             channel_credentials,
             insecure,
