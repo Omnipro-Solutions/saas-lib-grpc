@@ -34,12 +34,12 @@ class ComputeMethodRequest(_message.Message):
     VERSION_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     data: _containers.RepeatedCompositeFieldContainer[ComputeMethodData]
-    version: str
+    version: int
     context: _base_pb2.Context
     def __init__(
         self,
         data: _Optional[_Iterable[_Union[ComputeMethodData, _Mapping]]] = ...,
-        version: _Optional[str] = ...,
+        version: _Optional[int] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
