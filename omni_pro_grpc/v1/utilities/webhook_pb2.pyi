@@ -16,7 +16,8 @@ DESCRIPTOR: _descriptor.FileDescriptor
 class Webhook(_message.Message):
     __slots__ = [
         "id",
-        "events",
+        "name",
+        "event",
         "url",
         "method",
         "format",
@@ -28,7 +29,8 @@ class Webhook(_message.Message):
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
-    EVENTS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    EVENT_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -39,7 +41,8 @@ class Webhook(_message.Message):
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
-    events: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
+    name: str
+    event: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
     url: str
     method: str
     format: str
@@ -52,7 +55,8 @@ class Webhook(_message.Message):
     def __init__(
         self,
         id: _Optional[str] = ...,
-        events: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
+        name: _Optional[str] = ...,
+        event: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
         url: _Optional[str] = ...,
         method: _Optional[str] = ...,
         format: _Optional[str] = ...,
@@ -65,8 +69,22 @@ class Webhook(_message.Message):
     ) -> None: ...
 
 class WebhookCreateRequest(_message.Message):
-    __slots__ = ["event_ids", "url", "method", "format", "type_webhook", "protocol", "python_code", "dag_id", "context"]
-    EVENT_IDS_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = [
+        "name",
+        "events",
+        "url",
+        "method",
+        "format",
+        "type_webhook",
+        "protocol",
+        "python_code",
+        "dag_id",
+        "context",
+        "active",
+        "object_audit",
+    ]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    EVENTS_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -75,7 +93,10 @@ class WebhookCreateRequest(_message.Message):
     PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
     DAG_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    event_ids: _containers.RepeatedScalarFieldContainer[str]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    events: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
     url: str
     method: str
     format: str
@@ -84,9 +105,12 @@ class WebhookCreateRequest(_message.Message):
     python_code: str
     dag_id: str
     context: _base_pb2.Context
+    active: _wrappers_pb2.BoolValue
+    object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
-        event_ids: _Optional[_Iterable[str]] = ...,
+        name: _Optional[str] = ...,
+        events: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
         url: _Optional[str] = ...,
         method: _Optional[str] = ...,
         format: _Optional[str] = ...,
@@ -95,6 +119,8 @@ class WebhookCreateRequest(_message.Message):
         python_code: _Optional[str] = ...,
         dag_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class WebhookCreateResponse(_message.Message):

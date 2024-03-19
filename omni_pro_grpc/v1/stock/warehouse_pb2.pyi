@@ -45,6 +45,9 @@ class Warehouse(_message.Message):
         "locality_available_rule",
         "schedule_template_rule",
         "ecommerce_code",
+        "longitud",
+        "latitude",
+        "mobile",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -74,6 +77,9 @@ class Warehouse(_message.Message):
     LOCALITY_AVAILABLE_RULE_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_TEMPLATE_RULE_FIELD_NUMBER: _ClassVar[int]
     ECOMMERCE_CODE_FIELD_NUMBER: _ClassVar[int]
+    LONGITUD_FIELD_NUMBER: _ClassVar[int]
+    LATITUDE_FIELD_NUMBER: _ClassVar[int]
+    MOBILE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -102,6 +108,9 @@ class Warehouse(_message.Message):
     locality_available_rule: str
     schedule_template_rule: str
     ecommerce_code: str
+    longitud: str
+    latitude: str
+    mobile: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -132,6 +141,9 @@ class Warehouse(_message.Message):
         locality_available_rule: _Optional[str] = ...,
         schedule_template_rule: _Optional[str] = ...,
         ecommerce_code: _Optional[str] = ...,
+        longitud: _Optional[str] = ...,
+        latitude: _Optional[str] = ...,
+        mobile: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -150,6 +162,9 @@ class WarehouseCreateRequest(_message.Message):
         "locality_available_id",
         "schedule_template_id",
         "ecommerce_code",
+        "longitud",
+        "latitude",
+        "mobile",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -165,6 +180,9 @@ class WarehouseCreateRequest(_message.Message):
     LOCALITY_AVAILABLE_ID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     ECOMMERCE_CODE_FIELD_NUMBER: _ClassVar[int]
+    LONGITUD_FIELD_NUMBER: _ClassVar[int]
+    LATITUDE_FIELD_NUMBER: _ClassVar[int]
+    MOBILE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
@@ -179,6 +197,9 @@ class WarehouseCreateRequest(_message.Message):
     locality_available_id: str
     schedule_template_id: str
     ecommerce_code: str
+    longitud: str
+    latitude: str
+    mobile: str
     context: _base_pb2.Context
     def __init__(
         self,
@@ -195,6 +216,9 @@ class WarehouseCreateRequest(_message.Message):
         locality_available_id: _Optional[str] = ...,
         schedule_template_id: _Optional[str] = ...,
         ecommerce_code: _Optional[str] = ...,
+        longitud: _Optional[str] = ...,
+        latitude: _Optional[str] = ...,
+        mobile: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
