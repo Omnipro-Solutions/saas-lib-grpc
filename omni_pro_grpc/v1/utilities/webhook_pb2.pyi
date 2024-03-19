@@ -17,7 +17,7 @@ class Webhook(_message.Message):
     __slots__ = [
         "id",
         "name",
-        "event",
+        "events",
         "url",
         "method",
         "format",
@@ -30,7 +30,7 @@ class Webhook(_message.Message):
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
-    EVENT_FIELD_NUMBER: _ClassVar[int]
+    EVENTS_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -42,7 +42,7 @@ class Webhook(_message.Message):
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
-    event: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
+    events: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
     url: str
     method: str
     format: str
@@ -56,7 +56,7 @@ class Webhook(_message.Message):
         self,
         id: _Optional[str] = ...,
         name: _Optional[str] = ...,
-        event: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
+        events: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
         url: _Optional[str] = ...,
         method: _Optional[str] = ...,
         format: _Optional[str] = ...,
@@ -71,7 +71,7 @@ class Webhook(_message.Message):
 class WebhookCreateRequest(_message.Message):
     __slots__ = [
         "name",
-        "events",
+        "event_ids",
         "url",
         "method",
         "format",
@@ -84,7 +84,7 @@ class WebhookCreateRequest(_message.Message):
         "object_audit",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
-    EVENTS_FIELD_NUMBER: _ClassVar[int]
+    EVENT_IDS_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -96,7 +96,7 @@ class WebhookCreateRequest(_message.Message):
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     name: str
-    events: _containers.RepeatedCompositeFieldContainer[_event_pb2.Event]
+    event_ids: _containers.RepeatedScalarFieldContainer[str]
     url: str
     method: str
     format: str
@@ -110,7 +110,7 @@ class WebhookCreateRequest(_message.Message):
     def __init__(
         self,
         name: _Optional[str] = ...,
-        events: _Optional[_Iterable[_Union[_event_pb2.Event, _Mapping]]] = ...,
+        event_ids: _Optional[_Iterable[str]] = ...,
         url: _Optional[str] = ...,
         method: _Optional[str] = ...,
         format: _Optional[str] = ...,
