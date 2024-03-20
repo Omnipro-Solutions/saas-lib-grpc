@@ -23,6 +23,8 @@ class Transition(_message.Message):
         "trigger",
         "description",
         "logic",
+        "type_transition",
+        "send_ecommerce",
         "active",
         "external_id",
         "object_audit",
@@ -34,6 +36,8 @@ class Transition(_message.Message):
     TRIGGER_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     LOGIC_FIELD_NUMBER: _ClassVar[int]
+    TYPE_TRANSITION_FIELD_NUMBER: _ClassVar[int]
+    SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -44,6 +48,8 @@ class Transition(_message.Message):
     trigger: str
     description: str
     logic: str
+    type_transition: str
+    send_ecommerce: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -56,6 +62,8 @@ class Transition(_message.Message):
         trigger: _Optional[str] = ...,
         description: _Optional[str] = ...,
         logic: _Optional[str] = ...,
+        type_transition: _Optional[str] = ...,
+        send_ecommerce: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -69,6 +77,8 @@ class TransitionCreateRequest(_message.Message):
         "trigger",
         "description",
         "logic",
+        "type_transition",
+        "send_ecommerce",
         "external_id",
         "context",
     ]
@@ -78,6 +88,8 @@ class TransitionCreateRequest(_message.Message):
     TRIGGER_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     LOGIC_FIELD_NUMBER: _ClassVar[int]
+    TYPE_TRANSITION_FIELD_NUMBER: _ClassVar[int]
+    SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     flow_id: int
@@ -86,6 +98,8 @@ class TransitionCreateRequest(_message.Message):
     trigger: str
     description: str
     logic: str
+    type_transition: str
+    send_ecommerce: bool
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -96,6 +110,8 @@ class TransitionCreateRequest(_message.Message):
         trigger: _Optional[str] = ...,
         description: _Optional[str] = ...,
         logic: _Optional[str] = ...,
+        type_transition: _Optional[str] = ...,
+        send_ecommerce: bool = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
