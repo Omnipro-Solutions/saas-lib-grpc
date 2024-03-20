@@ -6,7 +6,6 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -144,6 +143,33 @@ class CarrierDeleteRequest(_message.Message):
     ) -> None: ...
 
 class CarrierDeleteResponse(_message.Message):
+    __slots__ = ["response_standard"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class SaveGuideRequest(_message.Message):
+    __slots__ = ["order_id", "guide_ref", "guide_url", "tracking_url", "context"]
+    ORDER_ID_FIELD_NUMBER: _ClassVar[int]
+    GUIDE_REF_FIELD_NUMBER: _ClassVar[int]
+    GUIDE_URL_FIELD_NUMBER: _ClassVar[int]
+    TRACKING_URL_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_id: int
+    guide_ref: str
+    guide_url: str
+    tracking_url: str
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        order_id: _Optional[int] = ...,
+        guide_ref: _Optional[str] = ...,
+        guide_url: _Optional[str] = ...,
+        tracking_url: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class SaveGuideResponse(_message.Message):
     __slots__ = ["response_standard"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard

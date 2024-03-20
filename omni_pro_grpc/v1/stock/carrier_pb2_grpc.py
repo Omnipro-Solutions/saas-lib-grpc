@@ -33,6 +33,11 @@ class CarrierServiceStub(object):
             request_serializer=v1_dot_stock_dot_carrier__pb2.CarrierDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_carrier__pb2.CarrierDeleteResponse.FromString,
         )
+        self.SaveGuide = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.carrier.CarrierService/SaveGuide",
+            request_serializer=v1_dot_stock_dot_carrier__pb2.SaveGuideRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_carrier__pb2.SaveGuideResponse.FromString,
+        )
 
 
 class CarrierServiceServicer(object):
@@ -62,6 +67,12 @@ class CarrierServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def SaveGuide(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_CarrierServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_CarrierServiceServicer_to_server(servicer, server):
             servicer.CarrierDelete,
             request_deserializer=v1_dot_stock_dot_carrier__pb2.CarrierDeleteRequest.FromString,
             response_serializer=v1_dot_stock_dot_carrier__pb2.CarrierDeleteResponse.SerializeToString,
+        ),
+        "SaveGuide": grpc.unary_unary_rpc_method_handler(
+            servicer.SaveGuide,
+            request_deserializer=v1_dot_stock_dot_carrier__pb2.SaveGuideRequest.FromString,
+            response_serializer=v1_dot_stock_dot_carrier__pb2.SaveGuideResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +218,35 @@ class CarrierService(object):
             "/pro.omni.oms.api.v1.stock.carrier.CarrierService/CarrierDelete",
             v1_dot_stock_dot_carrier__pb2.CarrierDeleteRequest.SerializeToString,
             v1_dot_stock_dot_carrier__pb2.CarrierDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def SaveGuide(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.stock.carrier.CarrierService/SaveGuide",
+            v1_dot_stock_dot_carrier__pb2.SaveGuideRequest.SerializeToString,
+            v1_dot_stock_dot_carrier__pb2.SaveGuideResponse.FromString,
             options,
             channel_credentials,
             insecure,
