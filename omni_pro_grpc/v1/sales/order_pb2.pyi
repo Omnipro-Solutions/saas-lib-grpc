@@ -156,6 +156,8 @@ class OrderCreateRequest(_message.Message):
         "shipping_amount_total",
         "shipping_amount_discount_description",
         "type_delivery",
+        "state_id",
+        "flow_id",
         "confirmed",
         "sale_stock_operation",
         "context",
@@ -178,6 +180,8 @@ class OrderCreateRequest(_message.Message):
     SHIPPING_AMOUNT_TOTAL_FIELD_NUMBER: _ClassVar[int]
     SHIPPING_AMOUNT_DISCOUNT_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TYPE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
+    STATE_ID_FIELD_NUMBER: _ClassVar[int]
+    FLOW_ID_FIELD_NUMBER: _ClassVar[int]
     CONFIRMED_FIELD_NUMBER: _ClassVar[int]
     SALE_STOCK_OPERATION_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -199,6 +203,8 @@ class OrderCreateRequest(_message.Message):
     shipping_amount_total: float
     shipping_amount_discount_description: str
     type_delivery: str
+    state_id: int
+    flow_id: int
     confirmed: bool
     sale_stock_operation: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     context: _base_pb2.Context
@@ -222,6 +228,8 @@ class OrderCreateRequest(_message.Message):
         shipping_amount_total: _Optional[float] = ...,
         shipping_amount_discount_description: _Optional[str] = ...,
         type_delivery: _Optional[str] = ...,
+        state_id: _Optional[int] = ...,
+        flow_id: _Optional[int] = ...,
         confirmed: bool = ...,
         sale_stock_operation: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
