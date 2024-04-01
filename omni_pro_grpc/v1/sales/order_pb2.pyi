@@ -376,3 +376,25 @@ class SaleStockOperationResponse(_message.Message):
         data: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
+
+class OrderChangeStateRequest(_message.Message):
+    __slots__ = ["order_id", "context"]
+    ORDER_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_id: int
+    context: _base_pb2.Context
+    def __init__(
+        self, order_id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
+
+class OrderChangeStateResponse(_message.Message):
+    __slots__ = ["response_standard", "order"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    order: Order
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        order: _Optional[_Union[Order, _Mapping]] = ...,
+    ) -> None: ...
