@@ -58,6 +58,11 @@ class PickingServiceStub(object):
             request_serializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadResponse.FromString,
         )
+        self.CheckAvailability = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/CheckAvailability",
+            request_serializer=v1_dot_stock_dot_picking__pb2.CheckAvailabilityRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_picking__pb2.CheckAvailabilityResponse.FromString,
+        )
 
 
 class PickingServiceServicer(object):
@@ -117,6 +122,12 @@ class PickingServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def CheckAvailability(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_PickingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -164,6 +175,11 @@ def add_PickingServiceServicer_to_server(servicer, server):
             servicer.PickingKanban,
             request_deserializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadRequest.FromString,
             response_serializer=v1_dot_stock_dot_picking__pb2.PickingKanbanReadResponse.SerializeToString,
+        ),
+        "CheckAvailability": grpc.unary_unary_rpc_method_handler(
+            servicer.CheckAvailability,
+            request_deserializer=v1_dot_stock_dot_picking__pb2.CheckAvailabilityRequest.FromString,
+            response_serializer=v1_dot_stock_dot_picking__pb2.CheckAvailabilityResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -427,6 +443,35 @@ class PickingService(object):
             "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingKanban",
             v1_dot_stock_dot_picking__pb2.PickingKanbanReadRequest.SerializeToString,
             v1_dot_stock_dot_picking__pb2.PickingKanbanReadResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def CheckAvailability(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/CheckAvailability",
+            v1_dot_stock_dot_picking__pb2.CheckAvailabilityRequest.SerializeToString,
+            v1_dot_stock_dot_picking__pb2.CheckAvailabilityResponse.FromString,
             options,
             channel_credentials,
             insecure,

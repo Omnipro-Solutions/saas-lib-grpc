@@ -43,6 +43,11 @@ class OrderServiceStub(object):
             request_serializer=v1_dot_sales_dot_order__pb2.SaleStockOperationRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_order__pb2.SaleStockOperationResponse.FromString,
         )
+        self.OrderChangeState = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.order.OrderService/OrderChangeState",
+            request_serializer=v1_dot_sales_dot_order__pb2.OrderChangeStateRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_order__pb2.OrderChangeStateResponse.FromString,
+        )
 
 
 class OrderServiceServicer(object):
@@ -84,6 +89,12 @@ class OrderServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def OrderChangeState(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -116,6 +127,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
             servicer.SaleStockOperation,
             request_deserializer=v1_dot_sales_dot_order__pb2.SaleStockOperationRequest.FromString,
             response_serializer=v1_dot_sales_dot_order__pb2.SaleStockOperationResponse.SerializeToString,
+        ),
+        "OrderChangeState": grpc.unary_unary_rpc_method_handler(
+            servicer.OrderChangeState,
+            request_deserializer=v1_dot_sales_dot_order__pb2.OrderChangeStateRequest.FromString,
+            response_serializer=v1_dot_sales_dot_order__pb2.OrderChangeStateResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -292,6 +308,35 @@ class OrderService(object):
             "/pro.omni.oms.api.v1.sales.order.OrderService/SaleStockOperation",
             v1_dot_sales_dot_order__pb2.SaleStockOperationRequest.SerializeToString,
             v1_dot_sales_dot_order__pb2.SaleStockOperationResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def OrderChangeState(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.order.OrderService/OrderChangeState",
+            v1_dot_sales_dot_order__pb2.OrderChangeStateRequest.SerializeToString,
+            v1_dot_sales_dot_order__pb2.OrderChangeStateResponse.FromString,
             options,
             channel_credentials,
             insecure,
