@@ -262,13 +262,13 @@ class MoveLineAddQtyRequest(_message.Message):
     PAYLOAD_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: int
-    quantity: int
+    quantity: float
     payload: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
         id: _Optional[int] = ...,
-        quantity: _Optional[int] = ...,
+        quantity: _Optional[float] = ...,
         payload: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
