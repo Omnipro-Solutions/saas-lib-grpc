@@ -16,7 +16,7 @@ from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x16v1/stock/carrier.proto\x12!pro.omni.oms.api.v1.stock.carrier\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xb3\x01\n\x07\x43\x61rrier\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12*\n\x06\x61\x63tive\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x05 \x01(\t\x12?\n\x0cobject_audit\x18\x06 \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x7f\n\x14\x43\x61rrierCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x13\n\x0b\x65xternal_id\x18\x03 \x01(\t\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9f\x01\n\x15\x43\x61rrierCreateResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12;\n\x07\x63\x61rrier\x18\x02 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier"\xf0\x02\n\x12\x43\x61rrierReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd9\x01\n\x13\x43\x61rrierReadResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12<\n\x08\x63\x61rriers\x18\x03 \x03(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier"\x8b\x01\n\x14\x43\x61rrierUpdateRequest\x12;\n\x07\x63\x61rrier\x18\x01 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9f\x01\n\x15\x43\x61rrierUpdateResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12;\n\x07\x63\x61rrier\x18\x02 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier"Z\n\x14\x43\x61rrierDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"b\n\x15\x43\x61rrierDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x98\x01\n\x10SaveGuideRequest\x12\x10\n\x08order_id\x18\x01 \x01(\x05\x12\x11\n\tguide_ref\x18\x02 \x01(\t\x12\x11\n\tguide_url\x18\x03 \x01(\t\x12\x14\n\x0ctracking_url\x18\x04 \x01(\t\x12\x36\n\x07\x63ontext\x18\x05 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"^\n\x11SaveGuideResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\x9f\x05\n\x0e\x43\x61rrierService\x12\x84\x01\n\rCarrierCreate\x12\x37.pro.omni.oms.api.v1.stock.carrier.CarrierCreateRequest\x1a\x38.pro.omni.oms.api.v1.stock.carrier.CarrierCreateResponse"\x00\x12~\n\x0b\x43\x61rrierRead\x12\x35.pro.omni.oms.api.v1.stock.carrier.CarrierReadRequest\x1a\x36.pro.omni.oms.api.v1.stock.carrier.CarrierReadResponse"\x00\x12\x84\x01\n\rCarrierUpdate\x12\x37.pro.omni.oms.api.v1.stock.carrier.CarrierUpdateRequest\x1a\x38.pro.omni.oms.api.v1.stock.carrier.CarrierUpdateResponse"\x00\x12\x84\x01\n\rCarrierDelete\x12\x37.pro.omni.oms.api.v1.stock.carrier.CarrierDeleteRequest\x1a\x38.pro.omni.oms.api.v1.stock.carrier.CarrierDeleteResponse"\x00\x12x\n\tSaveGuide\x12\x33.pro.omni.oms.api.v1.stock.carrier.SaveGuideRequest\x1a\x34.pro.omni.oms.api.v1.stock.carrier.SaveGuideResponse"\x00\x62\x06proto3'
+    b'\n\x16v1/stock/carrier.proto\x12!pro.omni.oms.api.v1.stock.carrier\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xdb\x01\n\x07\x43\x61rrier\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12\x12\n\ncancel_url\x18\x04 \x01(\t\x12\x12\n\ncreate_url\x18\x05 \x01(\t\x12*\n\x06\x61\x63tive\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x07 \x01(\t\x12?\n\x0cobject_audit\x18\x08 \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xa7\x01\n\x14\x43\x61rrierCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x12\n\ncancel_url\x18\x03 \x01(\t\x12\x12\n\ncreate_url\x18\x04 \x01(\t\x12\x13\n\x0b\x65xternal_id\x18\x05 \x01(\t\x12\x36\n\x07\x63ontext\x18\x06 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9f\x01\n\x15\x43\x61rrierCreateResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12;\n\x07\x63\x61rrier\x18\x02 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier"\xf0\x02\n\x12\x43\x61rrierReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd9\x01\n\x13\x43\x61rrierReadResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12<\n\x08\x63\x61rriers\x18\x03 \x03(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier"\x8b\x01\n\x14\x43\x61rrierUpdateRequest\x12;\n\x07\x63\x61rrier\x18\x01 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9f\x01\n\x15\x43\x61rrierUpdateResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12;\n\x07\x63\x61rrier\x18\x02 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.carrier.Carrier"Z\n\x14\x43\x61rrierDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"b\n\x15\x43\x61rrierDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xc7\x01\n\x10SaveGuideRequest\x12\x10\n\x08order_id\x18\x01 \x01(\x05\x12\x11\n\tguide_ref\x18\x02 \x01(\t\x12\x11\n\tguide_url\x18\x03 \x01(\t\x12\x14\n\x0ctracking_url\x18\x04 \x01(\t\x12-\n\tis_cancel\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x36\n\x07\x63ontext\x18\x06 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"^\n\x11SaveGuideResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x92\x01\n\x12\x43\x61ncelGuideRequest\x12\x12\n\npicking_id\x18\x01 \x01(\x05\x12\x1c\n\x14\x63\x61rrier_tracking_ref\x18\x02 \x01(\t\x12\x12\n\ncarrier_id\x18\x03 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"`\n\x13\x43\x61ncelGuideResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"t\n\x12\x43reateGuideRequest\x12\x12\n\npicking_id\x18\x01 \x01(\x05\x12\x12\n\ncarrier_id\x18\x02 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"`\n\x13\x43reateGuideResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\x9f\x07\n\x0e\x43\x61rrierService\x12\x84\x01\n\rCarrierCreate\x12\x37.pro.omni.oms.api.v1.stock.carrier.CarrierCreateRequest\x1a\x38.pro.omni.oms.api.v1.stock.carrier.CarrierCreateResponse"\x00\x12~\n\x0b\x43\x61rrierRead\x12\x35.pro.omni.oms.api.v1.stock.carrier.CarrierReadRequest\x1a\x36.pro.omni.oms.api.v1.stock.carrier.CarrierReadResponse"\x00\x12\x84\x01\n\rCarrierUpdate\x12\x37.pro.omni.oms.api.v1.stock.carrier.CarrierUpdateRequest\x1a\x38.pro.omni.oms.api.v1.stock.carrier.CarrierUpdateResponse"\x00\x12\x84\x01\n\rCarrierDelete\x12\x37.pro.omni.oms.api.v1.stock.carrier.CarrierDeleteRequest\x1a\x38.pro.omni.oms.api.v1.stock.carrier.CarrierDeleteResponse"\x00\x12x\n\tSaveGuide\x12\x33.pro.omni.oms.api.v1.stock.carrier.SaveGuideRequest\x1a\x34.pro.omni.oms.api.v1.stock.carrier.SaveGuideResponse"\x00\x12~\n\x0b\x43\x61ncelGuide\x12\x35.pro.omni.oms.api.v1.stock.carrier.CancelGuideRequest\x1a\x36.pro.omni.oms.api.v1.stock.carrier.CancelGuideResponse"\x00\x12~\n\x0b\x43reateGuide\x12\x35.pro.omni.oms.api.v1.stock.carrier.CreateGuideRequest\x1a\x36.pro.omni.oms.api.v1.stock.carrier.CreateGuideResponse"\x00\x62\x06proto3'
 )
 
 _globals = globals()
@@ -26,27 +26,35 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
     _globals["_CARRIER"]._serialized_start = 113
-    _globals["_CARRIER"]._serialized_end = 292
-    _globals["_CARRIERCREATEREQUEST"]._serialized_start = 294
-    _globals["_CARRIERCREATEREQUEST"]._serialized_end = 421
-    _globals["_CARRIERCREATERESPONSE"]._serialized_start = 424
-    _globals["_CARRIERCREATERESPONSE"]._serialized_end = 583
-    _globals["_CARRIERREADREQUEST"]._serialized_start = 586
-    _globals["_CARRIERREADREQUEST"]._serialized_end = 954
-    _globals["_CARRIERREADRESPONSE"]._serialized_start = 957
-    _globals["_CARRIERREADRESPONSE"]._serialized_end = 1174
-    _globals["_CARRIERUPDATEREQUEST"]._serialized_start = 1177
-    _globals["_CARRIERUPDATEREQUEST"]._serialized_end = 1316
-    _globals["_CARRIERUPDATERESPONSE"]._serialized_start = 1319
-    _globals["_CARRIERUPDATERESPONSE"]._serialized_end = 1478
-    _globals["_CARRIERDELETEREQUEST"]._serialized_start = 1480
-    _globals["_CARRIERDELETEREQUEST"]._serialized_end = 1570
-    _globals["_CARRIERDELETERESPONSE"]._serialized_start = 1572
-    _globals["_CARRIERDELETERESPONSE"]._serialized_end = 1670
-    _globals["_SAVEGUIDEREQUEST"]._serialized_start = 1673
-    _globals["_SAVEGUIDEREQUEST"]._serialized_end = 1825
-    _globals["_SAVEGUIDERESPONSE"]._serialized_start = 1827
-    _globals["_SAVEGUIDERESPONSE"]._serialized_end = 1921
-    _globals["_CARRIERSERVICE"]._serialized_start = 1924
-    _globals["_CARRIERSERVICE"]._serialized_end = 2595
+    _globals["_CARRIER"]._serialized_end = 332
+    _globals["_CARRIERCREATEREQUEST"]._serialized_start = 335
+    _globals["_CARRIERCREATEREQUEST"]._serialized_end = 502
+    _globals["_CARRIERCREATERESPONSE"]._serialized_start = 505
+    _globals["_CARRIERCREATERESPONSE"]._serialized_end = 664
+    _globals["_CARRIERREADREQUEST"]._serialized_start = 667
+    _globals["_CARRIERREADREQUEST"]._serialized_end = 1035
+    _globals["_CARRIERREADRESPONSE"]._serialized_start = 1038
+    _globals["_CARRIERREADRESPONSE"]._serialized_end = 1255
+    _globals["_CARRIERUPDATEREQUEST"]._serialized_start = 1258
+    _globals["_CARRIERUPDATEREQUEST"]._serialized_end = 1397
+    _globals["_CARRIERUPDATERESPONSE"]._serialized_start = 1400
+    _globals["_CARRIERUPDATERESPONSE"]._serialized_end = 1559
+    _globals["_CARRIERDELETEREQUEST"]._serialized_start = 1561
+    _globals["_CARRIERDELETEREQUEST"]._serialized_end = 1651
+    _globals["_CARRIERDELETERESPONSE"]._serialized_start = 1653
+    _globals["_CARRIERDELETERESPONSE"]._serialized_end = 1751
+    _globals["_SAVEGUIDEREQUEST"]._serialized_start = 1754
+    _globals["_SAVEGUIDEREQUEST"]._serialized_end = 1953
+    _globals["_SAVEGUIDERESPONSE"]._serialized_start = 1955
+    _globals["_SAVEGUIDERESPONSE"]._serialized_end = 2049
+    _globals["_CANCELGUIDEREQUEST"]._serialized_start = 2052
+    _globals["_CANCELGUIDEREQUEST"]._serialized_end = 2198
+    _globals["_CANCELGUIDERESPONSE"]._serialized_start = 2200
+    _globals["_CANCELGUIDERESPONSE"]._serialized_end = 2296
+    _globals["_CREATEGUIDEREQUEST"]._serialized_start = 2298
+    _globals["_CREATEGUIDEREQUEST"]._serialized_end = 2414
+    _globals["_CREATEGUIDERESPONSE"]._serialized_start = 2416
+    _globals["_CREATEGUIDERESPONSE"]._serialized_end = 2512
+    _globals["_CARRIERSERVICE"]._serialized_start = 2515
+    _globals["_CARRIERSERVICE"]._serialized_end = 3442
 # @@protoc_insertion_point(module_scope)
