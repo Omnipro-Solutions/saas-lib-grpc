@@ -13,16 +13,20 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Carrier(_message.Message):
-    __slots__ = ["id", "name", "code", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "cancel_url", "create_url", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
+    CANCEL_URL_FIELD_NUMBER: _ClassVar[int]
+    CREATE_URL_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     code: str
+    cancel_url: str
+    create_url: str
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -31,25 +35,33 @@ class Carrier(_message.Message):
         id: _Optional[int] = ...,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
+        cancel_url: _Optional[str] = ...,
+        create_url: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class CarrierCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "external_id", "context"]
+    __slots__ = ["name", "code", "cancel_url", "create_url", "external_id", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
+    CANCEL_URL_FIELD_NUMBER: _ClassVar[int]
+    CREATE_URL_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
+    cancel_url: str
+    create_url: str
     external_id: str
     context: _base_pb2.Context
     def __init__(
         self,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
+        cancel_url: _Optional[str] = ...,
+        create_url: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
@@ -149,16 +161,18 @@ class CarrierDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class SaveGuideRequest(_message.Message):
-    __slots__ = ["order_id", "guide_ref", "guide_url", "tracking_url", "context"]
+    __slots__ = ["order_id", "guide_ref", "guide_url", "tracking_url", "is_cancel", "context"]
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     GUIDE_REF_FIELD_NUMBER: _ClassVar[int]
     GUIDE_URL_FIELD_NUMBER: _ClassVar[int]
     TRACKING_URL_FIELD_NUMBER: _ClassVar[int]
+    IS_CANCEL_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     order_id: int
     guide_ref: str
     guide_url: str
     tracking_url: str
+    is_cancel: _wrappers_pb2.BoolValue
     context: _base_pb2.Context
     def __init__(
         self,
@@ -166,10 +180,56 @@ class SaveGuideRequest(_message.Message):
         guide_ref: _Optional[str] = ...,
         guide_url: _Optional[str] = ...,
         tracking_url: _Optional[str] = ...,
+        is_cancel: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
 class SaveGuideResponse(_message.Message):
+    __slots__ = ["response_standard"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class CancelGuideRequest(_message.Message):
+    __slots__ = ["picking_id", "carrier_tracking_ref", "carrier_id", "context"]
+    PICKING_ID_FIELD_NUMBER: _ClassVar[int]
+    CARRIER_TRACKING_REF_FIELD_NUMBER: _ClassVar[int]
+    CARRIER_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    picking_id: int
+    carrier_tracking_ref: str
+    carrier_id: int
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        picking_id: _Optional[int] = ...,
+        carrier_tracking_ref: _Optional[str] = ...,
+        carrier_id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class CancelGuideResponse(_message.Message):
+    __slots__ = ["response_standard"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class CreateGuideRequest(_message.Message):
+    __slots__ = ["picking_id", "carrier_id", "context"]
+    PICKING_ID_FIELD_NUMBER: _ClassVar[int]
+    CARRIER_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    picking_id: int
+    carrier_id: int
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        picking_id: _Optional[int] = ...,
+        carrier_id: _Optional[int] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class CreateGuideResponse(_message.Message):
     __slots__ = ["response_standard"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
