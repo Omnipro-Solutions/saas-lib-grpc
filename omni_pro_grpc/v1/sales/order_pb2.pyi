@@ -7,6 +7,7 @@ from typing import Union as _Union
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -50,6 +51,7 @@ class Order(_message.Message):
         "pickings",
         "object_audit",
         "order_lines",
+        "date_delivery",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -78,6 +80,7 @@ class Order(_message.Message):
     PICKINGS_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
+    DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     sale: _sale_pb2.Sale
@@ -105,6 +108,7 @@ class Order(_message.Message):
     pickings: _containers.RepeatedCompositeFieldContainer[_picking_pb2.Picking]
     object_audit: _base_pb2.ObjectAudit
     order_lines: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    date_delivery: _timestamp_pb2.Timestamp
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -134,6 +138,7 @@ class Order(_message.Message):
         pickings: _Optional[_Iterable[_Union[_picking_pb2.Picking, _Mapping]]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
         order_lines: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
     ) -> None: ...
 
 class OrderCreateRequest(_message.Message):
@@ -161,6 +166,7 @@ class OrderCreateRequest(_message.Message):
         "confirmed",
         "sale_stock_operation",
         "context",
+        "date_delivery",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SALE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -185,6 +191,7 @@ class OrderCreateRequest(_message.Message):
     CONFIRMED_FIELD_NUMBER: _ClassVar[int]
     SALE_STOCK_OPERATION_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     name: str
     sale_id: int
     ship_address_code: str
@@ -208,6 +215,7 @@ class OrderCreateRequest(_message.Message):
     confirmed: bool
     sale_stock_operation: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     context: _base_pb2.Context
+    date_delivery: _timestamp_pb2.Timestamp
     def __init__(
         self,
         name: _Optional[str] = ...,
@@ -233,6 +241,7 @@ class OrderCreateRequest(_message.Message):
         confirmed: bool = ...,
         sale_stock_operation: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+        date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
     ) -> None: ...
 
 class OrderCreateResponse(_message.Message):
