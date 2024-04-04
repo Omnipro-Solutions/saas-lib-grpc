@@ -24,6 +24,7 @@ class Webhook(_message.Message):
         "type_webhook",
         "protocol",
         "python_code",
+        "trigger_fields",
         "dag_id",
         "active",
         "object_audit",
@@ -37,6 +38,7 @@ class Webhook(_message.Message):
     TYPE_WEBHOOK_FIELD_NUMBER: _ClassVar[int]
     PROTOCOL_FIELD_NUMBER: _ClassVar[int]
     PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
+    TRIGGER_FIELDS_FIELD_NUMBER: _ClassVar[int]
     DAG_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -49,6 +51,7 @@ class Webhook(_message.Message):
     type_webhook: str
     protocol: str
     python_code: str
+    trigger_fields: _containers.RepeatedScalarFieldContainer[str]
     dag_id: str
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -63,6 +66,7 @@ class Webhook(_message.Message):
         type_webhook: _Optional[str] = ...,
         protocol: _Optional[str] = ...,
         python_code: _Optional[str] = ...,
+        trigger_fields: _Optional[_Iterable[str]] = ...,
         dag_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -78,6 +82,7 @@ class WebhookCreateRequest(_message.Message):
         "type_webhook",
         "protocol",
         "python_code",
+        "trigger_fields",
         "dag_id",
         "context",
         "active",
@@ -91,6 +96,7 @@ class WebhookCreateRequest(_message.Message):
     TYPE_WEBHOOK_FIELD_NUMBER: _ClassVar[int]
     PROTOCOL_FIELD_NUMBER: _ClassVar[int]
     PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
+    TRIGGER_FIELDS_FIELD_NUMBER: _ClassVar[int]
     DAG_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
@@ -103,6 +109,7 @@ class WebhookCreateRequest(_message.Message):
     type_webhook: str
     protocol: str
     python_code: str
+    trigger_fields: _containers.RepeatedScalarFieldContainer[str]
     dag_id: str
     context: _base_pb2.Context
     active: _wrappers_pb2.BoolValue
@@ -117,6 +124,7 @@ class WebhookCreateRequest(_message.Message):
         type_webhook: _Optional[str] = ...,
         protocol: _Optional[str] = ...,
         python_code: _Optional[str] = ...,
+        trigger_fields: _Optional[_Iterable[str]] = ...,
         dag_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
