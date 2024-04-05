@@ -6,10 +6,12 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.utilities import event_pb2 as _event_pb2
+from omni_pro_grpc.v1.utilities import method_grpc_pb2 as _method_grpc_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -26,6 +28,10 @@ class Webhook(_message.Message):
         "python_code",
         "trigger_fields",
         "dag_id",
+        "method_grpc",
+        "auth",
+        "auth_type",
+        "headers",
         "active",
         "object_audit",
     ]
@@ -40,6 +46,10 @@ class Webhook(_message.Message):
     PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
     TRIGGER_FIELDS_FIELD_NUMBER: _ClassVar[int]
     DAG_ID_FIELD_NUMBER: _ClassVar[int]
+    METHOD_GRPC_FIELD_NUMBER: _ClassVar[int]
+    AUTH_FIELD_NUMBER: _ClassVar[int]
+    AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
+    HEADERS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -53,6 +63,10 @@ class Webhook(_message.Message):
     python_code: str
     trigger_fields: _containers.RepeatedScalarFieldContainer[str]
     dag_id: str
+    method_grpc: _method_grpc_pb2.MethodGrpc
+    auth: _struct_pb2.Struct
+    auth_type: str
+    headers: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -68,6 +82,10 @@ class Webhook(_message.Message):
         python_code: _Optional[str] = ...,
         trigger_fields: _Optional[_Iterable[str]] = ...,
         dag_id: _Optional[str] = ...,
+        method_grpc: _Optional[_Union[_method_grpc_pb2.MethodGrpc, _Mapping]] = ...,
+        auth: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        auth_type: _Optional[str] = ...,
+        headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
@@ -84,6 +102,10 @@ class WebhookCreateRequest(_message.Message):
         "python_code",
         "trigger_fields",
         "dag_id",
+        "method_grpc_id",
+        "auth",
+        "auth_type",
+        "headers",
         "context",
         "active",
         "object_audit",
@@ -98,6 +120,10 @@ class WebhookCreateRequest(_message.Message):
     PYTHON_CODE_FIELD_NUMBER: _ClassVar[int]
     TRIGGER_FIELDS_FIELD_NUMBER: _ClassVar[int]
     DAG_ID_FIELD_NUMBER: _ClassVar[int]
+    METHOD_GRPC_ID_FIELD_NUMBER: _ClassVar[int]
+    AUTH_FIELD_NUMBER: _ClassVar[int]
+    AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
+    HEADERS_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -111,6 +137,10 @@ class WebhookCreateRequest(_message.Message):
     python_code: str
     trigger_fields: _containers.RepeatedScalarFieldContainer[str]
     dag_id: str
+    method_grpc_id: str
+    auth: _struct_pb2.Struct
+    auth_type: str
+    headers: _struct_pb2.Struct
     context: _base_pb2.Context
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -126,6 +156,10 @@ class WebhookCreateRequest(_message.Message):
         python_code: _Optional[str] = ...,
         trigger_fields: _Optional[_Iterable[str]] = ...,
         dag_id: _Optional[str] = ...,
+        method_grpc_id: _Optional[str] = ...,
+        auth: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        auth_type: _Optional[str] = ...,
+        headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
