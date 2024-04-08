@@ -50,7 +50,7 @@ class MethodGrpc(_message.Message):
     module_pb2: str
     microservice: _ms_pb2.Microservice
     method: str
-    request: _struct_pb2.Struct
+    request: str
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -64,7 +64,7 @@ class MethodGrpc(_message.Message):
         module_pb2: _Optional[str] = ...,
         microservice: _Optional[_Union[_ms_pb2.Microservice, _Mapping]] = ...,
         method: _Optional[str] = ...,
-        request: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        request: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -100,7 +100,7 @@ class MethodGrpcCreateRequest(_message.Message):
     module_pb2: str
     microservice_id: str
     method: str
-    request: _struct_pb2.Struct
+    request: str
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -112,7 +112,7 @@ class MethodGrpcCreateRequest(_message.Message):
         module_pb2: _Optional[str] = ...,
         microservice_id: _Optional[str] = ...,
         method: _Optional[str] = ...,
-        request: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        request: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
