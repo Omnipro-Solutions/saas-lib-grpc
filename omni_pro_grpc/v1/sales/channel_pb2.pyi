@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -14,13 +15,14 @@ from omni_pro_grpc.v1.sales import flow_pb2 as _flow_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Channel(_message.Message):
-    __slots__ = ["id", "name", "code", "flow", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "flow", "active", "external_id", "image", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     FLOW_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -28,6 +30,7 @@ class Channel(_message.Message):
     flow: _flow_pb2.Flow
     active: _wrappers_pb2.BoolValue
     external_id: str
+    image: _struct_pb2.Struct
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -37,20 +40,23 @@ class Channel(_message.Message):
         flow: _Optional[_Union[_flow_pb2.Flow, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class ChannelCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "flow_id", "external_id", "context"]
+    __slots__ = ["name", "code", "flow_id", "external_id", "image", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     FLOW_ID_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
     flow_id: int
     external_id: str
+    image: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
@@ -58,6 +64,7 @@ class ChannelCreateRequest(_message.Message):
         code: _Optional[str] = ...,
         flow_id: _Optional[int] = ...,
         external_id: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 

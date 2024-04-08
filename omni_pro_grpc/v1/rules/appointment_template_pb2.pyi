@@ -46,7 +46,7 @@ class AppointmentTemplate(_message.Message):
     name: str
     warehouses: _containers.RepeatedCompositeFieldContainer[_warehouse_pb2.Warehouse]
     methods: _containers.RepeatedCompositeFieldContainer[_delivery_method_pb2.DeliveryMethod]
-    order_numbers: str
+    order_numbers: int
     hour_limit_same_day: str
     number_days_to_show: int
     holidays: _holidays_pb2.Holidays
@@ -60,7 +60,7 @@ class AppointmentTemplate(_message.Message):
         name: _Optional[str] = ...,
         warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ...,
         methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ...,
-        order_numbers: _Optional[str] = ...,
+        order_numbers: _Optional[int] = ...,
         hour_limit_same_day: _Optional[str] = ...,
         number_days_to_show: _Optional[int] = ...,
         holidays: _Optional[_Union[_holidays_pb2.Holidays, _Mapping]] = ...,
@@ -96,7 +96,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
     name: str
     warehouse_ids: _containers.RepeatedScalarFieldContainer[int]
     method_ids: _containers.RepeatedScalarFieldContainer[str]
-    order_numbers: str
+    order_numbers: int
     hour_limit_same_day: str
     number_days_to_show: int
     holiday_id: str
@@ -108,7 +108,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
         name: _Optional[str] = ...,
         warehouse_ids: _Optional[_Iterable[int]] = ...,
         method_ids: _Optional[_Iterable[str]] = ...,
-        order_numbers: _Optional[str] = ...,
+        order_numbers: _Optional[int] = ...,
         hour_limit_same_day: _Optional[str] = ...,
         number_days_to_show: _Optional[int] = ...,
         holiday_id: _Optional[str] = ...,
