@@ -39,7 +39,7 @@ class AppointmentLine(_message.Message):
     id: str
     hour_start: str
     hour_end: str
-    order_numbers: str
+    order_numbers: int
     appointment_available: int
     cids: _containers.RepeatedScalarFieldContainer[str]
     appointment: _appointment_pb2.Appointment
@@ -51,7 +51,7 @@ class AppointmentLine(_message.Message):
         id: _Optional[str] = ...,
         hour_start: _Optional[str] = ...,
         hour_end: _Optional[str] = ...,
-        order_numbers: _Optional[str] = ...,
+        order_numbers: _Optional[int] = ...,
         appointment_available: _Optional[int] = ...,
         cids: _Optional[_Iterable[str]] = ...,
         appointment: _Optional[_Union[_appointment_pb2.Appointment, _Mapping]] = ...,
@@ -81,7 +81,7 @@ class AppointmentLineCreateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     hour_start: str
     hour_end: str
-    order_numbers: str
+    order_numbers: int
     appointment_available: int
     cids: _containers.RepeatedScalarFieldContainer[str]
     appointment_id: str
@@ -91,7 +91,7 @@ class AppointmentLineCreateRequest(_message.Message):
         self,
         hour_start: _Optional[str] = ...,
         hour_end: _Optional[str] = ...,
-        order_numbers: _Optional[str] = ...,
+        order_numbers: _Optional[int] = ...,
         appointment_available: _Optional[int] = ...,
         cids: _Optional[_Iterable[str]] = ...,
         appointment_id: _Optional[str] = ...,
