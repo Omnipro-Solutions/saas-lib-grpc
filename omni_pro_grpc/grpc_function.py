@@ -1,4 +1,5 @@
 from omni_pro_base.microservice import MicroService
+from omni_pro_base.util import generate_hash
 from omni_pro_grpc.grpc_connector import Event, GRPClient
 
 
@@ -106,9 +107,6 @@ class EventRPCFucntion(object):
 
 class WebhookRPCFucntion(object):
     def __init__(self, context: dict) -> None:
-        from omni_pro_base.microservice import MicroService
-        from omni_pro_grpc.grpc_connector import Event, GRPClient
-
         """
         :param context: context with tenant and user\n
         Example:
@@ -137,6 +135,126 @@ class WebhookRPCFucntion(object):
             dict(
                 rpc_method="WebhookRead",
                 request_class="WebhookReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+
+class MethodRPCFunction(object):
+    def __init__(self, context: dict) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.service_id = MicroService.SAAS_MS_UTILITIES.value
+        self.module_grpc = "v1.utilities.method_grpc_pb2_grpc"
+        self.stub_classname = "MethodGrpcServiceStub"
+        self.module_pb2 = "v1.utilities.method_grpc_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_method_rpc(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="MethodGrpcRead",
+                request_class="MethodGrpcReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+    def create_method_rpc(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="MethodGrpcCreate",
+                request_class="MethodGrpcCreateRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+    def update_method_rpc(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="MethodGrpcUpdate",
+                request_class="MethodGrpcUpdateRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+    def create_or_update(self, params: dict):
+        filters = params.pop("filter", {})
+        resp, success, _e = self.read_method_rpc(filters)
+        if success:
+            data = params.pop("data")
+            if resp.method_grpcs:
+                method_rpc = resp.method_grpcs[0]
+                hash_code = generate_hash(
+                    {
+                        "name": method_rpc.name,
+                        "code": method_rpc.code,
+                        "module_grpc": method_rpc.module_grpc,
+                        "class_name": method_rpc.class_name,
+                        "module_pb2": method_rpc.module_pb2,
+                        "microservice_id": str(method_rpc.microservice.id),
+                        "method": method_rpc.method,
+                        "request": method_rpc.request,
+                    }
+                )
+                hash_code_data = generate_hash(data)
+                if hash_code == hash_code_data:
+                    return type("Response", (object,), {"method_grpc": method_rpc})(), success, _e
+                return self.update_method_rpc({"method_grpc": data | {"id": method_rpc.id}})
+            else:
+                return self.create_method_rpc(data)
+        return resp, success, _e
+
+
+class MicroServiceRPCFunction(object):
+
+    def __init__(self, context: dict) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.service_id = MicroService.SAAS_MS_UTILITIES.value
+        self.module_grpc = "v1.utilities.ms_pb2_grpc"
+        self.stub_classname = "MicroserviceServiceStub"
+        self.module_pb2 = "v1.utilities.ms_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_ms(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="MicroserviceRead",
+                request_class="MicroserviceReadRequest",
                 params={"context": self.context} | params,
             )
         )

@@ -13,11 +13,12 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Picking(_message.Message):
-    __slots__ = ["id", "name", "order_id", "picking_sql_id", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "order_id", "picking_sql_id", "picker", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     PICKING_SQL_ID_FIELD_NUMBER: _ClassVar[int]
+    PICKER_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -25,6 +26,7 @@ class Picking(_message.Message):
     name: str
     order_id: int
     picking_sql_id: int
+    picker: str
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -34,22 +36,25 @@ class Picking(_message.Message):
         name: _Optional[str] = ...,
         order_id: _Optional[int] = ...,
         picking_sql_id: _Optional[int] = ...,
+        picker: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class PickingCreateRequest(_message.Message):
-    __slots__ = ["name", "order_id", "picking_sql_id", "external_id", "context"]
+    __slots__ = ["name", "order_id", "picking_sql_id", "external_id", "picker", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     PICKING_SQL_ID_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    PICKER_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     order_id: int
     picking_sql_id: int
     external_id: str
+    picker: str
     context: _base_pb2.Context
     def __init__(
         self,
@@ -57,6 +62,7 @@ class PickingCreateRequest(_message.Message):
         order_id: _Optional[int] = ...,
         picking_sql_id: _Optional[int] = ...,
         external_id: _Optional[str] = ...,
+        picker: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
