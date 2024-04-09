@@ -7,6 +7,8 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.stock import channel_pb2 as _channel_pb2
+from omni_pro_grpc.v1.stock import state_pb2 as _state_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -35,8 +37,8 @@ class Order(_message.Message):
     name: str
     sale_id: int
     order_sql_id: int
-    channel: ObjectDefault
-    state: ObjectDefault
+    channel: _channel_pb2.Channel
+    state: _state_pb2.State
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -46,8 +48,8 @@ class Order(_message.Message):
         name: _Optional[str] = ...,
         sale_id: _Optional[int] = ...,
         order_sql_id: _Optional[int] = ...,
-        channel: _Optional[_Union[ObjectDefault, _Mapping]] = ...,
-        state: _Optional[_Union[ObjectDefault, _Mapping]] = ...,
+        channel: _Optional[_Union[_channel_pb2.Channel, _Mapping]] = ...,
+        state: _Optional[_Union[_state_pb2.State, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
