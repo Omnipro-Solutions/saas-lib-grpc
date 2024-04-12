@@ -132,6 +132,26 @@ class WebhookRPCFucntion(object):
 
         self.client: GRPClient = GRPClient(self.service_id)
 
+    def create_webhook(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="WebhookCreate",
+                request_class="WebhookCreateRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+    def update_webhook(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="WebhookUpdate",
+                request_class="WebhookUpdateRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
     def read_webhook(self, params: dict):
         self.event.update(
             dict(
