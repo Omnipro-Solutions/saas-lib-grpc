@@ -52,6 +52,7 @@ class Order(_message.Message):
         "object_audit",
         "order_lines",
         "date_delivery",
+        "order_history",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -81,6 +82,7 @@ class Order(_message.Message):
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
     DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
+    ORDER_HISTORY_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     sale: _sale_pb2.Sale
@@ -109,6 +111,7 @@ class Order(_message.Message):
     object_audit: _base_pb2.ObjectAudit
     order_lines: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     date_delivery: _timestamp_pb2.Timestamp
+    order_history: _containers.RepeatedCompositeFieldContainer[OrderHistory]
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -139,6 +142,82 @@ class Order(_message.Message):
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
         order_lines: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        order_history: _Optional[_Iterable[_Union[OrderHistory, _Mapping]]] = ...,
+    ) -> None: ...
+
+class OrderHistory(_message.Message):
+    __slots__ = [
+        "id",
+        "flow_id",
+        "flow_name",
+        "order",
+        "previous_state_id",
+        "previous_state_name",
+        "previous_state_type",
+        "previous_state_description",
+        "current_state_id",
+        "current_state_name",
+        "current_state_type",
+        "current_state_description",
+        "transition_id",
+        "transition_type",
+        "logic",
+        "send_ecommerce",
+        "object_audit",
+    ]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    FLOW_ID_FIELD_NUMBER: _ClassVar[int]
+    FLOW_NAME_FIELD_NUMBER: _ClassVar[int]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    PREVIOUS_STATE_ID_FIELD_NUMBER: _ClassVar[int]
+    PREVIOUS_STATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    PREVIOUS_STATE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PREVIOUS_STATE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_STATE_ID_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_STATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_STATE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_STATE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TRANSITION_ID_FIELD_NUMBER: _ClassVar[int]
+    TRANSITION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    LOGIC_FIELD_NUMBER: _ClassVar[int]
+    SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    flow_id: int
+    flow_name: str
+    order: Order
+    previous_state_id: int
+    previous_state_name: str
+    previous_state_type: str
+    previous_state_description: str
+    current_state_id: int
+    current_state_name: str
+    current_state_type: str
+    current_state_description: str
+    transition_id: int
+    transition_type: str
+    logic: str
+    send_ecommerce: _wrappers_pb2.BoolValue
+    object_audit: _base_pb2.ObjectAudit
+    def __init__(
+        self,
+        id: _Optional[int] = ...,
+        flow_id: _Optional[int] = ...,
+        flow_name: _Optional[str] = ...,
+        order: _Optional[_Union[Order, _Mapping]] = ...,
+        previous_state_id: _Optional[int] = ...,
+        previous_state_name: _Optional[str] = ...,
+        previous_state_type: _Optional[str] = ...,
+        previous_state_description: _Optional[str] = ...,
+        current_state_id: _Optional[int] = ...,
+        current_state_name: _Optional[str] = ...,
+        current_state_type: _Optional[str] = ...,
+        current_state_description: _Optional[str] = ...,
+        transition_id: _Optional[int] = ...,
+        transition_type: _Optional[str] = ...,
+        logic: _Optional[str] = ...,
+        send_ecommerce: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class OrderCreateRequest(_message.Message):
