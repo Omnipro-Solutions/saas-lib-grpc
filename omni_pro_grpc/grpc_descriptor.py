@@ -73,7 +73,7 @@ class OmniServerDescriptor:
             return service_info_list
 
     @classmethod
-    def register(cls, service_id, context, *args, **kwargs):
+    def register(cls, filters: dict, context: dict, *args, **kwargs):
         """
         Registers the server.
 
@@ -84,14 +84,16 @@ class OmniServerDescriptor:
             **kwargs: Arbitrary keyword arguments.
 
         """
-        resp = MicroServiceRPCFunction(context=context).read_ms(
-            params={"filter": {"filter": f"[('code', '=', '{service_id}')]"}}
-        )
+        resp = MicroServiceRPCFunction(context=context).read_ms(params=filters)
         all_services = []
         for micorservice in resp[0].microservices:
             all_services.extend(
                 cls.describe_server(
-                    service_id=micorservice.code, microservice_id=micorservice.id, context=context, *args, **kwargs
+                    service_id=micorservice.code,
+                    microservice_id=micorservice.id,
+                    context=context,
+                    *args,
+                    **kwargs,
                 )
             )
         return all_services
