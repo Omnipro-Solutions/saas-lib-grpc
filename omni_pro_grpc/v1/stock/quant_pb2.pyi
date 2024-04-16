@@ -47,7 +47,7 @@ class Quant(_message.Message):
     lote: str
     available_quantity: float
     reserved_quantity: float
-    quantity: float
+    quantity: _wrappers_pb2.FloatValue
     uom: _uom_pb2.Uom
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -60,7 +60,7 @@ class Quant(_message.Message):
         lote: _Optional[str] = ...,
         available_quantity: _Optional[float] = ...,
         reserved_quantity: _Optional[float] = ...,
-        quantity: _Optional[float] = ...,
+        quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -93,7 +93,7 @@ class QuantCreateRequest(_message.Message):
     lote: str
     available_quantity: float
     reserved_quantity: float
-    quantity: float
+    quantity: _wrappers_pb2.FloatValue
     uom_id: str
     external_id: str
     context: _base_pb2.Context
@@ -104,7 +104,7 @@ class QuantCreateRequest(_message.Message):
         lote: _Optional[str] = ...,
         available_quantity: _Optional[float] = ...,
         reserved_quantity: _Optional[float] = ...,
-        quantity: _Optional[float] = ...,
+        quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         uom_id: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
