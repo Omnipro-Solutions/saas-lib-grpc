@@ -1,4 +1,5 @@
 from google.protobuf.descriptor_pool import DescriptorPool
+from grpc_reflection.v1alpha import reflection
 from grpc_reflection.v1alpha.proto_reflection_descriptor_database import ProtoReflectionDescriptorDatabase
 from omni.pro.redis import RedisManager
 from omni_pro_base.config import Config
@@ -36,8 +37,8 @@ class OmniServerDescriptor:
             reflection_db = ProtoReflectionDescriptorDatabase(channel)
             services = reflection_db.get_services()
             service_info_list = []
-            for idx, service in enumerate(services):
-                if idx == 0:
+            for service in services:
+                if service == reflection.SERVICE_NAME:
                     continue
                 desc_pool = DescriptorPool(reflection_db)
                 service_desc = desc_pool.FindServiceByName(service)
