@@ -590,3 +590,45 @@ class CheckAvailabilityResponse(_message.Message):
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
     ) -> None: ...
+
+class GetProductAvailableSubstitutionRequest(_message.Message):
+    __slots__ = ["id", "products", "context"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    PRODUCTS_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    products: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        id: _Optional[int] = ...,
+        products: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class GetProductAvailableSubstitutionResponse(_message.Message):
+    __slots__ = [
+        "response_standard",
+        "products",
+        "not_products",
+        "product_without_available_qty",
+        "products_partial_stock",
+    ]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    PRODUCTS_FIELD_NUMBER: _ClassVar[int]
+    NOT_PRODUCTS_FIELD_NUMBER: _ClassVar[int]
+    PRODUCT_WITHOUT_AVAILABLE_QTY_FIELD_NUMBER: _ClassVar[int]
+    PRODUCTS_PARTIAL_STOCK_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    products: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    not_products: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    product_without_available_qty: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    products_partial_stock: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        products: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        not_products: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        product_without_available_qty: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        products_partial_stock: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+    ) -> None: ...
