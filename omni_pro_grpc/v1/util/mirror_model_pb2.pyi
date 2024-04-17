@@ -102,3 +102,33 @@ class DeleteMirrorModelResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class RegisterWebhookMirrorModelRequest(_message.Message):
+    __slots__ = ["context"]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    context: _base_pb2.Context
+    def __init__(self, context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...) -> None: ...
+
+class RegisterWebhookMirrorModelResponse(_message.Message):
+    __slots__ = ["response_standard"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class RegisterMethodGrpcRequest(_message.Message):
+    __slots__ = ["filter", "context"]
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    filter: _base_pb2.Filter
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        filter: _Optional[_Union[_base_pb2.Filter, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class RegisterMethodGrpcResponse(_message.Message):
+    __slots__ = ["response_standard"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
