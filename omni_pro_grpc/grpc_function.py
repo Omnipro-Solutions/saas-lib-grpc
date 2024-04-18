@@ -230,7 +230,7 @@ class MethodRPCFunction(object):
                         "module_grpc": method_rpc.module_grpc,
                         "class_name": method_rpc.class_name,
                         "module_pb2": method_rpc.module_pb2,
-                        "microservice_id": str(method_rpc.microservice.id),
+                        "microservice": str(method_rpc.microservice.id),
                         "method": method_rpc.method,
                         "request": method_rpc.request,
                     }
