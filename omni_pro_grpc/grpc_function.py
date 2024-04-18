@@ -223,21 +223,21 @@ class MethodRPCFunction(object):
             data = params.pop("data")
             if resp.method_grpcs:
                 method_rpc = resp.method_grpcs[0]
-                hash_code = generate_hash(
-                    {
-                        "name": method_rpc.name,
-                        "code": method_rpc.code,
-                        "module_grpc": method_rpc.module_grpc,
-                        "class_name": method_rpc.class_name,
-                        "module_pb2": method_rpc.module_pb2,
-                        "microservice_id": str(method_rpc.microservice.id),
-                        "method": method_rpc.method,
-                        "request": method_rpc.request,
-                    }
-                )
+                data_rpc = {
+                    "name": method_rpc.name,
+                    "code": method_rpc.code,
+                    "module_grpc": method_rpc.module_grpc,
+                    "class_name": method_rpc.class_name,
+                    "module_pb2": method_rpc.module_pb2,
+                    "microservice_id": str(method_rpc.microservice.id),
+                    "method": method_rpc.method,
+                    "request": method_rpc.request,
+                }
+                hash_code = generate_hash(data_rpc)
                 hash_code_data = generate_hash(data)
                 if hash_code == hash_code_data:
                     return type("Response", (object,), {"method_grpc": method_rpc})(), success, _e
+                data["microservice"] = {"id": data.pop("microservice_id", None)}
                 return self.update_method_rpc({"method_grpc": data | {"id": method_rpc.id}})
             else:
                 return self.create_method_rpc(data)
