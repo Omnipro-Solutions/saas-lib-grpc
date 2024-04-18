@@ -62,7 +62,7 @@ class OmniServerDescriptor:
                                 "module_grpc": info["module_grpc"],
                                 "class_name": info["stub_classname"],
                                 "module_pb2": info["module_pb2"],
-                                "microservice": microservice_id,
+                                "microservice_id": microservice_id,
                                 "method": info["rpc_method"],
                                 "request": info["request_class"],
                             },
