@@ -34,6 +34,7 @@ class User(_message.Message):
         "type",
         "password",
         "country",
+        "favorite_filters",
         "object_audit",
         "permissions",
     ]
@@ -55,6 +56,7 @@ class User(_message.Message):
     TYPE_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
+    FAVORITE_FILTERS_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -75,6 +77,7 @@ class User(_message.Message):
     type: str
     password: str
     country: _country_pb2.Country
+    favorite_filters: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     object_audit: _base_pb2.ObjectAudit
     permissions: _containers.RepeatedScalarFieldContainer[str]
     def __init__(
@@ -97,6 +100,7 @@ class User(_message.Message):
         type: _Optional[str] = ...,
         password: _Optional[str] = ...,
         country: _Optional[_Union[_country_pb2.Country, _Mapping]] = ...,
+        favorite_filters: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
         permissions: _Optional[_Iterable[str]] = ...,
     ) -> None: ...
@@ -210,6 +214,7 @@ class UserCreateRequest(_message.Message):
         "external_id",
         "type",
         "country_doc_id",
+        "favorite_filters",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -226,6 +231,7 @@ class UserCreateRequest(_message.Message):
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    FAVORITE_FILTERS_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     username: str
@@ -241,6 +247,7 @@ class UserCreateRequest(_message.Message):
     external_id: str
     type: str
     country_doc_id: str
+    favorite_filters: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     context: _base_pb2.Context
     def __init__(
         self,
@@ -258,6 +265,7 @@ class UserCreateRequest(_message.Message):
         external_id: _Optional[str] = ...,
         type: _Optional[str] = ...,
         country_doc_id: _Optional[str] = ...,
+        favorite_filters: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 

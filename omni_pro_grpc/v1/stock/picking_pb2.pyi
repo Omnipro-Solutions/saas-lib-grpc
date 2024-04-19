@@ -621,14 +621,14 @@ class GetProductAvailableSubstitutionResponse(_message.Message):
     PRODUCTS_PARTIAL_STOCK_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     products: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
-    not_products: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
-    product_without_available_qty: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    not_products: _containers.RepeatedScalarFieldContainer[str]
+    product_without_available_qty: _containers.RepeatedScalarFieldContainer[str]
     products_partial_stock: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     def __init__(
         self,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         products: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
-        not_products: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
-        product_without_available_qty: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        not_products: _Optional[_Iterable[str]] = ...,
+        product_without_available_qty: _Optional[_Iterable[str]] = ...,
         products_partial_stock: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
     ) -> None: ...
