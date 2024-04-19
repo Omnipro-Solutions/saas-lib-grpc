@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -22,6 +23,7 @@ class Warehouse(_message.Message):
         "latitude",
         "mobile",
         "address",
+        "image",
         "active",
         "external_id",
         "object_audit",
@@ -34,6 +36,7 @@ class Warehouse(_message.Message):
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -45,6 +48,7 @@ class Warehouse(_message.Message):
     latitude: str
     mobile: str
     address: str
+    image: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -58,6 +62,7 @@ class Warehouse(_message.Message):
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         address: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -72,6 +77,7 @@ class WarehouseCreateRequest(_message.Message):
         "latitude",
         "mobile",
         "address",
+        "image",
         "external_id",
         "context",
     ]
@@ -82,6 +88,7 @@ class WarehouseCreateRequest(_message.Message):
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -91,6 +98,7 @@ class WarehouseCreateRequest(_message.Message):
     latitude: str
     mobile: str
     address: str
+    image: _struct_pb2.Struct
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -102,6 +110,7 @@ class WarehouseCreateRequest(_message.Message):
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         address: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...

@@ -1,3 +1,4 @@
+from google.protobuf import json_format
 from omni_pro_base.microservice import MicroService
 from omni_pro_base.util import generate_hash
 from omni_pro_grpc.grpc_connector import Event, GRPClient
@@ -279,3 +280,68 @@ class MicroServiceRPCFunction(object):
             )
         )
         return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+
+class MirrorModelRPCFucntion(object):
+    def __init__(self, context: dict, micorservice: str) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.service_id = micorservice
+        self.module_grpc = "v1.utilities.mirror_model_pb2_grpc"
+        self.stub_classname = "MirrorModelServiceStub"
+        self.module_pb2 = "v1.utilities.mirror_model_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def create_mirror_model(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="CreateMirrorModel",
+                request_class="CreateOrUpdateMirrorModelRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )
+
+    def updated_model(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="UpdateMirrorModel",
+                request_class="CreateOrUpdateMirrorModelRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )
+
+    def read_mirror_model(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="ReadMirrorModel",
+                request_class="ReadMirrorModelRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )

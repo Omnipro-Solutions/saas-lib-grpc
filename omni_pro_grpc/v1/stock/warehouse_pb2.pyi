@@ -48,6 +48,7 @@ class Warehouse(_message.Message):
         "longitud",
         "latitude",
         "mobile",
+        "image",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -80,6 +81,7 @@ class Warehouse(_message.Message):
     LONGITUD_FIELD_NUMBER: _ClassVar[int]
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -111,6 +113,7 @@ class Warehouse(_message.Message):
     longitud: str
     latitude: str
     mobile: str
+    image: _struct_pb2.Struct
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -144,6 +147,7 @@ class Warehouse(_message.Message):
         longitud: _Optional[str] = ...,
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -165,6 +169,7 @@ class WarehouseCreateRequest(_message.Message):
         "longitud",
         "latitude",
         "mobile",
+        "image",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -183,6 +188,7 @@ class WarehouseCreateRequest(_message.Message):
     LONGITUD_FIELD_NUMBER: _ClassVar[int]
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
@@ -200,6 +206,7 @@ class WarehouseCreateRequest(_message.Message):
     longitud: str
     latitude: str
     mobile: str
+    image: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
@@ -219,6 +226,7 @@ class WarehouseCreateRequest(_message.Message):
         longitud: _Optional[str] = ...,
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
