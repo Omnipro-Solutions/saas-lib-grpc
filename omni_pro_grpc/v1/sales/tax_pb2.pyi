@@ -43,7 +43,7 @@ class Tax(_message.Message):
     description: str
     amount_type: str
     type_tax_use: str
-    amount: float
+    amount: _wrappers_pb2.FloatValue
     tax_scope: str
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -56,7 +56,7 @@ class Tax(_message.Message):
         description: _Optional[str] = ...,
         amount_type: _Optional[str] = ...,
         type_tax_use: _Optional[str] = ...,
-        amount: _Optional[float] = ...,
+        amount: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         tax_scope: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -89,7 +89,7 @@ class TaxCreateRequest(_message.Message):
     description: str
     amount_type: str
     type_tax_use: str
-    amount: float
+    amount: _wrappers_pb2.FloatValue
     tax_scope: str
     external_id: str
     context: _base_pb2.Context
@@ -100,7 +100,7 @@ class TaxCreateRequest(_message.Message):
         description: _Optional[str] = ...,
         amount_type: _Optional[str] = ...,
         type_tax_use: _Optional[str] = ...,
-        amount: _Optional[float] = ...,
+        amount: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         tax_scope: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
