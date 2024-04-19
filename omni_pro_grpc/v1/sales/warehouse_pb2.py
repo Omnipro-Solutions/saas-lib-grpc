@@ -12,11 +12,12 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x18v1/sales/warehouse.proto\x12#pro.omni.oms.api.v1.sales.warehouse\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto"\x94\x02\n\tWarehouse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12\x18\n\x10warehouse_sql_id\x18\x04 \x01(\x05\x12\x10\n\x08longitud\x18\x05 \x01(\t\x12\x10\n\x08latitude\x18\x06 \x01(\t\x12\x0e\n\x06mobile\x18\x07 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x08 \x01(\t\x12*\n\x06\x61\x63tive\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\n \x01(\t\x12?\n\x0cobject_audit\x18\x0b \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xe0\x01\n\x16WarehouseCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x18\n\x10warehouse_sql_id\x18\x03 \x01(\x05\x12\x10\n\x08longitud\x18\x04 \x01(\t\x12\x10\n\x08latitude\x18\x05 \x01(\t\x12\x0e\n\x06mobile\x18\x06 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x07 \x01(\t\x12\x13\n\x0b\x65xternal_id\x18\x08 \x01(\t\x12\x36\n\x07\x63ontext\x18\t \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xa7\x01\n\x17WarehouseCreateResponse\x12\x41\n\twarehouse\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xf2\x02\n\x14WarehouseReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xe1\x01\n\x15WarehouseReadResponse\x12\x42\n\nwarehouses\x18\x01 \x03(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x93\x01\n\x16WarehouseUpdateRequest\x12\x41\n\twarehouse\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xa7\x01\n\x17WarehouseUpdateResponse\x12\x41\n\twarehouse\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\\\n\x16WarehouseDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"d\n\x17WarehouseDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xd0\x04\n\x10WarehouseService\x12\x8e\x01\n\x0fWarehouseCreate\x12;.pro.omni.oms.api.v1.sales.warehouse.WarehouseCreateRequest\x1a<.pro.omni.oms.api.v1.sales.warehouse.WarehouseCreateResponse"\x00\x12\x88\x01\n\rWarehouseRead\x12\x39.pro.omni.oms.api.v1.sales.warehouse.WarehouseReadRequest\x1a:.pro.omni.oms.api.v1.sales.warehouse.WarehouseReadResponse"\x00\x12\x8e\x01\n\x0fWarehouseUpdate\x12;.pro.omni.oms.api.v1.sales.warehouse.WarehouseUpdateRequest\x1a<.pro.omni.oms.api.v1.sales.warehouse.WarehouseUpdateResponse"\x00\x12\x8e\x01\n\x0fWarehouseDelete\x12;.pro.omni.oms.api.v1.sales.warehouse.WarehouseDeleteRequest\x1a<.pro.omni.oms.api.v1.sales.warehouse.WarehouseDeleteResponse"\x00\x62\x06proto3'
+    b'\n\x18v1/sales/warehouse.proto\x12#pro.omni.oms.api.v1.sales.warehouse\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/protobuf/struct.proto"\xbc\x02\n\tWarehouse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12\x18\n\x10warehouse_sql_id\x18\x04 \x01(\x05\x12\x10\n\x08longitud\x18\x05 \x01(\t\x12\x10\n\x08latitude\x18\x06 \x01(\t\x12\x0e\n\x06mobile\x18\x07 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x08 \x01(\t\x12&\n\x05image\x18\t \x01(\x0b\x32\x17.google.protobuf.Struct\x12*\n\x06\x61\x63tive\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x0b \x01(\t\x12?\n\x0cobject_audit\x18\x0c \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x88\x02\n\x16WarehouseCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x18\n\x10warehouse_sql_id\x18\x03 \x01(\x05\x12\x10\n\x08longitud\x18\x04 \x01(\t\x12\x10\n\x08latitude\x18\x05 \x01(\t\x12\x0e\n\x06mobile\x18\x06 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x07 \x01(\t\x12&\n\x05image\x18\x08 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x13\n\x0b\x65xternal_id\x18\t \x01(\t\x12\x36\n\x07\x63ontext\x18\n \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xa7\x01\n\x17WarehouseCreateResponse\x12\x41\n\twarehouse\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xf2\x02\n\x14WarehouseReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xe1\x01\n\x15WarehouseReadResponse\x12\x42\n\nwarehouses\x18\x01 \x03(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x93\x01\n\x16WarehouseUpdateRequest\x12\x41\n\twarehouse\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xa7\x01\n\x17WarehouseUpdateResponse\x12\x41\n\twarehouse\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.v1.sales.warehouse.Warehouse\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\\\n\x16WarehouseDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"d\n\x17WarehouseDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xd0\x04\n\x10WarehouseService\x12\x8e\x01\n\x0fWarehouseCreate\x12;.pro.omni.oms.api.v1.sales.warehouse.WarehouseCreateRequest\x1a<.pro.omni.oms.api.v1.sales.warehouse.WarehouseCreateResponse"\x00\x12\x88\x01\n\rWarehouseRead\x12\x39.pro.omni.oms.api.v1.sales.warehouse.WarehouseReadRequest\x1a:.pro.omni.oms.api.v1.sales.warehouse.WarehouseReadResponse"\x00\x12\x8e\x01\n\x0fWarehouseUpdate\x12;.pro.omni.oms.api.v1.sales.warehouse.WarehouseUpdateRequest\x1a<.pro.omni.oms.api.v1.sales.warehouse.WarehouseUpdateResponse"\x00\x12\x8e\x01\n\x0fWarehouseDelete\x12;.pro.omni.oms.api.v1.sales.warehouse.WarehouseDeleteRequest\x1a<.pro.omni.oms.api.v1.sales.warehouse.WarehouseDeleteResponse"\x00\x62\x06proto3'
 )
 
 _globals = globals()
@@ -25,24 +26,24 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.sales.warehouse_pb2", _g
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
-    _globals["_WAREHOUSE"]._serialized_start = 117
-    _globals["_WAREHOUSE"]._serialized_end = 393
-    _globals["_WAREHOUSECREATEREQUEST"]._serialized_start = 396
-    _globals["_WAREHOUSECREATEREQUEST"]._serialized_end = 620
-    _globals["_WAREHOUSECREATERESPONSE"]._serialized_start = 623
-    _globals["_WAREHOUSECREATERESPONSE"]._serialized_end = 790
-    _globals["_WAREHOUSEREADREQUEST"]._serialized_start = 793
-    _globals["_WAREHOUSEREADREQUEST"]._serialized_end = 1163
-    _globals["_WAREHOUSEREADRESPONSE"]._serialized_start = 1166
-    _globals["_WAREHOUSEREADRESPONSE"]._serialized_end = 1391
-    _globals["_WAREHOUSEUPDATEREQUEST"]._serialized_start = 1394
-    _globals["_WAREHOUSEUPDATEREQUEST"]._serialized_end = 1541
-    _globals["_WAREHOUSEUPDATERESPONSE"]._serialized_start = 1544
-    _globals["_WAREHOUSEUPDATERESPONSE"]._serialized_end = 1711
-    _globals["_WAREHOUSEDELETEREQUEST"]._serialized_start = 1713
-    _globals["_WAREHOUSEDELETEREQUEST"]._serialized_end = 1805
-    _globals["_WAREHOUSEDELETERESPONSE"]._serialized_start = 1807
-    _globals["_WAREHOUSEDELETERESPONSE"]._serialized_end = 1907
-    _globals["_WAREHOUSESERVICE"]._serialized_start = 1910
-    _globals["_WAREHOUSESERVICE"]._serialized_end = 2502
+    _globals["_WAREHOUSE"]._serialized_start = 147
+    _globals["_WAREHOUSE"]._serialized_end = 463
+    _globals["_WAREHOUSECREATEREQUEST"]._serialized_start = 466
+    _globals["_WAREHOUSECREATEREQUEST"]._serialized_end = 730
+    _globals["_WAREHOUSECREATERESPONSE"]._serialized_start = 733
+    _globals["_WAREHOUSECREATERESPONSE"]._serialized_end = 900
+    _globals["_WAREHOUSEREADREQUEST"]._serialized_start = 903
+    _globals["_WAREHOUSEREADREQUEST"]._serialized_end = 1273
+    _globals["_WAREHOUSEREADRESPONSE"]._serialized_start = 1276
+    _globals["_WAREHOUSEREADRESPONSE"]._serialized_end = 1501
+    _globals["_WAREHOUSEUPDATEREQUEST"]._serialized_start = 1504
+    _globals["_WAREHOUSEUPDATEREQUEST"]._serialized_end = 1651
+    _globals["_WAREHOUSEUPDATERESPONSE"]._serialized_start = 1654
+    _globals["_WAREHOUSEUPDATERESPONSE"]._serialized_end = 1821
+    _globals["_WAREHOUSEDELETEREQUEST"]._serialized_start = 1823
+    _globals["_WAREHOUSEDELETEREQUEST"]._serialized_end = 1915
+    _globals["_WAREHOUSEDELETERESPONSE"]._serialized_start = 1917
+    _globals["_WAREHOUSEDELETERESPONSE"]._serialized_end = 2017
+    _globals["_WAREHOUSESERVICE"]._serialized_start = 2020
+    _globals["_WAREHOUSESERVICE"]._serialized_end = 2612
 # @@protoc_insertion_point(module_scope)

@@ -1,20 +1,21 @@
 from google.protobuf.descriptor_pool import DescriptorPool
+from grpc_reflection.v1alpha import reflection
 from grpc_reflection.v1alpha.proto_reflection_descriptor_database import ProtoReflectionDescriptorDatabase
 from omni.pro.redis import RedisManager
 from omni_pro_base.config import Config
 from omni_pro_grpc.grpc_connector import OmniChannel
 from omni_pro_grpc.grpc_function import MethodRPCFunction, MicroServiceRPCFunction
+from omni_pro_grpc.util import MessageToDict
 
 
 class OmniServerDescriptor:
     @classmethod
-    def describe_server(cls, service_id: str, microservice_id: str, context: dict, *args, **kwargs) -> list:
+    def describe_server(cls, microservice, context: dict, *args, **kwargs) -> list:
         """
         Describe the server by retrieving information about the gRPC services and methods.
 
         Args:
-            service_id (str): The ID of the service.
-            microservice_id (str): The ID of the microservice.
+            microservice: Microservice.
             context (dict): The context containing additional information.
             *args: Variable length argument list.
             **kwargs: Arbitrary keyword arguments.
@@ -24,7 +25,7 @@ class OmniServerDescriptor:
 
         """
         with OmniChannel(
-            service_id,
+            microservice.code,
             options=[
                 ("grpc.max_receive_message_length", 100 * 1024 * 1024),
                 ("grpc.max_send_message_length", 100 * 1024 * 1024),
@@ -36,8 +37,11 @@ class OmniServerDescriptor:
             reflection_db = ProtoReflectionDescriptorDatabase(channel)
             services = reflection_db.get_services()
             service_info_list = []
-            for idx, service in enumerate(services):
-                if idx == 0:
+            not_ms_method_grpc = next(
+                filter(lambda x: x.get("code") == "not_ms_method_grpc", MessageToDict(microservice.settings)), {}
+            ).get("value", [])
+            for service in services:
+                if service == reflection.SERVICE_NAME:
                     continue
                 desc_pool = DescriptorPool(reflection_db)
                 service_desc = desc_pool.FindServiceByName(service)
@@ -53,6 +57,9 @@ class OmniServerDescriptor:
                         # "response_class": method.output_type.name,
                     }
                     code = f"{info['module_pb2']}.{service_desc.name}.{info['rpc_method']}"
+                    ms_data = {"microservice_id": ""}
+                    if code not in not_ms_method_grpc:
+                        ms_data = {"microservice_id": microservice.id}
                     resp = MethodRPCFunction(context=context).create_or_update(
                         params={
                             "data": {
@@ -61,10 +68,10 @@ class OmniServerDescriptor:
                                 "module_grpc": info["module_grpc"],
                                 "class_name": info["stub_classname"],
                                 "module_pb2": info["module_pb2"],
-                                "microservice_id": microservice_id,
                                 "method": info["rpc_method"],
                                 "request": info["request_class"],
-                            },
+                            }
+                            | ms_data,
                             "filter": {"filter": {"filter": f"[('code', '=', '{code}')]"}},
                         }
                     )
@@ -86,11 +93,10 @@ class OmniServerDescriptor:
         """
         resp = MicroServiceRPCFunction(context=context).read_ms(params=filters)
         all_services = []
-        for micorservice in resp[0].microservices:
+        for microservice in resp[0].microservices:
             all_services.extend(
                 cls.describe_server(
-                    service_id=micorservice.code,
-                    microservice_id=micorservice.id,
+                    microservice=microservice,
                     context=context,
                     *args,
                     **kwargs,
@@ -127,8 +133,7 @@ class OmniServerDescriptor:
             for micorservice in resp[0].microservices:
                 all_services.extend(
                     cls.describe_server(
-                        service_id=micorservice.code,
-                        microservice_id=micorservice.id,
+                        microservice=micorservice,
                         context=context,
                     )
                 )
