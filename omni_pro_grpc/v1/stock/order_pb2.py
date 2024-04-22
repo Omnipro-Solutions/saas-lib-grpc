@@ -18,7 +18,7 @@ from omni_pro_grpc.v1.stock import channel_pb2 as v1_dot_stock_dot_channel__pb2
 from omni_pro_grpc.v1.stock import state_pb2 as v1_dot_stock_dot_state__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x14v1/stock/order.proto\x12\x1fpro.omni.oms.api.v1.stock.order\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14v1/stock/state.proto\x1a\x16v1/stock/channel.proto"7\n\rObjectDefault\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t"\xbe\x02\n\x05Order\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07sale_id\x18\x03 \x01(\x05\x12\x14\n\x0corder_sql_id\x18\x04 \x01(\x05\x12;\n\x07\x63hannel\x18\x05 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.channel.Channel\x12\x35\n\x05state\x18\x06 \x01(\x0b\x32&.pro.omni.oms.api.v1.stock.state.State\x12*\n\x06\x61\x63tive\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x08 \x01(\t\x12?\n\x0cobject_audit\x18\t \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAuditb\x06proto3'
+    b'\n\x14v1/stock/order.proto\x12\x1fpro.omni.oms.api.v1.stock.order\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14v1/stock/state.proto\x1a\x16v1/stock/channel.proto"7\n\rObjectDefault\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t"\xd6\x02\n\x05Order\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07sale_id\x18\x03 \x01(\x05\x12\x14\n\x0corder_sql_id\x18\x04 \x01(\x05\x12\x16\n\x0e\x64\x65livery_hours\x18\x05 \x01(\t\x12;\n\x07\x63hannel\x18\x06 \x01(\x0b\x32*.pro.omni.oms.api.v1.stock.channel.Channel\x12\x35\n\x05state\x18\x07 \x01(\x0b\x32&.pro.omni.oms.api.v1.stock.state.State\x12*\n\x06\x61\x63tive\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\t \x01(\t\x12?\n\x0cobject_audit\x18\n \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAuditb\x06proto3'
 )
 
 _globals = globals()
@@ -30,5 +30,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
     _globals["_OBJECTDEFAULT"]._serialized_start = 154
     _globals["_OBJECTDEFAULT"]._serialized_end = 209
     _globals["_ORDER"]._serialized_start = 212
-    _globals["_ORDER"]._serialized_end = 530
+    _globals["_ORDER"]._serialized_end = 554
 # @@protoc_insertion_point(module_scope)
