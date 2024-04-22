@@ -53,6 +53,7 @@ class Order(_message.Message):
         "order_lines",
         "date_delivery",
         "order_history",
+        "delivery_hours",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -83,6 +84,7 @@ class Order(_message.Message):
     ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
     DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     ORDER_HISTORY_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     sale: _sale_pb2.Sale
@@ -112,6 +114,7 @@ class Order(_message.Message):
     order_lines: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     date_delivery: _timestamp_pb2.Timestamp
     order_history: _containers.RepeatedCompositeFieldContainer[OrderHistory]
+    delivery_hours: str
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -143,6 +146,7 @@ class Order(_message.Message):
         order_lines: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
         order_history: _Optional[_Iterable[_Union[OrderHistory, _Mapping]]] = ...,
+        delivery_hours: _Optional[str] = ...,
     ) -> None: ...
 
 class OrderHistory(_message.Message):
@@ -162,6 +166,7 @@ class OrderHistory(_message.Message):
         "transition_id",
         "transition_type",
         "logic",
+        "delivery_hours",
         "send_ecommerce",
         "object_audit",
     ]
@@ -180,6 +185,7 @@ class OrderHistory(_message.Message):
     TRANSITION_ID_FIELD_NUMBER: _ClassVar[int]
     TRANSITION_TYPE_FIELD_NUMBER: _ClassVar[int]
     LOGIC_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -197,6 +203,7 @@ class OrderHistory(_message.Message):
     transition_id: int
     transition_type: str
     logic: str
+    delivery_hours: str
     send_ecommerce: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -216,6 +223,7 @@ class OrderHistory(_message.Message):
         transition_id: _Optional[int] = ...,
         transition_type: _Optional[str] = ...,
         logic: _Optional[str] = ...,
+        delivery_hours: _Optional[str] = ...,
         send_ecommerce: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
