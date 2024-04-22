@@ -23,11 +23,23 @@ class ObjectDefault(_message.Message):
     def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., code: _Optional[str] = ...) -> None: ...
 
 class Order(_message.Message):
-    __slots__ = ["id", "name", "sale_id", "order_sql_id", "channel", "state", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "sale_id",
+        "order_sql_id",
+        "delivery_hours",
+        "channel",
+        "state",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SALE_ID_FIELD_NUMBER: _ClassVar[int]
     ORDER_SQL_ID_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
@@ -37,6 +49,7 @@ class Order(_message.Message):
     name: str
     sale_id: int
     order_sql_id: int
+    delivery_hours: str
     channel: _channel_pb2.Channel
     state: _state_pb2.State
     active: _wrappers_pb2.BoolValue
@@ -48,6 +61,7 @@ class Order(_message.Message):
         name: _Optional[str] = ...,
         sale_id: _Optional[int] = ...,
         order_sql_id: _Optional[int] = ...,
+        delivery_hours: _Optional[str] = ...,
         channel: _Optional[_Union[_channel_pb2.Channel, _Mapping]] = ...,
         state: _Optional[_Union[_state_pb2.State, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
