@@ -10,6 +10,7 @@ from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.sales import delivery_method_pb2 as _delivery_method_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -50,7 +51,7 @@ class State(_message.Message):
     description: str
     color: str
     apply: str
-    delivery_method: str
+    delivery_method: _delivery_method_pb2.DeliveryMethod
     show: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -65,7 +66,7 @@ class State(_message.Message):
         description: _Optional[str] = ...,
         color: _Optional[str] = ...,
         apply: _Optional[str] = ...,
-        delivery_method: _Optional[str] = ...,
+        delivery_method: _Optional[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]] = ...,
         show: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -81,7 +82,7 @@ class StateCreateRequest(_message.Message):
         "description",
         "color",
         "apply",
-        "delivery_method",
+        "delivery_method_id",
         "show",
         "external_id",
         "context",
@@ -93,7 +94,7 @@ class StateCreateRequest(_message.Message):
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
     APPLY_FIELD_NUMBER: _ClassVar[int]
-    DELIVERY_METHOD_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_METHOD_ID_FIELD_NUMBER: _ClassVar[int]
     SHOW_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -104,7 +105,7 @@ class StateCreateRequest(_message.Message):
     description: str
     color: str
     apply: str
-    delivery_method: str
+    delivery_method_id: str
     show: _wrappers_pb2.BoolValue
     external_id: str
     context: _base_pb2.Context
@@ -117,7 +118,7 @@ class StateCreateRequest(_message.Message):
         description: _Optional[str] = ...,
         color: _Optional[str] = ...,
         apply: _Optional[str] = ...,
-        delivery_method: _Optional[str] = ...,
+        delivery_method_id: _Optional[str] = ...,
         show: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
