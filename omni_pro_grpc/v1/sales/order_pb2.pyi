@@ -53,6 +53,7 @@ class Order(_message.Message):
         "order_lines",
         "date_delivery",
         "order_history",
+        "substitution_applied",
         "delivery_hours",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -84,6 +85,7 @@ class Order(_message.Message):
     ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
     DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     ORDER_HISTORY_FIELD_NUMBER: _ClassVar[int]
+    SUBSTITUTION_APPLIED_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -114,6 +116,7 @@ class Order(_message.Message):
     order_lines: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     date_delivery: _timestamp_pb2.Timestamp
     order_history: _containers.RepeatedCompositeFieldContainer[OrderHistory]
+    substitution_applied: int
     delivery_hours: str
     def __init__(
         self,
@@ -146,6 +149,7 @@ class Order(_message.Message):
         order_lines: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
         order_history: _Optional[_Iterable[_Union[OrderHistory, _Mapping]]] = ...,
+        substitution_applied: _Optional[int] = ...,
         delivery_hours: _Optional[str] = ...,
     ) -> None: ...
 
@@ -168,6 +172,7 @@ class OrderHistory(_message.Message):
         "logic",
         "delivery_hours",
         "send_ecommerce",
+        "substitution_applied",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -187,6 +192,7 @@ class OrderHistory(_message.Message):
     LOGIC_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
+    SUBSTITUTION_APPLIED_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     flow_id: int
@@ -205,6 +211,7 @@ class OrderHistory(_message.Message):
     logic: str
     delivery_hours: str
     send_ecommerce: _wrappers_pb2.BoolValue
+    substitution_applied: int
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -225,6 +232,7 @@ class OrderHistory(_message.Message):
         logic: _Optional[str] = ...,
         delivery_hours: _Optional[str] = ...,
         send_ecommerce: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        substitution_applied: _Optional[int] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
