@@ -50,13 +50,13 @@ class OrderLine(_message.Message):
     id: int
     order: _order_pb2.Order
     product: _product_pb2.Product
-    quantity: float
+    quantity: _wrappers_pb2.FloatValue
     uom: _uom_pb2.Uom
-    price_unit: float
+    price_unit: _wrappers_pb2.FloatValue
     taxes: _containers.RepeatedCompositeFieldContainer[_tax_pb2.Tax]
-    discount: float
-    price_total: float
-    sub_total: float
+    discount: _wrappers_pb2.FloatValue
+    price_total: _wrappers_pb2.FloatValue
+    sub_total: _wrappers_pb2.FloatValue
     ecommerce_item_id: str
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -66,13 +66,13 @@ class OrderLine(_message.Message):
         id: _Optional[int] = ...,
         order: _Optional[_Union[_order_pb2.Order, _Mapping]] = ...,
         product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ...,
-        quantity: _Optional[float] = ...,
+        quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ...,
-        price_unit: _Optional[float] = ...,
+        price_unit: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         taxes: _Optional[_Iterable[_Union[_tax_pb2.Tax, _Mapping]]] = ...,
-        discount: _Optional[float] = ...,
-        price_total: _Optional[float] = ...,
-        sub_total: _Optional[float] = ...,
+        discount: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        price_total: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        sub_total: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         ecommerce_item_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -108,13 +108,13 @@ class OrderLineCreateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     order_id: int
     product_id: str
-    quantity: float
+    quantity: _wrappers_pb2.FloatValue
     uom_id: str
-    price_unit: float
+    price_unit: _wrappers_pb2.FloatValue
     taxes_id: _containers.RepeatedScalarFieldContainer[int]
-    discount: float
-    price_total: float
-    sub_total: float
+    discount: _wrappers_pb2.FloatValue
+    price_total: _wrappers_pb2.FloatValue
+    sub_total: _wrappers_pb2.FloatValue
     ecommerce_item_id: str
     external_id: str
     context: _base_pb2.Context
@@ -122,13 +122,13 @@ class OrderLineCreateRequest(_message.Message):
         self,
         order_id: _Optional[int] = ...,
         product_id: _Optional[str] = ...,
-        quantity: _Optional[float] = ...,
+        quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         uom_id: _Optional[str] = ...,
-        price_unit: _Optional[float] = ...,
+        price_unit: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         taxes_id: _Optional[_Iterable[int]] = ...,
-        discount: _Optional[float] = ...,
-        price_total: _Optional[float] = ...,
-        sub_total: _Optional[float] = ...,
+        discount: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        price_total: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        sub_total: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         ecommerce_item_id: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,

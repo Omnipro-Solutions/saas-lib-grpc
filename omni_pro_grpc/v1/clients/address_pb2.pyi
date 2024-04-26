@@ -12,6 +12,7 @@ DESCRIPTOR: _descriptor.FileDescriptor
 
 class Address(_message.Message):
     __slots__ = [
+        "id",
         "country_id",
         "code",
         "name",
@@ -26,8 +27,10 @@ class Address(_message.Message):
         "territory_matrixes",
         "active",
         "external_id",
+        "client_id",
         "object_audit",
     ]
+    ID_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_ID_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -42,7 +45,9 @@ class Address(_message.Message):
     TERRITORY_MATRIXES_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
+    id: str
     country_id: str
     code: str
     name: str
@@ -57,9 +62,11 @@ class Address(_message.Message):
     territory_matrixes: _struct_pb2.ListValue
     active: bool
     external_id: str
+    client_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
+        id: _Optional[str] = ...,
         country_id: _Optional[str] = ...,
         code: _Optional[str] = ...,
         name: _Optional[str] = ...,
@@ -74,6 +81,7 @@ class Address(_message.Message):
         territory_matrixes: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         active: bool = ...,
         external_id: _Optional[str] = ...,
+        client_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -184,18 +192,13 @@ class AddressUpdateResponse(_message.Message):
     ) -> None: ...
 
 class AddressDeleteRequest(_message.Message):
-    __slots__ = ["client_id", "code", "context"]
-    CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
-    CODE_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["id", "context"]
+    ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    client_id: str
-    code: str
+    id: str
     context: _base_pb2.Context
     def __init__(
-        self,
-        client_id: _Optional[str] = ...,
-        code: _Optional[str] = ...,
-        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+        self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
     ) -> None: ...
 
 class AddressDeleteResponse(_message.Message):
