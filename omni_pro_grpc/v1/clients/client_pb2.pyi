@@ -77,6 +77,7 @@ class ClientCreateRequest(_message.Message):
         "mobile",
         "phone",
         "email",
+        "addresses_ids",
         "country",
         "external_id",
         "context",
@@ -87,6 +88,7 @@ class ClientCreateRequest(_message.Message):
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
+    ADDRESSES_IDS_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -96,6 +98,7 @@ class ClientCreateRequest(_message.Message):
     mobile: str
     phone: str
     email: str
+    addresses_ids: _containers.RepeatedScalarFieldContainer[str]
     country: _base_pb2.Object
     external_id: str
     context: _base_pb2.Context
@@ -107,6 +110,7 @@ class ClientCreateRequest(_message.Message):
         mobile: _Optional[str] = ...,
         phone: _Optional[str] = ...,
         email: _Optional[str] = ...,
+        addresses_ids: _Optional[_Iterable[str]] = ...,
         country: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
