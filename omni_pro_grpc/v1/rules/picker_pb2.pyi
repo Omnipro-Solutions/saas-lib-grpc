@@ -100,7 +100,7 @@ class PickerCreateRequest(_message.Message):
     __slots__ = [
         "user_id",
         "warehouse_id",
-        "category_values",
+        "categories_ids",
         "can_pick",
         "can_pack",
         "can_out",
@@ -112,7 +112,7 @@ class PickerCreateRequest(_message.Message):
     ]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     WAREHOUSE_ID_FIELD_NUMBER: _ClassVar[int]
-    CATEGORY_VALUES_FIELD_NUMBER: _ClassVar[int]
+    CATEGORIES_IDS_FIELD_NUMBER: _ClassVar[int]
     CAN_PICK_FIELD_NUMBER: _ClassVar[int]
     CAN_PACK_FIELD_NUMBER: _ClassVar[int]
     CAN_OUT_FIELD_NUMBER: _ClassVar[int]
@@ -123,7 +123,7 @@ class PickerCreateRequest(_message.Message):
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     warehouse_id: int
-    category_values: _containers.RepeatedCompositeFieldContainer[CategoryValues]
+    categories_ids: _containers.RepeatedScalarFieldContainer[str]
     can_pick: _wrappers_pb2.BoolValue
     can_pack: _wrappers_pb2.BoolValue
     can_out: _wrappers_pb2.BoolValue
@@ -136,7 +136,7 @@ class PickerCreateRequest(_message.Message):
         self,
         user_id: _Optional[str] = ...,
         warehouse_id: _Optional[int] = ...,
-        category_values: _Optional[_Iterable[_Union[CategoryValues, _Mapping]]] = ...,
+        categories_ids: _Optional[_Iterable[str]] = ...,
         can_pick: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         can_pack: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         can_out: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,

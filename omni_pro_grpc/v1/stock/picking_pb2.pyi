@@ -42,7 +42,6 @@ class Picking(_message.Message):
         "time_total_preparation",
         "time_assigned",
         "carrier",
-        "date_delivery",
         "carrier_tracking_ref",
         "group",
         "weight",
@@ -82,7 +81,6 @@ class Picking(_message.Message):
     TIME_TOTAL_PREPARATION_FIELD_NUMBER: _ClassVar[int]
     TIME_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
     CARRIER_FIELD_NUMBER: _ClassVar[int]
-    DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     CARRIER_TRACKING_REF_FIELD_NUMBER: _ClassVar[int]
     GROUP_FIELD_NUMBER: _ClassVar[int]
     WEIGHT_FIELD_NUMBER: _ClassVar[int]
@@ -121,7 +119,6 @@ class Picking(_message.Message):
     time_total_preparation: float
     time_assigned: float
     carrier: _carrier_pb2.Carrier
-    date_delivery: _timestamp_pb2.Timestamp
     carrier_tracking_ref: str
     group: _procurement_group_pb2.ProcurementGroup
     weight: float
@@ -162,7 +159,6 @@ class Picking(_message.Message):
         time_total_preparation: _Optional[float] = ...,
         time_assigned: _Optional[float] = ...,
         carrier: _Optional[_Union[_carrier_pb2.Carrier, _Mapping]] = ...,
-        date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
         carrier_tracking_ref: _Optional[str] = ...,
         group: _Optional[_Union[_procurement_group_pb2.ProcurementGroup, _Mapping]] = ...,
         weight: _Optional[float] = ...,
@@ -204,7 +200,6 @@ class PickingCreateRequest(_message.Message):
         "time_total_preparation",
         "time_assigned",
         "carrier_id",
-        "date_delivery",
         "carrier_tracking_ref",
         "group_id",
         "weight",
@@ -240,7 +235,6 @@ class PickingCreateRequest(_message.Message):
     TIME_TOTAL_PREPARATION_FIELD_NUMBER: _ClassVar[int]
     TIME_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
     CARRIER_ID_FIELD_NUMBER: _ClassVar[int]
-    DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
     CARRIER_TRACKING_REF_FIELD_NUMBER: _ClassVar[int]
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     WEIGHT_FIELD_NUMBER: _ClassVar[int]
@@ -275,7 +269,6 @@ class PickingCreateRequest(_message.Message):
     time_total_preparation: float
     time_assigned: float
     carrier_id: int
-    date_delivery: _timestamp_pb2.Timestamp
     carrier_tracking_ref: str
     group_id: int
     weight: float
@@ -312,7 +305,6 @@ class PickingCreateRequest(_message.Message):
         time_total_preparation: _Optional[float] = ...,
         time_assigned: _Optional[float] = ...,
         carrier_id: _Optional[int] = ...,
-        date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
         carrier_tracking_ref: _Optional[str] = ...,
         group_id: _Optional[int] = ...,
         weight: _Optional[float] = ...,
