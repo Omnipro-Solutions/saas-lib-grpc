@@ -170,7 +170,6 @@ class OrderHistory(_message.Message):
         "transition_id",
         "transition_type",
         "logic",
-        "delivery_hours",
         "send_ecommerce",
         "substitution_applied",
         "object_audit",
@@ -190,7 +189,6 @@ class OrderHistory(_message.Message):
     TRANSITION_ID_FIELD_NUMBER: _ClassVar[int]
     TRANSITION_TYPE_FIELD_NUMBER: _ClassVar[int]
     LOGIC_FIELD_NUMBER: _ClassVar[int]
-    DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
     SUBSTITUTION_APPLIED_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -209,7 +207,6 @@ class OrderHistory(_message.Message):
     transition_id: int
     transition_type: str
     logic: str
-    delivery_hours: str
     send_ecommerce: _wrappers_pb2.BoolValue
     substitution_applied: int
     object_audit: _base_pb2.ObjectAudit
@@ -230,7 +227,6 @@ class OrderHistory(_message.Message):
         transition_id: _Optional[int] = ...,
         transition_type: _Optional[str] = ...,
         logic: _Optional[str] = ...,
-        delivery_hours: _Optional[str] = ...,
         send_ecommerce: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         substitution_applied: _Optional[int] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -259,6 +255,7 @@ class OrderCreateRequest(_message.Message):
         "state_id",
         "flow_id",
         "confirmed",
+        "delivery_hours",
         "sale_stock_operation",
         "context",
         "date_delivery",
@@ -284,6 +281,7 @@ class OrderCreateRequest(_message.Message):
     STATE_ID_FIELD_NUMBER: _ClassVar[int]
     FLOW_ID_FIELD_NUMBER: _ClassVar[int]
     CONFIRMED_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     SALE_STOCK_OPERATION_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
@@ -308,6 +306,7 @@ class OrderCreateRequest(_message.Message):
     state_id: int
     flow_id: int
     confirmed: bool
+    delivery_hours: str
     sale_stock_operation: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     context: _base_pb2.Context
     date_delivery: _timestamp_pb2.Timestamp
@@ -334,6 +333,7 @@ class OrderCreateRequest(_message.Message):
         state_id: _Optional[int] = ...,
         flow_id: _Optional[int] = ...,
         confirmed: bool = ...,
+        delivery_hours: _Optional[str] = ...,
         sale_stock_operation: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
