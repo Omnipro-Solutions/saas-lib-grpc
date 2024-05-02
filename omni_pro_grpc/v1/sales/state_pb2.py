@@ -15,10 +15,9 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
-from omni_pro_grpc.v1.sales import delivery_method_pb2 as v1_dot_sales_dot_delivery__method__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x14v1/sales/state.proto\x12\x1fpro.omni.oms.api.v1.sales.state\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1ev1/sales/delivery_method.proto"\x97\x03\n\x05State\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12%\n\x04\x66low\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04type\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\r\n\x05\x63olor\x18\x07 \x01(\t\x12\r\n\x05\x61pply\x18\x08 \x01(\t\x12R\n\x0f\x64\x65livery_method\x18\t \x01(\x0b\x32\x39.pro.omni.oms.api.v1.sales.delivery.method.DeliveryMethod\x12(\n\x04show\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12*\n\x06\x61\x63tive\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x0c \x01(\t\x12?\n\x0cobject_audit\x18\r \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x95\x02\n\x12StateCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x0f\n\x07\x66low_id\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\r\n\x05\x63olor\x18\x06 \x01(\t\x12\r\n\x05\x61pply\x18\x07 \x01(\t\x12\x1a\n\x12\x64\x65livery_method_id\x18\x08 \x01(\t\x12(\n\x04show\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\n \x01(\t\x12\x36\n\x07\x63ontext\x18\x0b \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x97\x01\n\x13StateCreateResponse\x12\x35\n\x05state\x18\x01 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xee\x02\n\x10StateReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd1\x01\n\x11StateReadResponse\x12\x36\n\x06states\x18\x01 \x03(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x83\x01\n\x12StateUpdateRequest\x12\x35\n\x05state\x18\x01 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x97\x01\n\x13StateUpdateResponse\x12\x35\n\x05state\x18\x01 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"X\n\x12StateDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"`\n\x13StateDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xf8\x03\n\x0cStateService\x12z\n\x0bStateCreate\x12\x33.pro.omni.oms.api.v1.sales.state.StateCreateRequest\x1a\x34.pro.omni.oms.api.v1.sales.state.StateCreateResponse"\x00\x12t\n\tStateRead\x12\x31.pro.omni.oms.api.v1.sales.state.StateReadRequest\x1a\x32.pro.omni.oms.api.v1.sales.state.StateReadResponse"\x00\x12z\n\x0bStateUpdate\x12\x33.pro.omni.oms.api.v1.sales.state.StateUpdateRequest\x1a\x34.pro.omni.oms.api.v1.sales.state.StateUpdateResponse"\x00\x12z\n\x0bStateDelete\x12\x33.pro.omni.oms.api.v1.sales.state.StateDeleteRequest\x1a\x34.pro.omni.oms.api.v1.sales.state.StateDeleteResponse"\x00\x62\x06proto3'
+    b'\n\x14v1/sales/state.proto\x12\x1fpro.omni.oms.api.v1.sales.state\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xf6\x02\n\x05State\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12%\n\x04\x66low\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04type\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\r\n\x05\x63olor\x18\x07 \x01(\t\x12\r\n\x05\x61pply\x18\x08 \x01(\t\x12\x31\n\x10\x64\x65livery_methods\x18\t \x03(\x0b\x32\x17.google.protobuf.Struct\x12(\n\x04show\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12*\n\x06\x61\x63tive\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x0c \x01(\t\x12?\n\x0cobject_audit\x18\r \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x96\x02\n\x12StateCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x0f\n\x07\x66low_id\x18\x03 \x01(\x05\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\r\n\x05\x63olor\x18\x06 \x01(\t\x12\r\n\x05\x61pply\x18\x07 \x01(\t\x12\x1b\n\x13\x64\x65livery_method_ids\x18\x08 \x03(\t\x12(\n\x04show\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\n \x01(\t\x12\x36\n\x07\x63ontext\x18\x0b \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x97\x01\n\x13StateCreateResponse\x12\x35\n\x05state\x18\x01 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xee\x02\n\x10StateReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd1\x01\n\x11StateReadResponse\x12\x36\n\x06states\x18\x01 \x03(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x83\x01\n\x12StateUpdateRequest\x12\x35\n\x05state\x18\x01 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x97\x01\n\x13StateUpdateResponse\x12\x35\n\x05state\x18\x01 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"X\n\x12StateDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"`\n\x13StateDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xf8\x03\n\x0cStateService\x12z\n\x0bStateCreate\x12\x33.pro.omni.oms.api.v1.sales.state.StateCreateRequest\x1a\x34.pro.omni.oms.api.v1.sales.state.StateCreateResponse"\x00\x12t\n\tStateRead\x12\x31.pro.omni.oms.api.v1.sales.state.StateReadRequest\x1a\x32.pro.omni.oms.api.v1.sales.state.StateReadResponse"\x00\x12z\n\x0bStateUpdate\x12\x33.pro.omni.oms.api.v1.sales.state.StateUpdateRequest\x1a\x34.pro.omni.oms.api.v1.sales.state.StateUpdateResponse"\x00\x12z\n\x0bStateDelete\x12\x33.pro.omni.oms.api.v1.sales.state.StateDeleteRequest\x1a\x34.pro.omni.oms.api.v1.sales.state.StateDeleteResponse"\x00\x62\x06proto3'
 )
 
 _globals = globals()
@@ -27,24 +26,24 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.sales.state_pb2", _globa
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
-    _globals["_STATE"]._serialized_start = 171
-    _globals["_STATE"]._serialized_end = 578
-    _globals["_STATECREATEREQUEST"]._serialized_start = 581
-    _globals["_STATECREATEREQUEST"]._serialized_end = 858
-    _globals["_STATECREATERESPONSE"]._serialized_start = 861
-    _globals["_STATECREATERESPONSE"]._serialized_end = 1012
-    _globals["_STATEREADREQUEST"]._serialized_start = 1015
-    _globals["_STATEREADREQUEST"]._serialized_end = 1381
-    _globals["_STATEREADRESPONSE"]._serialized_start = 1384
-    _globals["_STATEREADRESPONSE"]._serialized_end = 1593
-    _globals["_STATEUPDATEREQUEST"]._serialized_start = 1596
-    _globals["_STATEUPDATEREQUEST"]._serialized_end = 1727
-    _globals["_STATEUPDATERESPONSE"]._serialized_start = 1730
-    _globals["_STATEUPDATERESPONSE"]._serialized_end = 1881
-    _globals["_STATEDELETEREQUEST"]._serialized_start = 1883
-    _globals["_STATEDELETEREQUEST"]._serialized_end = 1971
-    _globals["_STATEDELETERESPONSE"]._serialized_start = 1973
-    _globals["_STATEDELETERESPONSE"]._serialized_end = 2069
-    _globals["_STATESERVICE"]._serialized_start = 2072
-    _globals["_STATESERVICE"]._serialized_end = 2576
+    _globals["_STATE"]._serialized_start = 139
+    _globals["_STATE"]._serialized_end = 513
+    _globals["_STATECREATEREQUEST"]._serialized_start = 516
+    _globals["_STATECREATEREQUEST"]._serialized_end = 794
+    _globals["_STATECREATERESPONSE"]._serialized_start = 797
+    _globals["_STATECREATERESPONSE"]._serialized_end = 948
+    _globals["_STATEREADREQUEST"]._serialized_start = 951
+    _globals["_STATEREADREQUEST"]._serialized_end = 1317
+    _globals["_STATEREADRESPONSE"]._serialized_start = 1320
+    _globals["_STATEREADRESPONSE"]._serialized_end = 1529
+    _globals["_STATEUPDATEREQUEST"]._serialized_start = 1532
+    _globals["_STATEUPDATEREQUEST"]._serialized_end = 1663
+    _globals["_STATEUPDATERESPONSE"]._serialized_start = 1666
+    _globals["_STATEUPDATERESPONSE"]._serialized_end = 1817
+    _globals["_STATEDELETEREQUEST"]._serialized_start = 1819
+    _globals["_STATEDELETEREQUEST"]._serialized_end = 1907
+    _globals["_STATEDELETERESPONSE"]._serialized_start = 1909
+    _globals["_STATEDELETERESPONSE"]._serialized_end = 2005
+    _globals["_STATESERVICE"]._serialized_start = 2008
+    _globals["_STATESERVICE"]._serialized_end = 2512
 # @@protoc_insertion_point(module_scope)

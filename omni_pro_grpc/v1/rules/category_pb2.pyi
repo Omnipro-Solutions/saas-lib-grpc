@@ -13,32 +13,18 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Category(_message.Message):
-    __slots__ = [
-        "id",
-        "name",
-        "code",
-        "family_doc_id",
-        "group_code",
-        "attribute_code",
-        "active",
-        "external_id",
-        "object_audit",
-    ]
+    __slots__ = ["id", "name", "code", "category_doc_id", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
-    FAMILY_DOC_ID_FIELD_NUMBER: _ClassVar[int]
-    GROUP_CODE_FIELD_NUMBER: _ClassVar[int]
-    ATTRIBUTE_CODE_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     code: str
-    family_doc_id: str
-    group_code: str
-    attribute_code: str
+    category_doc_id: str
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -47,9 +33,7 @@ class Category(_message.Message):
         id: _Optional[str] = ...,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
-        family_doc_id: _Optional[str] = ...,
-        group_code: _Optional[str] = ...,
-        attribute_code: _Optional[str] = ...,
+        category_doc_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,

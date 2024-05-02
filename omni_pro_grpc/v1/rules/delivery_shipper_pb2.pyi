@@ -14,7 +14,7 @@ from omni_pro_grpc.v1.rules import delivery_category_pb2 as _delivery_category_p
 from omni_pro_grpc.v1.rules import delivery_locality_pb2 as _delivery_locality_pb2
 from omni_pro_grpc.v1.rules import delivery_method_pb2 as _delivery_method_pb2
 from omni_pro_grpc.v1.rules import schedule_work_pb2 as _schedule_work_pb2
-from omni_pro_grpc.v1.rules import special_conditions_pb2 as _special_conditions_pb2
+from omni_pro_grpc.v1.rules import template_special_conditions_pb2 as _template_special_conditions_pb2
 from omni_pro_grpc.v1.rules import warehouse_pb2 as _warehouse_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
@@ -33,7 +33,7 @@ class DeliveryShipper(_message.Message):
         "internal_transfer",
         "warehouses",
         "category_template_not_allowed",
-        "special_conditions",
+        "template_special_conditions",
         "active",
         "external_id",
         "object_audit",
@@ -50,7 +50,7 @@ class DeliveryShipper(_message.Message):
     INTERNAL_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     WAREHOUSES_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_TEMPLATE_NOT_ALLOWED_FIELD_NUMBER: _ClassVar[int]
-    SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -66,7 +66,7 @@ class DeliveryShipper(_message.Message):
     internal_transfer: _wrappers_pb2.BoolValue
     warehouses: _containers.RepeatedCompositeFieldContainer[_warehouse_pb2.Warehouse]
     category_template_not_allowed: _delivery_category_pb2.DeliveryCategory
-    special_conditions: _special_conditions_pb2.SpecialConditions
+    template_special_conditions: _template_special_conditions_pb2.TemplateSpecialConditions
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -84,7 +84,9 @@ class DeliveryShipper(_message.Message):
         internal_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         warehouses: _Optional[_Iterable[_Union[_warehouse_pb2.Warehouse, _Mapping]]] = ...,
         category_template_not_allowed: _Optional[_Union[_delivery_category_pb2.DeliveryCategory, _Mapping]] = ...,
-        special_conditions: _Optional[_Union[_special_conditions_pb2.SpecialConditions, _Mapping]] = ...,
+        template_special_conditions: _Optional[
+            _Union[_template_special_conditions_pb2.TemplateSpecialConditions, _Mapping]
+        ] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -103,7 +105,7 @@ class DeliveryShipperCreateRequest(_message.Message):
         "internal_transfer",
         "warehouse_ids",
         "category_template_not_allowed_id",
-        "special_conditions_id",
+        "template_special_conditions_id",
         "external_id",
         "context",
     ]
@@ -118,7 +120,7 @@ class DeliveryShipperCreateRequest(_message.Message):
     INTERNAL_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     WAREHOUSE_IDS_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_TEMPLATE_NOT_ALLOWED_ID_FIELD_NUMBER: _ClassVar[int]
-    SPECIAL_CONDITIONS_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_SPECIAL_CONDITIONS_ID_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -132,7 +134,7 @@ class DeliveryShipperCreateRequest(_message.Message):
     internal_transfer: _wrappers_pb2.BoolValue
     warehouse_ids: _containers.RepeatedScalarFieldContainer[int]
     category_template_not_allowed_id: str
-    special_conditions_id: str
+    template_special_conditions_id: str
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -148,7 +150,7 @@ class DeliveryShipperCreateRequest(_message.Message):
         internal_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         warehouse_ids: _Optional[_Iterable[int]] = ...,
         category_template_not_allowed_id: _Optional[str] = ...,
-        special_conditions_id: _Optional[str] = ...,
+        template_special_conditions_id: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...

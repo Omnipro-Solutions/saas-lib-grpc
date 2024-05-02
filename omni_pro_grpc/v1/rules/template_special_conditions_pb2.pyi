@@ -6,31 +6,44 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class SpecialConditionsValues(_message.Message):
-    __slots__ = ["code", "family_doc_id", "group_code", "attribute_code"]
+class SpecialConditions(_message.Message):
+    __slots__ = ["id", "name", "code", "special_condition_doc_id", "icon", "active", "external_id", "object_audit"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
-    FAMILY_DOC_ID_FIELD_NUMBER: _ClassVar[int]
-    GROUP_CODE_FIELD_NUMBER: _ClassVar[int]
-    ATTRIBUTE_CODE_FIELD_NUMBER: _ClassVar[int]
+    SPECIAL_CONDITION_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    ICON_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    name: str
     code: str
-    family_doc_id: str
-    group_code: str
-    attribute_code: str
+    special_condition_doc_id: str
+    icon: _struct_pb2.Struct
+    active: _wrappers_pb2.BoolValue
+    external_id: str
+    object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
         code: _Optional[str] = ...,
-        family_doc_id: _Optional[str] = ...,
-        group_code: _Optional[str] = ...,
-        attribute_code: _Optional[str] = ...,
+        special_condition_doc_id: _Optional[str] = ...,
+        icon: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditions(_message.Message):
+class TemplateSpecialConditions(_message.Message):
     __slots__ = ["id", "name", "special_conditions", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -40,7 +53,7 @@ class SpecialConditions(_message.Message):
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
-    special_conditions: _containers.RepeatedCompositeFieldContainer[SpecialConditionsValues]
+    special_conditions: _containers.RepeatedCompositeFieldContainer[SpecialConditions]
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -48,43 +61,43 @@ class SpecialConditions(_message.Message):
         self,
         id: _Optional[str] = ...,
         name: _Optional[str] = ...,
-        special_conditions: _Optional[_Iterable[_Union[SpecialConditionsValues, _Mapping]]] = ...,
+        special_conditions: _Optional[_Iterable[_Union[SpecialConditions, _Mapping]]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsCreateRequest(_message.Message):
-    __slots__ = ["name", "special_conditions", "external_id", "context"]
+class TemplateSpecialConditionsCreateRequest(_message.Message):
+    __slots__ = ["name", "special_conditions_ids", "external_id", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
-    SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
+    SPECIAL_CONDITIONS_IDS_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
-    special_conditions: _containers.RepeatedCompositeFieldContainer[SpecialConditionsValues]
+    special_conditions_ids: _containers.RepeatedScalarFieldContainer[str]
     external_id: str
     context: _base_pb2.Context
     def __init__(
         self,
         name: _Optional[str] = ...,
-        special_conditions: _Optional[_Iterable[_Union[SpecialConditionsValues, _Mapping]]] = ...,
+        special_conditions_ids: _Optional[_Iterable[str]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsCreateResponse(_message.Message):
+class TemplateSpecialConditionsCreateResponse(_message.Message):
     __slots__ = ["special_conditions", "response_standard"]
     SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    special_conditions: SpecialConditions
+    special_conditions: TemplateSpecialConditions
     response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        special_conditions: _Optional[_Union[SpecialConditions, _Mapping]] = ...,
+        special_conditions: _Optional[_Union[TemplateSpecialConditions, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsReadRequest(_message.Message):
+class TemplateSpecialConditionsReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
     GROUP_BY_FIELD_NUMBER: _ClassVar[int]
     SORT_BY_FIELD_NUMBER: _ClassVar[int]
@@ -111,46 +124,46 @@ class SpecialConditionsReadRequest(_message.Message):
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsReadResponse(_message.Message):
+class TemplateSpecialConditionsReadResponse(_message.Message):
     __slots__ = ["special_conditions", "meta_data", "response_standard"]
     SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
     META_DATA_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    special_conditions: _containers.RepeatedCompositeFieldContainer[SpecialConditions]
+    special_conditions: _containers.RepeatedCompositeFieldContainer[TemplateSpecialConditions]
     meta_data: _base_pb2.MetaData
     response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        special_conditions: _Optional[_Iterable[_Union[SpecialConditions, _Mapping]]] = ...,
+        special_conditions: _Optional[_Iterable[_Union[TemplateSpecialConditions, _Mapping]]] = ...,
         meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsUpdateRequest(_message.Message):
+class TemplateSpecialConditionsUpdateRequest(_message.Message):
     __slots__ = ["special_conditions", "context"]
     SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    special_conditions: SpecialConditions
+    special_conditions: TemplateSpecialConditions
     context: _base_pb2.Context
     def __init__(
         self,
-        special_conditions: _Optional[_Union[SpecialConditions, _Mapping]] = ...,
+        special_conditions: _Optional[_Union[TemplateSpecialConditions, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsUpdateResponse(_message.Message):
+class TemplateSpecialConditionsUpdateResponse(_message.Message):
     __slots__ = ["special_conditions", "response_standard"]
     SPECIAL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    special_conditions: SpecialConditions
+    special_conditions: TemplateSpecialConditions
     response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        special_conditions: _Optional[_Union[SpecialConditions, _Mapping]] = ...,
+        special_conditions: _Optional[_Union[TemplateSpecialConditions, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 
-class SpecialConditionsDeleteRequest(_message.Message):
+class TemplateSpecialConditionsDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
     ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -160,7 +173,7 @@ class SpecialConditionsDeleteRequest(_message.Message):
         self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
     ) -> None: ...
 
-class SpecialConditionsDeleteResponse(_message.Message):
+class TemplateSpecialConditionsDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
