@@ -32,6 +32,7 @@ class Webhook(_message.Message):
         "auth",
         "auth_type",
         "headers",
+        "notify_type",
         "active",
         "object_audit",
     ]
@@ -50,6 +51,7 @@ class Webhook(_message.Message):
     AUTH_FIELD_NUMBER: _ClassVar[int]
     AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
+    NOTIFY_TYPE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -67,6 +69,7 @@ class Webhook(_message.Message):
     auth: _struct_pb2.Struct
     auth_type: str
     headers: _struct_pb2.Struct
+    notify_type: str
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -86,6 +89,7 @@ class Webhook(_message.Message):
         auth: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         auth_type: _Optional[str] = ...,
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        notify_type: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
@@ -106,6 +110,7 @@ class WebhookCreateRequest(_message.Message):
         "auth",
         "auth_type",
         "headers",
+        "notify_type",
         "context",
         "active",
         "object_audit",
@@ -124,6 +129,7 @@ class WebhookCreateRequest(_message.Message):
     AUTH_FIELD_NUMBER: _ClassVar[int]
     AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
+    NOTIFY_TYPE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -141,6 +147,7 @@ class WebhookCreateRequest(_message.Message):
     auth: _struct_pb2.Struct
     auth_type: str
     headers: _struct_pb2.Struct
+    notify_type: str
     context: _base_pb2.Context
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -160,6 +167,7 @@ class WebhookCreateRequest(_message.Message):
         auth: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         auth_type: _Optional[str] = ...,
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        notify_type: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
