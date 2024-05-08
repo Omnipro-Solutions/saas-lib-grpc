@@ -38,7 +38,7 @@ class WarehouseHierarchy(_message.Message):
     warehouse: _warehouse_pb2.Warehouse
     location: _location_pb2.Location
     quantity_security: float
-    sequence: int
+    sequence: _wrappers_pb2.Int32Value
     sequence_order: _wrappers_pb2.BoolValue
     gift_code: str
     def __init__(
@@ -48,7 +48,7 @@ class WarehouseHierarchy(_message.Message):
         warehouse: _Optional[_Union[_warehouse_pb2.Warehouse, _Mapping]] = ...,
         location: _Optional[_Union[_location_pb2.Location, _Mapping]] = ...,
         quantity_security: _Optional[float] = ...,
-        sequence: _Optional[int] = ...,
+        sequence: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         gift_code: _Optional[str] = ...,
     ) -> None: ...
@@ -77,7 +77,7 @@ class WarehouseHierarchyCreate(_message.Message):
     warehouse_id: int
     location_id: int
     quantity_security: float
-    sequence: int
+    sequence: _wrappers_pb2.Int32Value
     sequence_order: _wrappers_pb2.BoolValue
     gift_code: str
     def __init__(
@@ -87,7 +87,7 @@ class WarehouseHierarchyCreate(_message.Message):
         warehouse_id: _Optional[int] = ...,
         location_id: _Optional[int] = ...,
         quantity_security: _Optional[float] = ...,
-        sequence: _Optional[int] = ...,
+        sequence: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         gift_code: _Optional[str] = ...,
     ) -> None: ...
