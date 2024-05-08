@@ -161,18 +161,20 @@ class CarrierDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class SaveGuideRequest(_message.Message):
-    __slots__ = ["order_id", "guide_ref", "guide_url", "tracking_url", "is_cancel", "context"]
+    __slots__ = ["order_id", "guide_ref", "guide_url", "tracking_url", "is_cancel", "invoice", "context"]
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     GUIDE_REF_FIELD_NUMBER: _ClassVar[int]
     GUIDE_URL_FIELD_NUMBER: _ClassVar[int]
     TRACKING_URL_FIELD_NUMBER: _ClassVar[int]
     IS_CANCEL_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     order_id: int
     guide_ref: str
     guide_url: str
     tracking_url: str
     is_cancel: _wrappers_pb2.BoolValue
+    invoice: _wrappers_pb2.BoolValue
     context: _base_pb2.Context
     def __init__(
         self,
@@ -181,6 +183,7 @@ class SaveGuideRequest(_message.Message):
         guide_url: _Optional[str] = ...,
         tracking_url: _Optional[str] = ...,
         is_cancel: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        invoice: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
