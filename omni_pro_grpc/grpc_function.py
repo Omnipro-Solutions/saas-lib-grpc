@@ -345,3 +345,23 @@ class MirrorModelRPCFucntion(object):
         return json_format.MessageToDict(
             response, preserving_proto_field_name=True, including_default_value_fields=True
         )
+
+    def register_webhook_mirror_model(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="RegisterWebhookMirrorModel",
+                request_class="RegisterWebhookMirrorModelRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+    def register_method_grpc(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="RegisterMethodGrpc",
+                request_class="RegisterMethodGrpcRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
