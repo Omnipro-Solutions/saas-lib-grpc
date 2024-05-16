@@ -9,16 +9,28 @@ from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.stock import channel_pb2 as _channel_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Sale(_message.Message):
-    __slots__ = ["id", "name", "sale_sql_id", "client_doc_id", "date_order", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "sale_sql_id",
+        "client_doc_id",
+        "date_order",
+        "channel",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SALE_SQL_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     DATE_ORDER_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -27,6 +39,7 @@ class Sale(_message.Message):
     sale_sql_id: int
     client_doc_id: str
     date_order: _timestamp_pb2.Timestamp
+    channel: _channel_pb2.Channel
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -37,6 +50,7 @@ class Sale(_message.Message):
         sale_sql_id: _Optional[int] = ...,
         client_doc_id: _Optional[str] = ...,
         date_order: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        channel: _Optional[_Union[_channel_pb2.Channel, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,

@@ -8,7 +8,6 @@ from google.protobuf import message as _message
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.stock import channel_pb2 as _channel_pb2
 from omni_pro_grpc.v1.stock import state_pb2 as _state_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
@@ -31,7 +30,6 @@ class Order(_message.Message):
         "order_sql_id",
         "delivery_hours",
         "date_delivery",
-        "channel",
         "state",
         "active",
         "external_id",
@@ -43,7 +41,6 @@ class Order(_message.Message):
     ORDER_SQL_ID_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
-    CHANNEL_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -54,7 +51,6 @@ class Order(_message.Message):
     order_sql_id: int
     delivery_hours: str
     date_delivery: _timestamp_pb2.Timestamp
-    channel: _channel_pb2.Channel
     state: _state_pb2.State
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -67,7 +63,6 @@ class Order(_message.Message):
         order_sql_id: _Optional[int] = ...,
         delivery_hours: _Optional[str] = ...,
         date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
-        channel: _Optional[_Union[_channel_pb2.Channel, _Mapping]] = ...,
         state: _Optional[_Union[_state_pb2.State, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
