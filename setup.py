@@ -14,9 +14,10 @@ AUTHOR = "OMNI.PRO"
 AUTHOR_EMAIL = "development@omni.pro"
 URL = "https://github.com/Omnipro-Solutions/saas-lib-grpc"
 INSTALL_REQUIRES = [
-    "grpcio>=1.0.0 , <=1.56.0",
-    "grpcio-tools>=1.0.0 , <=1.56.0",
-    "protobuf>=4.0.0 , <=4.23.4",
+    "grpcio==1.56.0",
+    "grpcio-tools==1.56.0",
+    "grpcio-reflection==1.56.0",
+    "protobuf==4.23.4",
     "omni-pro-base>=0.0.0,<=2.0.0",
     "omni-pro-redis>=0.0.0,<=2.0.0",
 ]
