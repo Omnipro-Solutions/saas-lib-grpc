@@ -51,8 +51,6 @@ class OmniChannel(Channel):
                 ("grpc.ssl_target_name_override", "omni.pro")
             ]
 
-        # cloud_map = CloudMap(service_name=Config.SERVICE_NAME_BALANCER)
-        # target = cloud_map.get_url_channel(service_id)
         target = self.get_target(service_id, tennat)
         super().__init__(target, () if options is None else options, credentials, compression)
 
