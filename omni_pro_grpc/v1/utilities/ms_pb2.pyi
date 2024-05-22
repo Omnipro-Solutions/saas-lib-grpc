@@ -27,6 +27,7 @@ class Microservice(_message.Message):
         "data",
         "load_data",
         "settings",
+        "permissions",
         "active",
         "external_id",
         "object_audit",
@@ -43,6 +44,7 @@ class Microservice(_message.Message):
     DATA_FIELD_NUMBER: _ClassVar[int]
     LOAD_DATA_FIELD_NUMBER: _ClassVar[int]
     SETTINGS_FIELD_NUMBER: _ClassVar[int]
+    PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -58,6 +60,7 @@ class Microservice(_message.Message):
     data: _struct_pb2.ListValue
     load_data: _wrappers_pb2.BoolValue
     settings: _struct_pb2.ListValue
+    permissions: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -75,6 +78,7 @@ class Microservice(_message.Message):
         data: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         load_data: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         settings: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        permissions: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -93,6 +97,7 @@ class MicroserviceCreateRequest(_message.Message):
         "data",
         "load_data",
         "settings",
+        "permissions",
         "external_id",
         "context",
     ]
@@ -107,6 +112,7 @@ class MicroserviceCreateRequest(_message.Message):
     DATA_FIELD_NUMBER: _ClassVar[int]
     LOAD_DATA_FIELD_NUMBER: _ClassVar[int]
     SETTINGS_FIELD_NUMBER: _ClassVar[int]
+    PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -120,6 +126,7 @@ class MicroserviceCreateRequest(_message.Message):
     data: _struct_pb2.ListValue
     load_data: _wrappers_pb2.BoolValue
     settings: _struct_pb2.ListValue
+    permissions: _struct_pb2.Struct
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -135,6 +142,7 @@ class MicroserviceCreateRequest(_message.Message):
         data: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         load_data: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         settings: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        permissions: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
