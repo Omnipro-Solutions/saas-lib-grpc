@@ -205,7 +205,7 @@ class Attribute(_message.Message):
     code: str
     name: str
     attribute_type: str
-    is_common: bool
+    is_common: _wrappers_pb2.BoolValue
     family: _struct_pb2.Struct
     group: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
@@ -216,7 +216,7 @@ class Attribute(_message.Message):
         code: _Optional[str] = ...,
         name: _Optional[str] = ...,
         attribute_type: _Optional[str] = ...,
-        is_common: bool = ...,
+        is_common: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         family: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         group: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
@@ -250,7 +250,7 @@ class AttributeCreateRequest(_message.Message):
     code: str
     name: str
     attribute_type: str
-    is_common: bool
+    is_common: _wrappers_pb2.BoolValue
     extra_attribute: _struct_pb2.Struct
     external_id: str
     context: _base_pb2.Context
@@ -261,7 +261,7 @@ class AttributeCreateRequest(_message.Message):
         code: _Optional[str] = ...,
         name: _Optional[str] = ...,
         attribute_type: _Optional[str] = ...,
-        is_common: bool = ...,
+        is_common: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         extra_attribute: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
@@ -683,7 +683,7 @@ class Category(_message.Message):
     code: str
     name: str
     attribute_type: str
-    is_common: bool
+    is_common: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     extra_attribute: _struct_pb2.Struct
     def __init__(
@@ -691,7 +691,7 @@ class Category(_message.Message):
         code: _Optional[str] = ...,
         name: _Optional[str] = ...,
         attribute_type: _Optional[str] = ...,
-        is_common: bool = ...,
+        is_common: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         extra_attribute: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
     ) -> None: ...
