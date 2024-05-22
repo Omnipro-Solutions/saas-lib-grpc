@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -13,12 +14,23 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Product(_message.Message):
-    __slots__ = ["id", "product_doc_id", "template_doc_id", "name", "sku", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "product_doc_id",
+        "template_doc_id",
+        "name",
+        "sku",
+        "image",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SKU_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -27,6 +39,7 @@ class Product(_message.Message):
     template_doc_id: str
     name: str
     sku: str
+    image: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -37,6 +50,7 @@ class Product(_message.Message):
         template_doc_id: _Optional[str] = ...,
         name: _Optional[str] = ...,
         sku: _Optional[str] = ...,
+        image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
