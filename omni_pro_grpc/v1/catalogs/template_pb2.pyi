@@ -160,12 +160,22 @@ class ProductTemplateDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class Product(_message.Message):
-    __slots__ = ["id", "code", "name", "product_template_id", "attribute_values", "external_id", "active"]
+    __slots__ = [
+        "id",
+        "code",
+        "name",
+        "product_template_id",
+        "attribute_values",
+        "has_code_attribute_values",
+        "external_id",
+        "active",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     ATTRIBUTE_VALUES_FIELD_NUMBER: _ClassVar[int]
+    HAS_CODE_ATTRIBUTE_VALUES_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -173,6 +183,7 @@ class Product(_message.Message):
     name: str
     product_template_id: str
     attribute_values: _struct_pb2.Struct
+    has_code_attribute_values: str
     external_id: str
     active: _wrappers_pb2.BoolValue
     def __init__(
@@ -182,6 +193,7 @@ class Product(_message.Message):
         name: _Optional[str] = ...,
         product_template_id: _Optional[str] = ...,
         attribute_values: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        has_code_attribute_values: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
     ) -> None: ...
