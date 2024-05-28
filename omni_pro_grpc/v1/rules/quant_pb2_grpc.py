@@ -33,6 +33,11 @@ class QuantServiceStub(object):
             request_serializer=v1_dot_rules_dot_quant__pb2.QuantDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_rules_dot_quant__pb2.QuantDeleteResponse.FromString,
         )
+        self.QuantRuleIntegration = channel.unary_unary(
+            "/pro.omni.oms.api.v1.rules.quant.QuantService/QuantRuleIntegration",
+            request_serializer=v1_dot_rules_dot_quant__pb2.QuantRuleIntegrationRequest.SerializeToString,
+            response_deserializer=v1_dot_rules_dot_quant__pb2.QuantRuleIntegrationResponse.FromString,
+        )
 
 
 class QuantServiceServicer(object):
@@ -62,6 +67,12 @@ class QuantServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def QuantRuleIntegration(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_QuantServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_QuantServiceServicer_to_server(servicer, server):
             servicer.QuantDelete,
             request_deserializer=v1_dot_rules_dot_quant__pb2.QuantDeleteRequest.FromString,
             response_serializer=v1_dot_rules_dot_quant__pb2.QuantDeleteResponse.SerializeToString,
+        ),
+        "QuantRuleIntegration": grpc.unary_unary_rpc_method_handler(
+            servicer.QuantRuleIntegration,
+            request_deserializer=v1_dot_rules_dot_quant__pb2.QuantRuleIntegrationRequest.FromString,
+            response_serializer=v1_dot_rules_dot_quant__pb2.QuantRuleIntegrationResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +218,35 @@ class QuantService(object):
             "/pro.omni.oms.api.v1.rules.quant.QuantService/QuantDelete",
             v1_dot_rules_dot_quant__pb2.QuantDeleteRequest.SerializeToString,
             v1_dot_rules_dot_quant__pb2.QuantDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def QuantRuleIntegration(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.rules.quant.QuantService/QuantRuleIntegration",
+            v1_dot_rules_dot_quant__pb2.QuantRuleIntegrationRequest.SerializeToString,
+            v1_dot_rules_dot_quant__pb2.QuantRuleIntegrationResponse.FromString,
             options,
             channel_credentials,
             insecure,
