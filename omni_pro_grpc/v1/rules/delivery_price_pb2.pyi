@@ -67,10 +67,10 @@ class DeliveryPrice(_message.Message):
     currency: _currency_pb2.Currency
     fixed_price: float
     operator_price: str
-    purchase_price: float
+    purchase_price: _wrappers_pb2.FloatValue
     variable_factor: str
     usage: str
-    price_by_variable_factor: float
+    price_by_variable_factor: _wrappers_pb2.FloatValue
     locality_available: _delivery_locality_pb2.DeliveryLocality
     python_code: _python_code_pb2.PythonCode
     active: _wrappers_pb2.BoolValue
@@ -88,10 +88,10 @@ class DeliveryPrice(_message.Message):
         currency: _Optional[_Union[_currency_pb2.Currency, _Mapping]] = ...,
         fixed_price: _Optional[float] = ...,
         operator_price: _Optional[str] = ...,
-        purchase_price: _Optional[float] = ...,
+        purchase_price: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         variable_factor: _Optional[str] = ...,
         usage: _Optional[str] = ...,
-        price_by_variable_factor: _Optional[float] = ...,
+        price_by_variable_factor: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         locality_available: _Optional[_Union[_delivery_locality_pb2.DeliveryLocality, _Mapping]] = ...,
         python_code: _Optional[_Union[_python_code_pb2.PythonCode, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
