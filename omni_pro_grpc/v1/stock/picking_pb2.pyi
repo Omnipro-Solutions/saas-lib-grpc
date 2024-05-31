@@ -423,17 +423,20 @@ class PickingDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class ValidatePickingRequest(_message.Message):
-    __slots__ = ["id", "picking_partial", "context"]
+    __slots__ = ["id", "picking_partial", "immediate_transfer", "context"]
     ID_FIELD_NUMBER: _ClassVar[int]
     PICKING_PARTIAL_FIELD_NUMBER: _ClassVar[int]
+    IMMEDIATE_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     id: int
     picking_partial: _wrappers_pb2.BoolValue
+    immediate_transfer: _wrappers_pb2.BoolValue
     context: _base_pb2.Context
     def __init__(
         self,
         id: _Optional[int] = ...,
         picking_partial: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        immediate_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
