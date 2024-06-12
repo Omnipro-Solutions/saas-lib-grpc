@@ -73,6 +73,11 @@ class PickingServiceStub(object):
             request_serializer=v1_dot_stock_dot_picking__pb2.ReplaceProductRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_picking__pb2.ReplaceProductResponse.FromString,
         )
+        self.CancelPicking = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/CancelPicking",
+            request_serializer=v1_dot_stock_dot_picking__pb2.CancelPickingRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_picking__pb2.CancelPickingResponse.FromString,
+        )
 
 
 class PickingServiceServicer(object):
@@ -150,6 +155,12 @@ class PickingServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def CancelPicking(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_PickingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -212,6 +223,11 @@ def add_PickingServiceServicer_to_server(servicer, server):
             servicer.ReplaceProduct,
             request_deserializer=v1_dot_stock_dot_picking__pb2.ReplaceProductRequest.FromString,
             response_serializer=v1_dot_stock_dot_picking__pb2.ReplaceProductResponse.SerializeToString,
+        ),
+        "CancelPicking": grpc.unary_unary_rpc_method_handler(
+            servicer.CancelPicking,
+            request_deserializer=v1_dot_stock_dot_picking__pb2.CancelPickingRequest.FromString,
+            response_serializer=v1_dot_stock_dot_picking__pb2.CancelPickingResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -562,6 +578,35 @@ class PickingService(object):
             "/pro.omni.oms.api.v1.stock.picking.PickingService/ReplaceProduct",
             v1_dot_stock_dot_picking__pb2.ReplaceProductRequest.SerializeToString,
             v1_dot_stock_dot_picking__pb2.ReplaceProductResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def CancelPicking(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/CancelPicking",
+            v1_dot_stock_dot_picking__pb2.CancelPickingRequest.SerializeToString,
+            v1_dot_stock_dot_picking__pb2.CancelPickingResponse.FromString,
             options,
             channel_credentials,
             insecure,
