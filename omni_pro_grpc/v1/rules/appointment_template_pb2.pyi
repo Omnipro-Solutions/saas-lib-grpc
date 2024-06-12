@@ -23,6 +23,7 @@ class AppointmentTemplate(_message.Message):
         "methods",
         "order_numbers",
         "hour_limit_same_day",
+        "hours_order_ready",
         "number_days_to_show",
         "holidays",
         "lines",
@@ -36,6 +37,7 @@ class AppointmentTemplate(_message.Message):
     METHODS_FIELD_NUMBER: _ClassVar[int]
     ORDER_NUMBERS_FIELD_NUMBER: _ClassVar[int]
     HOUR_LIMIT_SAME_DAY_FIELD_NUMBER: _ClassVar[int]
+    HOURS_ORDER_READY_FIELD_NUMBER: _ClassVar[int]
     NUMBER_DAYS_TO_SHOW_FIELD_NUMBER: _ClassVar[int]
     HOLIDAYS_FIELD_NUMBER: _ClassVar[int]
     LINES_FIELD_NUMBER: _ClassVar[int]
@@ -48,6 +50,7 @@ class AppointmentTemplate(_message.Message):
     methods: _containers.RepeatedCompositeFieldContainer[_delivery_method_pb2.DeliveryMethod]
     order_numbers: int
     hour_limit_same_day: str
+    hours_order_ready: int
     number_days_to_show: int
     holidays: _holidays_pb2.Holidays
     lines: _containers.RepeatedScalarFieldContainer[str]
@@ -62,6 +65,7 @@ class AppointmentTemplate(_message.Message):
         methods: _Optional[_Iterable[_Union[_delivery_method_pb2.DeliveryMethod, _Mapping]]] = ...,
         order_numbers: _Optional[int] = ...,
         hour_limit_same_day: _Optional[str] = ...,
+        hours_order_ready: _Optional[int] = ...,
         number_days_to_show: _Optional[int] = ...,
         holidays: _Optional[_Union[_holidays_pb2.Holidays, _Mapping]] = ...,
         lines: _Optional[_Iterable[str]] = ...,
@@ -78,6 +82,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
         "order_numbers",
         "hour_limit_same_day",
         "number_days_to_show",
+        "hours_order_ready",
         "holiday_id",
         "lines",
         "external_id",
@@ -89,6 +94,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
     ORDER_NUMBERS_FIELD_NUMBER: _ClassVar[int]
     HOUR_LIMIT_SAME_DAY_FIELD_NUMBER: _ClassVar[int]
     NUMBER_DAYS_TO_SHOW_FIELD_NUMBER: _ClassVar[int]
+    HOURS_ORDER_READY_FIELD_NUMBER: _ClassVar[int]
     HOLIDAY_ID_FIELD_NUMBER: _ClassVar[int]
     LINES_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -99,6 +105,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
     order_numbers: int
     hour_limit_same_day: str
     number_days_to_show: int
+    hours_order_ready: int
     holiday_id: str
     lines: _containers.RepeatedScalarFieldContainer[str]
     external_id: str
@@ -111,6 +118,7 @@ class AppointmentTemplateCreateRequest(_message.Message):
         order_numbers: _Optional[int] = ...,
         hour_limit_same_day: _Optional[str] = ...,
         number_days_to_show: _Optional[int] = ...,
+        hours_order_ready: _Optional[int] = ...,
         holiday_id: _Optional[str] = ...,
         lines: _Optional[_Iterable[str]] = ...,
         external_id: _Optional[str] = ...,
