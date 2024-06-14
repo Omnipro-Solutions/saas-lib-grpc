@@ -48,6 +48,11 @@ class OrderServiceStub(object):
             request_serializer=v1_dot_sales_dot_order__pb2.OrderChangeStateRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_order__pb2.OrderChangeStateResponse.FromString,
         )
+        self.OrderLineDeliveryQuantity = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.order.OrderService/OrderLineDeliveryQuantity",
+            request_serializer=v1_dot_sales_dot_order__pb2.OrderLineDeliveryQuantityRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_order__pb2.OrderLineDeliveryQuantityResponse.FromString,
+        )
 
 
 class OrderServiceServicer(object):
@@ -95,6 +100,12 @@ class OrderServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def OrderLineDeliveryQuantity(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -132,6 +143,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
             servicer.OrderChangeState,
             request_deserializer=v1_dot_sales_dot_order__pb2.OrderChangeStateRequest.FromString,
             response_serializer=v1_dot_sales_dot_order__pb2.OrderChangeStateResponse.SerializeToString,
+        ),
+        "OrderLineDeliveryQuantity": grpc.unary_unary_rpc_method_handler(
+            servicer.OrderLineDeliveryQuantity,
+            request_deserializer=v1_dot_sales_dot_order__pb2.OrderLineDeliveryQuantityRequest.FromString,
+            response_serializer=v1_dot_sales_dot_order__pb2.OrderLineDeliveryQuantityResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -337,6 +353,35 @@ class OrderService(object):
             "/pro.omni.oms.api.v1.sales.order.OrderService/OrderChangeState",
             v1_dot_sales_dot_order__pb2.OrderChangeStateRequest.SerializeToString,
             v1_dot_sales_dot_order__pb2.OrderChangeStateResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def OrderLineDeliveryQuantity(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.order.OrderService/OrderLineDeliveryQuantity",
+            v1_dot_sales_dot_order__pb2.OrderLineDeliveryQuantityRequest.SerializeToString,
+            v1_dot_sales_dot_order__pb2.OrderLineDeliveryQuantityResponse.FromString,
             options,
             channel_credentials,
             insecure,
