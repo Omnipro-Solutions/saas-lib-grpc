@@ -22,6 +22,7 @@ class OrderLine(_message.Message):
         "order",
         "product",
         "quantity",
+        "delivery_quantity",
         "uom",
         "price_unit",
         "taxes",
@@ -37,6 +38,7 @@ class OrderLine(_message.Message):
     ORDER_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     UOM_FIELD_NUMBER: _ClassVar[int]
     PRICE_UNIT_FIELD_NUMBER: _ClassVar[int]
     TAXES_FIELD_NUMBER: _ClassVar[int]
@@ -51,6 +53,7 @@ class OrderLine(_message.Message):
     order: _order_pb2.Order
     product: _product_pb2.Product
     quantity: _wrappers_pb2.FloatValue
+    delivery_quantity: _wrappers_pb2.FloatValue
     uom: _uom_pb2.Uom
     price_unit: _wrappers_pb2.FloatValue
     taxes: _containers.RepeatedCompositeFieldContainer[_tax_pb2.Tax]
@@ -67,6 +70,7 @@ class OrderLine(_message.Message):
         order: _Optional[_Union[_order_pb2.Order, _Mapping]] = ...,
         product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ...,
         quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        delivery_quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ...,
         price_unit: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         taxes: _Optional[_Iterable[_Union[_tax_pb2.Tax, _Mapping]]] = ...,
@@ -84,6 +88,7 @@ class OrderLineCreateRequest(_message.Message):
         "order_id",
         "product_id",
         "quantity",
+        "delivery_quantity",
         "uom_id",
         "price_unit",
         "taxes_id",
@@ -97,6 +102,7 @@ class OrderLineCreateRequest(_message.Message):
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     UOM_ID_FIELD_NUMBER: _ClassVar[int]
     PRICE_UNIT_FIELD_NUMBER: _ClassVar[int]
     TAXES_ID_FIELD_NUMBER: _ClassVar[int]
@@ -109,6 +115,7 @@ class OrderLineCreateRequest(_message.Message):
     order_id: int
     product_id: str
     quantity: _wrappers_pb2.FloatValue
+    delivery_quantity: _wrappers_pb2.FloatValue
     uom_id: str
     price_unit: _wrappers_pb2.FloatValue
     taxes_id: _containers.RepeatedScalarFieldContainer[int]
@@ -123,6 +130,7 @@ class OrderLineCreateRequest(_message.Message):
         order_id: _Optional[int] = ...,
         product_id: _Optional[str] = ...,
         quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
+        delivery_quantity: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         uom_id: _Optional[str] = ...,
         price_unit: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         taxes_id: _Optional[_Iterable[int]] = ...,
