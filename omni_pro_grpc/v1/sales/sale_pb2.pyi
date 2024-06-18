@@ -443,3 +443,50 @@ class SaleCreateIntegrationResponse(_message.Message):
         sale: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
+
+class SaleProcessorRequest(_message.Message):
+    __slots__ = [
+        "order_details",
+        "client_details",
+        "payment_details",
+        "order_items",
+        "shipping_details",
+        "additional_info",
+        "context",
+    ]
+    ORDER_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    PAYMENT_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    ORDER_ITEMS_FIELD_NUMBER: _ClassVar[int]
+    SHIPPING_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    ADDITIONAL_INFO_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_details: _struct_pb2.Struct
+    client_details: _struct_pb2.Struct
+    payment_details: _struct_pb2.Struct
+    order_items: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    shipping_details: _struct_pb2.Struct
+    additional_info: _struct_pb2.Struct
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        order_details: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        client_details: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        payment_details: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        order_items: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        shipping_details: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        additional_info: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class SaleProcessorResponse(_message.Message):
+    __slots__ = ["sale", "response_standard"]
+    SALE_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    sale: _struct_pb2.Struct
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(
+        self,
+        sale: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
