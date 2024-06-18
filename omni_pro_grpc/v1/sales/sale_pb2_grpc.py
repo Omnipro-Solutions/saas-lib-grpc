@@ -38,6 +38,11 @@ class SaleServiceStub(object):
             request_serializer=v1_dot_sales_dot_sale__pb2.SaleCreateIntegrationRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_sale__pb2.SaleCreateIntegrationResponse.FromString,
         )
+        self.SaleProcessor = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.sale.SaleService/SaleProcessor",
+            request_serializer=v1_dot_sales_dot_sale__pb2.SaleProcessorRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_sale__pb2.SaleProcessorResponse.FromString,
+        )
 
 
 class SaleServiceServicer(object):
@@ -73,6 +78,12 @@ class SaleServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def SaleProcessor(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_SaleServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -100,6 +111,11 @@ def add_SaleServiceServicer_to_server(servicer, server):
             servicer.SaleCreateIntegration,
             request_deserializer=v1_dot_sales_dot_sale__pb2.SaleCreateIntegrationRequest.FromString,
             response_serializer=v1_dot_sales_dot_sale__pb2.SaleCreateIntegrationResponse.SerializeToString,
+        ),
+        "SaleProcessor": grpc.unary_unary_rpc_method_handler(
+            servicer.SaleProcessor,
+            request_deserializer=v1_dot_sales_dot_sale__pb2.SaleProcessorRequest.FromString,
+            response_serializer=v1_dot_sales_dot_sale__pb2.SaleProcessorResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -247,6 +263,35 @@ class SaleService(object):
             "/pro.omni.oms.api.v1.sales.sale.SaleService/SaleCreateIntegration",
             v1_dot_sales_dot_sale__pb2.SaleCreateIntegrationRequest.SerializeToString,
             v1_dot_sales_dot_sale__pb2.SaleCreateIntegrationResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def SaleProcessor(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.sale.SaleService/SaleProcessor",
+            v1_dot_sales_dot_sale__pb2.SaleProcessorRequest.SerializeToString,
+            v1_dot_sales_dot_sale__pb2.SaleProcessorResponse.FromString,
             options,
             channel_credentials,
             insecure,
