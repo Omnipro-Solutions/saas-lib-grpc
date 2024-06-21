@@ -56,6 +56,8 @@ class Sale(_message.Message):
         "payment_methods",
         "orders",
         "pickings",
+        "process_times",
+        "exceptions",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -89,6 +91,8 @@ class Sale(_message.Message):
     PAYMENT_METHODS_FIELD_NUMBER: _ClassVar[int]
     ORDERS_FIELD_NUMBER: _ClassVar[int]
     PICKINGS_FIELD_NUMBER: _ClassVar[int]
+    PROCESS_TIMES_FIELD_NUMBER: _ClassVar[int]
+    EXCEPTIONS_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     date_order: _timestamp_pb2.Timestamp
@@ -121,6 +125,8 @@ class Sale(_message.Message):
     payment_methods: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     orders: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     pickings: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    process_times: _struct_pb2.ListValue
+    exceptions: _struct_pb2.ListValue
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -155,6 +161,8 @@ class Sale(_message.Message):
         payment_methods: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         orders: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         pickings: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        process_times: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        exceptions: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
     ) -> None: ...
 
 class SaleIntegration(_message.Message):

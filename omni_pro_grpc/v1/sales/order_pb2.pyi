@@ -55,6 +55,7 @@ class Order(_message.Message):
         "order_history",
         "substitution_applied",
         "delivery_hours",
+        "delivery_total",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -87,6 +88,7 @@ class Order(_message.Message):
     ORDER_HISTORY_FIELD_NUMBER: _ClassVar[int]
     SUBSTITUTION_APPLIED_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_TOTAL_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     sale: _sale_pb2.Sale
@@ -118,6 +120,7 @@ class Order(_message.Message):
     order_history: _containers.RepeatedCompositeFieldContainer[OrderHistory]
     substitution_applied: int
     delivery_hours: str
+    delivery_total: float
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -151,6 +154,7 @@ class Order(_message.Message):
         order_history: _Optional[_Iterable[_Union[OrderHistory, _Mapping]]] = ...,
         substitution_applied: _Optional[int] = ...,
         delivery_hours: _Optional[str] = ...,
+        delivery_total: _Optional[float] = ...,
     ) -> None: ...
 
 class OrderHistory(_message.Message):
