@@ -12,6 +12,7 @@ from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.utilities import event_pb2 as _event_pb2
 from omni_pro_grpc.v1.utilities import method_grpc_pb2 as _method_grpc_pb2
+from omni_pro_grpc.v1.utilities import template_notification_pb2 as _template_notification_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,6 +34,7 @@ class Webhook(_message.Message):
         "auth_type",
         "headers",
         "notify_type",
+        "template_notification",
         "active",
         "object_audit",
     ]
@@ -52,6 +54,7 @@ class Webhook(_message.Message):
     AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -70,6 +73,7 @@ class Webhook(_message.Message):
     auth_type: str
     headers: _struct_pb2.Struct
     notify_type: str
+    template_notification: _template_notification_pb2.TemplateNotification
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -90,6 +94,7 @@ class Webhook(_message.Message):
         auth_type: _Optional[str] = ...,
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         notify_type: _Optional[str] = ...,
+        template_notification: _Optional[_Union[_template_notification_pb2.TemplateNotification, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
@@ -111,6 +116,7 @@ class WebhookCreateRequest(_message.Message):
         "auth_type",
         "headers",
         "notify_type",
+        "template_notification_id",
         "context",
         "active",
         "object_audit",
@@ -130,6 +136,7 @@ class WebhookCreateRequest(_message.Message):
     AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NOTIFICATION_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -148,6 +155,7 @@ class WebhookCreateRequest(_message.Message):
     auth_type: str
     headers: _struct_pb2.Struct
     notify_type: str
+    template_notification_id: str
     context: _base_pb2.Context
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -168,6 +176,7 @@ class WebhookCreateRequest(_message.Message):
         auth_type: _Optional[str] = ...,
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         notify_type: _Optional[str] = ...,
+        template_notification_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
