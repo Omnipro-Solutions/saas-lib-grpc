@@ -232,3 +232,25 @@ class FileRecordDeleteResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class PresignFileRequest(_message.Message):
+    __slots__ = ["file_name", "context"]
+    FILE_NAME_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    file_name: str
+    context: _base_pb2.Context
+    def __init__(
+        self, file_name: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
+
+class PresignFileResponse(_message.Message):
+    __slots__ = ["response_standard", "presigned_url"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    PRESIGNED_URL_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    presigned_url: str
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        presigned_url: _Optional[str] = ...,
+    ) -> None: ...

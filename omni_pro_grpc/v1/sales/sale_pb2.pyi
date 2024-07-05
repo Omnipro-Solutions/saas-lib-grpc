@@ -125,8 +125,8 @@ class Sale(_message.Message):
     payment_methods: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     orders: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     pickings: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
-    process_times: _struct_pb2.ListValue
-    exceptions: _struct_pb2.ListValue
+    process_times: _containers.RepeatedScalarFieldContainer[str]
+    exceptions: _containers.RepeatedScalarFieldContainer[str]
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -161,8 +161,8 @@ class Sale(_message.Message):
         payment_methods: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         orders: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         pickings: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
-        process_times: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
-        exceptions: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        process_times: _Optional[_Iterable[str]] = ...,
+        exceptions: _Optional[_Iterable[str]] = ...,
     ) -> None: ...
 
 class SaleIntegration(_message.Message):

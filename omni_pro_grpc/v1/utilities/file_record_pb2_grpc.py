@@ -33,6 +33,11 @@ class FileRecordServiceStub(object):
             request_serializer=v1_dot_utilities_dot_file__record__pb2.FileRecordDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_utilities_dot_file__record__pb2.FileRecordDeleteResponse.FromString,
         )
+        self.PresignFile = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.file_record.FileRecordService/PresignFile",
+            request_serializer=v1_dot_utilities_dot_file__record__pb2.PresignFileRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_file__record__pb2.PresignFileResponse.FromString,
+        )
 
 
 class FileRecordServiceServicer(object):
@@ -62,6 +67,12 @@ class FileRecordServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def PresignFile(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_FileRecordServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_FileRecordServiceServicer_to_server(servicer, server):
             servicer.FileRecordDelete,
             request_deserializer=v1_dot_utilities_dot_file__record__pb2.FileRecordDeleteRequest.FromString,
             response_serializer=v1_dot_utilities_dot_file__record__pb2.FileRecordDeleteResponse.SerializeToString,
+        ),
+        "PresignFile": grpc.unary_unary_rpc_method_handler(
+            servicer.PresignFile,
+            request_deserializer=v1_dot_utilities_dot_file__record__pb2.PresignFileRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_file__record__pb2.PresignFileResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +218,35 @@ class FileRecordService(object):
             "/pro.omni.oms.api.v1.utilities.file_record.FileRecordService/FileRecordDelete",
             v1_dot_utilities_dot_file__record__pb2.FileRecordDeleteRequest.SerializeToString,
             v1_dot_utilities_dot_file__record__pb2.FileRecordDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def PresignFile(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.utilities.file_record.FileRecordService/PresignFile",
+            v1_dot_utilities_dot_file__record__pb2.PresignFileRequest.SerializeToString,
+            v1_dot_utilities_dot_file__record__pb2.PresignFileResponse.FromString,
             options,
             channel_credentials,
             insecure,
