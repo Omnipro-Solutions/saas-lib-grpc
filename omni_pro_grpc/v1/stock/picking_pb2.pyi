@@ -690,13 +690,18 @@ class CancelPickingResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class DeletePickingSaleRequest(_message.Message):
-    __slots__ = ["sale_id", "context"]
+    __slots__ = ["sale_id", "sale_name", "context"]
     SALE_ID_FIELD_NUMBER: _ClassVar[int]
+    SALE_NAME_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     sale_id: int
+    sale_name: str
     context: _base_pb2.Context
     def __init__(
-        self, sale_id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+        self,
+        sale_id: _Optional[int] = ...,
+        sale_name: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
 class DeletePickingSaleResponse(_message.Message):
