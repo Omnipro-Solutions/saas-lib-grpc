@@ -44,10 +44,10 @@ class StockMove(_message.Message):
     picking: _picking_pb2.Picking
     state: str
     product: _product_pb2.Product
-    quantity_done: float
+    quantity_done: _wrappers_pb2.FloatValue
     product_uom: _uom_pb2.Uom
     description_picking: str
-    qty_reserved: float
+    qty_reserved: _wrappers_pb2.FloatValue
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -57,10 +57,10 @@ class StockMove(_message.Message):
         picking: _Optional[_Union[_picking_pb2.Picking, _Mapping]] = ...,
         state: _Optional[str] = ...,
         product: _Optional[_Union[_product_pb2.Product, _Mapping]] = ...,
-        quantity_done: _Optional[float] = ...,
+        quantity_done: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         product_uom: _Optional[_Union[_uom_pb2.Uom, _Mapping]] = ...,
         description_picking: _Optional[str] = ...,
-        qty_reserved: _Optional[float] = ...,
+        qty_reserved: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -90,10 +90,10 @@ class StockMoveCreateRequest(_message.Message):
     picking_id: int
     state: str
     product_id: str
-    quantity_done: float
+    quantity_done: _wrappers_pb2.FloatValue
     product_uom_id: str
     description_picking: str
-    qty_reserved: float
+    qty_reserved: _wrappers_pb2.FloatValue
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -101,10 +101,10 @@ class StockMoveCreateRequest(_message.Message):
         picking_id: _Optional[int] = ...,
         state: _Optional[str] = ...,
         product_id: _Optional[str] = ...,
-        quantity_done: _Optional[float] = ...,
+        quantity_done: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         product_uom_id: _Optional[str] = ...,
         description_picking: _Optional[str] = ...,
-        qty_reserved: _Optional[float] = ...,
+        qty_reserved: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
