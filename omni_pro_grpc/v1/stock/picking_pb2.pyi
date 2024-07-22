@@ -674,20 +674,26 @@ class ReplaceProductResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class CancelPickingRequest(_message.Message):
-    __slots__ = ["id", "context"]
-    ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["ids", "context"]
+    IDS_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    id: int
+    ids: _containers.RepeatedScalarFieldContainer[int]
     context: _base_pb2.Context
     def __init__(
-        self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+        self, ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
     ) -> None: ...
 
 class CancelPickingResponse(_message.Message):
-    __slots__ = ["response_standard"]
+    __slots__ = ["cancel_picking", "response_standard"]
+    CANCEL_PICKING_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    cancel_picking: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        cancel_picking: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
 
 class DeletePickingSaleRequest(_message.Message):
     __slots__ = ["sale_id", "sale_name", "context"]

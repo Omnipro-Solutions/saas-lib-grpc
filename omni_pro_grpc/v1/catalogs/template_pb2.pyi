@@ -387,3 +387,21 @@ class ProductAllReadResponse(_message.Message):
         product_all: _Optional[_Iterable[_Union[ProductAll, _Mapping]]] = ...,
         meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
     ) -> None: ...
+
+class ProductIntegrationRequest(_message.Message):
+    __slots__ = ["products", "context"]
+    PRODUCTS_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    products: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        products: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class ProductIntegrationResponse(_message.Message):
+    __slots__ = ["response_standard"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...

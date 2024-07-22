@@ -4,12 +4,14 @@ from typing import Mapping as _Mapping
 from typing import Optional as _Optional
 from typing import Union as _Union
 
+from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.utilities import method_grpc_pb2 as _method_grpc_pb2
 from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 from omni_pro_grpc.v1.utilities import ms_pb2 as _ms_pb2
 
@@ -27,6 +29,8 @@ class Action(_message.Message):
         "token",
         "active",
         "external_id",
+        "apply_if_filter",
+        "grpc_method",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -39,6 +43,8 @@ class Action(_message.Message):
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    APPLY_IF_FILTER_FIELD_NUMBER: _ClassVar[int]
+    GRPC_METHOD_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
@@ -50,6 +56,8 @@ class Action(_message.Message):
     token: str
     active: _wrappers_pb2.BoolValue
     external_id: str
+    apply_if_filter: str
+    grpc_method: _method_grpc_pb2.MethodGrpc
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -63,6 +71,8 @@ class Action(_message.Message):
         token: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        apply_if_filter: _Optional[str] = ...,
+        grpc_method: _Optional[_Union[_method_grpc_pb2.MethodGrpc, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -75,6 +85,8 @@ class ActionCreateRequest(_message.Message):
         "url",
         "view",
         "token",
+        "apply_if_filter",
+        "grpc_method_id",
         "active",
         "external_id",
         "context",
@@ -86,6 +98,8 @@ class ActionCreateRequest(_message.Message):
     URL_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
+    APPLY_IF_FILTER_FIELD_NUMBER: _ClassVar[int]
+    GRPC_METHOD_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -96,6 +110,8 @@ class ActionCreateRequest(_message.Message):
     url: str
     view: str
     token: str
+    apply_if_filter: str
+    grpc_method_id: str
     active: _wrappers_pb2.BoolValue
     external_id: str
     context: _base_pb2.Context
@@ -108,6 +124,8 @@ class ActionCreateRequest(_message.Message):
         url: _Optional[str] = ...,
         view: _Optional[str] = ...,
         token: _Optional[str] = ...,
+        apply_if_filter: _Optional[str] = ...,
+        grpc_method_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
@@ -213,12 +231,12 @@ class CallActionRequest(_message.Message):
     INSTANCES_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     action_id: str
-    instances: _struct_pb2.ListValue
+    instances: _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]
     context: _base_pb2.Context
     def __init__(
         self,
         action_id: _Optional[str] = ...,
-        instances: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        instances: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 

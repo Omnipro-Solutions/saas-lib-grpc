@@ -10,6 +10,7 @@ from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.stock import address_pb2 as _address_pb2
 from omni_pro_grpc.v1.stock import country_pb2 as _country_pb2
 from omni_pro_grpc.v1.stock import location_pb2 as _location_pb2
 from omni_pro_grpc.v1.stock import picking_type_pb2 as _picking_type_pb2
@@ -24,7 +25,7 @@ class Warehouse(_message.Message):
         "country",
         "country_code",
         "territory_matrix_value",
-        "address",
+        "address_code",
         "complement",
         "active",
         "delivery_steps",
@@ -49,6 +50,7 @@ class Warehouse(_message.Message):
         "latitude",
         "mobile",
         "image",
+        "address",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -57,7 +59,7 @@ class Warehouse(_message.Message):
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     TERRITORY_MATRIX_VALUE_FIELD_NUMBER: _ClassVar[int]
-    ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    ADDRESS_CODE_FIELD_NUMBER: _ClassVar[int]
     COMPLEMENT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_STEPS_FIELD_NUMBER: _ClassVar[int]
@@ -82,6 +84,7 @@ class Warehouse(_message.Message):
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
+    ADDRESS_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -89,7 +92,7 @@ class Warehouse(_message.Message):
     country: _country_pb2.Country
     country_code: str
     territory_matrix_value: _struct_pb2.ListValue
-    address: str
+    address_code: str
     complement: str
     active: _wrappers_pb2.BoolValue
     delivery_steps: str
@@ -114,6 +117,7 @@ class Warehouse(_message.Message):
     latitude: str
     mobile: str
     image: _struct_pb2.Struct
+    address: _address_pb2.Address
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -123,7 +127,7 @@ class Warehouse(_message.Message):
         country: _Optional[_Union[_country_pb2.Country, _Mapping]] = ...,
         country_code: _Optional[str] = ...,
         territory_matrix_value: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
-        address: _Optional[str] = ...,
+        address_code: _Optional[str] = ...,
         complement: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         delivery_steps: _Optional[str] = ...,
@@ -148,6 +152,7 @@ class Warehouse(_message.Message):
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        address: _Optional[_Union[_address_pb2.Address, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -169,6 +174,7 @@ class WarehouseCreateRequest(_message.Message):
         "longitud",
         "latitude",
         "mobile",
+        "address_doc_id",
         "image",
         "context",
     ]
@@ -188,6 +194,7 @@ class WarehouseCreateRequest(_message.Message):
     LONGITUD_FIELD_NUMBER: _ClassVar[int]
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
+    ADDRESS_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -206,6 +213,7 @@ class WarehouseCreateRequest(_message.Message):
     longitud: str
     latitude: str
     mobile: str
+    address_doc_id: str
     image: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
@@ -226,6 +234,7 @@ class WarehouseCreateRequest(_message.Message):
         longitud: _Optional[str] = ...,
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
+        address_doc_id: _Optional[str] = ...,
         image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
