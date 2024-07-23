@@ -13,15 +13,19 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Client(_message.Message):
-    __slots__ = ["id", "name", "client_doc_id", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "first_name", "last_name", "client_doc_id", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    LAST_NAME_FIELD_NUMBER: _ClassVar[int]
     CLIENT_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
+    first_name: str
+    last_name: str
     client_doc_id: str
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -30,6 +34,8 @@ class Client(_message.Message):
         self,
         id: _Optional[int] = ...,
         name: _Optional[str] = ...,
+        first_name: _Optional[str] = ...,
+        last_name: _Optional[str] = ...,
         client_doc_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,

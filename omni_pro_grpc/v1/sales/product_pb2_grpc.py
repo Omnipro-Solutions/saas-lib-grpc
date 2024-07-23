@@ -33,6 +33,11 @@ class ProductServiceStub(object):
             request_serializer=v1_dot_sales_dot_product__pb2.ProductDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_product__pb2.ProductDeleteResponse.FromString,
         )
+        self.ProductIntegration = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.product.ProductService/ProductIntegration",
+            request_serializer=v1_dot_sales_dot_product__pb2.ProductIntegrationRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_product__pb2.ProductIntegrationResponse.FromString,
+        )
 
 
 class ProductServiceServicer(object):
@@ -62,6 +67,12 @@ class ProductServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def ProductIntegration(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_ProductServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_ProductServiceServicer_to_server(servicer, server):
             servicer.ProductDelete,
             request_deserializer=v1_dot_sales_dot_product__pb2.ProductDeleteRequest.FromString,
             response_serializer=v1_dot_sales_dot_product__pb2.ProductDeleteResponse.SerializeToString,
+        ),
+        "ProductIntegration": grpc.unary_unary_rpc_method_handler(
+            servicer.ProductIntegration,
+            request_deserializer=v1_dot_sales_dot_product__pb2.ProductIntegrationRequest.FromString,
+            response_serializer=v1_dot_sales_dot_product__pb2.ProductIntegrationResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +218,35 @@ class ProductService(object):
             "/pro.omni.oms.api.v1.sales.product.ProductService/ProductDelete",
             v1_dot_sales_dot_product__pb2.ProductDeleteRequest.SerializeToString,
             v1_dot_sales_dot_product__pb2.ProductDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def ProductIntegration(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.product.ProductService/ProductIntegration",
+            v1_dot_sales_dot_product__pb2.ProductIntegrationRequest.SerializeToString,
+            v1_dot_sales_dot_product__pb2.ProductIntegrationResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -13,18 +13,41 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Sequence(_message.Message):
-    __slots__ = ["id", "name", "code", "sequence_doc_id", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "code",
+        "implementation",
+        "prefix",
+        "suffix",
+        "padding",
+        "number_increment",
+        "number_next_actual",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
-    SEQUENCE_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    IMPLEMENTATION_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_FIELD_NUMBER: _ClassVar[int]
+    SUFFIX_FIELD_NUMBER: _ClassVar[int]
+    PADDING_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_INCREMENT_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_NEXT_ACTUAL_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     code: str
-    sequence_doc_id: str
+    implementation: str
+    prefix: str
+    suffix: str
+    padding: float
+    number_increment: int
+    number_next_actual: int
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -33,29 +56,60 @@ class Sequence(_message.Message):
         id: _Optional[int] = ...,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
-        sequence_doc_id: _Optional[str] = ...,
+        implementation: _Optional[str] = ...,
+        prefix: _Optional[str] = ...,
+        suffix: _Optional[str] = ...,
+        padding: _Optional[float] = ...,
+        number_increment: _Optional[int] = ...,
+        number_next_actual: _Optional[int] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class SequenceCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "sequence_doc_id", "external_id", "context"]
+    __slots__ = [
+        "name",
+        "code",
+        "implementation",
+        "prefix",
+        "suffix",
+        "padding",
+        "number_increment",
+        "number_next_actual",
+        "external_id",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
-    SEQUENCE_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    IMPLEMENTATION_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_FIELD_NUMBER: _ClassVar[int]
+    SUFFIX_FIELD_NUMBER: _ClassVar[int]
+    PADDING_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_INCREMENT_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_NEXT_ACTUAL_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
-    sequence_doc_id: str
+    implementation: str
+    prefix: str
+    suffix: str
+    padding: float
+    number_increment: int
+    number_next_actual: int
     external_id: str
     context: _base_pb2.Context
     def __init__(
         self,
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
-        sequence_doc_id: _Optional[str] = ...,
+        implementation: _Optional[str] = ...,
+        prefix: _Optional[str] = ...,
+        suffix: _Optional[str] = ...,
+        padding: _Optional[float] = ...,
+        number_increment: _Optional[int] = ...,
+        number_next_actual: _Optional[int] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
@@ -153,3 +207,29 @@ class SequenceDeleteResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class NextByIdRequest(_message.Message):
+    __slots__ = ["id", "context"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    context: _base_pb2.Context
+    def __init__(
+        self, id: _Optional[int] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
+
+class NextByCodeRequest(_message.Message):
+    __slots__ = ["code", "context"]
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    code: str
+    context: _base_pb2.Context
+    def __init__(
+        self, code: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
+
+class NextResponse(_message.Message):
+    __slots__ = ["next"]
+    NEXT_FIELD_NUMBER: _ClassVar[int]
+    next: str
+    def __init__(self, next: _Optional[str] = ...) -> None: ...
