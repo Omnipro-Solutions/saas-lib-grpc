@@ -18,6 +18,8 @@ class Client(_message.Message):
     __slots__ = [
         "id",
         "name",
+        "first_name",
+        "last_name",
         "document_type",
         "document",
         "mobile",
@@ -31,6 +33,8 @@ class Client(_message.Message):
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    LAST_NAME_FIELD_NUMBER: _ClassVar[int]
     DOCUMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     DOCUMENT_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
@@ -43,6 +47,8 @@ class Client(_message.Message):
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
+    first_name: str
+    last_name: str
     document_type: _type_document_pb2.TypeDocument
     document: str
     mobile: str
@@ -57,6 +63,8 @@ class Client(_message.Message):
         self,
         id: _Optional[str] = ...,
         name: _Optional[str] = ...,
+        first_name: _Optional[str] = ...,
+        last_name: _Optional[str] = ...,
         document_type: _Optional[_Union[_type_document_pb2.TypeDocument, _Mapping]] = ...,
         document: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
@@ -72,6 +80,8 @@ class Client(_message.Message):
 class ClientCreateRequest(_message.Message):
     __slots__ = [
         "name",
+        "first_name",
+        "last_name",
         "document_type_id",
         "document",
         "mobile",
@@ -83,6 +93,8 @@ class ClientCreateRequest(_message.Message):
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    LAST_NAME_FIELD_NUMBER: _ClassVar[int]
     DOCUMENT_TYPE_ID_FIELD_NUMBER: _ClassVar[int]
     DOCUMENT_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
@@ -93,6 +105,8 @@ class ClientCreateRequest(_message.Message):
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
+    first_name: str
+    last_name: str
     document_type_id: str
     document: str
     mobile: str
@@ -105,6 +119,8 @@ class ClientCreateRequest(_message.Message):
     def __init__(
         self,
         name: _Optional[str] = ...,
+        first_name: _Optional[str] = ...,
+        last_name: _Optional[str] = ...,
         document_type_id: _Optional[str] = ...,
         document: _Optional[str] = ...,
         mobile: _Optional[str] = ...,

@@ -11,7 +11,17 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Address(_message.Message):
-    __slots__ = ["id", "client_doc_id", "address_code", "name", "full_address", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "client_doc_id",
+        "address_code",
+        "name",
+        "full_address",
+        "active",
+        "external_id",
+        "address_doc_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     ADDRESS_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -19,6 +29,7 @@ class Address(_message.Message):
     FULL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    ADDRESS_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     client_doc_id: str
@@ -27,6 +38,7 @@ class Address(_message.Message):
     full_address: str
     active: _wrappers_pb2.BoolValue
     external_id: str
+    address_doc_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -37,5 +49,6 @@ class Address(_message.Message):
         full_address: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        address_doc_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...

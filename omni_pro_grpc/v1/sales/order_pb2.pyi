@@ -530,3 +530,40 @@ class OrderLineDeliveryQuantityResponse(_message.Message):
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+
+class ConfirmOrdersRequest(_message.Message):
+    __slots__ = ["order_ids", "context"]
+    ORDER_IDS_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_ids: _containers.RepeatedScalarFieldContainer[int]
+    context: _base_pb2.Context
+    def __init__(
+        self, order_ids: _Optional[_Iterable[int]] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
+    ) -> None: ...
+
+class ConfirmOrdersResult(_message.Message):
+    __slots__ = ["order_id", "confirmed", "message"]
+    ORDER_ID_FIELD_NUMBER: _ClassVar[int]
+    CONFIRMED_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    order_id: int
+    confirmed: _wrappers_pb2.BoolValue
+    message: str
+    def __init__(
+        self,
+        order_id: _Optional[int] = ...,
+        confirmed: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        message: _Optional[str] = ...,
+    ) -> None: ...
+
+class ConfirmOrdersResponse(_message.Message):
+    __slots__ = ["result", "response_standard"]
+    RESULT_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    result: _containers.RepeatedCompositeFieldContainer[ConfirmOrdersResult]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(
+        self,
+        result: _Optional[_Iterable[_Union[ConfirmOrdersResult, _Mapping]]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
