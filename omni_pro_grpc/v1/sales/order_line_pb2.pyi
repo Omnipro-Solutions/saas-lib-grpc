@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -31,6 +32,7 @@ class OrderLine(_message.Message):
         "sub_total",
         "ecommerce_item_id",
         "active",
+        "summary",
         "external_id",
         "object_audit",
     ]
@@ -47,6 +49,7 @@ class OrderLine(_message.Message):
     SUB_TOTAL_FIELD_NUMBER: _ClassVar[int]
     ECOMMERCE_ITEM_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    SUMMARY_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -62,6 +65,7 @@ class OrderLine(_message.Message):
     sub_total: _wrappers_pb2.FloatValue
     ecommerce_item_id: str
     active: _wrappers_pb2.BoolValue
+    summary: _struct_pb2.Struct
     external_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -79,6 +83,7 @@ class OrderLine(_message.Message):
         sub_total: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...,
         ecommerce_item_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        summary: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
