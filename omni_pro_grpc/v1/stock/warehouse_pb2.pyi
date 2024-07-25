@@ -25,7 +25,7 @@ class Warehouse(_message.Message):
         "country",
         "country_code",
         "territory_matrix_value",
-        "address_code",
+        "address",
         "complement",
         "active",
         "delivery_steps",
@@ -50,7 +50,7 @@ class Warehouse(_message.Message):
         "latitude",
         "mobile",
         "image",
-        "address",
+        "rel_address",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -59,7 +59,7 @@ class Warehouse(_message.Message):
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     TERRITORY_MATRIX_VALUE_FIELD_NUMBER: _ClassVar[int]
-    ADDRESS_CODE_FIELD_NUMBER: _ClassVar[int]
+    ADDRESS_FIELD_NUMBER: _ClassVar[int]
     COMPLEMENT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_STEPS_FIELD_NUMBER: _ClassVar[int]
@@ -84,7 +84,7 @@ class Warehouse(_message.Message):
     LATITUDE_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
-    ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    REL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -92,7 +92,7 @@ class Warehouse(_message.Message):
     country: _country_pb2.Country
     country_code: str
     territory_matrix_value: _struct_pb2.ListValue
-    address_code: str
+    address: str
     complement: str
     active: _wrappers_pb2.BoolValue
     delivery_steps: str
@@ -117,7 +117,7 @@ class Warehouse(_message.Message):
     latitude: str
     mobile: str
     image: _struct_pb2.Struct
-    address: _address_pb2.Address
+    rel_address: _address_pb2.Address
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -127,7 +127,7 @@ class Warehouse(_message.Message):
         country: _Optional[_Union[_country_pb2.Country, _Mapping]] = ...,
         country_code: _Optional[str] = ...,
         territory_matrix_value: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
-        address_code: _Optional[str] = ...,
+        address: _Optional[str] = ...,
         complement: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         delivery_steps: _Optional[str] = ...,
@@ -152,7 +152,7 @@ class Warehouse(_message.Message):
         latitude: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         image: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
-        address: _Optional[_Union[_address_pb2.Address, _Mapping]] = ...,
+        rel_address: _Optional[_Union[_address_pb2.Address, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 

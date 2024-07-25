@@ -51,6 +51,7 @@ class Sale(_message.Message):
         "shipping_method_code",
         "shipping_amount_discount_description",
         "ecommerce_id",
+        "summary",
         "shipping_receives",
         "object_audit",
         "payment_methods",
@@ -86,6 +87,7 @@ class Sale(_message.Message):
     SHIPPING_METHOD_CODE_FIELD_NUMBER: _ClassVar[int]
     SHIPPING_AMOUNT_DISCOUNT_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     ECOMMERCE_ID_FIELD_NUMBER: _ClassVar[int]
+    SUMMARY_FIELD_NUMBER: _ClassVar[int]
     SHIPPING_RECEIVES_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     PAYMENT_METHODS_FIELD_NUMBER: _ClassVar[int]
@@ -120,6 +122,7 @@ class Sale(_message.Message):
     shipping_method_code: str
     shipping_amount_discount_description: str
     ecommerce_id: int
+    summary: _struct_pb2.Struct
     shipping_receives: _struct_pb2.Struct
     object_audit: _base_pb2.ObjectAudit
     payment_methods: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
@@ -156,6 +159,7 @@ class Sale(_message.Message):
         shipping_method_code: _Optional[str] = ...,
         shipping_amount_discount_description: _Optional[str] = ...,
         ecommerce_id: _Optional[int] = ...,
+        summary: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         shipping_receives: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
         payment_methods: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
