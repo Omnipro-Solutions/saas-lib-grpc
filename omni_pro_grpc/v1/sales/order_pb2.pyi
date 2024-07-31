@@ -57,6 +57,7 @@ class Order(_message.Message):
         "delivery_hours",
         "delivery_total",
         "summary",
+        "exceptions",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -91,6 +92,7 @@ class Order(_message.Message):
     DELIVERY_HOURS_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_TOTAL_FIELD_NUMBER: _ClassVar[int]
     SUMMARY_FIELD_NUMBER: _ClassVar[int]
+    EXCEPTIONS_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     sale: _sale_pb2.Sale
@@ -124,6 +126,7 @@ class Order(_message.Message):
     delivery_hours: str
     delivery_total: float
     summary: _struct_pb2.Struct
+    exceptions: _containers.RepeatedScalarFieldContainer[str]
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -159,6 +162,7 @@ class Order(_message.Message):
         delivery_hours: _Optional[str] = ...,
         delivery_total: _Optional[float] = ...,
         summary: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        exceptions: _Optional[_Iterable[str]] = ...,
     ) -> None: ...
 
 class OrderHistory(_message.Message):
