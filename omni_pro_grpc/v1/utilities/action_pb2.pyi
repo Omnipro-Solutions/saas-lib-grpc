@@ -4,7 +4,6 @@ from typing import Mapping as _Mapping
 from typing import Optional as _Optional
 from typing import Union as _Union
 
-from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
@@ -231,12 +230,12 @@ class CallActionRequest(_message.Message):
     INSTANCES_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     action_id: str
-    instances: _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]
+    instances: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     context: _base_pb2.Context
     def __init__(
         self,
         action_id: _Optional[str] = ...,
-        instances: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ...,
+        instances: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 

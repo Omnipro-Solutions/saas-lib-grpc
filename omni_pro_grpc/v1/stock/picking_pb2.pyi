@@ -64,6 +64,7 @@ class Picking(_message.Message):
         "warehouse",
         "stock_moves",
         "stock_move_lines",
+        "check_integration_operation",
         "external_id",
         "object_audit",
     ]
@@ -103,6 +104,7 @@ class Picking(_message.Message):
     WAREHOUSE_FIELD_NUMBER: _ClassVar[int]
     STOCK_MOVES_FIELD_NUMBER: _ClassVar[int]
     STOCK_MOVE_LINES_FIELD_NUMBER: _ClassVar[int]
+    CHECK_INTEGRATION_OPERATION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -141,6 +143,7 @@ class Picking(_message.Message):
     warehouse: _struct_pb2.Struct
     stock_moves: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     stock_move_lines: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    check_integration_operation: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -181,6 +184,7 @@ class Picking(_message.Message):
         warehouse: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         stock_moves: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         stock_move_lines: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        check_integration_operation: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
