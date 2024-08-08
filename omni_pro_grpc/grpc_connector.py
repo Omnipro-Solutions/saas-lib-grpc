@@ -5,7 +5,6 @@ import grpc
 from google.protobuf.message import Message as MessageResponse
 from grpc._channel import Channel
 from grpc.experimental import _insecure_channel_credentials
-from omni.pro.database.redis import RedisCache
 from omni_pro_base.config import Config
 from omni_pro_base.logger import configure_logger
 from omni_pro_base.util import nested
@@ -151,7 +150,9 @@ class GRPClient(object):
             response_class_name = data.pop("response_class_name")
             return format_request(data, response_class_name, module_pb2)
 
-    def set_cache_redis(self) -> RedisCache:
+    def set_cache_redis(self):
+        from omni.pro.database.redis import RedisCache
+
         """
         Sets up and returns a RedisCache object based on the configuration retrieved from RedisManager.
 
