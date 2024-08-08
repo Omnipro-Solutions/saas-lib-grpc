@@ -243,10 +243,10 @@ class CallActionResponse(_message.Message):
     __slots__ = ["response", "response_standard"]
     RESPONSE_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    response: _struct_pb2.Struct
+    response: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        response: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        response: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
