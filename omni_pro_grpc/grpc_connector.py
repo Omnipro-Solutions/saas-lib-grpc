@@ -263,6 +263,18 @@ class GRPClient(object):
             pass
 
     def increment_max_request(self, timestamps: list[float], max_request: int, umbral_intervalo: float) -> int:
+        """
+        Calculates the incremented value of max_request based on the average interval and a threshold interval.
+
+        Args:
+            timestamps (list[float]): A list of timestamps.
+            max_request (int): The current value of max_request.
+            umbral_intervalo (float): The threshold interval.
+
+        Returns:
+            int: The incremented value of max_request.
+        """
+
         intervalo_promedio = self.interval_promedio(timestamps)
         smoothing = 0.5
 
@@ -274,10 +286,29 @@ class GRPClient(object):
         return max_request
 
     def interval_promedio(self, timestamps: list[float]) -> float:
+        """
+        Calculates the average interval between timestamps.
+
+        Args:
+            timestamps (list[float]): A list of timestamps.
+
+        Returns:
+            float: The average interval between timestamps.
+        """
         intervalos = [timestamps[i] - timestamps[i - 1] for i in range(1, len(timestamps))]
         return sum(intervalos) / len(intervalos)
 
     def validate_response_hash(self, cache, new_cache):
+        """
+        Validates the response hash by comparing the SHA256 hash of the cache and new_cache.
+
+        Args:
+            cache: The cache value to be compared.
+            new_cache: The new_cache value to be compared.
+
+        Returns:
+            True if the SHA256 hash of cache and new_cache are equal, False otherwise.
+        """
         if hashlib.sha256(str(cache).encode()).hexdigest() == hashlib.sha256(str(new_cache).encode()).hexdigest():
             return True
         return False
