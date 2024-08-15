@@ -255,37 +255,37 @@ class GRPClient(object):
             else:
                 data["info"]["count"] = data["info"]["count"] + 1  # Increment count
                 data["info"]["history_request"].append(datetime.datetime.timestamp(datetime.datetime.now()))
-                data["info"]["umbral_interval"] = self.interval_promedio(data["info"]["history_request"])
+                data["info"]["umbral_interval"] = self.average_interval(data["info"]["history_request"])
                 self.redis_cache.save_cache(hash_key, data, expire=False)
 
         except Exception as e:
             logger.error(f"Error updating cache: {e}")
             pass
 
-    def increment_max_request(self, timestamps: list[float], max_request: int, umbral_intervalo: float) -> int:
+    def increment_max_request(self, timestamps: list[float], max_request: int, umbral_interval: float) -> int:
         """
         Calculates the incremented value of max_request based on the average interval and a threshold interval.
 
         Args:
             timestamps (list[float]): A list of timestamps.
             max_request (int): The current value of max_request.
-            umbral_intervalo (float): The threshold interval.
+            umbral_interval (float): The threshold interval.
 
         Returns:
             int: The incremented value of max_request.
         """
 
-        intervalo_promedio = self.interval_promedio(timestamps)
+        average_interval = self.average_interval(timestamps)
         smoothing = 0.5
 
-        if intervalo_promedio <= umbral_intervalo:
-            incremento = 1 + smoothing * math.exp(1 / intervalo_promedio)
+        if average_interval <= umbral_interval:
+            increment = 1 + smoothing * math.exp(1 / average_interval)
             # max_request = min(int(max_request * incremento), 100)
-            max_request = int(max_request * incremento)
+            max_request = int(max_request * increment)
 
         return max_request
 
-    def interval_promedio(self, timestamps: list[float]) -> float:
+    def average_interval(self, timestamps: list[float]) -> float:
         """
         Calculates the average interval between timestamps.
 
@@ -295,8 +295,8 @@ class GRPClient(object):
         Returns:
             float: The average interval between timestamps.
         """
-        intervalos = [timestamps[i] - timestamps[i - 1] for i in range(1, len(timestamps))]
-        return sum(intervalos) / len(intervalos)
+        intervals = [timestamps[i] - timestamps[i - 1] for i in range(1, len(timestamps))]
+        return sum(intervals) / len(intervals)
 
     def validate_response_hash(self, cache, new_cache):
         """
