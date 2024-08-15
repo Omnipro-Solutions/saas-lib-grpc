@@ -223,15 +223,19 @@ class GRPClient(object):
     @function_thread_controller.run_thread_controller
     def update_cache(self, hash_key: str, data: dict, event: Event, module_pb2, stub):
         """
-        Updates the cache for the given event and message response.
-
+        Updates the cache with the given data.
         Args:
-            event (Event): The event object.
-            message (MessageResponse): The message response object.
-
+            hash_key (str): The key used to identify the cache entry.
+            data (dict): The data to be stored in the cache.
+            event (Event): The event triggering the cache update.
+            module_pb2: The module_pb2 object.
+            stub: The stub object.
+        Raises:
+            None
         Returns:
             None
         """
+
         try:
             if data.get("info").get("count") == data.get("info").get("max_request"):
                 rpc_method = event.get("rpc_method")
