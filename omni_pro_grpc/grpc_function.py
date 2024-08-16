@@ -2,10 +2,11 @@ from google.protobuf import json_format
 from omni_pro_base.microservice import MicroService
 from omni_pro_base.util import generate_hash
 from omni_pro_grpc.grpc_connector import Event, GRPClient
+from omni.pro.util import measure_time
 
 
 class ModelRPCFucntion(object):
-    def __init__(self, context: dict) -> None:
+    def __init__(self, context: dict, cache: bool = False) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -14,6 +15,7 @@ class ModelRPCFucntion(object):
         ```
         """
         self.context = context
+        self.cache = cache
         self.service_id = MicroService.SAAS_MS_UTILITIES.value
         self.module_grpc = "v1.utilities.model_pb2_grpc"
         self.stub_classname = "ModelsServiceStub"
@@ -57,11 +59,11 @@ class ModelRPCFucntion(object):
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        return self.client.call_rpc_fuction(self.event, self.cache) + (self.event,)
 
 
 class EventRPCFucntion(object):
-    def __init__(self, context: dict) -> None:
+    def __init__(self, context: dict, cache: bool = False) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -74,6 +76,7 @@ class EventRPCFucntion(object):
         self.module_grpc = "v1.utilities.event_pb2_grpc"
         self.stub_classname = "EventServiceStub"
         self.module_pb2 = "v1.utilities.event_pb2"
+        self.cache = cache
 
         self.event: Event = Event(
             module_grpc=self.module_grpc,
@@ -93,7 +96,7 @@ class EventRPCFucntion(object):
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
 
     def register_event(self, params: dict):
         self.event.update(
@@ -107,7 +110,8 @@ class EventRPCFucntion(object):
 
 
 class WebhookRPCFucntion(object):
-    def __init__(self, context: dict) -> None:
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -115,6 +119,7 @@ class WebhookRPCFucntion(object):
         context = {"tenant": "tenant_code", "user": "user_name"}
         ```
         """
+        self.cache = cache
         self.context = context
         self.service_id = MicroService.SAAS_MS_UTILITIES.value
         self.module_grpc = "v1.utilities.webhook_pb2_grpc"
@@ -159,7 +164,7 @@ class WebhookRPCFucntion(object):
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
 
 
 class MethodRPCFunction(object):
