@@ -88,6 +88,11 @@ class PickingServiceStub(object):
             request_serializer=v1_dot_stock_dot_picking__pb2.DeletePickingSaleRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_picking__pb2.DeletePickingSaleResponse.FromString,
         )
+        self.UpdatePickingIntegrationOperation = channel.unary_unary(
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/UpdatePickingIntegrationOperation",
+            request_serializer=v1_dot_stock_dot_picking__pb2.UpdatePickingIntegrationOperationRequest.SerializeToString,
+            response_deserializer=v1_dot_stock_dot_picking__pb2.UpdatePickingIntegrationOperationResponse.FromString,
+        )
 
 
 class PickingServiceServicer(object):
@@ -183,6 +188,12 @@ class PickingServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def UpdatePickingIntegrationOperation(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_PickingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -260,6 +271,11 @@ def add_PickingServiceServicer_to_server(servicer, server):
             servicer.DeletePickingSale,
             request_deserializer=v1_dot_stock_dot_picking__pb2.DeletePickingSaleRequest.FromString,
             response_serializer=v1_dot_stock_dot_picking__pb2.DeletePickingSaleResponse.SerializeToString,
+        ),
+        "UpdatePickingIntegrationOperation": grpc.unary_unary_rpc_method_handler(
+            servicer.UpdatePickingIntegrationOperation,
+            request_deserializer=v1_dot_stock_dot_picking__pb2.UpdatePickingIntegrationOperationRequest.FromString,
+            response_serializer=v1_dot_stock_dot_picking__pb2.UpdatePickingIntegrationOperationResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -697,6 +713,35 @@ class PickingService(object):
             "/pro.omni.oms.api.v1.stock.picking.PickingService/DeletePickingSale",
             v1_dot_stock_dot_picking__pb2.DeletePickingSaleRequest.SerializeToString,
             v1_dot_stock_dot_picking__pb2.DeletePickingSaleResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def UpdatePickingIntegrationOperation(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.stock.picking.PickingService/UpdatePickingIntegrationOperation",
+            v1_dot_stock_dot_picking__pb2.UpdatePickingIntegrationOperationRequest.SerializeToString,
+            v1_dot_stock_dot_picking__pb2.UpdatePickingIntegrationOperationResponse.FromString,
             options,
             channel_credentials,
             insecure,

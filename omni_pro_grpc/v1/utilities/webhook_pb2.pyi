@@ -34,6 +34,7 @@ class Webhook(_message.Message):
         "auth_type",
         "headers",
         "notify_type",
+        "priority_level",
         "template_notification",
         "active",
         "object_audit",
@@ -54,6 +55,7 @@ class Webhook(_message.Message):
     AUTH_TYPE_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PRIORITY_LEVEL_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -73,6 +75,7 @@ class Webhook(_message.Message):
     auth_type: str
     headers: _struct_pb2.Struct
     notify_type: str
+    priority_level: int
     template_notification: _template_notification_pb2.TemplateNotification
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -94,6 +97,7 @@ class Webhook(_message.Message):
         auth_type: _Optional[str] = ...,
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         notify_type: _Optional[str] = ...,
+        priority_level: _Optional[int] = ...,
         template_notification: _Optional[_Union[_template_notification_pb2.TemplateNotification, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -117,6 +121,7 @@ class WebhookCreateRequest(_message.Message):
         "headers",
         "notify_type",
         "template_notification_id",
+        "priority_level",
         "context",
         "active",
         "object_audit",
@@ -137,6 +142,7 @@ class WebhookCreateRequest(_message.Message):
     HEADERS_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_TYPE_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_NOTIFICATION_ID_FIELD_NUMBER: _ClassVar[int]
+    PRIORITY_LEVEL_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -156,6 +162,7 @@ class WebhookCreateRequest(_message.Message):
     headers: _struct_pb2.Struct
     notify_type: str
     template_notification_id: str
+    priority_level: int
     context: _base_pb2.Context
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -177,6 +184,7 @@ class WebhookCreateRequest(_message.Message):
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         notify_type: _Optional[str] = ...,
         template_notification_id: _Optional[str] = ...,
+        priority_level: _Optional[int] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
