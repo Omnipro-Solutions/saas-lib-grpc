@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -30,6 +31,7 @@ class PickingType(_message.Message):
         "barcode",
         "reservation_method",
         "type_code",
+        "integration_operations",
         "active",
         "external_id",
         "object_audit",
@@ -48,6 +50,7 @@ class PickingType(_message.Message):
     BARCODE_FIELD_NUMBER: _ClassVar[int]
     RESERVATION_METHOD_FIELD_NUMBER: _ClassVar[int]
     TYPE_CODE_FIELD_NUMBER: _ClassVar[int]
+    INTEGRATION_OPERATIONS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -65,6 +68,7 @@ class PickingType(_message.Message):
     barcode: str
     reservation_method: str
     type_code: str
+    integration_operations: _struct_pb2.ListValue
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -84,6 +88,7 @@ class PickingType(_message.Message):
         barcode: _Optional[str] = ...,
         reservation_method: _Optional[str] = ...,
         type_code: _Optional[str] = ...,
+        integration_operations: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -103,7 +108,8 @@ class PickingTypeCreateRequest(_message.Message):
         "barcode",
         "reservation_method",
         "type_code",
-        "sequence_id",
+        "sequence_doc_id",
+        "integration_operation_ids",
         "external_id",
         "context",
     ]
@@ -119,7 +125,8 @@ class PickingTypeCreateRequest(_message.Message):
     BARCODE_FIELD_NUMBER: _ClassVar[int]
     RESERVATION_METHOD_FIELD_NUMBER: _ClassVar[int]
     TYPE_CODE_FIELD_NUMBER: _ClassVar[int]
-    SEQUENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    SEQUENCE_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    INTEGRATION_OPERATION_IDS_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -134,7 +141,8 @@ class PickingTypeCreateRequest(_message.Message):
     barcode: str
     reservation_method: str
     type_code: str
-    sequence_id: int
+    sequence_doc_id: str
+    integration_operation_ids: _containers.RepeatedScalarFieldContainer[int]
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -151,7 +159,8 @@ class PickingTypeCreateRequest(_message.Message):
         barcode: _Optional[str] = ...,
         reservation_method: _Optional[str] = ...,
         type_code: _Optional[str] = ...,
-        sequence_id: _Optional[int] = ...,
+        sequence_doc_id: _Optional[str] = ...,
+        integration_operation_ids: _Optional[_Iterable[int]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
