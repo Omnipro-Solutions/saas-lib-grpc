@@ -33,6 +33,21 @@ class MirrorModelServiceStub(object):
             request_serializer=v1_dot_utilities_dot_mirror__model__pb2.DeleteMirrorModelRequest.SerializeToString,
             response_deserializer=v1_dot_utilities_dot_mirror__model__pb2.DeleteMirrorModelResponse.FromString,
         )
+        self.MultiCreateMirrorModel = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/MultiCreateMirrorModel",
+            request_serializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelResponse.FromString,
+        )
+        self.MultiUpdateMirrorModel = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/MultiUpdateMirrorModel",
+            request_serializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelResponse.FromString,
+        )
+        self.MultiDeleteMirrorModel = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/MultiDeleteMirrorModel",
+            request_serializer=v1_dot_utilities_dot_mirror__model__pb2.MultiDeleteMirrorModelRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_mirror__model__pb2.MultiDeleteMirrorModelResponse.FromString,
+        )
         self.RegisterMethodGrpc = channel.unary_unary(
             "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/RegisterMethodGrpc",
             request_serializer=v1_dot_utilities_dot_mirror__model__pb2.RegisterMethodGrpcRequest.SerializeToString,
@@ -72,6 +87,24 @@ class MirrorModelServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def MultiCreateMirrorModel(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def MultiUpdateMirrorModel(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def MultiDeleteMirrorModel(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
     def RegisterMethodGrpc(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -106,6 +139,21 @@ def add_MirrorModelServiceServicer_to_server(servicer, server):
             servicer.DeleteMirrorModel,
             request_deserializer=v1_dot_utilities_dot_mirror__model__pb2.DeleteMirrorModelRequest.FromString,
             response_serializer=v1_dot_utilities_dot_mirror__model__pb2.DeleteMirrorModelResponse.SerializeToString,
+        ),
+        "MultiCreateMirrorModel": grpc.unary_unary_rpc_method_handler(
+            servicer.MultiCreateMirrorModel,
+            request_deserializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelResponse.SerializeToString,
+        ),
+        "MultiUpdateMirrorModel": grpc.unary_unary_rpc_method_handler(
+            servicer.MultiUpdateMirrorModel,
+            request_deserializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelResponse.SerializeToString,
+        ),
+        "MultiDeleteMirrorModel": grpc.unary_unary_rpc_method_handler(
+            servicer.MultiDeleteMirrorModel,
+            request_deserializer=v1_dot_utilities_dot_mirror__model__pb2.MultiDeleteMirrorModelRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_mirror__model__pb2.MultiDeleteMirrorModelResponse.SerializeToString,
         ),
         "RegisterMethodGrpc": grpc.unary_unary_rpc_method_handler(
             servicer.RegisterMethodGrpc,
@@ -234,6 +282,93 @@ class MirrorModelService(object):
             "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/DeleteMirrorModel",
             v1_dot_utilities_dot_mirror__model__pb2.DeleteMirrorModelRequest.SerializeToString,
             v1_dot_utilities_dot_mirror__model__pb2.DeleteMirrorModelResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def MultiCreateMirrorModel(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/MultiCreateMirrorModel",
+            v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelRequest.SerializeToString,
+            v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def MultiUpdateMirrorModel(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/MultiUpdateMirrorModel",
+            v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelRequest.SerializeToString,
+            v1_dot_utilities_dot_mirror__model__pb2.MultiCreateOrMultiUpdateMirrorModelResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def MultiDeleteMirrorModel(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/MultiDeleteMirrorModel",
+            v1_dot_utilities_dot_mirror__model__pb2.MultiDeleteMirrorModelRequest.SerializeToString,
+            v1_dot_utilities_dot_mirror__model__pb2.MultiDeleteMirrorModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
