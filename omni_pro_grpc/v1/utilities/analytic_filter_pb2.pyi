@@ -9,83 +9,104 @@ from google.protobuf import message as _message
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
-from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class Event(_message.Message):
-    __slots__ = ["id", "name", "code", "model", "operation", "active", "external_id", "priority_level", "object_audit"]
+class AnalyticFilter(_message.Message):
+    __slots__ = [
+        "id",
+        "field_name",
+        "display_name",
+        "filter_type",
+        "default_value",
+        "options_query",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
-    NAME_FIELD_NUMBER: _ClassVar[int]
-    CODE_FIELD_NUMBER: _ClassVar[int]
-    MODEL_FIELD_NUMBER: _ClassVar[int]
-    OPERATION_FIELD_NUMBER: _ClassVar[int]
+    FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
+    FILTER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    OPTIONS_QUERY_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
-    PRIORITY_LEVEL_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
-    name: str
-    code: str
-    model: _model_pb2.Model
-    operation: str
+    field_name: str
+    display_name: str
+    filter_type: str
+    default_value: str
+    options_query: str
     active: _wrappers_pb2.BoolValue
     external_id: str
-    priority_level: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
         id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        code: _Optional[str] = ...,
-        model: _Optional[_Union[_model_pb2.Model, _Mapping]] = ...,
-        operation: _Optional[str] = ...,
+        field_name: _Optional[str] = ...,
+        display_name: _Optional[str] = ...,
+        filter_type: _Optional[str] = ...,
+        default_value: _Optional[str] = ...,
+        options_query: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
-        priority_level: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
-class EventCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "model_id", "operation", "external_id", "priority_level", "context"]
-    NAME_FIELD_NUMBER: _ClassVar[int]
-    CODE_FIELD_NUMBER: _ClassVar[int]
-    MODEL_ID_FIELD_NUMBER: _ClassVar[int]
-    OPERATION_FIELD_NUMBER: _ClassVar[int]
+class AnalyticFilterCreateRequest(_message.Message):
+    __slots__ = [
+        "field_name",
+        "display_name",
+        "filter_type",
+        "default_value",
+        "options_query",
+        "active",
+        "external_id",
+        "context",
+    ]
+    FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
+    FILTER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    OPTIONS_QUERY_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
-    PRIORITY_LEVEL_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    name: str
-    code: str
-    model_id: str
-    operation: str
+    field_name: str
+    display_name: str
+    filter_type: str
+    default_value: str
+    options_query: str
+    active: _wrappers_pb2.BoolValue
     external_id: str
-    priority_level: str
     context: _base_pb2.Context
     def __init__(
         self,
-        name: _Optional[str] = ...,
-        code: _Optional[str] = ...,
-        model_id: _Optional[str] = ...,
-        operation: _Optional[str] = ...,
+        field_name: _Optional[str] = ...,
+        display_name: _Optional[str] = ...,
+        filter_type: _Optional[str] = ...,
+        default_value: _Optional[str] = ...,
+        options_query: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
-        priority_level: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class EventCreateResponse(_message.Message):
-    __slots__ = ["response_standard", "event"]
+class AnalyticFilterCreateResponse(_message.Message):
+    __slots__ = ["analytic_filter", "response_standard"]
+    ANALYTIC_FILTER_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    EVENT_FIELD_NUMBER: _ClassVar[int]
+    analytic_filter: AnalyticFilter
     response_standard: _base_pb2.ResponseStandard
-    event: Event
     def __init__(
         self,
+        analytic_filter: _Optional[_Union[AnalyticFilter, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
-        event: _Optional[_Union[Event, _Mapping]] = ...,
     ) -> None: ...
 
-class EventReadRequest(_message.Message):
+class AnalyticFilterReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
     GROUP_BY_FIELD_NUMBER: _ClassVar[int]
     SORT_BY_FIELD_NUMBER: _ClassVar[int]
@@ -112,46 +133,46 @@ class EventReadRequest(_message.Message):
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class EventReadResponse(_message.Message):
-    __slots__ = ["response_standard", "meta_data", "events"]
-    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+class AnalyticFilterReadResponse(_message.Message):
+    __slots__ = ["analytic_filters", "meta_data", "response_standard"]
+    ANALYTIC_FILTERS_FIELD_NUMBER: _ClassVar[int]
     META_DATA_FIELD_NUMBER: _ClassVar[int]
-    EVENTS_FIELD_NUMBER: _ClassVar[int]
-    response_standard: _base_pb2.ResponseStandard
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    analytic_filters: _containers.RepeatedCompositeFieldContainer[AnalyticFilter]
     meta_data: _base_pb2.MetaData
-    events: _containers.RepeatedCompositeFieldContainer[Event]
+    response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        analytic_filters: _Optional[_Iterable[_Union[AnalyticFilter, _Mapping]]] = ...,
         meta_data: _Optional[_Union[_base_pb2.MetaData, _Mapping]] = ...,
-        events: _Optional[_Iterable[_Union[Event, _Mapping]]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 
-class EventUpdateRequest(_message.Message):
-    __slots__ = ["event", "context"]
-    EVENT_FIELD_NUMBER: _ClassVar[int]
+class AnalyticFilterUpdateRequest(_message.Message):
+    __slots__ = ["analytic_filter", "context"]
+    ANALYTIC_FILTER_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
-    event: Event
+    analytic_filter: AnalyticFilter
     context: _base_pb2.Context
     def __init__(
         self,
-        event: _Optional[_Union[Event, _Mapping]] = ...,
+        analytic_filter: _Optional[_Union[AnalyticFilter, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class EventUpdateResponse(_message.Message):
-    __slots__ = ["response_standard", "event"]
+class AnalyticFilterUpdateResponse(_message.Message):
+    __slots__ = ["analytic_filter", "response_standard"]
+    ANALYTIC_FILTER_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    EVENT_FIELD_NUMBER: _ClassVar[int]
+    analytic_filter: AnalyticFilter
     response_standard: _base_pb2.ResponseStandard
-    event: Event
     def __init__(
         self,
+        analytic_filter: _Optional[_Union[AnalyticFilter, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
-        event: _Optional[_Union[Event, _Mapping]] = ...,
     ) -> None: ...
 
-class EventDeleteRequest(_message.Message):
+class AnalyticFilterDeleteRequest(_message.Message):
     __slots__ = ["id", "context"]
     ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -161,7 +182,7 @@ class EventDeleteRequest(_message.Message):
         self, id: _Optional[str] = ..., context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...
     ) -> None: ...
 
-class EventDeleteResponse(_message.Message):
+class AnalyticFilterDeleteResponse(_message.Message):
     __slots__ = ["response_standard"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
