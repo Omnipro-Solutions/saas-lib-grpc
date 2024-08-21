@@ -19,6 +19,7 @@ from omni_pro_grpc.v1.stock import delivery_method_pb2 as _delivery_method_pb2
 from omni_pro_grpc.v1.stock import location_pb2 as _location_pb2
 from omni_pro_grpc.v1.stock import order_pb2 as _order_pb2
 from omni_pro_grpc.v1.stock import payment_method_pb2 as _payment_method_pb2
+from omni_pro_grpc.v1.stock import picking_integration_operation_pb2 as _picking_integration_operation_pb2
 from omni_pro_grpc.v1.stock import picking_type_pb2 as _picking_type_pb2
 from omni_pro_grpc.v1.stock import procurement_group_pb2 as _procurement_group_pb2
 from omni_pro_grpc.v1.stock import sale_pb2 as _sale_pb2
@@ -65,6 +66,7 @@ class Picking(_message.Message):
         "stock_moves",
         "stock_move_lines",
         "check_integration_operation",
+        "picking_integration_operations",
         "external_id",
         "object_audit",
     ]
@@ -105,6 +107,7 @@ class Picking(_message.Message):
     STOCK_MOVES_FIELD_NUMBER: _ClassVar[int]
     STOCK_MOVE_LINES_FIELD_NUMBER: _ClassVar[int]
     CHECK_INTEGRATION_OPERATION_FIELD_NUMBER: _ClassVar[int]
+    PICKING_INTEGRATION_OPERATIONS_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -144,6 +147,9 @@ class Picking(_message.Message):
     stock_moves: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     stock_move_lines: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     check_integration_operation: _wrappers_pb2.BoolValue
+    picking_integration_operations: _containers.RepeatedCompositeFieldContainer[
+        _picking_integration_operation_pb2.PickingIntegrationOperation
+    ]
     external_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -185,6 +191,9 @@ class Picking(_message.Message):
         stock_moves: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         stock_move_lines: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         check_integration_operation: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        picking_integration_operations: _Optional[
+            _Iterable[_Union[_picking_integration_operation_pb2.PickingIntegrationOperation, _Mapping]]
+        ] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
@@ -724,4 +733,39 @@ class DeletePickingSaleResponse(_message.Message):
         self,
         result: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
+
+class UpdatePickingIntegrationOperationRequest(_message.Message):
+    __slots__ = ["picking_id", "code", "status", "message", "context"]
+    PICKING_ID_FIELD_NUMBER: _ClassVar[int]
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    picking_id: int
+    code: str
+    status: str
+    message: str
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        picking_id: _Optional[int] = ...,
+        code: _Optional[str] = ...,
+        status: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class UpdatePickingIntegrationOperationResponse(_message.Message):
+    __slots__ = ["response_standard", "picking_integration_operation"]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    PICKING_INTEGRATION_OPERATION_FIELD_NUMBER: _ClassVar[int]
+    response_standard: _base_pb2.ResponseStandard
+    picking_integration_operation: _picking_integration_operation_pb2.PickingIntegrationOperation
+    def __init__(
+        self,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+        picking_integration_operation: _Optional[
+            _Union[_picking_integration_operation_pb2.PickingIntegrationOperation, _Mapping]
+        ] = ...,
     ) -> None: ...
