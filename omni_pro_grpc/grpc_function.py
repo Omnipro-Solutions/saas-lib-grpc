@@ -288,7 +288,7 @@ class MicroServiceRPCFunction(object):
 
 
 class MirrorModelRPCFucntion(object):
-    def __init__(self, context: dict, micorservice: str) -> None:
+    def __init__(self, context: dict, micorservice: str, timeout: float = 0) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -301,6 +301,7 @@ class MirrorModelRPCFucntion(object):
         self.module_grpc = "v1.utilities.mirror_model_pb2_grpc"
         self.stub_classname = "MirrorModelServiceStub"
         self.module_pb2 = "v1.utilities.mirror_model_pb2"
+        self.timeout = timeout
 
         self.event: Event = Event(
             module_grpc=self.module_grpc,
@@ -310,7 +311,7 @@ class MirrorModelRPCFucntion(object):
             request_class=None,
         )
 
-        self.client: GRPClient = GRPClient(self.service_id)
+        self.client: GRPClient = GRPClient(self.service_id, self.timeout)
 
     def create_mirror_model(self, params: dict):
         self.event.update(
@@ -330,6 +331,19 @@ class MirrorModelRPCFucntion(object):
             dict(
                 rpc_method="UpdateMirrorModel",
                 request_class="CreateOrUpdateMirrorModelRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )
+
+    def multi_update_model(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="MultiUpdateMirrorModel",
+                request_class="MultiCreateOrMultiUpdateMirrorModelRequest",
                 params={"context": self.context} | params,
             )
         )

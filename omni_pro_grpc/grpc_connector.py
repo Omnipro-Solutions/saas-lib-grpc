@@ -82,8 +82,9 @@ class OmniChannel(Channel):
 
 
 class GRPClient(object):
-    def __init__(self, service_id: str):
+    def __init__(self, service_id: str, timeout: float = 0):
         self.service_id = service_id
+        self.timeout = timeout
 
     def call_rpc_fuction(self, event: Event, cache=False, *args, **kwargs):
         """
@@ -126,7 +127,10 @@ class GRPClient(object):
 
             request = format_request(event.get("params"), request_class, module_pb2)
             # Instance the method rpc que recibe el request
-            response = getattr(stub, event.get("rpc_method"))(request)
+            if not self.timeout:
+                response = getattr(stub, event.get("rpc_method"))(request)
+            else:
+                response = getattr(stub, event.get("rpc_method"))(request, timeout=self.timeout)
             if cache and self.validate_method_read(event.get("rpc_method")):
                 self.save_cache(event, response)
             success = True
