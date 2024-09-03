@@ -399,7 +399,7 @@ class TemplateNotificationRPCFucntion(object):
         self.service_id = MicroService.SAAS_MS_UTILITIES.value
         self.module_grpc = "v1.utilities.template_notification_pb2_grpc"
         self.stub_classname = "TemplateNotificationServiceStub"
-        self.module_pb2 = "v1.utilities.template_notification_pb2_pb2"
+        self.module_pb2 = "v1.utilities.template_notification_pb2"
         self.timeout = timeout
 
         self.event: Event = Event(
@@ -416,8 +416,11 @@ class TemplateNotificationRPCFucntion(object):
         self.event.update(
             dict(
                 rpc_method="TemplateNotificationRender",
-                request_class="MicroserviceReadRequest",
+                request_class="TemplateNotificationRenderRequest",
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )
