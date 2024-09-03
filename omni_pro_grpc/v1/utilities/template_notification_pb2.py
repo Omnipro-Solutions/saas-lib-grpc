@@ -12,11 +12,12 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n(v1/utilities/template_notification.proto\x12\x33pro.omni.oms.api.v1.utilities.template_notification\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xeb\x01\n\x14TemplateNotification\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x0b\n\x03raw\x18\x05 \x01(\t\x12\x0e\n\x06render\x18\x06 \x01(\t\x12*\n\x06\x61\x63tive\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x08 \x01(\t\x12?\n\x0cobject_audit\x18\t \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xe3\x01\n!TemplateNotificationCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x0b\n\x03raw\x18\x04 \x01(\t\x12\x0e\n\x06render\x18\x05 \x01(\t\x12*\n\x06\x61\x63tive\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x07 \x01(\t\x12\x36\n\x07\x63ontext\x18\x08 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd9\x01\n"TemplateNotificationCreateResponse\x12h\n\x15template_notification\x18\x01 \x01(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xfd\x02\n\x1fTemplateNotificationReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\t\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x93\x02\n TemplateNotificationReadResponse\x12i\n\x16template_notifications\x18\x01 \x03(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xc5\x01\n!TemplateNotificationUpdateRequest\x12h\n\x15template_notification\x18\x01 \x01(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd9\x01\n"TemplateNotificationUpdateResponse\x12h\n\x15template_notification\x18\x01 \x01(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"g\n!TemplateNotificationDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"o\n"TemplateNotificationDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xd7\x06\n\x1bTemplateNotificationService\x12\xcd\x01\n\x1aTemplateNotificationCreate\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationCreateRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationCreateResponse\x12\xc7\x01\n\x18TemplateNotificationRead\x12T.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationReadRequest\x1aU.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationReadResponse\x12\xcd\x01\n\x1aTemplateNotificationUpdate\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationUpdateRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationUpdateResponse\x12\xcd\x01\n\x1aTemplateNotificationDelete\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationDeleteRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationDeleteResponseb\x06proto3'
+    b'\n(v1/utilities/template_notification.proto\x12\x33pro.omni.oms.api.v1.utilities.template_notification\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xeb\x01\n\x14TemplateNotification\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ode\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x0b\n\x03raw\x18\x05 \x01(\t\x12\x0e\n\x06render\x18\x06 \x01(\t\x12*\n\x06\x61\x63tive\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x08 \x01(\t\x12?\n\x0cobject_audit\x18\t \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xe3\x01\n!TemplateNotificationCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x0b\n\x03raw\x18\x04 \x01(\t\x12\x0e\n\x06render\x18\x05 \x01(\t\x12*\n\x06\x61\x63tive\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x07 \x01(\t\x12\x36\n\x07\x63ontext\x18\x08 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd9\x01\n"TemplateNotificationCreateResponse\x12h\n\x15template_notification\x18\x01 \x01(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xfd\x02\n\x1fTemplateNotificationReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\t\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x93\x02\n TemplateNotificationReadResponse\x12i\n\x16template_notifications\x18\x01 \x03(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xc5\x01\n!TemplateNotificationUpdateRequest\x12h\n\x15template_notification\x18\x01 \x01(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd9\x01\n"TemplateNotificationUpdateResponse\x12h\n\x15template_notification\x18\x01 \x01(\x0b\x32I.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotification\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"g\n!TemplateNotificationDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"o\n"TemplateNotificationDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"z\n!TemplateNotificationRenderRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tmodel_ids\x18\x02 \x03(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x98\x01\n"TemplateNotificationRenderResponse\x12\'\n\x06render\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xa7\x08\n\x1bTemplateNotificationService\x12\xcd\x01\n\x1aTemplateNotificationCreate\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationCreateRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationCreateResponse\x12\xc7\x01\n\x18TemplateNotificationRead\x12T.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationReadRequest\x1aU.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationReadResponse\x12\xcd\x01\n\x1aTemplateNotificationUpdate\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationUpdateRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationUpdateResponse\x12\xcd\x01\n\x1aTemplateNotificationDelete\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationDeleteRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationDeleteResponse\x12\xcd\x01\n\x1aTemplateNotificationRender\x12V.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationRenderRequest\x1aW.pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationRenderResponseb\x06proto3'
 )
 
 _globals = globals()
@@ -25,24 +26,28 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.utilities.template_notif
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
-    _globals["_TEMPLATENOTIFICATION"]._serialized_start = 149
-    _globals["_TEMPLATENOTIFICATION"]._serialized_end = 384
-    _globals["_TEMPLATENOTIFICATIONCREATEREQUEST"]._serialized_start = 387
-    _globals["_TEMPLATENOTIFICATIONCREATEREQUEST"]._serialized_end = 614
-    _globals["_TEMPLATENOTIFICATIONCREATERESPONSE"]._serialized_start = 617
-    _globals["_TEMPLATENOTIFICATIONCREATERESPONSE"]._serialized_end = 834
-    _globals["_TEMPLATENOTIFICATIONREADREQUEST"]._serialized_start = 837
-    _globals["_TEMPLATENOTIFICATIONREADREQUEST"]._serialized_end = 1218
-    _globals["_TEMPLATENOTIFICATIONREADRESPONSE"]._serialized_start = 1221
-    _globals["_TEMPLATENOTIFICATIONREADRESPONSE"]._serialized_end = 1496
-    _globals["_TEMPLATENOTIFICATIONUPDATEREQUEST"]._serialized_start = 1499
-    _globals["_TEMPLATENOTIFICATIONUPDATEREQUEST"]._serialized_end = 1696
-    _globals["_TEMPLATENOTIFICATIONUPDATERESPONSE"]._serialized_start = 1699
-    _globals["_TEMPLATENOTIFICATIONUPDATERESPONSE"]._serialized_end = 1916
-    _globals["_TEMPLATENOTIFICATIONDELETEREQUEST"]._serialized_start = 1918
-    _globals["_TEMPLATENOTIFICATIONDELETEREQUEST"]._serialized_end = 2021
-    _globals["_TEMPLATENOTIFICATIONDELETERESPONSE"]._serialized_start = 2023
-    _globals["_TEMPLATENOTIFICATIONDELETERESPONSE"]._serialized_end = 2134
-    _globals["_TEMPLATENOTIFICATIONSERVICE"]._serialized_start = 2137
-    _globals["_TEMPLATENOTIFICATIONSERVICE"]._serialized_end = 2992
+    _globals["_TEMPLATENOTIFICATION"]._serialized_start = 179
+    _globals["_TEMPLATENOTIFICATION"]._serialized_end = 414
+    _globals["_TEMPLATENOTIFICATIONCREATEREQUEST"]._serialized_start = 417
+    _globals["_TEMPLATENOTIFICATIONCREATEREQUEST"]._serialized_end = 644
+    _globals["_TEMPLATENOTIFICATIONCREATERESPONSE"]._serialized_start = 647
+    _globals["_TEMPLATENOTIFICATIONCREATERESPONSE"]._serialized_end = 864
+    _globals["_TEMPLATENOTIFICATIONREADREQUEST"]._serialized_start = 867
+    _globals["_TEMPLATENOTIFICATIONREADREQUEST"]._serialized_end = 1248
+    _globals["_TEMPLATENOTIFICATIONREADRESPONSE"]._serialized_start = 1251
+    _globals["_TEMPLATENOTIFICATIONREADRESPONSE"]._serialized_end = 1526
+    _globals["_TEMPLATENOTIFICATIONUPDATEREQUEST"]._serialized_start = 1529
+    _globals["_TEMPLATENOTIFICATIONUPDATEREQUEST"]._serialized_end = 1726
+    _globals["_TEMPLATENOTIFICATIONUPDATERESPONSE"]._serialized_start = 1729
+    _globals["_TEMPLATENOTIFICATIONUPDATERESPONSE"]._serialized_end = 1946
+    _globals["_TEMPLATENOTIFICATIONDELETEREQUEST"]._serialized_start = 1948
+    _globals["_TEMPLATENOTIFICATIONDELETEREQUEST"]._serialized_end = 2051
+    _globals["_TEMPLATENOTIFICATIONDELETERESPONSE"]._serialized_start = 2053
+    _globals["_TEMPLATENOTIFICATIONDELETERESPONSE"]._serialized_end = 2164
+    _globals["_TEMPLATENOTIFICATIONRENDERREQUEST"]._serialized_start = 2166
+    _globals["_TEMPLATENOTIFICATIONRENDERREQUEST"]._serialized_end = 2288
+    _globals["_TEMPLATENOTIFICATIONRENDERRESPONSE"]._serialized_start = 2291
+    _globals["_TEMPLATENOTIFICATIONRENDERRESPONSE"]._serialized_end = 2443
+    _globals["_TEMPLATENOTIFICATIONSERVICE"]._serialized_start = 2446
+    _globals["_TEMPLATENOTIFICATIONSERVICE"]._serialized_end = 3509
 # @@protoc_insertion_point(module_scope)
