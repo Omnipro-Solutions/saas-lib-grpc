@@ -33,6 +33,11 @@ class TemplateNotificationServiceStub(object):
             request_serializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationDeleteResponse.FromString,
         )
+        self.TemplateNotificationRender = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationService/TemplateNotificationRender",
+            request_serializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationRenderRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationRenderResponse.FromString,
+        )
 
 
 class TemplateNotificationServiceServicer(object):
@@ -62,6 +67,12 @@ class TemplateNotificationServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def TemplateNotificationRender(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_TemplateNotificationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_TemplateNotificationServiceServicer_to_server(servicer, server):
             servicer.TemplateNotificationDelete,
             request_deserializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationDeleteRequest.FromString,
             response_serializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationDeleteResponse.SerializeToString,
+        ),
+        "TemplateNotificationRender": grpc.unary_unary_rpc_method_handler(
+            servicer.TemplateNotificationRender,
+            request_deserializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationRenderRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationRenderResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +218,35 @@ class TemplateNotificationService(object):
             "/pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationService/TemplateNotificationDelete",
             v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationDeleteRequest.SerializeToString,
             v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def TemplateNotificationRender(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.utilities.template_notification.TemplateNotificationService/TemplateNotificationRender",
+            v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationRenderRequest.SerializeToString,
+            v1_dot_utilities_dot_template__notification__pb2.TemplateNotificationRenderResponse.FromString,
             options,
             channel_credentials,
             insecure,
