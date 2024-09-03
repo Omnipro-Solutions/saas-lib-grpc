@@ -384,3 +384,40 @@ class MirrorModelRPCFucntion(object):
             )
         )
         return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+
+class TemplateNotificationRPCFucntion(object):
+    def __init__(self, context: dict, timeout: float = 0) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.service_id = MicroService.SAAS_MS_UTILITIES.value
+        self.module_grpc = "v1.utilities.template_notification_pb2_grpc"
+        self.stub_classname = "TemplateNotificationServiceStub"
+        self.module_pb2 = "v1.utilities.template_notification_pb2_pb2"
+        self.timeout = timeout
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id, self.timeout)
+
+    def template_notification_render(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="TemplateNotificationRender",
+                request_class="MicroserviceReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)
