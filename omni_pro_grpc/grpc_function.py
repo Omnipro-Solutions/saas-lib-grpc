@@ -340,6 +340,23 @@ class MirrorModelRPCFucntion(object):
         )
 
     def multi_update_model(self, params: dict):
+        """
+        Updates the model with multiple parameters by sending a request to the RPC server.
+
+        This method prepares an RPC request to update or create multiple models in a mirror system
+        using the provided parameters. It combines the given parameters with the context and sends
+        the request to the server. The response is then formatted into a dictionary for easy access.
+
+        Args:
+            params (dict): A dictionary containing the parameters for the update or create operation.
+
+        Returns:
+            dict: A dictionary representation of the RPC response, including all fields
+                (default and non-default) while preserving the original protobuf field names.
+
+        Raises:
+            Exception: Propagates any exceptions that occur during the RPC call.
+        """
         self.event.update(
             dict(
                 rpc_method="MultiUpdateMirrorModel",
@@ -413,6 +430,23 @@ class TemplateNotificationRPCFucntion(object):
         self.client: GRPClient = GRPClient(self.service_id, self.timeout)
 
     def template_notification_render(self, params: dict):
+        """
+        Renders a notification template by sending a request to the RPC server.
+
+        This method constructs an RPC request to render a notification template using the specified
+        parameters. It merges the provided parameters with the current context and sends the request
+        to the server. The response is then formatted into a dictionary for easy access.
+
+        Args:
+            params (dict): A dictionary containing parameters for rendering the notification template.
+
+        Returns:
+            dict: A dictionary representation of the RPC response, including all fields
+                  (default and non-default) while preserving the original protobuf field names.
+
+        Raises:
+            Exception: Propagates any exceptions that occur during the RPC call.
+        """
         self.event.update(
             dict(
                 rpc_method="TemplateNotificationRender",
