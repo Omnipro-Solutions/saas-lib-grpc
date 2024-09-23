@@ -14,6 +14,60 @@ from omni_pro_grpc.v1.users import country_pb2 as _country_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class Model(_message.Message):
+    __slots__ = ["id", "name", "code", "model_doc_id", "active", "external_id", "object_audit"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    MODEL_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    name: str
+    code: str
+    model_doc_id: str
+    active: _wrappers_pb2.BoolValue
+    external_id: str
+    object_audit: _base_pb2.ObjectAudit
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        model_doc_id: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
+
+class Microservice(_message.Message):
+    __slots__ = ["id", "name", "code", "microservice_doc_id", "active", "external_id", "object_audit"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    MICROSERVICE_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    name: str
+    code: str
+    microservice_doc_id: str
+    active: _wrappers_pb2.BoolValue
+    external_id: str
+    object_audit: _base_pb2.ObjectAudit
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        microservice_doc_id: _Optional[str] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        external_id: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
+    ) -> None: ...
+
 class User(_message.Message):
     __slots__ = [
         "id",
@@ -26,6 +80,8 @@ class User(_message.Message):
         "timezone",
         "groups",
         "is_superuser",
+        "actions",
+        "accesses",
         "is_picker",
         "active",
         "mfa",
@@ -37,6 +93,7 @@ class User(_message.Message):
         "favorite_filters",
         "object_audit",
         "permissions",
+        "properties",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -48,6 +105,8 @@ class User(_message.Message):
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     GROUPS_FIELD_NUMBER: _ClassVar[int]
     IS_SUPERUSER_FIELD_NUMBER: _ClassVar[int]
+    ACTIONS_FIELD_NUMBER: _ClassVar[int]
+    ACCESSES_FIELD_NUMBER: _ClassVar[int]
     IS_PICKER_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     MFA_FIELD_NUMBER: _ClassVar[int]
@@ -59,6 +118,7 @@ class User(_message.Message):
     FAVORITE_FILTERS_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    PROPERTIES_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     sub: str
@@ -69,6 +129,8 @@ class User(_message.Message):
     timezone: _base_pb2.Object
     groups: _struct_pb2.ListValue
     is_superuser: _wrappers_pb2.BoolValue
+    actions: _struct_pb2.ListValue
+    accesses: _struct_pb2.ListValue
     is_picker: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     mfa: _wrappers_pb2.BoolValue
@@ -80,6 +142,7 @@ class User(_message.Message):
     favorite_filters: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     object_audit: _base_pb2.ObjectAudit
     permissions: _containers.RepeatedScalarFieldContainer[str]
+    properties: _struct_pb2.Struct
     def __init__(
         self,
         id: _Optional[str] = ...,
@@ -92,6 +155,8 @@ class User(_message.Message):
         timezone: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
         groups: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         is_superuser: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        actions: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        accesses: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         is_picker: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         mfa: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
@@ -103,6 +168,7 @@ class User(_message.Message):
         favorite_filters: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
         permissions: _Optional[_Iterable[str]] = ...,
+        properties: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
     ) -> None: ...
 
 class Group(_message.Message):
@@ -147,8 +213,8 @@ class Action(_message.Message):
     name: str
     code: str
     description: str
-    microservice: str
-    model: str
+    microservice: Microservice
+    model: Model
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -158,21 +224,21 @@ class Action(_message.Message):
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
         description: _Optional[str] = ...,
-        microservice: _Optional[str] = ...,
-        model: _Optional[str] = ...,
+        microservice: _Optional[_Union[Microservice, _Mapping]] = ...,
+        model: _Optional[_Union[Model, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class Access(_message.Message):
-    __slots__ = ["id", "name", "code", "domain", "action_id", "action", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "domain", "actions", "model", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DOMAIN_FIELD_NUMBER: _ClassVar[int]
-    ACTION_ID_FIELD_NUMBER: _ClassVar[int]
-    ACTION_FIELD_NUMBER: _ClassVar[int]
+    ACTIONS_FIELD_NUMBER: _ClassVar[int]
+    MODEL_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -180,8 +246,8 @@ class Access(_message.Message):
     name: str
     code: str
     domain: str
-    action_id: str
-    action: Action
+    actions: _struct_pb2.ListValue
+    model: Model
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -191,8 +257,8 @@ class Access(_message.Message):
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
         domain: _Optional[str] = ...,
-        action_id: _Optional[str] = ...,
-        action: _Optional[_Union[Action, _Mapping]] = ...,
+        actions: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        model: _Optional[_Union[Model, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -207,6 +273,8 @@ class UserCreateRequest(_message.Message):
         "password",
         "password_confirm",
         "groups_ids",
+        "actions_ids",
+        "access_ids",
         "is_superuser",
         "is_picker",
         "language",
@@ -215,6 +283,7 @@ class UserCreateRequest(_message.Message):
         "type",
         "country_doc_id",
         "favorite_filters",
+        "properties",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -224,6 +293,8 @@ class UserCreateRequest(_message.Message):
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_CONFIRM_FIELD_NUMBER: _ClassVar[int]
     GROUPS_IDS_FIELD_NUMBER: _ClassVar[int]
+    ACTIONS_IDS_FIELD_NUMBER: _ClassVar[int]
+    ACCESS_IDS_FIELD_NUMBER: _ClassVar[int]
     IS_SUPERUSER_FIELD_NUMBER: _ClassVar[int]
     IS_PICKER_FIELD_NUMBER: _ClassVar[int]
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
@@ -232,6 +303,7 @@ class UserCreateRequest(_message.Message):
     TYPE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_DOC_ID_FIELD_NUMBER: _ClassVar[int]
     FAVORITE_FILTERS_FIELD_NUMBER: _ClassVar[int]
+    PROPERTIES_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     username: str
@@ -240,6 +312,8 @@ class UserCreateRequest(_message.Message):
     password: str
     password_confirm: str
     groups_ids: _struct_pb2.ListValue
+    actions_ids: _containers.RepeatedScalarFieldContainer[str]
+    access_ids: _containers.RepeatedScalarFieldContainer[str]
     is_superuser: _wrappers_pb2.BoolValue
     is_picker: _wrappers_pb2.BoolValue
     language: _base_pb2.Object
@@ -248,6 +322,7 @@ class UserCreateRequest(_message.Message):
     type: str
     country_doc_id: str
     favorite_filters: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    properties: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
@@ -258,6 +333,8 @@ class UserCreateRequest(_message.Message):
         password: _Optional[str] = ...,
         password_confirm: _Optional[str] = ...,
         groups_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        actions_ids: _Optional[_Iterable[str]] = ...,
+        access_ids: _Optional[_Iterable[str]] = ...,
         is_superuser: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         is_picker: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         language: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
@@ -266,6 +343,7 @@ class UserCreateRequest(_message.Message):
         type: _Optional[str] = ...,
         country_doc_id: _Optional[str] = ...,
         favorite_filters: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        properties: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
@@ -524,19 +602,19 @@ class GroupDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class ActionCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "description", "microservice", "model", "external_id", "context"]
+    __slots__ = ["name", "code", "description", "microservice_id", "model_id", "external_id", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
-    MICROSERVICE_FIELD_NUMBER: _ClassVar[int]
-    MODEL_FIELD_NUMBER: _ClassVar[int]
+    MICROSERVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
     description: str
-    microservice: str
-    model: str
+    microservice_id: str
+    model_id: str
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -544,8 +622,8 @@ class ActionCreateRequest(_message.Message):
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
         description: _Optional[str] = ...,
-        microservice: _Optional[str] = ...,
-        model: _Optional[str] = ...,
+        microservice_id: _Optional[str] = ...,
+        model_id: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
@@ -645,17 +723,19 @@ class ActionDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class AccessCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "domain", "action_id", "external_id", "context"]
+    __slots__ = ["name", "code", "domain", "actions_ids", "model_id", "external_id", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DOMAIN_FIELD_NUMBER: _ClassVar[int]
-    ACTION_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTIONS_IDS_FIELD_NUMBER: _ClassVar[int]
+    MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
     domain: str
-    action_id: str
+    actions_ids: _containers.RepeatedScalarFieldContainer[str]
+    model_id: str
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -663,7 +743,8 @@ class AccessCreateRequest(_message.Message):
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
         domain: _Optional[str] = ...,
-        action_id: _Optional[str] = ...,
+        actions_ids: _Optional[_Iterable[str]] = ...,
+        model_id: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
@@ -823,17 +904,20 @@ class HasPermissionRequest(_message.Message):
     ) -> None: ...
 
 class HasPermissionResponse(_message.Message):
-    __slots__ = ["response_standard", "has_permission", "user"]
+    __slots__ = ["response_standard", "has_permission", "domains", "user"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     HAS_PERMISSION_FIELD_NUMBER: _ClassVar[int]
+    DOMAINS_FIELD_NUMBER: _ClassVar[int]
     USER_FIELD_NUMBER: _ClassVar[int]
     response_standard: _base_pb2.ResponseStandard
     has_permission: bool
+    domains: _containers.RepeatedScalarFieldContainer[str]
     user: User
     def __init__(
         self,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         has_permission: bool = ...,
+        domains: _Optional[_Iterable[str]] = ...,
         user: _Optional[_Union[User, _Mapping]] = ...,
     ) -> None: ...
 

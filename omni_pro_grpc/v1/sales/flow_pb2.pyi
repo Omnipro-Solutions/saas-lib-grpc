@@ -14,13 +14,14 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Flow(_message.Message):
-    __slots__ = ["id", "name", "code", "description", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "description", "active", "external_id", "draw_flow", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    DRAW_FLOW_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
@@ -28,6 +29,7 @@ class Flow(_message.Message):
     description: str
     active: _wrappers_pb2.BoolValue
     external_id: str
+    draw_flow: _struct_pb2.Struct
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -37,20 +39,23 @@ class Flow(_message.Message):
         description: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        draw_flow: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class FlowCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "description", "external_id", "context"]
+    __slots__ = ["name", "code", "description", "external_id", "draw_flow", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    DRAW_FLOW_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
     description: str
     external_id: str
+    draw_flow: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
@@ -58,6 +63,7 @@ class FlowCreateRequest(_message.Message):
         code: _Optional[str] = ...,
         description: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
+        draw_flow: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
