@@ -2,10 +2,11 @@ from google.protobuf import json_format
 from omni_pro_base.microservice import MicroService
 from omni_pro_base.util import generate_hash
 from omni_pro_grpc.grpc_connector import Event, GRPClient
+from omni.pro.util import measure_time
 
 
 class ModelRPCFucntion(object):
-    def __init__(self, context: dict) -> None:
+    def __init__(self, context: dict, cache: bool = False) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -14,6 +15,7 @@ class ModelRPCFucntion(object):
         ```
         """
         self.context = context
+        self.cache = cache
         self.service_id = MicroService.SAAS_MS_UTILITIES.value
         self.module_grpc = "v1.utilities.model_pb2_grpc"
         self.stub_classname = "ModelsServiceStub"
@@ -57,11 +59,11 @@ class ModelRPCFucntion(object):
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        return self.client.call_rpc_fuction(self.event, self.cache) + (self.event,)
 
 
 class EventRPCFucntion(object):
-    def __init__(self, context: dict) -> None:
+    def __init__(self, context: dict, cache: bool = False) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -74,6 +76,7 @@ class EventRPCFucntion(object):
         self.module_grpc = "v1.utilities.event_pb2_grpc"
         self.stub_classname = "EventServiceStub"
         self.module_pb2 = "v1.utilities.event_pb2"
+        self.cache = cache
 
         self.event: Event = Event(
             module_grpc=self.module_grpc,
@@ -93,7 +96,7 @@ class EventRPCFucntion(object):
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
 
     def register_event(self, params: dict):
         self.event.update(
@@ -107,7 +110,8 @@ class EventRPCFucntion(object):
 
 
 class WebhookRPCFucntion(object):
-    def __init__(self, context: dict) -> None:
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -115,6 +119,7 @@ class WebhookRPCFucntion(object):
         context = {"tenant": "tenant_code", "user": "user_name"}
         ```
         """
+        self.cache = cache
         self.context = context
         self.service_id = MicroService.SAAS_MS_UTILITIES.value
         self.module_grpc = "v1.utilities.webhook_pb2_grpc"
@@ -159,7 +164,7 @@ class WebhookRPCFucntion(object):
                 params={"context": self.context} | params,
             )
         )
-        return self.client.call_rpc_fuction(self.event) + (self.event,)
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
 
 
 class MethodRPCFunction(object):
@@ -283,7 +288,7 @@ class MicroServiceRPCFunction(object):
 
 
 class MirrorModelRPCFucntion(object):
-    def __init__(self, context: dict, micorservice: str) -> None:
+    def __init__(self, context: dict, micorservice: str, timeout: float = 0) -> None:
         """
         :param context: context with tenant and user\n
         Example:
@@ -296,6 +301,7 @@ class MirrorModelRPCFucntion(object):
         self.module_grpc = "v1.utilities.mirror_model_pb2_grpc"
         self.stub_classname = "MirrorModelServiceStub"
         self.module_pb2 = "v1.utilities.mirror_model_pb2"
+        self.timeout = timeout
 
         self.event: Event = Event(
             module_grpc=self.module_grpc,
@@ -305,7 +311,7 @@ class MirrorModelRPCFucntion(object):
             request_class=None,
         )
 
-        self.client: GRPClient = GRPClient(self.service_id)
+        self.client: GRPClient = GRPClient(self.service_id, self.timeout)
 
     def create_mirror_model(self, params: dict):
         self.event.update(
@@ -325,6 +331,36 @@ class MirrorModelRPCFucntion(object):
             dict(
                 rpc_method="UpdateMirrorModel",
                 request_class="CreateOrUpdateMirrorModelRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )
+
+    def multi_update_model(self, params: dict):
+        """
+        Updates the model with multiple parameters by sending a request to the RPC server.
+
+        This method prepares an RPC request to update or create multiple models in a mirror system
+        using the provided parameters. It combines the given parameters with the context and sends
+        the request to the server. The response is then formatted into a dictionary for easy access.
+
+        Args:
+            params (dict): A dictionary containing the parameters for the update or create operation.
+
+        Returns:
+            dict: A dictionary representation of the RPC response, including all fields
+                (default and non-default) while preserving the original protobuf field names.
+
+        Raises:
+            Exception: Propagates any exceptions that occur during the RPC call.
+        """
+        self.event.update(
+            dict(
+                rpc_method="MultiUpdateMirrorModel",
+                request_class="MultiCreateOrMultiUpdateMirrorModelRequest",
                 params={"context": self.context} | params,
             )
         )
@@ -365,3 +401,60 @@ class MirrorModelRPCFucntion(object):
             )
         )
         return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+
+class TemplateNotificationRPCFucntion(object):
+    def __init__(self, context: dict, timeout: float = 0) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.service_id = MicroService.SAAS_MS_UTILITIES.value
+        self.module_grpc = "v1.utilities.template_notification_pb2_grpc"
+        self.stub_classname = "TemplateNotificationServiceStub"
+        self.module_pb2 = "v1.utilities.template_notification_pb2"
+        self.timeout = timeout
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id, self.timeout)
+
+    def template_notification_render(self, params: dict):
+        """
+        Renders a notification template by sending a request to the RPC server.
+
+        This method constructs an RPC request to render a notification template using the specified
+        parameters. It merges the provided parameters with the current context and sends the request
+        to the server. The response is then formatted into a dictionary for easy access.
+
+        Args:
+            params (dict): A dictionary containing parameters for rendering the notification template.
+
+        Returns:
+            dict: A dictionary representation of the RPC response, including all fields
+                  (default and non-default) while preserving the original protobuf field names.
+
+        Raises:
+            Exception: Propagates any exceptions that occur during the RPC call.
+        """
+        self.event.update(
+            dict(
+                rpc_method="TemplateNotificationRender",
+                request_class="TemplateNotificationRenderRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        response, success, event = self.client.call_rpc_fuction(self.event) + (self.event,)
+        return json_format.MessageToDict(
+            response, preserving_proto_field_name=True, including_default_value_fields=True
+        )

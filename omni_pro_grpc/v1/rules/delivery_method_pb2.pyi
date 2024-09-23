@@ -37,6 +37,7 @@ class DeliveryMethod(_message.Message):
         "stock_security",
         "transfer_between_delivery_warehouses",
         "active",
+        "skip_delivery_location",
         "external_id",
         "time_zone",
         "object_audit",
@@ -57,6 +58,7 @@ class DeliveryMethod(_message.Message):
     STOCK_SECURITY_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_BETWEEN_DELIVERY_WAREHOUSES_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    SKIP_DELIVERY_LOCATION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -76,6 +78,7 @@ class DeliveryMethod(_message.Message):
     stock_security: _stock_security_pb2.StockSecurity
     transfer_between_delivery_warehouses: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
+    skip_delivery_location: _wrappers_pb2.BoolValue
     external_id: str
     time_zone: str
     object_audit: _base_pb2.ObjectAudit
@@ -97,6 +100,7 @@ class DeliveryMethod(_message.Message):
         stock_security: _Optional[_Union[_stock_security_pb2.StockSecurity, _Mapping]] = ...,
         transfer_between_delivery_warehouses: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        skip_delivery_location: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         time_zone: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -118,6 +122,7 @@ class DeliveryMethodCreateRequest(_message.Message):
         "stock_security_id",
         "delivery_warehouse_ids",
         "transfer_between_delivery_warehouses",
+        "skip_delivery_location",
         "external_id",
         "time_zone",
         "context",
@@ -136,6 +141,7 @@ class DeliveryMethodCreateRequest(_message.Message):
     STOCK_SECURITY_ID_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_WAREHOUSE_IDS_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_BETWEEN_DELIVERY_WAREHOUSES_FIELD_NUMBER: _ClassVar[int]
+    SKIP_DELIVERY_LOCATION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -153,6 +159,7 @@ class DeliveryMethodCreateRequest(_message.Message):
     stock_security_id: str
     delivery_warehouse_ids: _containers.RepeatedScalarFieldContainer[int]
     transfer_between_delivery_warehouses: _wrappers_pb2.BoolValue
+    skip_delivery_location: _wrappers_pb2.BoolValue
     external_id: str
     time_zone: str
     context: _base_pb2.Context
@@ -172,6 +179,7 @@ class DeliveryMethodCreateRequest(_message.Message):
         stock_security_id: _Optional[str] = ...,
         delivery_warehouse_ids: _Optional[_Iterable[int]] = ...,
         transfer_between_delivery_warehouses: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        skip_delivery_location: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         time_zone: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,

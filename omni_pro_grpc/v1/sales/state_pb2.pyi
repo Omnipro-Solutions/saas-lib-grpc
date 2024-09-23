@@ -24,6 +24,7 @@ class State(_message.Message):
         "color",
         "apply",
         "delivery_methods",
+        "draw_flow",
         "show",
         "active",
         "external_id",
@@ -38,6 +39,7 @@ class State(_message.Message):
     COLOR_FIELD_NUMBER: _ClassVar[int]
     APPLY_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_METHODS_FIELD_NUMBER: _ClassVar[int]
+    DRAW_FLOW_FIELD_NUMBER: _ClassVar[int]
     SHOW_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -51,6 +53,7 @@ class State(_message.Message):
     color: str
     apply: str
     delivery_methods: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
+    draw_flow: _struct_pb2.Struct
     show: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     external_id: str
@@ -66,6 +69,7 @@ class State(_message.Message):
         color: _Optional[str] = ...,
         apply: _Optional[str] = ...,
         delivery_methods: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
+        draw_flow: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         show: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
@@ -83,6 +87,7 @@ class StateCreateRequest(_message.Message):
         "apply",
         "delivery_method_ids",
         "show",
+        "draw_flow",
         "external_id",
         "context",
     ]
@@ -95,6 +100,7 @@ class StateCreateRequest(_message.Message):
     APPLY_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_METHOD_IDS_FIELD_NUMBER: _ClassVar[int]
     SHOW_FIELD_NUMBER: _ClassVar[int]
+    DRAW_FLOW_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -106,6 +112,7 @@ class StateCreateRequest(_message.Message):
     apply: str
     delivery_method_ids: _containers.RepeatedScalarFieldContainer[str]
     show: _wrappers_pb2.BoolValue
+    draw_flow: _struct_pb2.Struct
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -119,6 +126,7 @@ class StateCreateRequest(_message.Message):
         apply: _Optional[str] = ...,
         delivery_method_ids: _Optional[_Iterable[str]] = ...,
         show: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        draw_flow: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
