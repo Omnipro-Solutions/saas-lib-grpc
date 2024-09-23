@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -26,6 +27,7 @@ class Transition(_message.Message):
         "type_transition",
         "send_ecommerce",
         "active",
+        "draw_flow",
         "external_id",
         "object_audit",
     ]
@@ -39,6 +41,7 @@ class Transition(_message.Message):
     TYPE_TRANSITION_FIELD_NUMBER: _ClassVar[int]
     SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    DRAW_FLOW_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -51,6 +54,7 @@ class Transition(_message.Message):
     type_transition: str
     send_ecommerce: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
+    draw_flow: _struct_pb2.Struct
     external_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -65,6 +69,7 @@ class Transition(_message.Message):
         type_transition: _Optional[str] = ...,
         send_ecommerce: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        draw_flow: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
@@ -80,6 +85,7 @@ class TransitionCreateRequest(_message.Message):
         "type_transition",
         "send_ecommerce",
         "external_id",
+        "draw_flow",
         "context",
     ]
     FLOW_ID_FIELD_NUMBER: _ClassVar[int]
@@ -91,6 +97,7 @@ class TransitionCreateRequest(_message.Message):
     TYPE_TRANSITION_FIELD_NUMBER: _ClassVar[int]
     SEND_ECOMMERCE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    DRAW_FLOW_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     flow_id: int
     source_state_id: int
@@ -101,6 +108,7 @@ class TransitionCreateRequest(_message.Message):
     type_transition: str
     send_ecommerce: bool
     external_id: str
+    draw_flow: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
@@ -113,6 +121,7 @@ class TransitionCreateRequest(_message.Message):
         type_transition: _Optional[str] = ...,
         send_ecommerce: bool = ...,
         external_id: _Optional[str] = ...,
+        draw_flow: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
