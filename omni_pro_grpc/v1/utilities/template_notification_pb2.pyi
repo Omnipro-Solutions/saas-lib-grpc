@@ -10,17 +10,19 @@ from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
+from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TemplateNotification(_message.Message):
-    __slots__ = ["id", "name", "code", "type", "raw", "render", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "type", "raw", "render", "model", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     RAW_FIELD_NUMBER: _ClassVar[int]
     RENDER_FIELD_NUMBER: _ClassVar[int]
+    MODEL_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -30,6 +32,7 @@ class TemplateNotification(_message.Message):
     type: str
     raw: str
     render: str
+    model: _model_pb2.Model
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -41,18 +44,20 @@ class TemplateNotification(_message.Message):
         type: _Optional[str] = ...,
         raw: _Optional[str] = ...,
         render: _Optional[str] = ...,
+        model: _Optional[_Union[_model_pb2.Model, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class TemplateNotificationCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "type", "raw", "render", "active", "external_id", "context"]
+    __slots__ = ["name", "code", "type", "raw", "render", "model_id", "active", "external_id", "context"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     RAW_FIELD_NUMBER: _ClassVar[int]
     RENDER_FIELD_NUMBER: _ClassVar[int]
+    MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -61,6 +66,7 @@ class TemplateNotificationCreateRequest(_message.Message):
     type: str
     raw: str
     render: str
+    model_id: str
     active: _wrappers_pb2.BoolValue
     external_id: str
     context: _base_pb2.Context
@@ -71,6 +77,7 @@ class TemplateNotificationCreateRequest(_message.Message):
         type: _Optional[str] = ...,
         raw: _Optional[str] = ...,
         render: _Optional[str] = ...,
+        model_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,

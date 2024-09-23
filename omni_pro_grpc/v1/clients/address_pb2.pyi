@@ -21,6 +21,8 @@ class Address(_message.Message):
         "street2",
         "mobile",
         "phone",
+        "prefix_phone",
+        "prefix_mobile",
         "lat",
         "lng",
         "zip_code",
@@ -39,6 +41,8 @@ class Address(_message.Message):
     STREET2_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_MOBILE_FIELD_NUMBER: _ClassVar[int]
     LAT_FIELD_NUMBER: _ClassVar[int]
     LNG_FIELD_NUMBER: _ClassVar[int]
     ZIP_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -56,6 +60,8 @@ class Address(_message.Message):
     street2: str
     mobile: str
     phone: str
+    prefix_phone: str
+    prefix_mobile: str
     lat: str
     lng: str
     zip_code: str
@@ -75,6 +81,8 @@ class Address(_message.Message):
         street2: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         phone: _Optional[str] = ...,
+        prefix_phone: _Optional[str] = ...,
+        prefix_mobile: _Optional[str] = ...,
         lat: _Optional[str] = ...,
         lng: _Optional[str] = ...,
         zip_code: _Optional[str] = ...,
@@ -96,6 +104,8 @@ class AddressCreateRequest(_message.Message):
         "street2",
         "mobile",
         "phone",
+        "prefix_phone",
+        "prefix_mobile",
         "lat",
         "lng",
         "zip_code",
@@ -112,6 +122,8 @@ class AddressCreateRequest(_message.Message):
     STREET2_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_MOBILE_FIELD_NUMBER: _ClassVar[int]
     LAT_FIELD_NUMBER: _ClassVar[int]
     LNG_FIELD_NUMBER: _ClassVar[int]
     ZIP_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -127,6 +139,8 @@ class AddressCreateRequest(_message.Message):
     street2: str
     mobile: str
     phone: str
+    prefix_phone: str
+    prefix_mobile: str
     lat: str
     lng: str
     zip_code: str
@@ -144,6 +158,8 @@ class AddressCreateRequest(_message.Message):
         street2: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         phone: _Optional[str] = ...,
+        prefix_phone: _Optional[str] = ...,
+        prefix_mobile: _Optional[str] = ...,
         lat: _Optional[str] = ...,
         lng: _Optional[str] = ...,
         zip_code: _Optional[str] = ...,

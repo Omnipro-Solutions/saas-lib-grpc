@@ -12,13 +12,14 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 from omni_pro_grpc.v1.sales import flow_pb2 as v1_dot_sales_dot_flow__pb2
 from omni_pro_grpc.v1.sales import state_pb2 as v1_dot_sales_dot_state__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x19v1/sales/transition.proto\x12$pro.omni.oms.api.v1.sales.transition\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x14v1/sales/state.proto\x1a\x13v1/sales/flow.proto"\xd1\x03\n\nTransition\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x32\n\x04\x66low\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.v1.sales.flow.Flow\x12<\n\x0csource_state\x18\x03 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x41\n\x11\x64\x65stination_state\x18\x04 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x0f\n\x07trigger\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\r\n\x05logic\x18\x07 \x01(\t\x12\x17\n\x0ftype_transition\x18\x08 \x01(\t\x12\x32\n\x0esend_ecommerce\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12*\n\x06\x61\x63tive\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x0b \x01(\t\x12?\n\x0cobject_audit\x18\x0c \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x94\x02\n\x17TransitionCreateRequest\x12\x0f\n\x07\x66low_id\x18\x01 \x01(\x05\x12\x17\n\x0fsource_state_id\x18\x02 \x01(\x05\x12\x1c\n\x14\x64\x65stination_state_id\x18\x03 \x01(\x05\x12\x0f\n\x07trigger\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\r\n\x05logic\x18\x06 \x01(\t\x12\x17\n\x0ftype_transition\x18\x07 \x01(\t\x12\x16\n\x0esend_ecommerce\x18\x08 \x01(\x08\x12\x13\n\x0b\x65xternal_id\x18\t \x01(\t\x12\x36\n\x07\x63ontext\x18\n \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xab\x01\n\x18TransitionCreateResponse\x12\x44\n\ntransition\x18\x01 \x01(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xf3\x02\n\x15TransitionReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xe5\x01\n\x16TransitionReadResponse\x12\x45\n\x0btransitions\x18\x01 \x03(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x97\x01\n\x17TransitionUpdateRequest\x12\x44\n\ntransition\x18\x01 \x01(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xab\x01\n\x18TransitionUpdateResponse\x12\x44\n\ntransition\x18\x01 \x01(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"]\n\x17TransitionDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"e\n\x18TransitionDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xe5\x04\n\x11TransitionService\x12\x93\x01\n\x10TransitionCreate\x12=.pro.omni.oms.api.v1.sales.transition.TransitionCreateRequest\x1a>.pro.omni.oms.api.v1.sales.transition.TransitionCreateResponse"\x00\x12\x8d\x01\n\x0eTransitionRead\x12;.pro.omni.oms.api.v1.sales.transition.TransitionReadRequest\x1a<.pro.omni.oms.api.v1.sales.transition.TransitionReadResponse"\x00\x12\x93\x01\n\x10TransitionUpdate\x12=.pro.omni.oms.api.v1.sales.transition.TransitionUpdateRequest\x1a>.pro.omni.oms.api.v1.sales.transition.TransitionUpdateResponse"\x00\x12\x93\x01\n\x10TransitionDelete\x12=.pro.omni.oms.api.v1.sales.transition.TransitionDeleteRequest\x1a>.pro.omni.oms.api.v1.sales.transition.TransitionDeleteResponse"\x00\x62\x06proto3'
+    b'\n\x19v1/sales/transition.proto\x12$pro.omni.oms.api.v1.sales.transition\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x14v1/sales/state.proto\x1a\x13v1/sales/flow.proto"\xfd\x03\n\nTransition\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x32\n\x04\x66low\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.v1.sales.flow.Flow\x12<\n\x0csource_state\x18\x03 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x41\n\x11\x64\x65stination_state\x18\x04 \x01(\x0b\x32&.pro.omni.oms.api.v1.sales.state.State\x12\x0f\n\x07trigger\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\r\n\x05logic\x18\x07 \x01(\t\x12\x17\n\x0ftype_transition\x18\x08 \x01(\t\x12\x32\n\x0esend_ecommerce\x18\t \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12*\n\x06\x61\x63tive\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12*\n\tdraw_flow\x18\x0b \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x13\n\x0b\x65xternal_id\x18\x0c \x01(\t\x12?\n\x0cobject_audit\x18\r \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xc0\x02\n\x17TransitionCreateRequest\x12\x0f\n\x07\x66low_id\x18\x01 \x01(\x05\x12\x17\n\x0fsource_state_id\x18\x02 \x01(\x05\x12\x1c\n\x14\x64\x65stination_state_id\x18\x03 \x01(\x05\x12\x0f\n\x07trigger\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\r\n\x05logic\x18\x06 \x01(\t\x12\x17\n\x0ftype_transition\x18\x07 \x01(\t\x12\x16\n\x0esend_ecommerce\x18\x08 \x01(\x08\x12\x13\n\x0b\x65xternal_id\x18\t \x01(\t\x12*\n\tdraw_flow\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x07\x63ontext\x18\x0b \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xab\x01\n\x18TransitionCreateResponse\x12\x44\n\ntransition\x18\x01 \x01(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xf3\x02\n\x15TransitionReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xe5\x01\n\x16TransitionReadResponse\x12\x45\n\x0btransitions\x18\x01 \x03(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12I\n\x11response_standard\x18\x03 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x97\x01\n\x17TransitionUpdateRequest\x12\x44\n\ntransition\x18\x01 \x01(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xab\x01\n\x18TransitionUpdateResponse\x12\x44\n\ntransition\x18\x01 \x01(\x0b\x32\x30.pro.omni.oms.api.v1.sales.transition.Transition\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"]\n\x17TransitionDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"e\n\x18TransitionDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xe5\x04\n\x11TransitionService\x12\x93\x01\n\x10TransitionCreate\x12=.pro.omni.oms.api.v1.sales.transition.TransitionCreateRequest\x1a>.pro.omni.oms.api.v1.sales.transition.TransitionCreateResponse"\x00\x12\x8d\x01\n\x0eTransitionRead\x12;.pro.omni.oms.api.v1.sales.transition.TransitionReadRequest\x1a<.pro.omni.oms.api.v1.sales.transition.TransitionReadResponse"\x00\x12\x93\x01\n\x10TransitionUpdate\x12=.pro.omni.oms.api.v1.sales.transition.TransitionUpdateRequest\x1a>.pro.omni.oms.api.v1.sales.transition.TransitionUpdateResponse"\x00\x12\x93\x01\n\x10TransitionDelete\x12=.pro.omni.oms.api.v1.sales.transition.TransitionDeleteRequest\x1a>.pro.omni.oms.api.v1.sales.transition.TransitionDeleteResponse"\x00\x62\x06proto3'
 )
 
 _globals = globals()
@@ -27,24 +28,24 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.sales.transition_pb2", _
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
-    _globals["_TRANSITION"]._serialized_start = 162
-    _globals["_TRANSITION"]._serialized_end = 627
-    _globals["_TRANSITIONCREATEREQUEST"]._serialized_start = 630
-    _globals["_TRANSITIONCREATEREQUEST"]._serialized_end = 906
-    _globals["_TRANSITIONCREATERESPONSE"]._serialized_start = 909
-    _globals["_TRANSITIONCREATERESPONSE"]._serialized_end = 1080
-    _globals["_TRANSITIONREADREQUEST"]._serialized_start = 1083
-    _globals["_TRANSITIONREADREQUEST"]._serialized_end = 1454
-    _globals["_TRANSITIONREADRESPONSE"]._serialized_start = 1457
-    _globals["_TRANSITIONREADRESPONSE"]._serialized_end = 1686
-    _globals["_TRANSITIONUPDATEREQUEST"]._serialized_start = 1689
-    _globals["_TRANSITIONUPDATEREQUEST"]._serialized_end = 1840
-    _globals["_TRANSITIONUPDATERESPONSE"]._serialized_start = 1843
-    _globals["_TRANSITIONUPDATERESPONSE"]._serialized_end = 2014
-    _globals["_TRANSITIONDELETEREQUEST"]._serialized_start = 2016
-    _globals["_TRANSITIONDELETEREQUEST"]._serialized_end = 2109
-    _globals["_TRANSITIONDELETERESPONSE"]._serialized_start = 2111
-    _globals["_TRANSITIONDELETERESPONSE"]._serialized_end = 2212
-    _globals["_TRANSITIONSERVICE"]._serialized_start = 2215
-    _globals["_TRANSITIONSERVICE"]._serialized_end = 2828
+    _globals["_TRANSITION"]._serialized_start = 192
+    _globals["_TRANSITION"]._serialized_end = 701
+    _globals["_TRANSITIONCREATEREQUEST"]._serialized_start = 704
+    _globals["_TRANSITIONCREATEREQUEST"]._serialized_end = 1024
+    _globals["_TRANSITIONCREATERESPONSE"]._serialized_start = 1027
+    _globals["_TRANSITIONCREATERESPONSE"]._serialized_end = 1198
+    _globals["_TRANSITIONREADREQUEST"]._serialized_start = 1201
+    _globals["_TRANSITIONREADREQUEST"]._serialized_end = 1572
+    _globals["_TRANSITIONREADRESPONSE"]._serialized_start = 1575
+    _globals["_TRANSITIONREADRESPONSE"]._serialized_end = 1804
+    _globals["_TRANSITIONUPDATEREQUEST"]._serialized_start = 1807
+    _globals["_TRANSITIONUPDATEREQUEST"]._serialized_end = 1958
+    _globals["_TRANSITIONUPDATERESPONSE"]._serialized_start = 1961
+    _globals["_TRANSITIONUPDATERESPONSE"]._serialized_end = 2132
+    _globals["_TRANSITIONDELETEREQUEST"]._serialized_start = 2134
+    _globals["_TRANSITIONDELETEREQUEST"]._serialized_end = 2227
+    _globals["_TRANSITIONDELETERESPONSE"]._serialized_start = 2229
+    _globals["_TRANSITIONDELETERESPONSE"]._serialized_end = 2330
+    _globals["_TRANSITIONSERVICE"]._serialized_start = 2333
+    _globals["_TRANSITIONSERVICE"]._serialized_end = 2946
 # @@protoc_insertion_point(module_scope)

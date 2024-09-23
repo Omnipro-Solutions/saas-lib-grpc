@@ -95,8 +95,8 @@ class Warehouse(_message.Message):
     address: str
     complement: str
     active: _wrappers_pb2.BoolValue
-    delivery_steps: str
-    reception_steps: str
+    delivery_steps: _struct_pb2.Struct
+    reception_steps: _struct_pb2.Struct
     locality_available: _wrappers_pb2.StringValue
     view_location: _location_pb2.Location
     loc_stock: _location_pb2.Location
@@ -110,8 +110,8 @@ class Warehouse(_message.Message):
     pack_type: _picking_type_pb2.PickingType
     out_type: _picking_type_pb2.PickingType
     external_id: str
-    locality_available_rule: str
-    schedule_template_rule: str
+    locality_available_rule: _struct_pb2.Struct
+    schedule_template_rule: _struct_pb2.Struct
     ecommerce_code: str
     longitud: str
     latitude: str
@@ -130,8 +130,8 @@ class Warehouse(_message.Message):
         address: _Optional[str] = ...,
         complement: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
-        delivery_steps: _Optional[str] = ...,
-        reception_steps: _Optional[str] = ...,
+        delivery_steps: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        reception_steps: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         locality_available: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...,
         view_location: _Optional[_Union[_location_pb2.Location, _Mapping]] = ...,
         loc_stock: _Optional[_Union[_location_pb2.Location, _Mapping]] = ...,
@@ -145,8 +145,8 @@ class Warehouse(_message.Message):
         pack_type: _Optional[_Union[_picking_type_pb2.PickingType, _Mapping]] = ...,
         out_type: _Optional[_Union[_picking_type_pb2.PickingType, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
-        locality_available_rule: _Optional[str] = ...,
-        schedule_template_rule: _Optional[str] = ...,
+        locality_available_rule: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        schedule_template_rule: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         ecommerce_code: _Optional[str] = ...,
         longitud: _Optional[str] = ...,
         latitude: _Optional[str] = ...,

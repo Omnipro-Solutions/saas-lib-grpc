@@ -24,11 +24,14 @@ class Client(_message.Message):
         "document",
         "mobile",
         "phone",
+        "prefix_phone",
+        "prefix_mobile",
         "email",
         "country",
         "addresses",
         "active",
         "external_id",
+        "properties",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -39,11 +42,14 @@ class Client(_message.Message):
     DOCUMENT_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_MOBILE_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     ADDRESSES_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    PROPERTIES_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
@@ -53,11 +59,14 @@ class Client(_message.Message):
     document: str
     mobile: str
     phone: str
+    prefix_phone: str
+    prefix_mobile: str
     email: str
     country: _base_pb2.Object
     addresses: _containers.RepeatedCompositeFieldContainer[_address_pb2.Address]
     active: bool
     external_id: str
+    properties: _struct_pb2.Struct
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -69,11 +78,14 @@ class Client(_message.Message):
         document: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         phone: _Optional[str] = ...,
+        prefix_phone: _Optional[str] = ...,
+        prefix_mobile: _Optional[str] = ...,
         email: _Optional[str] = ...,
         country: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
         addresses: _Optional[_Iterable[_Union[_address_pb2.Address, _Mapping]]] = ...,
         active: bool = ...,
         external_id: _Optional[str] = ...,
+        properties: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -86,10 +98,13 @@ class ClientCreateRequest(_message.Message):
         "document",
         "mobile",
         "phone",
+        "prefix_phone",
+        "prefix_mobile",
         "email",
         "addresses_ids",
         "country",
         "external_id",
+        "properties",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -99,10 +114,13 @@ class ClientCreateRequest(_message.Message):
     DOCUMENT_FIELD_NUMBER: _ClassVar[int]
     MOBILE_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_PHONE_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_MOBILE_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     ADDRESSES_IDS_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    PROPERTIES_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     first_name: str
@@ -111,10 +129,13 @@ class ClientCreateRequest(_message.Message):
     document: str
     mobile: str
     phone: str
+    prefix_phone: str
+    prefix_mobile: str
     email: str
     addresses_ids: _containers.RepeatedScalarFieldContainer[str]
     country: _base_pb2.Object
     external_id: str
+    properties: _struct_pb2.Struct
     context: _base_pb2.Context
     def __init__(
         self,
@@ -125,10 +146,13 @@ class ClientCreateRequest(_message.Message):
         document: _Optional[str] = ...,
         mobile: _Optional[str] = ...,
         phone: _Optional[str] = ...,
+        prefix_phone: _Optional[str] = ...,
+        prefix_mobile: _Optional[str] = ...,
         email: _Optional[str] = ...,
         addresses_ids: _Optional[_Iterable[str]] = ...,
         country: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        properties: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
