@@ -48,7 +48,8 @@ class Event(dict):
             "request_class": self.get("request_class"),
             "params": self.get("params"),
         }
-        return hashlib.sha256(str(payload).encode()).hexdigest()
+        module_grpc = self.get("module_grpc") + "."
+        return module_grpc + hashlib.sha256(str(payload).encode()).hexdigest()
 
 
 class OmniChannel(Channel):
@@ -114,14 +115,15 @@ class GRPClient(object):
             tennat=self.tenant,
         ) as channel:
             stub = event.get("service_stub")
-            stub_classname = event.get("stub_classname")
+            self.stub_classname = event.get("stub_classname")
             path_module = "omni_pro_grpc"
-            module_grpc = importlib.import_module(f"{path_module}.{event.get('module_grpc')}")
-            stub = getattr(module_grpc, stub_classname)(channel)
+            self.module_grpc = importlib.import_module(f"{path_module}.{event.get('module_grpc')}")
+            stub = getattr(self.module_grpc, self.stub_classname)(channel)
             request_class = event.get("request_class")
             module_pb2 = importlib.import_module(f"{path_module}.{event.get('module_pb2')}")
+            self.redis_cache = self.set_cache_redis()
             if cache and self.validate_method_read(event.get("rpc_method")):
-                resul_cache = self.get_cache(event, module_pb2, stub)
+                resul_cache = self.get_cache(event, module_pb2, stub, *args, **kwargs)
                 if resul_cache:
                     return resul_cache, True
 
@@ -133,12 +135,14 @@ class GRPClient(object):
                 response = getattr(stub, event.get("rpc_method"))(request, timeout=self.timeout)
             if cache and self.validate_method_read(event.get("rpc_method")):
                 self.save_cache(event, response)
+
+            self.update_cache_cud(event, module_pb2, stub)
             success = True
             if hasattr(response, "response_standard"):
                 success = response.response_standard.status_code in range(200, 300)
             return response, success
 
-    def get_cache(self, event: Event, module_pb2, stub) -> MessageResponse:
+    def get_cache(self, event: Event, module_pb2, stub, *args, **kwargs) -> MessageResponse:
         """
         Validates the cache for a given event.
 
@@ -150,16 +154,13 @@ class GRPClient(object):
             Message formatted request if the cache is valid, None otherwise.
         """
         try:
-            self.redis_cache = self.set_cache_redis()
-            if not self.redis_cache:
-                return None
             hash_key = event.get_hash_256()
             data = self.redis_cache.get_cache(hash_key)
             if data:
                 response_class_name = data.get("info").get("response_class")
                 data_cache = data.get("cache")
 
-                self.update_cache(hash_key, data, event, module_pb2, stub)
+                self.update_cache(hash_key, data, event, module_pb2, stub, *args, **kwargs)
 
                 return format_request(data_cache, response_class_name, module_pb2)
         except Exception as e:
@@ -205,6 +206,7 @@ class GRPClient(object):
                     "history_request": [datetime.datetime.timestamp(datetime.datetime.now())],
                     "umbral_interval": 1,
                 },
+                "event": dict(event),
             }
 
             self.redis_cache.save_cache(hash_key, data)
@@ -225,7 +227,7 @@ class GRPClient(object):
         return "Read" in method
 
     @function_thread_controller.run_thread_controller
-    def update_cache(self, hash_key: str, data: dict, event: Event, module_pb2, stub):
+    def update_cache(self, hash_key: str, data: dict, event: Event, module_pb2, forced=False, *args, **kwargs):
         """
         Updates the cache with the given data.
         Args:
@@ -233,38 +235,48 @@ class GRPClient(object):
             data (dict): The data to be stored in the cache.
             event (Event): The event triggering the cache update.
             module_pb2: The module_pb2 object.
-            stub: The stub object.
         Raises:
             None
         Returns:
             None
         """
-
         try:
-            if data.get("info").get("count") == data.get("info").get("max_request"):
-                rpc_method = event.get("rpc_method")
+            with OmniChannel(
+                self.service_id,
+                options=[
+                    ("grpc.max_receive_message_length", 100 * 1024 * 1024),
+                    ("grpc.max_send_message_length", 100 * 1024 * 1024),
+                ],
+                *args,
+                **kwargs,
+                tennat=self.tenant,
+            ) as channel:
+                if forced:
+                    new_cache = self.request_to_ms(event, module_pb2, None, channel)
+                    if not self.validate_response_hash(data["cache"], new_cache):
+                        data["cache"] = new_cache
+                        self.redis_cache.save_cache(hash_key, data)
 
-                request = format_request(event.get("params"), event.get("request_class"), module_pb2)
-                response = getattr(stub, rpc_method)(request)
-                new_cache = MessageToDict(response)
+                elif data.get("info").get("count") == data.get("info").get("max_request"):
+                    new_cache = self.request_to_ms(event, module_pb2, None, channel)
 
-                data["info"]["max_request"] = self.increment_max_request(
-                    data["info"]["history_request"],
-                    data["info"]["max_request"],
-                    data["info"]["umbral_interval"],
-                )
-                data["info"]["count"] = 1
-                data["info"]["history_request"] = [datetime.datetime.timestamp(datetime.datetime.now())]
-                if self.validate_response_hash(data["cache"], new_cache):
-                    self.redis_cache.save_cache(hash_key, data, expire=False)
+                    data["info"]["max_request"] = self.increment_max_request(
+                        data["info"]["history_request"],
+                        data["info"]["max_request"],
+                        data["info"]["umbral_interval"],
+                    )
+                    data["info"]["count"] = 1
+                    data["info"]["history_request"] = [datetime.datetime.timestamp(datetime.datetime.now())]
+                    if self.validate_response_hash(data["cache"], new_cache):
+                        self.redis_cache.save_cache(hash_key, data, expire=False)
+                    else:
+                        data["cache"] = new_cache
+                        self.redis_cache.save_cache(hash_key, data)
                 else:
-                    data["cache"] = new_cache
-                    self.redis_cache.save_cache(hash_key, data)
-            else:
-                data["info"]["count"] = data["info"]["count"] + 1  # Increment count
-                data["info"]["history_request"].append(datetime.datetime.timestamp(datetime.datetime.now()))
-                data["info"]["umbral_interval"] = self.average_interval(data["info"]["history_request"])
-                self.redis_cache.save_cache(hash_key, data, expire=False)
+                    data["info"]["count"] = data["info"]["count"] + 1  # Increment count
+                    data["info"]["history_request"].append(datetime.datetime.timestamp(datetime.datetime.now()))
+                    data["info"]["umbral_interval"] = self.average_interval(data["info"]["history_request"])
+                    self.redis_cache.save_cache(hash_key, data, expire=False)
 
         except Exception as e:
             logger.error(f"Error updating cache: {e}")
@@ -320,3 +332,47 @@ class GRPClient(object):
         if hashlib.sha256(str(cache).encode()).hexdigest() == hashlib.sha256(str(new_cache).encode()).hexdigest():
             return True
         return False
+
+    @function_thread_controller.run_thread_controller
+    def update_cache_cud(self, event: Event, module_pb2, stub):
+        """
+        Updates the cache for CUD operations and others services.
+
+        Args:
+            event (Event): The event object.
+            module_pb2: The module_pb2 object.
+            stub: The stub object.
+
+        Returns:
+            None
+        """
+        try:
+            prefix_hash_key = event.get("module_grpc")
+            list_data = self.redis_cache.get_keys_with_prefix(prefix_hash_key)
+            for data in list_data:
+                hash_key, data = list(data.keys())[0], list(data.values())[0]
+                event = Event(**data.get("event"))
+
+                self.update_cache(hash_key, data, event, module_pb2, stub, forced=True)
+        except Exception as e:
+            logger.error(f"Error updating cache: {e}")
+            pass
+
+    def request_to_ms(self, event: Event, module_pb2, rpc_method, channel):
+        """
+        Sends a request to a microservice and returns the response.
+        Args:
+            event (Event): The event containing the request details.
+            module_pb2 (module): The protocol buffer module for the request.
+            rpc_method (str): The RPC method to call. If None, it will be retrieved from the event.
+            channel (grpc.Channel): The gRPC channel to use for the request.
+        Returns:
+            dict: The response from the microservice, converted to a dictionary.
+        """
+
+        rpc_method = event.get("rpc_method") if rpc_method is None else rpc_method
+        request = format_request(event.get("params"), event.get("request_class"), module_pb2)
+        stub = getattr(self.module_grpc, self.stub_classname)(channel)
+        response = getattr(stub, rpc_method)(request)
+        new_cache = MessageToDict(response)
+        return new_cache
