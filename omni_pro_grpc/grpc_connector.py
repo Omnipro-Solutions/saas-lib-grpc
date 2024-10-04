@@ -68,12 +68,15 @@ class OmniChannel(Channel):
                     "secure_channel cannot be called with insecure credentials." + " Call insecure_channel instead."
                 )
             credentials = credentials._credentials
-            options = options + [("grpc.ssl_target_name_override", Config.GRPC_SSL_NAME)] or [
-                ("grpc.ssl_target_name_override", Config.GRPC_SSL_NAME)
-            ]
 
-        target = self.get_target(service_id, tennat)
-        super().__init__(target, () if options is None else options, credentials, compression)
+            options = (options or []) + [("grpc.ssl_target_name_override", Config.GRPC_SSL_NAME)]
+
+            # options = options + [("grpc.ssl_target_name_override", Config.GRPC_SSL_NAME)] or [
+            #     ("grpc.ssl_target_name_override", Config.GRPC_SSL_NAME)
+            # ]
+
+        self.target = self.get_target(service_id, tennat)
+        super().__init__(self.target, () if options is None else options, credentials, compression)
 
     def get_target(self, service_id, tennat):
         redis = RedisManager(
