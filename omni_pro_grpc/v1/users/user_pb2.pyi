@@ -42,11 +42,12 @@ class Model(_message.Message):
     ) -> None: ...
 
 class Microservice(_message.Message):
-    __slots__ = ["id", "name", "code", "microservice_doc_id", "active", "external_id", "object_audit"]
+    __slots__ = ["id", "name", "code", "microservice_doc_id", "permissions", "active", "external_id", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     MICROSERVICE_DOC_ID_FIELD_NUMBER: _ClassVar[int]
+    PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -54,6 +55,7 @@ class Microservice(_message.Message):
     name: str
     code: str
     microservice_doc_id: str
+    permissions: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -63,6 +65,7 @@ class Microservice(_message.Message):
         name: _Optional[str] = ...,
         code: _Optional[str] = ...,
         microservice_doc_id: _Optional[str] = ...,
+        permissions: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
