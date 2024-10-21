@@ -135,8 +135,8 @@ class GRPClient(object):
                 response = getattr(stub, event.get("rpc_method"))(request, timeout=self.timeout)
             if cache and self.validate_method_read(event.get("rpc_method")):
                 self.save_cache(event, response)
-
-            self.update_cache_cud(event, module_pb2, stub)
+            if not self.validate_method_read(event.get("rpc_method")):
+                self.update_cache_cud(event, module_pb2, *args, **kwargs)
             success = True
             if hasattr(response, "response_standard"):
                 success = response.response_standard.status_code in range(200, 300)
@@ -160,7 +160,7 @@ class GRPClient(object):
                 response_class_name = data.get("info").get("response_class")
                 data_cache = data.get("cache")
 
-                self.update_cache(hash_key, data, event, module_pb2, stub, *args, **kwargs)
+                self.update_cache(hash_key, data, event, module_pb2, *args, **kwargs)
 
                 return format_request(data_cache, response_class_name, module_pb2)
         except Exception as e:
@@ -334,7 +334,7 @@ class GRPClient(object):
         return False
 
     @function_thread_controller.run_thread_controller
-    def update_cache_cud(self, event: Event, module_pb2, stub):
+    def update_cache_cud(self, event: Event, module_pb2, *args, **kwargs):
         """
         Updates the cache for CUD operations and others services.
 
@@ -353,7 +353,7 @@ class GRPClient(object):
                 hash_key, data = list(data.keys())[0], list(data.values())[0]
                 event = Event(**data.get("event"))
 
-                self.update_cache(hash_key, data, event, module_pb2, stub, forced=True)
+                self.update_cache(hash_key, data, event, module_pb2, True, *args, **kwargs)
         except Exception as e:
             logger.error(f"Error updating cache: {e}")
             pass
