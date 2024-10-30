@@ -25,6 +25,9 @@ class WarehouseHierarchy(_message.Message):
         "sequence",
         "sequence_order",
         "gift_code",
+        "time",
+        "cost",
+        "distance",
         "active",
         "external_id",
         "object_audit",
@@ -38,6 +41,9 @@ class WarehouseHierarchy(_message.Message):
     SEQUENCE_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
     GIFT_CODE_FIELD_NUMBER: _ClassVar[int]
+    TIME_FIELD_NUMBER: _ClassVar[int]
+    COST_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -50,6 +56,9 @@ class WarehouseHierarchy(_message.Message):
     sequence: int
     sequence_order: _wrappers_pb2.BoolValue
     gift_code: str
+    time: float
+    cost: float
+    distance: float
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -64,6 +73,9 @@ class WarehouseHierarchy(_message.Message):
         sequence: _Optional[int] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         gift_code: _Optional[str] = ...,
+        time: _Optional[float] = ...,
+        cost: _Optional[float] = ...,
+        distance: _Optional[float] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
@@ -78,6 +90,10 @@ class WarehouseHierarchyCreateRequest(_message.Message):
         "quantity_security",
         "sequence",
         "gift_code",
+        "time",
+        "cost",
+        "distance",
+        "active",
         "sequence_order",
         "external_id",
         "context",
@@ -89,6 +105,10 @@ class WarehouseHierarchyCreateRequest(_message.Message):
     QUANTITY_SECURITY_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_FIELD_NUMBER: _ClassVar[int]
     GIFT_CODE_FIELD_NUMBER: _ClassVar[int]
+    TIME_FIELD_NUMBER: _ClassVar[int]
+    COST_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -99,6 +119,10 @@ class WarehouseHierarchyCreateRequest(_message.Message):
     quantity_security: float
     sequence: int
     gift_code: str
+    time: float
+    cost: float
+    distance: float
+    active: _wrappers_pb2.BoolValue
     sequence_order: _wrappers_pb2.BoolValue
     external_id: str
     context: _base_pb2.Context
@@ -111,6 +135,10 @@ class WarehouseHierarchyCreateRequest(_message.Message):
         quantity_security: _Optional[float] = ...,
         sequence: _Optional[int] = ...,
         gift_code: _Optional[str] = ...,
+        time: _Optional[float] = ...,
+        cost: _Optional[float] = ...,
+        distance: _Optional[float] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
