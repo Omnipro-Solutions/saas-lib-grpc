@@ -24,6 +24,10 @@ class WarehouseHierarchy(_message.Message):
         "sequence",
         "sequence_order",
         "gift_code",
+        "time",
+        "cost",
+        "distance",
+        "active",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -33,6 +37,10 @@ class WarehouseHierarchy(_message.Message):
     SEQUENCE_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
     GIFT_CODE_FIELD_NUMBER: _ClassVar[int]
+    TIME_FIELD_NUMBER: _ClassVar[int]
+    COST_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
     warehouse: _warehouse_pb2.Warehouse
@@ -41,6 +49,10 @@ class WarehouseHierarchy(_message.Message):
     sequence: _wrappers_pb2.Int32Value
     sequence_order: _wrappers_pb2.BoolValue
     gift_code: str
+    time: float
+    cost: float
+    distance: float
+    active: _wrappers_pb2.BoolValue
     def __init__(
         self,
         name: _Optional[str] = ...,
@@ -51,6 +63,10 @@ class WarehouseHierarchy(_message.Message):
         sequence: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         gift_code: _Optional[str] = ...,
+        time: _Optional[float] = ...,
+        cost: _Optional[float] = ...,
+        distance: _Optional[float] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
     ) -> None: ...
 
 class WarehouseHierarchyCreate(_message.Message):
@@ -63,6 +79,10 @@ class WarehouseHierarchyCreate(_message.Message):
         "sequence",
         "sequence_order",
         "gift_code",
+        "time",
+        "cost",
+        "distance",
+        "active",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -72,6 +92,10 @@ class WarehouseHierarchyCreate(_message.Message):
     SEQUENCE_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
     GIFT_CODE_FIELD_NUMBER: _ClassVar[int]
+    TIME_FIELD_NUMBER: _ClassVar[int]
+    COST_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    ACTIVE_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
     warehouse_id: int
@@ -80,6 +104,10 @@ class WarehouseHierarchyCreate(_message.Message):
     sequence: _wrappers_pb2.Int32Value
     sequence_order: _wrappers_pb2.BoolValue
     gift_code: str
+    time: float
+    cost: float
+    distance: float
+    active: _wrappers_pb2.BoolValue
     def __init__(
         self,
         name: _Optional[str] = ...,
@@ -90,6 +118,10 @@ class WarehouseHierarchyCreate(_message.Message):
         sequence: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         gift_code: _Optional[str] = ...,
+        time: _Optional[float] = ...,
+        cost: _Optional[float] = ...,
+        distance: _Optional[float] = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
     ) -> None: ...
 
 class DeliveryWarehouse(_message.Message):
@@ -99,6 +131,8 @@ class DeliveryWarehouse(_message.Message):
         "hierarchy_warehouse_sort_by",
         "transfer_warehouses",
         "active",
+        "use_sequence_order",
+        "priority_criteria",
         "external_id",
         "object_audit",
     ]
@@ -107,6 +141,8 @@ class DeliveryWarehouse(_message.Message):
     HIERARCHY_WAREHOUSE_SORT_BY_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_WAREHOUSES_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    USE_SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
+    PRIORITY_CRITERIA_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -114,6 +150,8 @@ class DeliveryWarehouse(_message.Message):
     hierarchy_warehouse_sort_by: str
     transfer_warehouses: _containers.RepeatedCompositeFieldContainer[WarehouseHierarchy]
     active: _wrappers_pb2.BoolValue
+    use_sequence_order: _wrappers_pb2.BoolValue
+    priority_criteria: _containers.RepeatedScalarFieldContainer[str]
     external_id: str
     object_audit: _base_pb2.ObjectAudit
     def __init__(
@@ -123,20 +161,34 @@ class DeliveryWarehouse(_message.Message):
         hierarchy_warehouse_sort_by: _Optional[str] = ...,
         transfer_warehouses: _Optional[_Iterable[_Union[WarehouseHierarchy, _Mapping]]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        use_sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        priority_criteria: _Optional[_Iterable[str]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class DeliveryWarehouseCreateRequest(_message.Message):
-    __slots__ = ["name", "hierarchy_warehouse_sort_by", "transfer_warehouses", "external_id", "context"]
+    __slots__ = [
+        "name",
+        "hierarchy_warehouse_sort_by",
+        "transfer_warehouses",
+        "use_sequence_order",
+        "priority_criteria",
+        "external_id",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     HIERARCHY_WAREHOUSE_SORT_BY_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_WAREHOUSES_FIELD_NUMBER: _ClassVar[int]
+    USE_SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
+    PRIORITY_CRITERIA_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     hierarchy_warehouse_sort_by: str
     transfer_warehouses: _containers.RepeatedCompositeFieldContainer[WarehouseHierarchyCreate]
+    use_sequence_order: _wrappers_pb2.BoolValue
+    priority_criteria: _containers.RepeatedScalarFieldContainer[str]
     external_id: str
     context: _base_pb2.Context
     def __init__(
@@ -144,6 +196,8 @@ class DeliveryWarehouseCreateRequest(_message.Message):
         name: _Optional[str] = ...,
         hierarchy_warehouse_sort_by: _Optional[str] = ...,
         transfer_warehouses: _Optional[_Iterable[_Union[WarehouseHierarchyCreate, _Mapping]]] = ...,
+        use_sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        priority_criteria: _Optional[_Iterable[str]] = ...,
         external_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
