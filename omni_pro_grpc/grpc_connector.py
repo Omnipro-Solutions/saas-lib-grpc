@@ -87,7 +87,7 @@ class GRPClient(object):
         self.service_id = service_id
         self.timeout = timeout
 
-    def call_rpc_fuction(self, event: Event, cache=False, *args, **kwargs):
+    def call_rpc_function(self, event: Event, cache=False, store_cache=False, *args, **kwargs):
         """
         function to call rpc function
         :param event: Event with params to call rpc function
@@ -122,21 +122,25 @@ class GRPClient(object):
             request_class = event.get("request_class")
             module_pb2 = importlib.import_module(f"{path_module}.{event.get('module_pb2')}")
             self.redis_cache = self.set_cache_redis()
-            if cache and self.validate_method_read(event.get("rpc_method")):
+
+            if cache:
                 resul_cache = self.get_cache(event, module_pb2, stub, *args, **kwargs)
                 if resul_cache:
                     return resul_cache, True
 
             request = format_request(event.get("params"), request_class, module_pb2)
-            # Instance the method rpc que recibe el request
+
             if not self.timeout:
                 response = getattr(stub, event.get("rpc_method"))(request)
             else:
                 response = getattr(stub, event.get("rpc_method"))(request, timeout=self.timeout)
-            if cache and self.validate_method_read(event.get("rpc_method")):
+
+            if store_cache:
                 self.save_cache(event, response)
+
             if not self.validate_method_read(event.get("rpc_method")):
                 self.update_cache_cud(event, module_pb2, *args, **kwargs)
+
             success = True
             if hasattr(response, "response_standard"):
                 success = response.response_standard.status_code in range(200, 300)
