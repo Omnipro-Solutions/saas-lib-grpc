@@ -87,6 +87,10 @@ class GRPClient(object):
         self.service_id = service_id
         self.timeout = timeout
 
+    def call_rpc_fuction(self, event: Event, cache=False, store_cache=False, *args, **kwargs):
+        logger.info(f"This function is deprecated, use call_rpc_function instead.")
+        return self.call_rpc_function(event, cache, store_cache, *args, **kwargs)
+
     def call_rpc_function(self, event: Event, cache=False, store_cache=False, *args, **kwargs):
         """
         function to call rpc function
