@@ -107,7 +107,8 @@ class GRPClient(object):
         response, success = GRPClient(service_id=Config.SERVICE_ID).call_rpc_fuction(event)
         ```
         """
-        self.tenant = nested(event, "params.context.tenant")
+        path_module = kwargs.pop("path_module", "omni_pro_grpc")
+        self.tenant = kwargs.pop("tenant", nested(event, "params.context.tenant"))
         with OmniChannel(
             self.service_id,
             options=[
@@ -120,7 +121,6 @@ class GRPClient(object):
         ) as channel:
             stub = event.get("service_stub")
             self.stub_classname = event.get("stub_classname")
-            path_module = "omni_pro_grpc"
             self.module_grpc = importlib.import_module(f"{path_module}.{event.get('module_grpc')}")
             stub = getattr(self.module_grpc, self.stub_classname)(channel)
             request_class = event.get("request_class")
