@@ -17,6 +17,7 @@ INSTALL_REQUIRES = [
     "grpcio==1.56.0",
     "grpcio-tools==1.56.0",
     "grpcio-reflection==1.56.0",
+    "grpcio-health-checking==1.56.0",
     "protobuf==4.23.4",
     "omni-pro-base>=0.0.0,<=2.0.0",
     "omni-pro-redis>=0.0.0,<=2.0.0",
