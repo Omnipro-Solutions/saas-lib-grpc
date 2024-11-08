@@ -13,10 +13,10 @@ class TerritoryMatrixValueServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.TerritoryMatrixValueAdd = channel.unary_unary(
-            "/pro.omni.oms.api.v1.utilities.territory_matrix_value.TerritoryMatrixValueService/TerritoryMatrixValueAdd",
-            request_serializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueAddRequest.SerializeToString,
-            response_deserializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueAddResponse.FromString,
+        self.TerritoryMatrixValueCreate = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.territory_matrix_value.TerritoryMatrixValueService/TerritoryMatrixValueCreate",
+            request_serializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueCreateRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueCreateResponse.FromString,
         )
         self.TerritoryMatrixValueRead = channel.unary_unary(
             "/pro.omni.oms.api.v1.utilities.territory_matrix_value.TerritoryMatrixValueService/TerritoryMatrixValueRead",
@@ -38,7 +38,7 @@ class TerritoryMatrixValueServiceStub(object):
 class TerritoryMatrixValueServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def TerritoryMatrixValueAdd(self, request, context):
+    def TerritoryMatrixValueCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -65,10 +65,10 @@ class TerritoryMatrixValueServiceServicer(object):
 
 def add_TerritoryMatrixValueServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "TerritoryMatrixValueAdd": grpc.unary_unary_rpc_method_handler(
-            servicer.TerritoryMatrixValueAdd,
-            request_deserializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueAddRequest.FromString,
-            response_serializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueAddResponse.SerializeToString,
+        "TerritoryMatrixValueCreate": grpc.unary_unary_rpc_method_handler(
+            servicer.TerritoryMatrixValueCreate,
+            request_deserializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueCreateRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueCreateResponse.SerializeToString,
         ),
         "TerritoryMatrixValueRead": grpc.unary_unary_rpc_method_handler(
             servicer.TerritoryMatrixValueRead,
@@ -97,7 +97,7 @@ class TerritoryMatrixValueService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def TerritoryMatrixValueAdd(
+    def TerritoryMatrixValueCreate(
         request,
         target,
         options=(),
@@ -112,9 +112,9 @@ class TerritoryMatrixValueService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            "/pro.omni.oms.api.v1.utilities.territory_matrix_value.TerritoryMatrixValueService/TerritoryMatrixValueAdd",
-            v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueAddRequest.SerializeToString,
-            v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueAddResponse.FromString,
+            "/pro.omni.oms.api.v1.utilities.territory_matrix_value.TerritoryMatrixValueService/TerritoryMatrixValueCreate",
+            v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueCreateRequest.SerializeToString,
+            v1_dot_utilities_dot_territory__matrix__value__pb2.TerritoryMatrixValueCreateResponse.FromString,
             options,
             channel_credentials,
             insecure,
