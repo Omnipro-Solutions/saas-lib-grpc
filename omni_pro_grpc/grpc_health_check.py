@@ -1,9 +1,15 @@
 import threading
+import traceback
 from concurrent import futures
 from time import sleep
 
 import grpc
 from grpc_health.v1 import health, health_pb2, health_pb2_grpc
+from omni.pro.logger import configure_logger
+from omni_pro_base.microservice import MicroService
+from omni_pro_grpc.grpc_connector import Event, GRPClient
+
+logger = configure_logger(__name__)
 
 
 class HealthServer(object):
@@ -35,3 +41,31 @@ class HealthServer(object):
         # Use a daemon thread to toggle health status
         toggle_health_status_thread = threading.Thread(target=self._toggle_health, args=(health_servicer,), daemon=True)
         toggle_health_status_thread.start()
+
+
+def grpc_service_available(tenant: str, service: str = "health"):
+    try:
+        service_id = MicroService.SAAS_MS_UTILITIES.value
+        module_grpc = "health_pb2_grpc"
+        stub_classname = "HealthStub"
+        module_pb2 = "health_pb2"
+
+        event: Event = Event(
+            module_grpc=module_grpc,
+            stub_classname=stub_classname,
+            module_pb2=module_pb2,
+            rpc_method="Check",
+            request_class="HealthCheckRequest",
+            params={"service": service},
+        )
+        client: GRPClient = GRPClient(service_id)
+        resp, _s = client.call_rpc_fuction(event, path_module="grpc_health.v1", tenant=tenant)
+        if resp.status == health_pb2.HealthCheckResponse.SERVING:
+            logger.info("server is serving")
+            return True
+        elif resp.status == health_pb2.HealthCheckResponse.NOT_SERVING:
+            logger.warning("server stopped serving")
+            return False
+    except Exception:
+        logger.error(f"Exception grpc_service_available: {traceback.format_exc()}")
+        return False
