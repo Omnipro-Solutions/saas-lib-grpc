@@ -22,6 +22,7 @@ class Model(_message.Message):
         "code",
         "class_name",
         "hash_code",
+        "verbose_name",
         "is_replic",
         "fields",
         "active",
@@ -35,6 +36,7 @@ class Model(_message.Message):
     CODE_FIELD_NUMBER: _ClassVar[int]
     CLASS_NAME_FIELD_NUMBER: _ClassVar[int]
     HASH_CODE_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_NAME_FIELD_NUMBER: _ClassVar[int]
     IS_REPLIC_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
@@ -47,6 +49,7 @@ class Model(_message.Message):
     code: str
     class_name: str
     hash_code: str
+    verbose_name: str
     is_replic: _wrappers_pb2.BoolValue
     fields: _containers.RepeatedCompositeFieldContainer[Field]
     active: _wrappers_pb2.BoolValue
@@ -61,6 +64,7 @@ class Model(_message.Message):
         code: _Optional[str] = ...,
         class_name: _Optional[str] = ...,
         hash_code: _Optional[str] = ...,
+        verbose_name: _Optional[str] = ...,
         is_replic: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
@@ -143,6 +147,7 @@ class ModelCreateRequest(_message.Message):
         "code",
         "class_name",
         "hash_code",
+        "verbose_name",
         "fields",
         "is_replic",
         "external_id",
@@ -154,6 +159,7 @@ class ModelCreateRequest(_message.Message):
     CODE_FIELD_NUMBER: _ClassVar[int]
     CLASS_NAME_FIELD_NUMBER: _ClassVar[int]
     HASH_CODE_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_NAME_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     IS_REPLIC_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
@@ -164,6 +170,7 @@ class ModelCreateRequest(_message.Message):
     code: str
     class_name: str
     hash_code: str
+    verbose_name: str
     fields: _containers.RepeatedCompositeFieldContainer[Field]
     is_replic: _wrappers_pb2.BoolValue
     external_id: str
@@ -176,6 +183,7 @@ class ModelCreateRequest(_message.Message):
         code: _Optional[str] = ...,
         class_name: _Optional[str] = ...,
         hash_code: _Optional[str] = ...,
+        verbose_name: _Optional[str] = ...,
         fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ...,
         is_replic: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
