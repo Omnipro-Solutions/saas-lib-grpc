@@ -2,6 +2,7 @@ from google.protobuf.descriptor_pool import DescriptorPool
 from grpc_reflection.v1alpha import reflection
 from grpc_reflection.v1alpha.proto_reflection_descriptor_database import ProtoReflectionDescriptorDatabase
 from omni.pro.redis import RedisManager
+from omni.pro.user.access import INTERNAL_USER
 from omni_pro_base.config import Config
 from omni_pro_grpc.grpc_connector import OmniChannel
 from omni_pro_grpc.grpc_function import MethodRPCFunction, MicroServiceRPCFunction
@@ -123,10 +124,9 @@ class OmniServerDescriptor:
         )
         tenans = redis_manager.get_tenant_codes(pattern=pattern, exlcudes_keys=exlcudes_keys)
         for tenant in tenans:
-            user = redis_manager.get_user_admin(tenant)
             context = {
                 "tenant": tenant,
-                "user": user.get("id") or "admin",
+                "user": INTERNAL_USER,
             }
             resp = MicroServiceRPCFunction(context=context).read_ms(params={"filter": filters})
             all_services = []
