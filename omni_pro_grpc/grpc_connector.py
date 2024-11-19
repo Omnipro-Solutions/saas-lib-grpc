@@ -208,6 +208,7 @@ class GRPClient(object):
             data = {
                 "cache": data_cache,
                 "info": {
+                    "created_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "response_class": response_class_name,
                     "count": 1,
                     "max_request": 5,
@@ -260,10 +261,7 @@ class GRPClient(object):
                 tennat=self.tenant,
             ) as channel:
                 if forced:
-                    new_cache = self.request_to_ms(event, module_pb2, None, channel)
-                    if not self.validate_response_hash(data["cache"], new_cache):
-                        data["cache"] = new_cache
-                        self.redis_cache.save_cache(hash_key, data)
+                    self.update_cache_forced(event, module_pb2, channel)
 
                 elif data.get("info").get("count") == data.get("info").get("max_request"):
                     new_cache = self.request_to_ms(event, module_pb2, None, channel)
@@ -341,7 +339,7 @@ class GRPClient(object):
             return True
         return False
 
-    @function_thread_controller.run_thread_controller
+    # @function_thread_controller.run_thread_controller
     def update_cache_cud(self, event: Event, module_pb2, *args, **kwargs):
         """
         Updates the cache for CUD operations and others services.
@@ -355,13 +353,7 @@ class GRPClient(object):
             None
         """
         try:
-            prefix_hash_key = event.get("module_grpc")
-            list_data = self.redis_cache.get_keys_with_prefix(prefix_hash_key)
-            for data in list_data:
-                hash_key, data = list(data.keys())[0], list(data.values())[0]
-                event = Event(**data.get("event"))
-
-                self.update_cache(hash_key, data, event, module_pb2, True, *args, **kwargs)
+            self.update_cache(None, None, event, module_pb2, True, *args, **kwargs)
         except Exception as e:
             logger.error(f"Error updating cache: {e}")
             pass
@@ -384,3 +376,30 @@ class GRPClient(object):
         response = getattr(stub, rpc_method)(request)
         new_cache = MessageToDict(response)
         return new_cache
+
+    def update_cache_forced(self, event: Event, module_pb2, channel):
+        """
+        Updates the cache forcefully for a given event by re-fetching data from the microservice.
+        Args:
+            event (Event): The event object containing details to be processed.
+            module_pb2: The protocol buffer module used for serialization and deserialization.
+            channel: The gRPC channel used to communicate with the microservice.
+        Returns:
+            None
+        """
+
+        def parse_datetime(data):
+            return datetime.datetime.strptime(list(data.values())[0]["info"]["created_at"], "%Y-%m-%d %H:%M:%S")
+
+        prefix_hash_key = event.get("module_grpc")
+        list_data = self.redis_cache.get_keys_with_prefix(prefix_hash_key)
+
+        list_data_sorted = sorted(list_data, key=parse_datetime)
+
+        for data in list_data_sorted:
+            hash_key, data = list(data.keys())[0], list(data.values())[0]
+            event_forced = Event(**data.get("event"))
+            new_cache = self.request_to_ms(event_forced, module_pb2, None, channel)
+            if not self.validate_response_hash(data["cache"], new_cache):
+                data["cache"] = new_cache
+                self.redis_cache.save_cache(hash_key, data)
