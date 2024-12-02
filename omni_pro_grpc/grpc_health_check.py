@@ -43,7 +43,7 @@ class HealthServer(object):
         toggle_health_status_thread.start()
 
 
-def grpc_service_available(tenant: str, service: str = "health"):
+def grpc_service_available(tenant: str, service: str = ""):
     try:
         service_id = MicroService.SAAS_MS_UTILITIES.value
         module_grpc = "health_pb2_grpc"
