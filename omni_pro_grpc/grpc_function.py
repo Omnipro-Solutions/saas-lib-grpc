@@ -2,7 +2,6 @@ from google.protobuf import json_format
 from omni_pro_base.microservice import MicroService
 from omni_pro_base.util import generate_hash
 from omni_pro_grpc.grpc_connector import Event, GRPClient
-from omni.pro.util import measure_time
 
 
 class ModelRPCFucntion(object):
