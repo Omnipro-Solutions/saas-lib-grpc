@@ -6,6 +6,7 @@ from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
+from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
@@ -13,12 +14,23 @@ from omni_pro_grpc.common import base_pb2 as _base_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Picking(_message.Message):
-    __slots__ = ["id", "name", "order_id", "picking_sql_id", "picker", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "order_id",
+        "picking_sql_id",
+        "picker",
+        "carrier",
+        "active",
+        "external_id",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     ORDER_ID_FIELD_NUMBER: _ClassVar[int]
     PICKING_SQL_ID_FIELD_NUMBER: _ClassVar[int]
     PICKER_FIELD_NUMBER: _ClassVar[int]
+    CARRIER_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
@@ -27,6 +39,7 @@ class Picking(_message.Message):
     order_id: int
     picking_sql_id: int
     picker: str
+    carrier: _struct_pb2.Struct
     active: _wrappers_pb2.BoolValue
     external_id: str
     object_audit: _base_pb2.ObjectAudit
@@ -37,6 +50,7 @@ class Picking(_message.Message):
         order_id: _Optional[int] = ...,
         picking_sql_id: _Optional[int] = ...,
         picker: _Optional[str] = ...,
+        carrier: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,

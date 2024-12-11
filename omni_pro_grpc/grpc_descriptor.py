@@ -1,12 +1,11 @@
 from google.protobuf.descriptor_pool import DescriptorPool
 from grpc_reflection.v1alpha import reflection
 from grpc_reflection.v1alpha.proto_reflection_descriptor_database import ProtoReflectionDescriptorDatabase
-from omni.pro.redis import RedisManager
-from omni.pro.user.access import INTERNAL_USER
 from omni_pro_base.config import Config
 from omni_pro_grpc.grpc_connector import OmniChannel
 from omni_pro_grpc.grpc_function import MethodRPCFunction, MicroServiceRPCFunction
 from omni_pro_grpc.util import MessageToDict
+from omni_pro_redis.redis import RedisManager
 
 
 class OmniServerDescriptor:
@@ -126,7 +125,7 @@ class OmniServerDescriptor:
         for tenant in tenans:
             context = {
                 "tenant": tenant,
-                "user": INTERNAL_USER,
+                "user": Config.INTERNAL_USER,
             }
             resp = MicroServiceRPCFunction(context=context).read_ms(params={"filter": filters})
             all_services = []
