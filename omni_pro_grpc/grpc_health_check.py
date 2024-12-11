@@ -5,7 +5,7 @@ from time import sleep
 
 import grpc
 from grpc_health.v1 import health, health_pb2, health_pb2_grpc
-from omni.pro.logger import configure_logger
+from omni_pro_base.logger import configure_logger
 from omni_pro_base.microservice import MicroService
 from omni_pro_grpc.grpc_connector import Event, GRPClient
 
