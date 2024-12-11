@@ -125,7 +125,7 @@ class OmniServerDescriptor:
         for tenant in tenans:
             context = {
                 "tenant": tenant,
-                "user": "internal",
+                "user": Config.INTERNAL_USER,
             }
             resp = MicroServiceRPCFunction(context=context).read_ms(params={"filter": filters})
             all_services = []

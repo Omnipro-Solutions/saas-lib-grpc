@@ -5,8 +5,11 @@ from time import sleep
 
 import grpc
 from grpc_health.v1 import health, health_pb2, health_pb2_grpc
+from omni_pro_base.logger import configure_logger
 from omni_pro_base.microservice import MicroService
 from omni_pro_grpc.grpc_connector import Event, GRPClient
+
+logger = configure_logger(__name__)
 
 
 class HealthServer(object):
@@ -58,11 +61,11 @@ def grpc_service_available(tenant: str, service: str = ""):
         client: GRPClient = GRPClient(service_id)
         resp, _s = client.call_rpc_fuction(event, path_module="grpc_health.v1", tenant=tenant)
         if resp.status == health_pb2.HealthCheckResponse.SERVING:
-            print("server is serving")
+            logger.info("server is serving")
             return True
         elif resp.status == health_pb2.HealthCheckResponse.NOT_SERVING:
-            print("server stopped serving")
+            logger.warning("server stopped serving")
             return False
     except Exception:
-        print(f"Exception grpc_service_available: {traceback.format_exc()}")
+        logger.error(f"Exception grpc_service_available: {traceback.format_exc()}")
         return False
