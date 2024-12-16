@@ -2,7 +2,6 @@ from google.protobuf import json_format
 from omni_pro_base.microservice import MicroService
 from omni_pro_base.util import generate_hash
 from omni_pro_grpc.grpc_connector import Event, GRPClient
-from omni.pro.util import measure_time
 
 
 class ModelRPCFucntion(object):
@@ -458,3 +457,41 @@ class TemplateNotificationRPCFucntion(object):
         return json_format.MessageToDict(
             response, preserving_proto_field_name=True, including_default_value_fields=True
         )
+
+
+class UserRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_USER.value
+        self.module_grpc = "v1.users.user_pb2_grpc"
+        self.stub_classname = "UsersServiceStub"
+        self.module_pb2 = "v1.users.user_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def create_action(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="ActionCreate",
+                request_class="ActionCreateRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event) + (self.event,)

@@ -5,7 +5,7 @@ from time import sleep
 
 import grpc
 from grpc_health.v1 import health, health_pb2, health_pb2_grpc
-from omni.pro.logger import configure_logger
+from omni_pro_base.logger import configure_logger
 from omni_pro_base.microservice import MicroService
 from omni_pro_grpc.grpc_connector import Event, GRPClient
 
@@ -43,7 +43,7 @@ class HealthServer(object):
         toggle_health_status_thread.start()
 
 
-def grpc_service_available(tenant: str, service: str = "health"):
+def grpc_service_available(tenant: str, service: str = ""):
     try:
         service_id = MicroService.SAAS_MS_UTILITIES.value
         module_grpc = "health_pb2_grpc"
