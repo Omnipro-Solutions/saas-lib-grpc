@@ -75,7 +75,7 @@ class Webhook(_message.Message):
     auth_type: str
     headers: _struct_pb2.Struct
     notify_type: str
-    priority_level: int
+    priority_level: _struct_pb2.Struct
     template_notification: _template_notification_pb2.TemplateNotification
     active: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
@@ -97,7 +97,7 @@ class Webhook(_message.Message):
         auth_type: _Optional[str] = ...,
         headers: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         notify_type: _Optional[str] = ...,
-        priority_level: _Optional[int] = ...,
+        priority_level: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         template_notification: _Optional[_Union[_template_notification_pb2.TemplateNotification, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
