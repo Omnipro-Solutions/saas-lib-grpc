@@ -13,10 +13,11 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x1fv1/utilities/mirror_model.proto\x12*pro.omni.oms.api.v1.utilities.mirror_model\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto"\x9b\x01\n CreateOrUpdateMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12+\n\nmodel_data\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9c\x01\n"CreateOrUpdateCreateMirrorResponse\x12+\n\nmodel_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x88\x03\n\x16ReadMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\x37\n\x08group_by\x18\x02 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x05 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x06 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x07 \x01(\t\x12\x36\n\x07\x63ontext\x18\x08 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x97\x01\n\x17ReadMirrorModelResponse\x12\x31\n\rmirror_models\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"r\n\x18\x44\x65leteMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"f\n\x19\x44\x65leteMirrorModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"[\n!RegisterWebhookMirrorModelRequest\x12\x36\n\x07\x63ontext\x18\x01 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"o\n"RegisterWebhookMirrorModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x89\x01\n\x19RegisterMethodGrpcRequest\x12\x34\n\x06\x66ilter\x18\x01 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"g\n\x1aRegisterMethodGrpcResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x9f\x01\n*MultiCreateOrMultiUpdateMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9f\x01\n+MultiCreateOrMultiUpdateMirrorModelResponse\x12%\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"w\n\x1dMultiDeleteMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x03(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"k\n\x1eMultiDeleteMirrorModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xfc\x0c\n\x12MirrorModelService\x12\xb3\x01\n\x11\x43reateMirrorModel\x12L.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateMirrorModelRequest\x1aN.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateCreateMirrorResponse"\x00\x12\x9c\x01\n\x0fReadMirrorModel\x12\x42.pro.omni.oms.api.v1.utilities.mirror_model.ReadMirrorModelRequest\x1a\x43.pro.omni.oms.api.v1.utilities.mirror_model.ReadMirrorModelResponse"\x00\x12\xb3\x01\n\x11UpdateMirrorModel\x12L.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateMirrorModelRequest\x1aN.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateCreateMirrorResponse"\x00\x12\xa2\x01\n\x11\x44\x65leteMirrorModel\x12\x44.pro.omni.oms.api.v1.utilities.mirror_model.DeleteMirrorModelRequest\x1a\x45.pro.omni.oms.api.v1.utilities.mirror_model.DeleteMirrorModelResponse"\x00\x12\xcb\x01\n\x16MultiCreateMirrorModel\x12V.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelRequest\x1aW.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelResponse"\x00\x12\xcb\x01\n\x16MultiUpdateMirrorModel\x12V.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelRequest\x1aW.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelResponse"\x00\x12\xb1\x01\n\x16MultiDeleteMirrorModel\x12I.pro.omni.oms.api.v1.utilities.mirror_model.MultiDeleteMirrorModelRequest\x1aJ.pro.omni.oms.api.v1.utilities.mirror_model.MultiDeleteMirrorModelResponse"\x00\x12\xa5\x01\n\x12RegisterMethodGrpc\x12\x45.pro.omni.oms.api.v1.utilities.mirror_model.RegisterMethodGrpcRequest\x1a\x46.pro.omni.oms.api.v1.utilities.mirror_model.RegisterMethodGrpcResponse"\x00\x12\xbd\x01\n\x1aRegisterWebhookMirrorModel\x12M.pro.omni.oms.api.v1.utilities.mirror_model.RegisterWebhookMirrorModelRequest\x1aN.pro.omni.oms.api.v1.utilities.mirror_model.RegisterWebhookMirrorModelResponse"\x00\x62\x06proto3'
+    b'\n\x1fv1/utilities/mirror_model.proto\x12*pro.omni.oms.api.v1.utilities.mirror_model\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/protobuf/struct.proto"\x9b\x01\n CreateOrUpdateMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12+\n\nmodel_data\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9c\x01\n"CreateOrUpdateCreateMirrorResponse\x12+\n\nmodel_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xb6\x03\n\x16ReadMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12,\n\x08protobuf\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x37\n\x08group_by\x18\x03 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x05 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x06 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x07 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x08 \x01(\t\x12\x36\n\x07\x63ontext\x18\t \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x97\x01\n\x17ReadMirrorModelResponse\x12\x31\n\rmirror_models\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"r\n\x18\x44\x65leteMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"f\n\x19\x44\x65leteMirrorModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"[\n!RegisterWebhookMirrorModelRequest\x12\x36\n\x07\x63ontext\x18\x01 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"o\n"RegisterWebhookMirrorModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x89\x01\n\x19RegisterMethodGrpcRequest\x12\x34\n\x06\x66ilter\x18\x01 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"g\n\x1aRegisterMethodGrpcResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\x9f\x01\n*MultiCreateOrMultiUpdateMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x17.google.protobuf.Struct\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9f\x01\n+MultiCreateOrMultiUpdateMirrorModelResponse\x12%\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"w\n\x1dMultiDeleteMirrorModelRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x03(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"k\n\x1eMultiDeleteMirrorModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\xfc\x0c\n\x12MirrorModelService\x12\xb3\x01\n\x11\x43reateMirrorModel\x12L.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateMirrorModelRequest\x1aN.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateCreateMirrorResponse"\x00\x12\x9c\x01\n\x0fReadMirrorModel\x12\x42.pro.omni.oms.api.v1.utilities.mirror_model.ReadMirrorModelRequest\x1a\x43.pro.omni.oms.api.v1.utilities.mirror_model.ReadMirrorModelResponse"\x00\x12\xb3\x01\n\x11UpdateMirrorModel\x12L.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateMirrorModelRequest\x1aN.pro.omni.oms.api.v1.utilities.mirror_model.CreateOrUpdateCreateMirrorResponse"\x00\x12\xa2\x01\n\x11\x44\x65leteMirrorModel\x12\x44.pro.omni.oms.api.v1.utilities.mirror_model.DeleteMirrorModelRequest\x1a\x45.pro.omni.oms.api.v1.utilities.mirror_model.DeleteMirrorModelResponse"\x00\x12\xcb\x01\n\x16MultiCreateMirrorModel\x12V.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelRequest\x1aW.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelResponse"\x00\x12\xcb\x01\n\x16MultiUpdateMirrorModel\x12V.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelRequest\x1aW.pro.omni.oms.api.v1.utilities.mirror_model.MultiCreateOrMultiUpdateMirrorModelResponse"\x00\x12\xb1\x01\n\x16MultiDeleteMirrorModel\x12I.pro.omni.oms.api.v1.utilities.mirror_model.MultiDeleteMirrorModelRequest\x1aJ.pro.omni.oms.api.v1.utilities.mirror_model.MultiDeleteMirrorModelResponse"\x00\x12\xa5\x01\n\x12RegisterMethodGrpc\x12\x45.pro.omni.oms.api.v1.utilities.mirror_model.RegisterMethodGrpcRequest\x1a\x46.pro.omni.oms.api.v1.utilities.mirror_model.RegisterMethodGrpcResponse"\x00\x12\xbd\x01\n\x1aRegisterWebhookMirrorModel\x12M.pro.omni.oms.api.v1.utilities.mirror_model.RegisterWebhookMirrorModelRequest\x1aN.pro.omni.oms.api.v1.utilities.mirror_model.RegisterWebhookMirrorModelResponse"\x00\x62\x06proto3'
 )
 
 _globals = globals()
@@ -25,34 +26,34 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.utilities.mirror_model_p
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
-    _globals["_CREATEORUPDATEMIRRORMODELREQUEST"]._serialized_start = 129
-    _globals["_CREATEORUPDATEMIRRORMODELREQUEST"]._serialized_end = 284
-    _globals["_CREATEORUPDATECREATEMIRRORRESPONSE"]._serialized_start = 287
-    _globals["_CREATEORUPDATECREATEMIRRORRESPONSE"]._serialized_end = 443
-    _globals["_READMIRRORMODELREQUEST"]._serialized_start = 446
-    _globals["_READMIRRORMODELREQUEST"]._serialized_end = 838
-    _globals["_READMIRRORMODELRESPONSE"]._serialized_start = 841
-    _globals["_READMIRRORMODELRESPONSE"]._serialized_end = 992
-    _globals["_DELETEMIRRORMODELREQUEST"]._serialized_start = 994
-    _globals["_DELETEMIRRORMODELREQUEST"]._serialized_end = 1108
-    _globals["_DELETEMIRRORMODELRESPONSE"]._serialized_start = 1110
-    _globals["_DELETEMIRRORMODELRESPONSE"]._serialized_end = 1212
-    _globals["_REGISTERWEBHOOKMIRRORMODELREQUEST"]._serialized_start = 1214
-    _globals["_REGISTERWEBHOOKMIRRORMODELREQUEST"]._serialized_end = 1305
-    _globals["_REGISTERWEBHOOKMIRRORMODELRESPONSE"]._serialized_start = 1307
-    _globals["_REGISTERWEBHOOKMIRRORMODELRESPONSE"]._serialized_end = 1418
-    _globals["_REGISTERMETHODGRPCREQUEST"]._serialized_start = 1421
-    _globals["_REGISTERMETHODGRPCREQUEST"]._serialized_end = 1558
-    _globals["_REGISTERMETHODGRPCRESPONSE"]._serialized_start = 1560
-    _globals["_REGISTERMETHODGRPCRESPONSE"]._serialized_end = 1663
-    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELREQUEST"]._serialized_start = 1666
-    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELREQUEST"]._serialized_end = 1825
-    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELRESPONSE"]._serialized_start = 1828
-    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELRESPONSE"]._serialized_end = 1987
-    _globals["_MULTIDELETEMIRRORMODELREQUEST"]._serialized_start = 1989
-    _globals["_MULTIDELETEMIRRORMODELREQUEST"]._serialized_end = 2108
-    _globals["_MULTIDELETEMIRRORMODELRESPONSE"]._serialized_start = 2110
-    _globals["_MULTIDELETEMIRRORMODELRESPONSE"]._serialized_end = 2217
-    _globals["_MIRRORMODELSERVICE"]._serialized_start = 2220
-    _globals["_MIRRORMODELSERVICE"]._serialized_end = 3880
+    _globals["_CREATEORUPDATEMIRRORMODELREQUEST"]._serialized_start = 161
+    _globals["_CREATEORUPDATEMIRRORMODELREQUEST"]._serialized_end = 316
+    _globals["_CREATEORUPDATECREATEMIRRORRESPONSE"]._serialized_start = 319
+    _globals["_CREATEORUPDATECREATEMIRRORRESPONSE"]._serialized_end = 475
+    _globals["_READMIRRORMODELREQUEST"]._serialized_start = 478
+    _globals["_READMIRRORMODELREQUEST"]._serialized_end = 916
+    _globals["_READMIRRORMODELRESPONSE"]._serialized_start = 919
+    _globals["_READMIRRORMODELRESPONSE"]._serialized_end = 1070
+    _globals["_DELETEMIRRORMODELREQUEST"]._serialized_start = 1072
+    _globals["_DELETEMIRRORMODELREQUEST"]._serialized_end = 1186
+    _globals["_DELETEMIRRORMODELRESPONSE"]._serialized_start = 1188
+    _globals["_DELETEMIRRORMODELRESPONSE"]._serialized_end = 1290
+    _globals["_REGISTERWEBHOOKMIRRORMODELREQUEST"]._serialized_start = 1292
+    _globals["_REGISTERWEBHOOKMIRRORMODELREQUEST"]._serialized_end = 1383
+    _globals["_REGISTERWEBHOOKMIRRORMODELRESPONSE"]._serialized_start = 1385
+    _globals["_REGISTERWEBHOOKMIRRORMODELRESPONSE"]._serialized_end = 1496
+    _globals["_REGISTERMETHODGRPCREQUEST"]._serialized_start = 1499
+    _globals["_REGISTERMETHODGRPCREQUEST"]._serialized_end = 1636
+    _globals["_REGISTERMETHODGRPCRESPONSE"]._serialized_start = 1638
+    _globals["_REGISTERMETHODGRPCRESPONSE"]._serialized_end = 1741
+    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELREQUEST"]._serialized_start = 1744
+    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELREQUEST"]._serialized_end = 1903
+    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELRESPONSE"]._serialized_start = 1906
+    _globals["_MULTICREATEORMULTIUPDATEMIRRORMODELRESPONSE"]._serialized_end = 2065
+    _globals["_MULTIDELETEMIRRORMODELREQUEST"]._serialized_start = 2067
+    _globals["_MULTIDELETEMIRRORMODELREQUEST"]._serialized_end = 2186
+    _globals["_MULTIDELETEMIRRORMODELRESPONSE"]._serialized_start = 2188
+    _globals["_MULTIDELETEMIRRORMODELRESPONSE"]._serialized_end = 2295
+    _globals["_MIRRORMODELSERVICE"]._serialized_start = 2298
+    _globals["_MIRRORMODELSERVICE"]._serialized_end = 3958
 # @@protoc_insertion_point(module_scope)
