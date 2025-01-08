@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.stock import procurement_group_pb2 as v1_dot_stock_dot_pro
 
 
 class ProcurementGroupServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Esto no lo veo expuesto en el API"""
 
     def __init__(self, channel):
         """Constructor.
@@ -36,7 +36,7 @@ class ProcurementGroupServiceStub(object):
 
 
 class ProcurementGroupServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Esto no lo veo expuesto en el API"""
 
     def ProcurementGroupCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -94,7 +94,7 @@ def add_ProcurementGroupServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class ProcurementGroupService(object):
-    """Missing associated documentation comment in .proto file."""
+    """Esto no lo veo expuesto en el API"""
 
     @staticmethod
     def ProcurementGroupCreate(

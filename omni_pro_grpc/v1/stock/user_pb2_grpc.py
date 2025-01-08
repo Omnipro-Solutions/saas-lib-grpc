@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.stock import user_pb2 as v1_dot_stock_dot_user__pb2
 
 
 class UserServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """User es una replica, declarar solo el message User"""
 
     def __init__(self, channel):
         """Constructor.
@@ -36,7 +36,7 @@ class UserServiceStub(object):
 
 
 class UserServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """User es una replica, declarar solo el message User"""
 
     def UserCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -94,7 +94,7 @@ def add_UserServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class UserService(object):
-    """Missing associated documentation comment in .proto file."""
+    """User es una replica, declarar solo el message User"""
 
     @staticmethod
     def UserCreate(
