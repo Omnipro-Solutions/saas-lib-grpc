@@ -401,7 +401,13 @@ class ProductIntegrationRequest(_message.Message):
     ) -> None: ...
 
 class ProductIntegrationResponse(_message.Message):
-    __slots__ = ["response_standard"]
+    __slots__ = ["products_info_source", "response_standard"]
+    PRODUCTS_INFO_SOURCE_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    products_info_source: _struct_pb2.Struct
     response_standard: _base_pb2.ResponseStandard
-    def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        products_info_source: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...

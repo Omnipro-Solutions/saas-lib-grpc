@@ -16,7 +16,7 @@ from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x1av1/stock/query_stock.proto\x12%pro.omni.oms.api.v1.stock.query_stock\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto"Z\n\x11QueryStockRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x87\x01\n\x12QueryStockResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12&\n\x05query\x18\x02 \x03(\x0b\x32\x17.google.protobuf.Struct2\x99\x01\n\x11QueryStockService\x12\x83\x01\n\nQueryStock\x12\x38.pro.omni.oms.api.v1.stock.query_stock.QueryStockRequest\x1a\x39.pro.omni.oms.api.v1.stock.query_stock.QueryStockResponse"\x00\x62\x06proto3'
+    b'\n\x1av1/stock/query_stock.proto\x12%pro.omni.oms.api.v1.stock.query_stock\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto"Z\n\x11QueryStockRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x87\x01\n\x12QueryStockResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12&\n\x05query\x18\x02 \x03(\x0b\x32\x17.google.protobuf.Struct2\x9d\x01\n\x11QueryStockService\x12\x87\x01\n\nQueryStock\x12\x38.pro.omni.oms.api.v1.stock.query_stock.QueryStockRequest\x1a\x39.pro.omni.oms.api.v1.stock.query_stock.QueryStockResponse"\x04\x90\xb5\x18\x01\x62\x06proto3'
 )
 
 _globals = globals()
@@ -25,10 +25,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.stock.query_stock_pb2", 
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
+    _QUERYSTOCKSERVICE.methods_by_name["QueryStock"]._options = None
+    _QUERYSTOCKSERVICE.methods_by_name["QueryStock"]._serialized_options = b"\220\265\030\001"
     _globals["_QUERYSTOCKREQUEST"]._serialized_start = 118
     _globals["_QUERYSTOCKREQUEST"]._serialized_end = 208
     _globals["_QUERYSTOCKRESPONSE"]._serialized_start = 211
     _globals["_QUERYSTOCKRESPONSE"]._serialized_end = 346
     _globals["_QUERYSTOCKSERVICE"]._serialized_start = 349
-    _globals["_QUERYSTOCKSERVICE"]._serialized_end = 502
+    _globals["_QUERYSTOCKSERVICE"]._serialized_end = 506
 # @@protoc_insertion_point(module_scope)
