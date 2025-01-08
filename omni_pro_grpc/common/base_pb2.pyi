@@ -5,6 +5,7 @@ from typing import Optional as _Optional
 from typing import Union as _Union
 
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pb2 as _descriptor_pb2
 from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -12,6 +13,26 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class HttpMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    HTTP_METHOD_UNSPECIFIED: _ClassVar[HttpMethod]
+    GET: _ClassVar[HttpMethod]
+    POST: _ClassVar[HttpMethod]
+    PUT: _ClassVar[HttpMethod]
+    DELETE: _ClassVar[HttpMethod]
+    PATCH: _ClassVar[HttpMethod]
+
+HTTP_METHOD_UNSPECIFIED: HttpMethod
+GET: HttpMethod
+POST: HttpMethod
+PUT: HttpMethod
+DELETE: HttpMethod
+PATCH: HttpMethod
+INTERNAL_FIELD_NUMBER: _ClassVar[int]
+internal: _descriptor.FieldDescriptor
+SETTING_API_FIELD_NUMBER: _ClassVar[int]
+setting_api: _descriptor.FieldDescriptor
 
 class Object(_message.Message):
     __slots__ = ["code_name", "code"]
@@ -170,3 +191,11 @@ class ObjectResponse(_message.Message):
     id: int
     name: str
     def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
+
+class SettingAPI(_message.Message):
+    __slots__ = ["http_method", "path"]
+    HTTP_METHOD_FIELD_NUMBER: _ClassVar[int]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    http_method: HttpMethod
+    path: str
+    def __init__(self, http_method: _Optional[_Union[HttpMethod, str]] = ..., path: _Optional[str] = ...) -> None: ...

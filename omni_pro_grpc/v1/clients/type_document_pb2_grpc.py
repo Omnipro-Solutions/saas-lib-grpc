@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.clients import type_document_pb2 as v1_dot_clients_dot_typ
 
 
 class TypeDocumentServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """TypeDocument es una replica, solo declarar el message TypeDocument"""
 
     def __init__(self, channel):
         """Constructor.
@@ -36,7 +36,7 @@ class TypeDocumentServiceStub(object):
 
 
 class TypeDocumentServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """TypeDocument es una replica, solo declarar el message TypeDocument"""
 
     def TypeDocumentCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -94,7 +94,7 @@ def add_TypeDocumentServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class TypeDocumentService(object):
-    """Missing associated documentation comment in .proto file."""
+    """TypeDocument es una replica, solo declarar el message TypeDocument"""
 
     @staticmethod
     def TypeDocumentCreate(

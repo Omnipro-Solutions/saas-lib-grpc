@@ -17,7 +17,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x1av1/util/query_export.proto\x12%pro.omni.oms.api.v1.util.query_export\x1a\x11\x63ommon/base.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/protobuf/struct.proto"\xdf\x01\n\x12QueryExportRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\r\n\x05query\x18\x02 \x01(\t\x12-\n\tdate_init\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x64\x61te_finish\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06\x66ields\x18\x05 \x03(\t\x12\x36\n\x07\x63ontext\x18\x06 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x8c\x01\n\x13QueryExportResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12*\n\x06result\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.ListValue2\x9d\x01\n\x12QueryExportService\x12\x86\x01\n\x0bQueryExport\x12\x39.pro.omni.oms.api.v1.util.query_export.QueryExportRequest\x1a:.pro.omni.oms.api.v1.util.query_export.QueryExportResponse"\x00\x62\x06proto3'
+    b'\n\x1av1/util/query_export.proto\x12%pro.omni.oms.api.v1.util.query_export\x1a\x11\x63ommon/base.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/protobuf/struct.proto"\xdf\x01\n\x12QueryExportRequest\x12\x12\n\nmodel_path\x18\x01 \x01(\t\x12\r\n\x05query\x18\x02 \x01(\t\x12-\n\tdate_init\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x64\x61te_finish\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06\x66ields\x18\x05 \x03(\t\x12\x36\n\x07\x63ontext\x18\x06 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x8c\x01\n\x13QueryExportResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12*\n\x06result\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.ListValue2\xa1\x01\n\x12QueryExportService\x12\x8a\x01\n\x0bQueryExport\x12\x39.pro.omni.oms.api.v1.util.query_export.QueryExportRequest\x1a:.pro.omni.oms.api.v1.util.query_export.QueryExportResponse"\x04\x90\xb5\x18\x01\x62\x06proto3'
 )
 
 _globals = globals()
@@ -26,10 +26,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.util.query_export_pb2", 
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
+    _QUERYEXPORTSERVICE.methods_by_name["QueryExport"]._options = None
+    _QUERYEXPORTSERVICE.methods_by_name["QueryExport"]._serialized_options = b"\220\265\030\001"
     _globals["_QUERYEXPORTREQUEST"]._serialized_start = 152
     _globals["_QUERYEXPORTREQUEST"]._serialized_end = 375
     _globals["_QUERYEXPORTRESPONSE"]._serialized_start = 378
     _globals["_QUERYEXPORTRESPONSE"]._serialized_end = 518
     _globals["_QUERYEXPORTSERVICE"]._serialized_start = 521
-    _globals["_QUERYEXPORTSERVICE"]._serialized_end = 678
+    _globals["_QUERYEXPORTSERVICE"]._serialized_end = 682
 # @@protoc_insertion_point(module_scope)

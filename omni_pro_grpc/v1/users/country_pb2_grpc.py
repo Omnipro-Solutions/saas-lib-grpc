@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.users import country_pb2 as v1_dot_users_dot_country__pb2
 
 
 class CountryServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Country es una replica, solo declarar el message Country"""
 
     def __init__(self, channel):
         """Constructor.
@@ -36,7 +36,7 @@ class CountryServiceStub(object):
 
 
 class CountryServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Country es una replica, solo declarar el message Country"""
 
     def CountryCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -94,7 +94,7 @@ def add_CountryServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class CountryService(object):
-    """Missing associated documentation comment in .proto file."""
+    """Country es una replica, solo declarar el message Country"""
 
     @staticmethod
     def CountryCreate(

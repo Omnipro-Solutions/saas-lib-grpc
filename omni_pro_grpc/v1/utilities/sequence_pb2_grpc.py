@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.utilities import sequence_pb2 as v1_dot_utilities_dot_sequ
 
 
 class SequenceServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """SequenceService es un servicio de Stock"""
 
     def __init__(self, channel):
         """Constructor.
@@ -46,7 +46,7 @@ class SequenceServiceStub(object):
 
 
 class SequenceServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """SequenceService es un servicio de Stock"""
 
     def SequenceCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -126,7 +126,7 @@ def add_SequenceServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class SequenceService(object):
-    """Missing associated documentation comment in .proto file."""
+    """SequenceService es un servicio de Stock"""
 
     @staticmethod
     def SequenceCreate(

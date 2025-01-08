@@ -16,7 +16,7 @@ from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x1cv1/stock/stock_batcher.proto\x12+pro.omni.oms.api.v1.utilities.stock.batcher\x1a\x1cgoogle/protobuf/struct.proto\x1a\x11\x63ommon/base.proto"\xb6\x01\n\x13StockBatcherRequest\x12\x31\n\rstock_entries\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12&\n\x05\x62\x61tch\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"&\n\x14StockBatcherResponse\x12\x0e\n\x06record\x18\x01 \x01(\t2\xad\x01\n\x13StockBatcherService\x12\x95\x01\n\x0cStockBatcher\x12@.pro.omni.oms.api.v1.utilities.stock.batcher.StockBatcherRequest\x1a\x41.pro.omni.oms.api.v1.utilities.stock.batcher.StockBatcherResponse"\x00\x62\x06proto3'
+    b'\n\x1cv1/stock/stock_batcher.proto\x12+pro.omni.oms.api.v1.utilities.stock.batcher\x1a\x1cgoogle/protobuf/struct.proto\x1a\x11\x63ommon/base.proto"\xb6\x01\n\x13StockBatcherRequest\x12\x31\n\rstock_entries\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12&\n\x05\x62\x61tch\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"&\n\x14StockBatcherResponse\x12\x0e\n\x06record\x18\x01 \x01(\t2\xb1\x01\n\x13StockBatcherService\x12\x99\x01\n\x0cStockBatcher\x12@.pro.omni.oms.api.v1.utilities.stock.batcher.StockBatcherRequest\x1a\x41.pro.omni.oms.api.v1.utilities.stock.batcher.StockBatcherResponse"\x04\x90\xb5\x18\x01\x62\x06proto3'
 )
 
 _globals = globals()
@@ -25,10 +25,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.stock.stock_batcher_pb2"
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
+    _STOCKBATCHERSERVICE.methods_by_name["StockBatcher"]._options = None
+    _STOCKBATCHERSERVICE.methods_by_name["StockBatcher"]._serialized_options = b"\220\265\030\001"
     _globals["_STOCKBATCHERREQUEST"]._serialized_start = 127
     _globals["_STOCKBATCHERREQUEST"]._serialized_end = 309
     _globals["_STOCKBATCHERRESPONSE"]._serialized_start = 311
     _globals["_STOCKBATCHERRESPONSE"]._serialized_end = 349
     _globals["_STOCKBATCHERSERVICE"]._serialized_start = 352
-    _globals["_STOCKBATCHERSERVICE"]._serialized_end = 525
+    _globals["_STOCKBATCHERSERVICE"]._serialized_end = 529
 # @@protoc_insertion_point(module_scope)

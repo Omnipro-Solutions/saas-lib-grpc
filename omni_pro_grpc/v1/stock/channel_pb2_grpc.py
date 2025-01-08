@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.stock import channel_pb2 as v1_dot_stock_dot_channel__pb2
 
 
 class ChannelServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Channel es una replica, declarar solo el message Channel"""
 
     def __init__(self, channel):
         """Constructor.
@@ -26,7 +26,7 @@ class ChannelServiceStub(object):
 
 
 class ChannelServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Channel es una replica, declarar solo el message Channel"""
 
     def ChannelUpdate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -62,7 +62,7 @@ def add_ChannelServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class ChannelService(object):
-    """Missing associated documentation comment in .proto file."""
+    """Channel es una replica, declarar solo el message Channel"""
 
     @staticmethod
     def ChannelUpdate(
