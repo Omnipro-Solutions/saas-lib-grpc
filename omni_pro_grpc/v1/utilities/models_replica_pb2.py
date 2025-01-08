@@ -17,7 +17,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n!v1/utilities/models_replica.proto\x12,pro.omni.oms.api.v1.utilities.models_replica\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\xba\x01\n\x14ModelsReplicaRequest\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\x12.\n\ndate_start\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x64\x61te_end\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x93\x01\n\x15ModelsReplicaResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12/\n\x0emodels_replica\x18\x02 \x03(\x0b\x32\x17.google.protobuf.Struct2\xb3\x01\n\x14ModelsReplicaService\x12\x9a\x01\n\rModelsReplica\x12\x42.pro.omni.oms.api.v1.utilities.models_replica.ModelsReplicaRequest\x1a\x43.pro.omni.oms.api.v1.utilities.models_replica.ModelsReplicaResponse"\x00\x62\x06proto3'
+    b'\n!v1/utilities/models_replica.proto\x12,pro.omni.oms.api.v1.utilities.models_replica\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\xba\x01\n\x14ModelsReplicaRequest\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\x12.\n\ndate_start\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x64\x61te_end\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x93\x01\n\x15ModelsReplicaResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12/\n\x0emodels_replica\x18\x02 \x03(\x0b\x32\x17.google.protobuf.Struct2\xda\x01\n\x14ModelsReplicaService\x12\xc1\x01\n\rModelsReplica\x12\x42.pro.omni.oms.api.v1.utilities.models_replica.ModelsReplicaRequest\x1a\x43.pro.omni.oms.api.v1.utilities.models_replica.ModelsReplicaResponse"\'\x9a\xb5\x18#\x08\x02\x12\x1f\x61pi/v1/utilities/models_replicab\x06proto3'
 )
 
 _globals = globals()
@@ -26,10 +26,14 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.utilities.models_replica
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
+    _MODELSREPLICASERVICE.methods_by_name["ModelsReplica"]._options = None
+    _MODELSREPLICASERVICE.methods_by_name["ModelsReplica"]._serialized_options = (
+        b"\232\265\030#\010\002\022\037api/v1/utilities/models_replica"
+    )
     _globals["_MODELSREPLICAREQUEST"]._serialized_start = 166
     _globals["_MODELSREPLICAREQUEST"]._serialized_end = 352
     _globals["_MODELSREPLICARESPONSE"]._serialized_start = 355
     _globals["_MODELSREPLICARESPONSE"]._serialized_end = 502
     _globals["_MODELSREPLICASERVICE"]._serialized_start = 505
-    _globals["_MODELSREPLICASERVICE"]._serialized_end = 684
+    _globals["_MODELSREPLICASERVICE"]._serialized_end = 723
 # @@protoc_insertion_point(module_scope)

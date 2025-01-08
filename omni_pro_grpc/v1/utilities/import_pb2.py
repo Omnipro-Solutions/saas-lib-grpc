@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x19v1/utilities/import.proto\x12$pro.omni.oms.api.v1.utilities.import\x1a\x11\x63ommon/base.proto"s\n\x12ImportModelRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x12\n\nmodel_name\x18\x02 \x01(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"`\n\x13ImportModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\x96\x01\n\rImportService\x12\x84\x01\n\x0bImportModel\x12\x38.pro.omni.oms.api.v1.utilities.import.ImportModelRequest\x1a\x39.pro.omni.oms.api.v1.utilities.import.ImportModelResponse"\x00\x62\x06proto3'
+    b'\n\x19v1/utilities/import.proto\x12$pro.omni.oms.api.v1.utilities.import\x1a\x11\x63ommon/base.proto"s\n\x12ImportModelRequest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12\x12\n\nmodel_name\x18\x02 \x01(\t\x12\x36\n\x07\x63ontext\x18\x03 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"`\n\x13ImportModelResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\x9a\x01\n\rImportService\x12\x88\x01\n\x0bImportModel\x12\x38.pro.omni.oms.api.v1.utilities.import.ImportModelRequest\x1a\x39.pro.omni.oms.api.v1.utilities.import.ImportModelResponse"\x04\x90\xb5\x18\x01\x62\x06proto3'
 )
 
 _globals = globals()
@@ -24,10 +24,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.utilities.import_pb2", _
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
+    _IMPORTSERVICE.methods_by_name["ImportModel"]._options = None
+    _IMPORTSERVICE.methods_by_name["ImportModel"]._serialized_options = b"\220\265\030\001"
     _globals["_IMPORTMODELREQUEST"]._serialized_start = 86
     _globals["_IMPORTMODELREQUEST"]._serialized_end = 201
     _globals["_IMPORTMODELRESPONSE"]._serialized_start = 203
     _globals["_IMPORTMODELRESPONSE"]._serialized_end = 299
     _globals["_IMPORTSERVICE"]._serialized_start = 302
-    _globals["_IMPORTSERVICE"]._serialized_end = 452
+    _globals["_IMPORTSERVICE"]._serialized_end = 456
 # @@protoc_insertion_point(module_scope)

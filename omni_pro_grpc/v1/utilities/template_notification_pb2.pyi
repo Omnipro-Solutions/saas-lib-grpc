@@ -15,7 +15,26 @@ from omni_pro_grpc.v1.utilities import model_pb2 as _model_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TemplateNotification(_message.Message):
-    __slots__ = ["id", "name", "code", "type", "raw", "render", "model", "active", "external_id", "object_audit"]
+    __slots__ = [
+        "id",
+        "name",
+        "code",
+        "type",
+        "raw",
+        "render",
+        "model",
+        "active",
+        "external_id",
+        "subject",
+        "from_sender",
+        "email_to",
+        "model_email_to",
+        "email_cc",
+        "number_to",
+        "model_number_to",
+        "number_cc",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -25,6 +44,14 @@ class TemplateNotification(_message.Message):
     MODEL_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    SUBJECT_FIELD_NUMBER: _ClassVar[int]
+    FROM_SENDER_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_TO_FIELD_NUMBER: _ClassVar[int]
+    MODEL_EMAIL_TO_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_CC_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_TO_FIELD_NUMBER: _ClassVar[int]
+    MODEL_NUMBER_TO_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_CC_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
@@ -35,6 +62,14 @@ class TemplateNotification(_message.Message):
     model: _model_pb2.Model
     active: _wrappers_pb2.BoolValue
     external_id: str
+    subject: str
+    from_sender: str
+    email_to: _containers.RepeatedScalarFieldContainer[str]
+    model_email_to: str
+    email_cc: _containers.RepeatedScalarFieldContainer[str]
+    number_to: _containers.RepeatedScalarFieldContainer[str]
+    model_number_to: str
+    number_cc: _containers.RepeatedScalarFieldContainer[str]
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -47,11 +82,37 @@ class TemplateNotification(_message.Message):
         model: _Optional[_Union[_model_pb2.Model, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        subject: _Optional[str] = ...,
+        from_sender: _Optional[str] = ...,
+        email_to: _Optional[_Iterable[str]] = ...,
+        model_email_to: _Optional[str] = ...,
+        email_cc: _Optional[_Iterable[str]] = ...,
+        number_to: _Optional[_Iterable[str]] = ...,
+        model_number_to: _Optional[str] = ...,
+        number_cc: _Optional[_Iterable[str]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class TemplateNotificationCreateRequest(_message.Message):
-    __slots__ = ["name", "code", "type", "raw", "render", "model_id", "active", "external_id", "context"]
+    __slots__ = [
+        "name",
+        "code",
+        "type",
+        "raw",
+        "render",
+        "model_id",
+        "active",
+        "external_id",
+        "subject",
+        "from_sender",
+        "email_to",
+        "model_email_to",
+        "email_cc",
+        "number_to",
+        "model_number_to",
+        "number_cc",
+        "context",
+    ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -60,6 +121,14 @@ class TemplateNotificationCreateRequest(_message.Message):
     MODEL_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    SUBJECT_FIELD_NUMBER: _ClassVar[int]
+    FROM_SENDER_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_TO_FIELD_NUMBER: _ClassVar[int]
+    MODEL_EMAIL_TO_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_CC_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_TO_FIELD_NUMBER: _ClassVar[int]
+    MODEL_NUMBER_TO_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_CC_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
@@ -69,6 +138,14 @@ class TemplateNotificationCreateRequest(_message.Message):
     model_id: str
     active: _wrappers_pb2.BoolValue
     external_id: str
+    subject: str
+    from_sender: str
+    email_to: _containers.RepeatedScalarFieldContainer[str]
+    model_email_to: str
+    email_cc: _containers.RepeatedScalarFieldContainer[str]
+    number_to: _containers.RepeatedScalarFieldContainer[str]
+    model_number_to: str
+    number_cc: _containers.RepeatedScalarFieldContainer[str]
     context: _base_pb2.Context
     def __init__(
         self,
@@ -80,6 +157,14 @@ class TemplateNotificationCreateRequest(_message.Message):
         model_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        subject: _Optional[str] = ...,
+        from_sender: _Optional[str] = ...,
+        email_to: _Optional[_Iterable[str]] = ...,
+        model_email_to: _Optional[str] = ...,
+        email_cc: _Optional[_Iterable[str]] = ...,
+        number_to: _Optional[_Iterable[str]] = ...,
+        model_number_to: _Optional[str] = ...,
+        number_cc: _Optional[_Iterable[str]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
@@ -196,10 +281,10 @@ class TemplateNotificationRenderResponse(_message.Message):
     __slots__ = ["render", "response_standard"]
     RENDER_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
-    render: _struct_pb2.Struct
+    render: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     response_standard: _base_pb2.ResponseStandard
     def __init__(
         self,
-        render: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        render: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
