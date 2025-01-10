@@ -58,6 +58,11 @@ class MirrorModelServiceStub(object):
             request_serializer=v1_dot_utilities_dot_mirror__model__pb2.RegisterWebhookMirrorModelRequest.SerializeToString,
             response_deserializer=v1_dot_utilities_dot_mirror__model__pb2.RegisterWebhookMirrorModelResponse.FromString,
         )
+        self.SynchronizeMirrorModel = channel.unary_unary(
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/SynchronizeMirrorModel",
+            request_serializer=v1_dot_utilities_dot_mirror__model__pb2.SynchronizeMirrorModelRequest.SerializeToString,
+            response_deserializer=v1_dot_utilities_dot_mirror__model__pb2.SynchronizeMirrorModelResponse.FromString,
+        )
 
 
 class MirrorModelServiceServicer(object):
@@ -117,6 +122,12 @@ class MirrorModelServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def SynchronizeMirrorModel(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_MirrorModelServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -164,6 +175,11 @@ def add_MirrorModelServiceServicer_to_server(servicer, server):
             servicer.RegisterWebhookMirrorModel,
             request_deserializer=v1_dot_utilities_dot_mirror__model__pb2.RegisterWebhookMirrorModelRequest.FromString,
             response_serializer=v1_dot_utilities_dot_mirror__model__pb2.RegisterWebhookMirrorModelResponse.SerializeToString,
+        ),
+        "SynchronizeMirrorModel": grpc.unary_unary_rpc_method_handler(
+            servicer.SynchronizeMirrorModel,
+            request_deserializer=v1_dot_utilities_dot_mirror__model__pb2.SynchronizeMirrorModelRequest.FromString,
+            response_serializer=v1_dot_utilities_dot_mirror__model__pb2.SynchronizeMirrorModelResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -427,6 +443,35 @@ class MirrorModelService(object):
             "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/RegisterWebhookMirrorModel",
             v1_dot_utilities_dot_mirror__model__pb2.RegisterWebhookMirrorModelRequest.SerializeToString,
             v1_dot_utilities_dot_mirror__model__pb2.RegisterWebhookMirrorModelResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def SynchronizeMirrorModel(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.utilities.mirror_model.MirrorModelService/SynchronizeMirrorModel",
+            v1_dot_utilities_dot_mirror__model__pb2.SynchronizeMirrorModelRequest.SerializeToString,
+            v1_dot_utilities_dot_mirror__model__pb2.SynchronizeMirrorModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
