@@ -37,7 +37,7 @@ class TerritoryMatrixValue(_message.Message):
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
-class TerritoryMatrixValueAddRequest(_message.Message):
+class TerritoryMatrixValueCreateRequest(_message.Message):
     __slots__ = ["territory_matrixes", "data", "active", "external_id", "context"]
     TERRITORY_MATRIXES_FIELD_NUMBER: _ClassVar[int]
     DATA_FIELD_NUMBER: _ClassVar[int]
@@ -58,7 +58,7 @@ class TerritoryMatrixValueAddRequest(_message.Message):
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
-class TerritoryMatrixValueAddResponse(_message.Message):
+class TerritoryMatrixValueCreateResponse(_message.Message):
     __slots__ = ["response_standard", "territory_matrix_value"]
     RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
     TERRITORY_MATRIX_VALUE_FIELD_NUMBER: _ClassVar[int]
