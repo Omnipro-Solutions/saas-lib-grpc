@@ -495,3 +495,302 @@ class UserRPCFunction(object):
             )
         )
         return self.client.call_rpc_fuction(self.event) + (self.event,)
+
+
+class AddressRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_CLIENT.value
+        self.module_grpc = "v1.clients.address_pb2_grpc"
+        self.stub_classname = "AddressesServiceStub"
+        self.module_pb2 = "v1.clients.address_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_address(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="AddressRead",
+                request_class="AddressReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class ClientRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_CLIENT.value
+        self.module_grpc = "v1.clients.client_pb2_grpc"
+        self.stub_classname = "ClientsServiceStub"
+        self.module_pb2 = "v1.clients.client_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_client(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="ClientRead",
+                request_class="ClientReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class DeliveryMethodRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        ```
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_RULE.value
+        self.module_grpc = "v1.rule.delivery_method_pb2_grpc"
+        self.stub_classname = "DeliveryMethodServiceStub"
+        self.module_pb2 = "v1.rule.delivery_method_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_delivery_method(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="DeliveryMethodRead",
+                request_class="DeliveryMethodReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class WarehouseRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_STOCK.value
+        self.module_grpc = "v1.stock.warehouse_pb2_grpc"
+        self.stub_classname = "WarehouseServiceStub"
+        self.module_pb2 = "v1.stock.warehouse_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_warehouse(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="WarehouseRead",
+                request_class="WarehouseReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class ComputeRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_RULE.value
+        self.module_grpc = "v1.rules.compute_pb2_grpc"
+        self.stub_classname = "ComputeServiceStub"
+        self.module_pb2 = "v1.rules.compute_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_compute(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="ComputeRead",
+                request_class="ComputeReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class ProductRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_CATALOG.value
+        self.module_grpc = "v1.catalogs.template_pb2_grpc"
+        self.stub_classname = "ProductTemplateServiceStub"
+        self.module_pb2 = "v1.catalogs.template_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_product(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="ProductAllRead",
+                request_class="ProductAllReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class PickingRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_STOCK.value
+        self.module_grpc = "v1.stock.picking_pb2_grpc"
+        self.stub_classname = "PickingServiceStub"
+        self.module_pb2 = "v1.stock.picking_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_picking(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="PickingRead",
+                request_class="PickingReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)
+
+
+class OrderRPCFunction(object):
+
+    def __init__(self, context: dict, cache: bool = False) -> None:
+        """
+        :param context: context with tenant and user\n
+        Example:
+        ```
+        context = {"tenant": "tenant_code", "user": "user_name"}
+        """
+        self.context = context
+        self.cache = cache
+        self.service_id = MicroService.SAAS_MS_SALE.value
+        self.module_grpc = "v1.sales.order_pb2_grpc"
+        self.stub_classname = "OrderServiceStub"
+        self.module_pb2 = "v1.sales.order_pb2"
+
+        self.event: Event = Event(
+            module_grpc=self.module_grpc,
+            stub_classname=self.stub_classname,
+            module_pb2=self.module_pb2,
+            rpc_method=None,
+            request_class=None,
+        )
+
+        self.client: GRPClient = GRPClient(self.service_id)
+
+    def read_order(self, params: dict):
+        self.event.update(
+            dict(
+                rpc_method="OrderRead",
+                request_class="OrderReadRequest",
+                params={"context": self.context} | params,
+            )
+        )
+        return self.client.call_rpc_fuction(self.event, cache=self.cache) + (self.event,)

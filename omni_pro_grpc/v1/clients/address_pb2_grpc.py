@@ -28,6 +28,11 @@ class AddressesServiceStub(object):
             request_serializer=v1_dot_clients_dot_address__pb2.AddressDeleteRequest.SerializeToString,
             response_deserializer=v1_dot_clients_dot_address__pb2.AddressDeleteResponse.FromString,
         )
+        self.AddressRead = channel.unary_unary(
+            "/pro.omni.oms.api.v1.clients.address.AddressesService/AddressRead",
+            request_serializer=v1_dot_clients_dot_address__pb2.AddressReadRequest.SerializeToString,
+            response_deserializer=v1_dot_clients_dot_address__pb2.AddressReadResponse.FromString,
+        )
 
 
 class AddressesServiceServicer(object):
@@ -51,6 +56,12 @@ class AddressesServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def AddressRead(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_AddressesServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -68,6 +79,11 @@ def add_AddressesServiceServicer_to_server(servicer, server):
             servicer.AddressDelete,
             request_deserializer=v1_dot_clients_dot_address__pb2.AddressDeleteRequest.FromString,
             response_serializer=v1_dot_clients_dot_address__pb2.AddressDeleteResponse.SerializeToString,
+        ),
+        "AddressRead": grpc.unary_unary_rpc_method_handler(
+            servicer.AddressRead,
+            request_deserializer=v1_dot_clients_dot_address__pb2.AddressReadRequest.FromString,
+            response_serializer=v1_dot_clients_dot_address__pb2.AddressReadResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -157,6 +173,35 @@ class AddressesService(object):
             "/pro.omni.oms.api.v1.clients.address.AddressesService/AddressDelete",
             v1_dot_clients_dot_address__pb2.AddressDeleteRequest.SerializeToString,
             v1_dot_clients_dot_address__pb2.AddressDeleteResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def AddressRead(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.clients.address.AddressesService/AddressRead",
+            v1_dot_clients_dot_address__pb2.AddressReadRequest.SerializeToString,
+            v1_dot_clients_dot_address__pb2.AddressReadResponse.FromString,
             options,
             channel_credentials,
             insecure,
