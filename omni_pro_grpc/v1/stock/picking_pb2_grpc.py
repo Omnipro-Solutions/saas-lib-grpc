@@ -38,11 +38,6 @@ class PickingServiceStub(object):
             request_serializer=v1_dot_stock_dot_picking__pb2.ValidatePickingRequest.SerializeToString,
             response_deserializer=v1_dot_stock_dot_picking__pb2.ValidatePickingResponse.FromString,
         )
-        self.PickingMoves = channel.unary_unary(
-            "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingMoves",
-            request_serializer=v1_dot_stock_dot_picking__pb2.PickingMovesRequest.SerializeToString,
-            response_deserializer=v1_dot_stock_dot_picking__pb2.PickingMovesResponse.FromString,
-        )
         self.OrderConfirm = channel.unary_unary(
             "/pro.omni.oms.api.v1.stock.picking.PickingService/OrderConfirm",
             request_serializer=v1_dot_stock_dot_picking__pb2.OrderConfirmRequest.SerializeToString,
@@ -128,14 +123,8 @@ class PickingServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
-    def PickingMoves(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
-
     def OrderConfirm(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """rpc PickingMoves(PickingMovesRequest) returns (PickingMovesResponse) {}"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
@@ -221,11 +210,6 @@ def add_PickingServiceServicer_to_server(servicer, server):
             servicer.ValidatePicking,
             request_deserializer=v1_dot_stock_dot_picking__pb2.ValidatePickingRequest.FromString,
             response_serializer=v1_dot_stock_dot_picking__pb2.ValidatePickingResponse.SerializeToString,
-        ),
-        "PickingMoves": grpc.unary_unary_rpc_method_handler(
-            servicer.PickingMoves,
-            request_deserializer=v1_dot_stock_dot_picking__pb2.PickingMovesRequest.FromString,
-            response_serializer=v1_dot_stock_dot_picking__pb2.PickingMovesResponse.SerializeToString,
         ),
         "OrderConfirm": grpc.unary_unary_rpc_method_handler(
             servicer.OrderConfirm,
@@ -423,35 +407,6 @@ class PickingService(object):
             "/pro.omni.oms.api.v1.stock.picking.PickingService/ValidatePicking",
             v1_dot_stock_dot_picking__pb2.ValidatePickingRequest.SerializeToString,
             v1_dot_stock_dot_picking__pb2.ValidatePickingResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
-
-    @staticmethod
-    def PickingMoves(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            "/pro.omni.oms.api.v1.stock.picking.PickingService/PickingMoves",
-            v1_dot_stock_dot_picking__pb2.PickingMovesRequest.SerializeToString,
-            v1_dot_stock_dot_picking__pb2.PickingMovesResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -17,7 +17,7 @@ from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x1dv1/stock/picking_picker.proto\x12(pro.omni.oms.api.v1.stock.picking_picker\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xa8\x02\n\rPickingPicker\x12\n\n\x02id\x18\x01 \x01(\x05\x12*\n\twarehouse\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12-\n\x0cpicking_type\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05\x64raft\x18\x04 \x01(\x05\x12\x0f\n\x07waiting\x18\x05 \x01(\x05\x12\x11\n\tconfirmed\x18\x06 \x01(\x05\x12\x10\n\x08\x61ssigned\x18\x07 \x01(\x05\x12*\n\x06\x61\x63tive\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12?\n\x0cobject_audit\x18\t \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xf6\x02\n\x18PickingPickerReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xf3\x01\n\x19PickingPickerReadResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12P\n\x0fpicking_pickers\x18\x03 \x03(\x0b\x32\x37.pro.omni.oms.api.v1.stock.picking_picker.PickingPicker2\xb7\x01\n\x14PickingPickerService\x12\x9e\x01\n\x11PickingPickerRead\x12\x42.pro.omni.oms.api.v1.stock.picking_picker.PickingPickerReadRequest\x1a\x43.pro.omni.oms.api.v1.stock.picking_picker.PickingPickerReadResponse"\x00\x62\x06proto3'
+    b'\n\x1dv1/stock/picking_picker.proto\x12(pro.omni.oms.api.v1.stock.picking_picker\x1a\x11\x63ommon/base.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xa8\x02\n\rPickingPicker\x12\n\n\x02id\x18\x01 \x01(\x05\x12*\n\twarehouse\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12-\n\x0cpicking_type\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\r\n\x05\x64raft\x18\x04 \x01(\x05\x12\x0f\n\x07waiting\x18\x05 \x01(\x05\x12\x11\n\tconfirmed\x18\x06 \x01(\x05\x12\x10\n\x08\x61ssigned\x18\x07 \x01(\x05\x12*\n\x06\x61\x63tive\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12?\n\x0cobject_audit\x18\t \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\xf6\x02\n\x18PickingPickerReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xf3\x01\n\x19PickingPickerReadResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12\x39\n\tmeta_data\x18\x02 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData\x12P\n\x0fpicking_pickers\x18\x03 \x03(\x0b\x32\x37.pro.omni.oms.api.v1.stock.picking_picker.PickingPicker2\xda\x01\n\x14PickingPickerService\x12\xc1\x01\n\x11PickingPickerRead\x12\x42.pro.omni.oms.api.v1.stock.picking_picker.PickingPickerReadRequest\x1a\x43.pro.omni.oms.api.v1.stock.picking_picker.PickingPickerReadResponse"#\x9a\xb5\x18\x1f\x08\x01\x12\x1b\x61pi/v1/stock/picking/pickerb\x06proto3'
 )
 
 _globals = globals()
@@ -26,6 +26,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "v1.stock.picking_picker_pb2
 if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
+    _PICKINGPICKERSERVICE.methods_by_name["PickingPickerRead"]._options = None
+    _PICKINGPICKERSERVICE.methods_by_name["PickingPickerRead"]._serialized_options = (
+        b"\232\265\030\037\010\001\022\033api/v1/stock/picking/picker"
+    )
     _globals["_PICKINGPICKER"]._serialized_start = 157
     _globals["_PICKINGPICKER"]._serialized_end = 453
     _globals["_PICKINGPICKERREADREQUEST"]._serialized_start = 456
@@ -33,5 +37,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
     _globals["_PICKINGPICKERREADRESPONSE"]._serialized_start = 833
     _globals["_PICKINGPICKERREADRESPONSE"]._serialized_end = 1076
     _globals["_PICKINGPICKERSERVICE"]._serialized_start = 1079
-    _globals["_PICKINGPICKERSERVICE"]._serialized_end = 1262
+    _globals["_PICKINGPICKERSERVICE"]._serialized_end = 1297
 # @@protoc_insertion_point(module_scope)

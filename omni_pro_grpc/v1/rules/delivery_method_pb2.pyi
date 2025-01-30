@@ -40,6 +40,8 @@ class DeliveryMethod(_message.Message):
         "skip_delivery_location",
         "external_id",
         "time_zone",
+        "stock_priority_active",
+        "stock_priority_criteria",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -61,6 +63,8 @@ class DeliveryMethod(_message.Message):
     SKIP_DELIVERY_LOCATION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
+    STOCK_PRIORITY_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    STOCK_PRIORITY_CRITERIA_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
@@ -81,6 +85,8 @@ class DeliveryMethod(_message.Message):
     skip_delivery_location: _wrappers_pb2.BoolValue
     external_id: str
     time_zone: str
+    stock_priority_active: _wrappers_pb2.BoolValue
+    stock_priority_criteria: _containers.RepeatedScalarFieldContainer[str]
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -103,6 +109,8 @@ class DeliveryMethod(_message.Message):
         skip_delivery_location: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         time_zone: _Optional[str] = ...,
+        stock_priority_active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        stock_priority_criteria: _Optional[_Iterable[str]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -125,6 +133,8 @@ class DeliveryMethodCreateRequest(_message.Message):
         "skip_delivery_location",
         "external_id",
         "time_zone",
+        "stock_priority_active",
+        "stock_priority_criteria",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -144,6 +154,8 @@ class DeliveryMethodCreateRequest(_message.Message):
     SKIP_DELIVERY_LOCATION_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
+    STOCK_PRIORITY_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    STOCK_PRIORITY_CRITERIA_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     type_picking_transfer: str
@@ -162,6 +174,8 @@ class DeliveryMethodCreateRequest(_message.Message):
     skip_delivery_location: _wrappers_pb2.BoolValue
     external_id: str
     time_zone: str
+    stock_priority_active: _wrappers_pb2.BoolValue
+    stock_priority_criteria: _containers.RepeatedScalarFieldContainer[str]
     context: _base_pb2.Context
     def __init__(
         self,
@@ -182,6 +196,8 @@ class DeliveryMethodCreateRequest(_message.Message):
         skip_delivery_location: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         time_zone: _Optional[str] = ...,
+        stock_priority_active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        stock_priority_criteria: _Optional[_Iterable[str]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 

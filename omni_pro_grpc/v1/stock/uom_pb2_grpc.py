@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.stock import uom_pb2 as v1_dot_stock_dot_uom__pb2
 
 
 class UomServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Uom es una replica, declarar solo el message Uom"""
 
     def __init__(self, channel):
         """Constructor.
@@ -36,7 +36,7 @@ class UomServiceStub(object):
 
 
 class UomServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Uom es una replica, declarar solo el message Uom"""
 
     def UomCreate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -94,7 +94,7 @@ def add_UomServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class UomService(object):
-    """Missing associated documentation comment in .proto file."""
+    """Uom es una replica, declarar solo el message Uom"""
 
     @staticmethod
     def UomCreate(

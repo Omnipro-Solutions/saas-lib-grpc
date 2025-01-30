@@ -5,7 +5,7 @@ from omni_pro_grpc.v1.stock import state_pb2 as v1_dot_stock_dot_state__pb2
 
 
 class StateServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """State es una replica, declarar solo el message State"""
 
     def __init__(self, channel):
         """Constructor.
@@ -26,7 +26,7 @@ class StateServiceStub(object):
 
 
 class StateServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """State es una replica, declarar solo el message State"""
 
     def StateUpdate(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -62,7 +62,7 @@ def add_StateServiceServicer_to_server(servicer, server):
 
 # This class is part of an EXPERIMENTAL API.
 class StateService(object):
-    """Missing associated documentation comment in .proto file."""
+    """State es una replica, declarar solo el message State"""
 
     @staticmethod
     def StateUpdate(
