@@ -15,7 +15,7 @@ from omni_pro_grpc.v1.catalogs import family_pb2 as _family_pb2
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProductTemplate(_message.Message):
-    __slots__ = ["id", "code", "name", "family", "attribute_values", "external_id", "active"]
+    __slots__ = ["id", "code", "name", "family", "attribute_values", "external_id", "active", "object_audit"]
     ID_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -23,6 +23,7 @@ class ProductTemplate(_message.Message):
     ATTRIBUTE_VALUES_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     code: str
     name: str
@@ -30,6 +31,7 @@ class ProductTemplate(_message.Message):
     attribute_values: _struct_pb2.Struct
     external_id: str
     active: _wrappers_pb2.BoolValue
+    object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
         id: _Optional[str] = ...,
@@ -39,6 +41,7 @@ class ProductTemplate(_message.Message):
         attribute_values: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class ProductTemplateCreateRequest(_message.Message):
@@ -169,6 +172,7 @@ class Product(_message.Message):
         "has_code_attribute_values",
         "external_id",
         "active",
+        "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -178,6 +182,7 @@ class Product(_message.Message):
     HAS_CODE_ATTRIBUTE_VALUES_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     code: str
     name: str
@@ -186,6 +191,7 @@ class Product(_message.Message):
     has_code_attribute_values: str
     external_id: str
     active: _wrappers_pb2.BoolValue
+    object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
         id: _Optional[str] = ...,
@@ -196,6 +202,7 @@ class Product(_message.Message):
         has_code_attribute_values: _Optional[str] = ...,
         external_id: _Optional[str] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class ProductCreateRequest(_message.Message):
@@ -317,7 +324,18 @@ class ProductDeleteResponse(_message.Message):
     def __init__(self, response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...) -> None: ...
 
 class ProductAll(_message.Message):
-    __slots__ = ["id", "code", "name", "type", "image", "product_template_id", "product_id", "sku", "uom"]
+    __slots__ = [
+        "id",
+        "code",
+        "name",
+        "type",
+        "image",
+        "product_template_id",
+        "product_id",
+        "sku",
+        "uom",
+        "object_audit",
+    ]
     ID_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -327,6 +345,7 @@ class ProductAll(_message.Message):
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     SKU_FIELD_NUMBER: _ClassVar[int]
     UOM_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     code: str
     name: str
@@ -336,6 +355,7 @@ class ProductAll(_message.Message):
     product_id: str
     sku: str
     uom: str
+    object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
         id: _Optional[str] = ...,
@@ -347,6 +367,7 @@ class ProductAll(_message.Message):
         product_id: _Optional[str] = ...,
         sku: _Optional[str] = ...,
         uom: _Optional[str] = ...,
+        object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
 class ProductAllReadRequest(_message.Message):

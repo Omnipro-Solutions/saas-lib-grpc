@@ -30,6 +30,7 @@ class WarehouseHierarchy(_message.Message):
         "distance",
         "active",
         "external_id",
+        "split_sales_by_transfer",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -46,6 +47,7 @@ class WarehouseHierarchy(_message.Message):
     DISTANCE_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    SPLIT_SALES_BY_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
@@ -61,6 +63,7 @@ class WarehouseHierarchy(_message.Message):
     distance: float
     active: _wrappers_pb2.BoolValue
     external_id: str
+    split_sales_by_transfer: _wrappers_pb2.BoolValue
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -78,6 +81,7 @@ class WarehouseHierarchy(_message.Message):
         distance: _Optional[float] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        split_sales_by_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -96,6 +100,7 @@ class WarehouseHierarchyCreateRequest(_message.Message):
         "active",
         "sequence_order",
         "external_id",
+        "split_sales_by_transfer",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -111,6 +116,7 @@ class WarehouseHierarchyCreateRequest(_message.Message):
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     SEQUENCE_ORDER_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    SPLIT_SALES_BY_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
@@ -125,6 +131,7 @@ class WarehouseHierarchyCreateRequest(_message.Message):
     active: _wrappers_pb2.BoolValue
     sequence_order: _wrappers_pb2.BoolValue
     external_id: str
+    split_sales_by_transfer: _wrappers_pb2.BoolValue
     context: _base_pb2.Context
     def __init__(
         self,
@@ -141,6 +148,7 @@ class WarehouseHierarchyCreateRequest(_message.Message):
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         sequence_order: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
+        split_sales_by_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 

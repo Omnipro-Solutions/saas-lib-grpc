@@ -58,6 +58,7 @@ class Order(_message.Message):
         "delivery_total",
         "summary",
         "exceptions",
+        "transfer_warehouse",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -93,6 +94,7 @@ class Order(_message.Message):
     DELIVERY_TOTAL_FIELD_NUMBER: _ClassVar[int]
     SUMMARY_FIELD_NUMBER: _ClassVar[int]
     EXCEPTIONS_FIELD_NUMBER: _ClassVar[int]
+    TRANSFER_WAREHOUSE_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     sale: _sale_pb2.Sale
@@ -127,6 +129,7 @@ class Order(_message.Message):
     delivery_total: float
     summary: _struct_pb2.Struct
     exceptions: _containers.RepeatedScalarFieldContainer[str]
+    transfer_warehouse: _warehouse_pb2.Warehouse
     def __init__(
         self,
         id: _Optional[int] = ...,
@@ -163,6 +166,7 @@ class Order(_message.Message):
         delivery_total: _Optional[float] = ...,
         summary: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
         exceptions: _Optional[_Iterable[str]] = ...,
+        transfer_warehouse: _Optional[_Union[_warehouse_pb2.Warehouse, _Mapping]] = ...,
     ) -> None: ...
 
 class OrderHistory(_message.Message):
@@ -271,6 +275,7 @@ class OrderCreateRequest(_message.Message):
         "sale_stock_operation",
         "context",
         "date_delivery",
+        "transfer_warehouse_id",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SALE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -297,6 +302,7 @@ class OrderCreateRequest(_message.Message):
     SALE_STOCK_OPERATION_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     DATE_DELIVERY_FIELD_NUMBER: _ClassVar[int]
+    TRANSFER_WAREHOUSE_ID_FIELD_NUMBER: _ClassVar[int]
     name: str
     sale_id: int
     ship_address_code: str
@@ -322,6 +328,7 @@ class OrderCreateRequest(_message.Message):
     sale_stock_operation: _containers.RepeatedCompositeFieldContainer[_struct_pb2.Struct]
     context: _base_pb2.Context
     date_delivery: _timestamp_pb2.Timestamp
+    transfer_warehouse_id: int
     def __init__(
         self,
         name: _Optional[str] = ...,
@@ -349,6 +356,7 @@ class OrderCreateRequest(_message.Message):
         sale_stock_operation: _Optional[_Iterable[_Union[_struct_pb2.Struct, _Mapping]]] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
         date_delivery: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        transfer_warehouse_id: _Optional[int] = ...,
     ) -> None: ...
 
 class OrderCreateResponse(_message.Message):

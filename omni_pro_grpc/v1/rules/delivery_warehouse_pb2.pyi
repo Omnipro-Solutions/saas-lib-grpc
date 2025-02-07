@@ -27,6 +27,7 @@ class WarehouseHierarchy(_message.Message):
         "time",
         "cost",
         "distance",
+        "split_sales_by_transfer",
         "active",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -40,6 +41,7 @@ class WarehouseHierarchy(_message.Message):
     TIME_FIELD_NUMBER: _ClassVar[int]
     COST_FIELD_NUMBER: _ClassVar[int]
     DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    SPLIT_SALES_BY_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
@@ -52,6 +54,7 @@ class WarehouseHierarchy(_message.Message):
     time: float
     cost: float
     distance: float
+    split_sales_by_transfer: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     def __init__(
         self,
@@ -66,6 +69,7 @@ class WarehouseHierarchy(_message.Message):
         time: _Optional[float] = ...,
         cost: _Optional[float] = ...,
         distance: _Optional[float] = ...,
+        split_sales_by_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
     ) -> None: ...
 
@@ -82,6 +86,7 @@ class WarehouseHierarchyCreate(_message.Message):
         "time",
         "cost",
         "distance",
+        "split_sales_by_transfer",
         "active",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -95,6 +100,7 @@ class WarehouseHierarchyCreate(_message.Message):
     TIME_FIELD_NUMBER: _ClassVar[int]
     COST_FIELD_NUMBER: _ClassVar[int]
     DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    SPLIT_SALES_BY_TRANSFER_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     name: str
     code: str
@@ -107,6 +113,7 @@ class WarehouseHierarchyCreate(_message.Message):
     time: float
     cost: float
     distance: float
+    split_sales_by_transfer: _wrappers_pb2.BoolValue
     active: _wrappers_pb2.BoolValue
     def __init__(
         self,
@@ -121,6 +128,7 @@ class WarehouseHierarchyCreate(_message.Message):
         time: _Optional[float] = ...,
         cost: _Optional[float] = ...,
         distance: _Optional[float] = ...,
+        split_sales_by_transfer: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
     ) -> None: ...
 
