@@ -134,10 +134,7 @@ class GRPClient(object):
 
             request = format_request(event.get("params"), request_class, module_pb2)
 
-            if not self.timeout:
-                response = getattr(stub, event.get("rpc_method"))(request)
-            else:
-                response = getattr(stub, event.get("rpc_method"))(request, timeout=self.timeout)
+            response, cookies = self._execute_grpc_with_cookies(event, stub, request)
 
             if store_cache:
                 self.save_cache(event, response)
@@ -148,7 +145,28 @@ class GRPClient(object):
             success = True
             if hasattr(response, "response_standard"):
                 success = response.response_standard.status_code in range(200, 300)
-            return response, success
+            return response, success, cookies
+
+    def _execute_grpc_with_cookies(self, event, stub, request):
+        """
+        Ejecuta una llamada RPC y extrae cookies si el método es "Login".
+        """
+        rpc_method = event.get("rpc_method")
+
+        if rpc_method == "Login":
+            response, call = getattr(stub, rpc_method).with_call(request)
+            cookies = self._extract_cookies_from_metadata(call.initial_metadata())
+        else:
+            response = getattr(stub, rpc_method)(request, timeout=self.timeout if self.timeout else None)
+            cookies = []
+
+        return response, cookies
+
+    def _extract_cookies_from_metadata(self, metadata):
+        """
+        Extrae las cookies del metadata de la respuesta gRPC.
+        """
+        return [value for key, value in (metadata or []) if key.lower() == "set-cookie"]
 
     def get_cache(self, event: Event, module_pb2, stub, *args, **kwargs) -> MessageResponse:
         """

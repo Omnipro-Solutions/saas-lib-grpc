@@ -24,6 +24,9 @@ class ImportExport(_message.Message):
         "type_file",
         "date_load",
         "date_process",
+        "date_finish",
+        "task_id",
+        "date_init",
         "status",
         "message",
         "required_fields",
@@ -39,6 +42,9 @@ class ImportExport(_message.Message):
     TYPE_FILE_FIELD_NUMBER: _ClassVar[int]
     DATE_LOAD_FIELD_NUMBER: _ClassVar[int]
     DATE_PROCESS_FIELD_NUMBER: _ClassVar[int]
+    DATE_FINISH_FIELD_NUMBER: _ClassVar[int]
+    TASK_ID_FIELD_NUMBER: _ClassVar[int]
+    DATE_INIT_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -53,6 +59,9 @@ class ImportExport(_message.Message):
     type_file: str
     date_load: _timestamp_pb2.Timestamp
     date_process: _timestamp_pb2.Timestamp
+    date_finish: _timestamp_pb2.Timestamp
+    task_id: str
+    date_init: _timestamp_pb2.Timestamp
     status: str
     message: str
     required_fields: _containers.RepeatedScalarFieldContainer[str]
@@ -69,6 +78,9 @@ class ImportExport(_message.Message):
         type_file: _Optional[str] = ...,
         date_load: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
         date_process: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        date_finish: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
+        task_id: _Optional[str] = ...,
+        date_init: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...,
         status: _Optional[str] = ...,
         message: _Optional[str] = ...,
         required_fields: _Optional[_Iterable[str]] = ...,

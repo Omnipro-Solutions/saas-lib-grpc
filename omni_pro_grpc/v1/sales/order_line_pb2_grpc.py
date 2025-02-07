@@ -18,6 +18,11 @@ class OrderLineServiceStub(object):
             request_serializer=v1_dot_sales_dot_order__line__pb2.OrderLineCreateRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_order__line__pb2.OrderLineCreateResponse.FromString,
         )
+        self.MultiOrderLineCreate = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/MultiOrderLineCreate",
+            request_serializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineCreateRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineCreateResponse.FromString,
+        )
         self.OrderLineRead = channel.unary_unary(
             "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/OrderLineRead",
             request_serializer=v1_dot_sales_dot_order__line__pb2.OrderLineReadRequest.SerializeToString,
@@ -27,6 +32,11 @@ class OrderLineServiceStub(object):
             "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/OrderLineUpdate",
             request_serializer=v1_dot_sales_dot_order__line__pb2.OrderLineUpdateRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_order__line__pb2.OrderLineUpdateResponse.FromString,
+        )
+        self.MultiOrderLineUpdate = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/MultiOrderLineUpdate",
+            request_serializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineUpdateRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineUpdateResponse.FromString,
         )
         self.OrderLineDelete = channel.unary_unary(
             "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/OrderLineDelete",
@@ -44,6 +54,12 @@ class OrderLineServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def MultiOrderLineCreate(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
     def OrderLineRead(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -51,6 +67,12 @@ class OrderLineServiceServicer(object):
         raise NotImplementedError("Method not implemented!")
 
     def OrderLineUpdate(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def MultiOrderLineUpdate(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
@@ -70,6 +92,11 @@ def add_OrderLineServiceServicer_to_server(servicer, server):
             request_deserializer=v1_dot_sales_dot_order__line__pb2.OrderLineCreateRequest.FromString,
             response_serializer=v1_dot_sales_dot_order__line__pb2.OrderLineCreateResponse.SerializeToString,
         ),
+        "MultiOrderLineCreate": grpc.unary_unary_rpc_method_handler(
+            servicer.MultiOrderLineCreate,
+            request_deserializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineCreateRequest.FromString,
+            response_serializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineCreateResponse.SerializeToString,
+        ),
         "OrderLineRead": grpc.unary_unary_rpc_method_handler(
             servicer.OrderLineRead,
             request_deserializer=v1_dot_sales_dot_order__line__pb2.OrderLineReadRequest.FromString,
@@ -79,6 +106,11 @@ def add_OrderLineServiceServicer_to_server(servicer, server):
             servicer.OrderLineUpdate,
             request_deserializer=v1_dot_sales_dot_order__line__pb2.OrderLineUpdateRequest.FromString,
             response_serializer=v1_dot_sales_dot_order__line__pb2.OrderLineUpdateResponse.SerializeToString,
+        ),
+        "MultiOrderLineUpdate": grpc.unary_unary_rpc_method_handler(
+            servicer.MultiOrderLineUpdate,
+            request_deserializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineUpdateRequest.FromString,
+            response_serializer=v1_dot_sales_dot_order__line__pb2.MultiOrderLineUpdateResponse.SerializeToString,
         ),
         "OrderLineDelete": grpc.unary_unary_rpc_method_handler(
             servicer.OrderLineDelete,
@@ -115,6 +147,35 @@ class OrderLineService(object):
             "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/OrderLineCreate",
             v1_dot_sales_dot_order__line__pb2.OrderLineCreateRequest.SerializeToString,
             v1_dot_sales_dot_order__line__pb2.OrderLineCreateResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def MultiOrderLineCreate(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/MultiOrderLineCreate",
+            v1_dot_sales_dot_order__line__pb2.MultiOrderLineCreateRequest.SerializeToString,
+            v1_dot_sales_dot_order__line__pb2.MultiOrderLineCreateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -173,6 +234,35 @@ class OrderLineService(object):
             "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/OrderLineUpdate",
             v1_dot_sales_dot_order__line__pb2.OrderLineUpdateRequest.SerializeToString,
             v1_dot_sales_dot_order__line__pb2.OrderLineUpdateResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def MultiOrderLineUpdate(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.order.line.OrderLineService/MultiOrderLineUpdate",
+            v1_dot_sales_dot_order__line__pb2.MultiOrderLineUpdateRequest.SerializeToString,
+            v1_dot_sales_dot_order__line__pb2.MultiOrderLineUpdateResponse.FromString,
             options,
             channel_credentials,
             insecure,
