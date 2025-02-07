@@ -159,6 +159,33 @@ class OrderLineCreateResponse(_message.Message):
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 
+class MultiOrderLineCreateRequest(_message.Message):
+    __slots__ = ["order_lines", "fields", "context"]
+    ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_lines: _containers.RepeatedCompositeFieldContainer[OrderLineCreateRequest]
+    fields: _base_pb2.Fields
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        order_lines: _Optional[_Iterable[_Union[OrderLineCreateRequest, _Mapping]]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class MultiOrderLineCreateResponse(_message.Message):
+    __slots__ = ["order_lines", "response_standard"]
+    ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    order_lines: _containers.RepeatedCompositeFieldContainer[OrderLine]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(
+        self,
+        order_lines: _Optional[_Iterable[_Union[OrderLine, _Mapping]]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
+
 class OrderLineReadRequest(_message.Message):
     __slots__ = ["group_by", "sort_by", "fields", "filter", "paginated", "id", "context"]
     GROUP_BY_FIELD_NUMBER: _ClassVar[int]
@@ -222,6 +249,33 @@ class OrderLineUpdateResponse(_message.Message):
     def __init__(
         self,
         order_line: _Optional[_Union[OrderLine, _Mapping]] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
+
+class MultiOrderLineUpdateRequest(_message.Message):
+    __slots__ = ["order_lines", "fields", "context"]
+    ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_lines: _containers.RepeatedCompositeFieldContainer[OrderLine]
+    fields: _base_pb2.Fields
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        order_lines: _Optional[_Iterable[_Union[OrderLine, _Mapping]]] = ...,
+        fields: _Optional[_Union[_base_pb2.Fields, _Mapping]] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class MultiOrderLineUpdateResponse(_message.Message):
+    __slots__ = ["order_lines", "response_standard"]
+    ORDER_LINES_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    order_lines: _containers.RepeatedCompositeFieldContainer[OrderLine]
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(
+        self,
+        order_lines: _Optional[_Iterable[_Union[OrderLine, _Mapping]]] = ...,
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
     ) -> None: ...
 

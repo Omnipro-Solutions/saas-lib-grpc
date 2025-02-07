@@ -78,7 +78,7 @@ class AnalyticDataCreateRequest(_message.Message):
         "code",
         "description",
         "query_template",
-        "filters",
+        "filters_ids",
         "sort_field_name",
         "sort_order",
         "record_limit_data_visibility",
@@ -91,7 +91,7 @@ class AnalyticDataCreateRequest(_message.Message):
     CODE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     QUERY_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
-    FILTERS_FIELD_NUMBER: _ClassVar[int]
+    FILTERS_IDS_FIELD_NUMBER: _ClassVar[int]
     SORT_FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     SORT_ORDER_FIELD_NUMBER: _ClassVar[int]
     RECORD_LIMIT_DATA_VISIBILITY_FIELD_NUMBER: _ClassVar[int]
@@ -103,7 +103,7 @@ class AnalyticDataCreateRequest(_message.Message):
     code: str
     description: str
     query_template: str
-    filters: _struct_pb2.ListValue
+    filters_ids: _struct_pb2.ListValue
     sort_field_name: str
     sort_order: str
     record_limit_data_visibility: int
@@ -117,7 +117,7 @@ class AnalyticDataCreateRequest(_message.Message):
         code: _Optional[str] = ...,
         description: _Optional[str] = ...,
         query_template: _Optional[str] = ...,
-        filters: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
+        filters_ids: _Optional[_Union[_struct_pb2.ListValue, _Mapping]] = ...,
         sort_field_name: _Optional[str] = ...,
         sort_order: _Optional[str] = ...,
         record_limit_data_visibility: _Optional[int] = ...,
