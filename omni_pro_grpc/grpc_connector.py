@@ -134,31 +134,60 @@ class GRPClient(object):
 
             request = format_request(event.get("params"), request_class, module_pb2)
 
-            response, cookies = self._execute_grpc_with_cookies(event, stub, request)
+            if (rpc_method := event.get("rpc_method")) in ("Login",):
+                response, cookies = self._execute_grpc_with_cookies(rpc_method, stub, request)
+                success = self._is_successful_response(response)
+                self._save_cache(event, response, store_cache, module_pb2, *args, **kwargs)
+                return response, success, cookies
 
-            if store_cache:
-                self.save_cache(event, response)
+            response = getattr(stub, rpc_method)(request, timeout=self.timeout if self.timeout else None)
+            success = self._is_successful_response(response)
+            self._save_cache(event, response, store_cache, module_pb2, *args, **kwargs)
+            return response, success
 
-            if not self.validate_method_read(event.get("rpc_method")):
-                self.update_cache_cud(event, module_pb2, *args, **kwargs)
+    def _is_successful_response(self, response):
+        """
+        Determines if the given response is successful.
+        Args:
+            response: The response object to check. It is expected to have an attribute
+                      `response_standard` with a `status_code` attribute.
+        Returns:
+            bool: True if the response is considered successful (status code in the range 200-299),
+                  False otherwise.
+        """
 
-            success = True
-            if hasattr(response, "response_standard"):
-                success = response.response_standard.status_code in range(200, 300)
-            return response, success, cookies
+        success = True
+        if hasattr(response, "response_standard"):
+            success = response.response_standard.status_code in range(200, 300)
+        return success
 
-    def _execute_grpc_with_cookies(self, event, stub, request):
+    def _save_cache(self, event, response, store_cache, module_pb2, *args, **kwargs):
+        """
+        Handles caching of gRPC responses based on the provided event and conditions.
+        Args:
+            event (dict): The event data containing details such as the RPC method.
+            response (Any): The response data to be cached.
+            store_cache (bool): Flag indicating whether to store the cache.
+            module_pb2 (module): The protocol buffer module used for updating the cache.
+            *args: Additional arguments for cache update.
+            **kwargs: Additional keyword arguments for cache update.
+        Returns:
+            None
+        """
+
+        if store_cache:
+            self.save_cache(event, response)
+
+        if not self.validate_method_read(event.get("rpc_method")):
+            self.update_cache_cud(event, module_pb2, *args, **kwargs)
+
+    def _execute_grpc_with_cookies(self, rpc_method, stub, request):
         """
         Ejecuta una llamada RPC y extrae cookies si el método es "Login".
         """
-        rpc_method = event.get("rpc_method")
 
-        if rpc_method == "Login":
-            response, call = getattr(stub, rpc_method).with_call(request)
-            cookies = self._extract_cookies_from_metadata(call.initial_metadata())
-        else:
-            response = getattr(stub, rpc_method)(request, timeout=self.timeout if self.timeout else None)
-            cookies = []
+        response, call = getattr(stub, rpc_method).with_call(request)
+        cookies = self._extract_cookies_from_metadata(call.initial_metadata())
 
         return response, cookies
 
