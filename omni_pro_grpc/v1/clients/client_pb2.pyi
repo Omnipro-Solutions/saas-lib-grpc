@@ -7,6 +7,7 @@ from typing import Union as _Union
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import struct_pb2 as _struct_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from omni_pro_grpc.common import base_pb2 as _base_pb2
 from omni_pro_grpc.v1.clients import address_pb2 as _address_pb2
@@ -32,6 +33,8 @@ class Client(_message.Message):
         "active",
         "external_id",
         "properties",
+        "is_parent",
+        "parent",
         "object_audit",
     ]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -50,6 +53,8 @@ class Client(_message.Message):
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     PROPERTIES_FIELD_NUMBER: _ClassVar[int]
+    IS_PARENT_FIELD_NUMBER: _ClassVar[int]
+    PARENT_FIELD_NUMBER: _ClassVar[int]
     OBJECT_AUDIT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
@@ -64,9 +69,11 @@ class Client(_message.Message):
     email: str
     country: _base_pb2.Object
     addresses: _containers.RepeatedCompositeFieldContainer[_address_pb2.Address]
-    active: bool
+    active: _wrappers_pb2.BoolValue
     external_id: str
     properties: _struct_pb2.Struct
+    is_parent: _wrappers_pb2.BoolValue
+    parent: Client
     object_audit: _base_pb2.ObjectAudit
     def __init__(
         self,
@@ -83,9 +90,11 @@ class Client(_message.Message):
         email: _Optional[str] = ...,
         country: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
         addresses: _Optional[_Iterable[_Union[_address_pb2.Address, _Mapping]]] = ...,
-        active: bool = ...,
+        active: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         properties: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        is_parent: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        parent: _Optional[_Union[Client, _Mapping]] = ...,
         object_audit: _Optional[_Union[_base_pb2.ObjectAudit, _Mapping]] = ...,
     ) -> None: ...
 
@@ -105,6 +114,8 @@ class ClientCreateRequest(_message.Message):
         "country",
         "external_id",
         "properties",
+        "is_parent",
+        "parent_id",
         "context",
     ]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -121,6 +132,8 @@ class ClientCreateRequest(_message.Message):
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     PROPERTIES_FIELD_NUMBER: _ClassVar[int]
+    IS_PARENT_FIELD_NUMBER: _ClassVar[int]
+    PARENT_ID_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     name: str
     first_name: str
@@ -136,6 +149,8 @@ class ClientCreateRequest(_message.Message):
     country: _base_pb2.Object
     external_id: str
     properties: _struct_pb2.Struct
+    is_parent: _wrappers_pb2.BoolValue
+    parent_id: str
     context: _base_pb2.Context
     def __init__(
         self,
@@ -153,6 +168,8 @@ class ClientCreateRequest(_message.Message):
         country: _Optional[_Union[_base_pb2.Object, _Mapping]] = ...,
         external_id: _Optional[str] = ...,
         properties: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
+        is_parent: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ...,
+        parent_id: _Optional[str] = ...,
         context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
     ) -> None: ...
 
