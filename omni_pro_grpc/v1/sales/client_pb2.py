@@ -16,7 +16,7 @@ from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb
 from omni_pro_grpc.common import base_pb2 as common_dot_base__pb2
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x15v1/sales/client.proto\x12 pro.omni.oms.api.v1.sales.client\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xe2\x01\n\x06\x43lient\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\nfirst_name\x18\x03 \x01(\t\x12\x11\n\tlast_name\x18\x04 \x01(\t\x12\x15\n\rclient_doc_id\x18\x05 \x01(\t\x12*\n\x06\x61\x63tive\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x07 \x01(\t\x12?\n\x0cobject_audit\x18\x08 \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x87\x01\n\x13\x43lientCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rclient_doc_id\x18\x02 \x01(\t\x12\x13\n\x0b\x65xternal_id\x18\x03 \x01(\t\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9b\x01\n\x14\x43lientCreateResponse\x12\x38\n\x06\x63lient\x18\x01 \x01(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xef\x02\n\x11\x43lientReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd5\x01\n\x12\x43lientReadResponse\x12\x39\n\x07\x63lients\x18\x01 \x03(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12\x39\n\tmeta_data\x18\x03 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData"\x87\x01\n\x13\x43lientUpdateRequest\x12\x38\n\x06\x63lient\x18\x01 \x01(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9b\x01\n\x14\x43lientUpdateResponse\x12\x38\n\x06\x63lient\x18\x01 \x01(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"Y\n\x13\x43lientDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"a\n\x14\x43lientDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\x8d\x04\n\rClientService\x12\x7f\n\x0c\x43lientCreate\x12\x35.pro.omni.oms.api.v1.sales.client.ClientCreateRequest\x1a\x36.pro.omni.oms.api.v1.sales.client.ClientCreateResponse"\x00\x12y\n\nClientRead\x12\x33.pro.omni.oms.api.v1.sales.client.ClientReadRequest\x1a\x34.pro.omni.oms.api.v1.sales.client.ClientReadResponse"\x00\x12\x7f\n\x0c\x43lientUpdate\x12\x35.pro.omni.oms.api.v1.sales.client.ClientUpdateRequest\x1a\x36.pro.omni.oms.api.v1.sales.client.ClientUpdateResponse"\x00\x12\x7f\n\x0c\x43lientDelete\x12\x35.pro.omni.oms.api.v1.sales.client.ClientDeleteRequest\x1a\x36.pro.omni.oms.api.v1.sales.client.ClientDeleteResponse"\x00\x62\x06proto3'
+    b'\n\x15v1/sales/client.proto\x12 pro.omni.oms.api.v1.sales.client\x1a\x11\x63ommon/base.proto\x1a\x1egoogle/protobuf/wrappers.proto"\xf9\x01\n\x06\x43lient\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\nfirst_name\x18\x03 \x01(\t\x12\x11\n\tlast_name\x18\x04 \x01(\t\x12\x15\n\rclient_doc_id\x18\x05 \x01(\t\x12*\n\x06\x61\x63tive\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x13\n\x0b\x65xternal_id\x18\x07 \x01(\t\x12\x15\n\rparent_doc_id\x18\x08 \x01(\t\x12?\n\x0cobject_audit\x18\t \x01(\x0b\x32).pro.omni.oms.api.common.base.ObjectAudit"\x87\x01\n\x13\x43lientCreateRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rclient_doc_id\x18\x02 \x01(\t\x12\x13\n\x0b\x65xternal_id\x18\x03 \x01(\t\x12\x36\n\x07\x63ontext\x18\x04 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9b\x01\n\x14\x43lientCreateResponse\x12\x38\n\x06\x63lient\x18\x01 \x01(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"\xef\x02\n\x11\x43lientReadRequest\x12\x37\n\x08group_by\x18\x01 \x03(\x0b\x32%.pro.omni.oms.api.common.base.GroupBy\x12\x35\n\x07sort_by\x18\x02 \x01(\x0b\x32$.pro.omni.oms.api.common.base.SortBy\x12\x34\n\x06\x66ields\x18\x03 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Fields\x12\x34\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.pro.omni.oms.api.common.base.Filter\x12:\n\tpaginated\x18\x05 \x01(\x0b\x32\'.pro.omni.oms.api.common.base.Paginated\x12\n\n\x02id\x18\x06 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x07 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\xd5\x01\n\x12\x43lientReadResponse\x12\x39\n\x07\x63lients\x18\x01 \x03(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard\x12\x39\n\tmeta_data\x18\x03 \x01(\x0b\x32&.pro.omni.oms.api.common.base.MetaData"\x87\x01\n\x13\x43lientUpdateRequest\x12\x38\n\x06\x63lient\x18\x01 \x01(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"\x9b\x01\n\x14\x43lientUpdateResponse\x12\x38\n\x06\x63lient\x18\x01 \x01(\x0b\x32(.pro.omni.oms.api.v1.sales.client.Client\x12I\n\x11response_standard\x18\x02 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard"Y\n\x13\x43lientDeleteRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x36\n\x07\x63ontext\x18\x02 \x01(\x0b\x32%.pro.omni.oms.api.common.base.Context"a\n\x14\x43lientDeleteResponse\x12I\n\x11response_standard\x18\x01 \x01(\x0b\x32..pro.omni.oms.api.common.base.ResponseStandard2\x8d\x04\n\rClientService\x12\x7f\n\x0c\x43lientCreate\x12\x35.pro.omni.oms.api.v1.sales.client.ClientCreateRequest\x1a\x36.pro.omni.oms.api.v1.sales.client.ClientCreateResponse"\x00\x12y\n\nClientRead\x12\x33.pro.omni.oms.api.v1.sales.client.ClientReadRequest\x1a\x34.pro.omni.oms.api.v1.sales.client.ClientReadResponse"\x00\x12\x7f\n\x0c\x43lientUpdate\x12\x35.pro.omni.oms.api.v1.sales.client.ClientUpdateRequest\x1a\x36.pro.omni.oms.api.v1.sales.client.ClientUpdateResponse"\x00\x12\x7f\n\x0c\x43lientDelete\x12\x35.pro.omni.oms.api.v1.sales.client.ClientDeleteRequest\x1a\x36.pro.omni.oms.api.v1.sales.client.ClientDeleteResponse"\x00\x62\x06proto3'
 )
 
 _globals = globals()
@@ -26,23 +26,23 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
     _globals["_CLIENT"]._serialized_start = 111
-    _globals["_CLIENT"]._serialized_end = 337
-    _globals["_CLIENTCREATEREQUEST"]._serialized_start = 340
-    _globals["_CLIENTCREATEREQUEST"]._serialized_end = 475
-    _globals["_CLIENTCREATERESPONSE"]._serialized_start = 478
-    _globals["_CLIENTCREATERESPONSE"]._serialized_end = 633
-    _globals["_CLIENTREADREQUEST"]._serialized_start = 636
-    _globals["_CLIENTREADREQUEST"]._serialized_end = 1003
-    _globals["_CLIENTREADRESPONSE"]._serialized_start = 1006
-    _globals["_CLIENTREADRESPONSE"]._serialized_end = 1219
-    _globals["_CLIENTUPDATEREQUEST"]._serialized_start = 1222
-    _globals["_CLIENTUPDATEREQUEST"]._serialized_end = 1357
-    _globals["_CLIENTUPDATERESPONSE"]._serialized_start = 1360
-    _globals["_CLIENTUPDATERESPONSE"]._serialized_end = 1515
-    _globals["_CLIENTDELETEREQUEST"]._serialized_start = 1517
-    _globals["_CLIENTDELETEREQUEST"]._serialized_end = 1606
-    _globals["_CLIENTDELETERESPONSE"]._serialized_start = 1608
-    _globals["_CLIENTDELETERESPONSE"]._serialized_end = 1705
-    _globals["_CLIENTSERVICE"]._serialized_start = 1708
-    _globals["_CLIENTSERVICE"]._serialized_end = 2233
+    _globals["_CLIENT"]._serialized_end = 360
+    _globals["_CLIENTCREATEREQUEST"]._serialized_start = 363
+    _globals["_CLIENTCREATEREQUEST"]._serialized_end = 498
+    _globals["_CLIENTCREATERESPONSE"]._serialized_start = 501
+    _globals["_CLIENTCREATERESPONSE"]._serialized_end = 656
+    _globals["_CLIENTREADREQUEST"]._serialized_start = 659
+    _globals["_CLIENTREADREQUEST"]._serialized_end = 1026
+    _globals["_CLIENTREADRESPONSE"]._serialized_start = 1029
+    _globals["_CLIENTREADRESPONSE"]._serialized_end = 1242
+    _globals["_CLIENTUPDATEREQUEST"]._serialized_start = 1245
+    _globals["_CLIENTUPDATEREQUEST"]._serialized_end = 1380
+    _globals["_CLIENTUPDATERESPONSE"]._serialized_start = 1383
+    _globals["_CLIENTUPDATERESPONSE"]._serialized_end = 1538
+    _globals["_CLIENTDELETEREQUEST"]._serialized_start = 1540
+    _globals["_CLIENTDELETEREQUEST"]._serialized_end = 1629
+    _globals["_CLIENTDELETERESPONSE"]._serialized_start = 1631
+    _globals["_CLIENTDELETERESPONSE"]._serialized_end = 1728
+    _globals["_CLIENTSERVICE"]._serialized_start = 1731
+    _globals["_CLIENTSERVICE"]._serialized_end = 2256
 # @@protoc_insertion_point(module_scope)
