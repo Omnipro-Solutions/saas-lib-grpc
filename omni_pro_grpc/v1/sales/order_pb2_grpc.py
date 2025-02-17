@@ -63,6 +63,11 @@ class OrderServiceStub(object):
             request_serializer=v1_dot_sales_dot_order__pb2.GetOrderAuditRequest.SerializeToString,
             response_deserializer=v1_dot_sales_dot_order__pb2.GetOrderAuditResponse.FromString,
         )
+        self.RecalculateOrderOnDeliveryMethodChange = channel.unary_unary(
+            "/pro.omni.oms.api.v1.sales.order.OrderService/RecalculateOrderOnDeliveryMethodChange",
+            request_serializer=v1_dot_sales_dot_order__pb2.RecalculateOrderRequest.SerializeToString,
+            response_deserializer=v1_dot_sales_dot_order__pb2.RecalculateOrderResponse.FromString,
+        )
 
 
 class OrderServiceServicer(object):
@@ -128,6 +133,12 @@ class OrderServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def RecalculateOrderOnDeliveryMethodChange(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -180,6 +191,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
             servicer.GetOrderAudit,
             request_deserializer=v1_dot_sales_dot_order__pb2.GetOrderAuditRequest.FromString,
             response_serializer=v1_dot_sales_dot_order__pb2.GetOrderAuditResponse.SerializeToString,
+        ),
+        "RecalculateOrderOnDeliveryMethodChange": grpc.unary_unary_rpc_method_handler(
+            servicer.RecalculateOrderOnDeliveryMethodChange,
+            request_deserializer=v1_dot_sales_dot_order__pb2.RecalculateOrderRequest.FromString,
+            response_serializer=v1_dot_sales_dot_order__pb2.RecalculateOrderResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -472,6 +488,35 @@ class OrderService(object):
             "/pro.omni.oms.api.v1.sales.order.OrderService/GetOrderAudit",
             v1_dot_sales_dot_order__pb2.GetOrderAuditRequest.SerializeToString,
             v1_dot_sales_dot_order__pb2.GetOrderAuditResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def RecalculateOrderOnDeliveryMethodChange(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/pro.omni.oms.api.v1.sales.order.OrderService/RecalculateOrderOnDeliveryMethodChange",
+            v1_dot_sales_dot_order__pb2.RecalculateOrderRequest.SerializeToString,
+            v1_dot_sales_dot_order__pb2.RecalculateOrderResponse.FromString,
             options,
             channel_credentials,
             insecure,
