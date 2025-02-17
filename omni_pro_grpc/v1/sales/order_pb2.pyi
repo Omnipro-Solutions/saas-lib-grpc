@@ -605,3 +605,33 @@ class GetOrderAuditResponse(_message.Message):
         response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
         data: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ...,
     ) -> None: ...
+
+class RecalculateOrderRequest(_message.Message):
+    __slots__ = ["order_id", "delivery_method_code", "warehouse_code", "context"]
+    ORDER_ID_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_METHOD_CODE_FIELD_NUMBER: _ClassVar[int]
+    WAREHOUSE_CODE_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    order_id: int
+    delivery_method_code: str
+    warehouse_code: str
+    context: _base_pb2.Context
+    def __init__(
+        self,
+        order_id: _Optional[int] = ...,
+        delivery_method_code: _Optional[str] = ...,
+        warehouse_code: _Optional[str] = ...,
+        context: _Optional[_Union[_base_pb2.Context, _Mapping]] = ...,
+    ) -> None: ...
+
+class RecalculateOrderResponse(_message.Message):
+    __slots__ = ["cid", "response_standard"]
+    CID_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_STANDARD_FIELD_NUMBER: _ClassVar[int]
+    cid: str
+    response_standard: _base_pb2.ResponseStandard
+    def __init__(
+        self,
+        cid: _Optional[str] = ...,
+        response_standard: _Optional[_Union[_base_pb2.ResponseStandard, _Mapping]] = ...,
+    ) -> None: ...
